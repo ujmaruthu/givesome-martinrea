@@ -1,0 +1,244 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Bokyong Seo <gkbaturu@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-24 11:41+0000\n"
+"PO-Revision-Date: 2021-11-08 12:24+0000\n"
+"Last-Translator: Shuup Admin <admin@shuup.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/shuup/shuup/language/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Stock management"
+msgstr "재고 관리"
+
+msgid "SKU"
+msgstr "SKU"
+
+msgid "Filter by SKU..."
+msgstr "SKU로 필터링..."
+
+msgid "Name"
+msgstr "이름"
+
+msgid "Filter by name..."
+msgstr "이름으로 필터링..."
+
+msgid "Supplier"
+msgstr "공급사"
+
+msgid "Stock information"
+msgstr "재고 정보"
+
+msgid "Adjust stock"
+msgstr "재고 조정"
+
+#, python-format
+msgid ""
+"Success! Added %(delta)s `%(unit_symbol)s` for product `%(product_name)s` "
+"stock (%(supplier_name)s)."
+msgstr ""
+
+#, python-format
+msgid ""
+"Success! Removed %(delta)s `%(unit_symbol)s` from product `%(product_name)s`"
+" stock (%(supplier_name)s)."
+msgstr ""
+
+msgid "Please check submitted values and try again ({})."
+msgstr ""
+
+#, python-format
+msgid "Please check submitted values and try again (%(error)s)."
+msgstr ""
+
+#, python-format
+msgid "Alert limit for product `%(product_name)s` set to `%(value)s`."
+msgstr ""
+
+#, python-brace-format
+msgid "Stock management is now enabled for {product}."
+msgstr ""
+
+#, python-brace-format
+msgid "Stock management is now disabled for {product}."
+msgstr ""
+
+#, python-brace-format
+msgid "Purchase price per unit ({currency_name})"
+msgstr ""
+
+msgid "Quantity"
+msgstr "수량"
+
+msgid "Only non-zero values can be added to stock."
+msgstr "재고에는 0이 아닌 값만 추가할 수 있습니다."
+
+msgid "Alert limit"
+msgstr ""
+
+msgid "product"
+msgstr "상품"
+
+msgid "supplier"
+msgstr "공급사"
+
+msgid "created on"
+msgstr "생성일시"
+
+msgid "created by"
+msgstr "생성자"
+
+msgid "delta"
+msgstr "변동수량"
+
+msgid "type"
+msgstr ""
+
+msgid "alert limit"
+msgstr ""
+
+msgid "stock managed"
+msgstr ""
+
+msgid "Use this to override the supplier default stock behavior per product."
+msgstr ""
+
+msgid "logical count"
+msgstr "논리 재고 수량"
+
+msgid "physical count"
+msgstr "실물 재고 수량"
+
+msgid "Simple Supplier"
+msgstr ""
+
+msgid "Error! Insufficient quantity in stock."
+msgstr ""
+
+#, python-format
+msgid "%(name)s (physical stock: %(quantity)s)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Insufficient physical stock count for the following products: "
+"`%(product_counts)s`."
+msgstr ""
+
+msgid "Alert Limit Reached"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Supplier Email"
+msgstr ""
+
+msgid "Shop Email"
+msgstr ""
+
+msgid "Fired in the last 24 hours?"
+msgstr ""
+
+msgid ""
+"This will be True if this event was already dispatched in the last 24 hours "
+"for the same product and supplier. This is useful to prevent sending "
+"identical notifications in a short period of time."
+msgstr ""
+
+msgid "Send to?"
+msgstr ""
+
+msgid "Send email to whom?"
+msgstr ""
+
+msgid "Do not send the same email within 24 hours."
+msgstr ""
+
+msgid ""
+"If enabled, avoids sending the same email for the same product and supplier "
+"within 24 hours."
+msgstr ""
+
+msgid "Send Stock Limit Alert Email"
+msgstr ""
+
+msgid ""
+"Send me an email when a product stock is lower than the configured limit."
+msgstr ""
+
+msgid ""
+"This script will send an email to the configured destination alerting about "
+"the a product's low stock of a supplier. You can configure to not send the "
+"same email multiple times in a period of 24 hours. Every time a product's "
+"stock reach its configured limit, this notification will be fired and the "
+"email sent."
+msgstr ""
+
+msgid "Low stock of: {{ product }} from {{ supplier }}"
+msgstr ""
+
+msgid ""
+"Hi!\n"
+"You are receiving this message because the product {{ product}} from {{ supplier }} has a low stock."
+msgstr ""
+
+msgid "Add stock"
+msgstr "입고"
+
+#, python-format
+msgid ""
+"Alert limit <a href=\"%(notify_url)s\" target=\"_blank\">notification "
+"scripts</a> are executed when product stock falls below set quantity."
+msgstr ""
+
+msgid "Change alert limit"
+msgstr ""
+
+msgid "Disable stock management"
+msgstr ""
+
+msgid "Enable stock management"
+msgstr ""
+
+#, python-format
+msgid "No suppliers with %(module_name)s available."
+msgstr "사용가능한 %(module_name)s의 공급사가 없습니다."
+
+#, python-format
+msgid ""
+"Please set %(module_name)s module for at least one of the enabled <a "
+"href=\"%(supplier_url)s\" target=\"_blank\">Suppliers</a> and enable the "
+"stock management for them."
+msgstr ""
+
+#, python-brace-format
+msgid "Physical count ({sales_unit})"
+msgstr ""
+
+#, python-brace-format
+msgid "Logical count ({sales_unit})"
+msgstr ""
+
+msgid "Value per unit"
+msgstr ""
+
+msgid "Total value"
+msgstr ""
+
+#, python-brace-format
+msgid "Alert limit ({sales_unit})"
+msgstr ""
+
+msgid "No stock information available."
+msgstr "사용가능한 재고정보가 없습니다."

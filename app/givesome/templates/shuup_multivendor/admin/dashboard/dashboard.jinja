@@ -1,0 +1,144 @@
+{% extends "shuup/admin/base.jinja" %}
+{% block title -%}
+    {% trans %} Dashboard{% endtrans %}
+{%- endblock %}
+
+{% macro regular_block(width) %}
+    <div class="block width-{{ width }}">
+        <div class="block-inner">
+            {{ caller() }}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro large_value_block(b) %}
+    <div class="block width-{{ b.size }}">
+        <div class="block-inner ">
+            <div class="color-block block-{{ b.color }}">
+                <h2 class="block-title">{{ b.value }}</h2>
+                <div class="block-subtitle">
+                    {{ b.title }}
+                </div>
+                {% if b.subtitle %}
+                    <div class="block-description">{{ b.subtitle }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro notification_block_content(notifications) %}
+    <div class="color-block block-red">
+        <h2 class="block-title">{% trans %}Notifications{% endtrans %}</h2>
+        <div class="block-content">
+            <table>
+            {% for notification in notifications %}
+                <tr id="notif-{{ notification.id }}">
+                    <td class="dismiss-td">
+                        {% if notification.dismissal_url %}
+                        <button class="btn dismiss-button" title="{{ _("Mark as read") }}"
+                            data-dismiss-url="{{ notification.dismissal_url }}"
+                            data-dismiss-target="#notif-{{ notification.id }}">
+                            <i class="fa fa-check"></i>
+                        </button>
+                        {% endif %}
+                    </td>
+                    <td>
+                    {%- if notification.title %}<span class="label label-{{ notification.kind }}">{{ notification.title }}</span>&nbsp;{% endif %}
+                    {%- if notification.url %}<a href="{{ notification.url }}">{% endif -%}
+                    {{ notification.text }}
+                    {%- if notification.url -%}</a>{%- endif %}
+                    </td>
+                    {% if notification.datetime %}<td class="timestamp timesince" data-ts="{{ notification.datetime.isoformat() }}"></td>{% endif %}
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro activity_block_content(activities) %}
+<div class="activity-list">
+    <h2 class="block-title"><i class="fa fa-pencil-square-o"></i>{% trans %}Activity Feed{% endtrans %}</h2>
+    <ul>
+        {% for act in activities %}
+            <li>
+                <div class="activity-name">
+                    {% if act.url %}<a href="{{ act.url }}">{% endif %}
+                    {{ act.text }}
+                    {% if act.url %}</a>{% endif %}
+                </div>
+                <div class="timestamp timesince" data-ts="{{ act.datetime.isoformat() }}"></div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro render_block(block) %}
+    {% if block.type == "value" %}
+        {{ large_value_block(block) }}
+    {% else %}
+        {% call regular_block(block.size) %}
+            {{ block.content|safe }}
+        {% endcall %}
+    {% endif %}
+{% endmacro %}
+
+{% block content_wrap %}
+    <main id="main-content" class="dashboard">
+        {% block content %}
+            {% if not (blocks) %}
+                <div class="ml-3">
+                    <h3>{% trans %}Nothing to report.{% endtrans %}</h3>
+                </div>
+            {% endif %}
+
+            {% if blocks %}
+                {% for block_title, block_group in blocks.items() %}
+                    <div class="ml-3">
+                        <h2 class="block-title text-center mt-3 mb-3">
+                            {% if block_title == "ALL_CAMPAIGNS" %}
+                                {{ _("Total") }}
+                            {% elif block_title == None %}
+                                {{ _("By Givecard Campaign") }}
+                            {% else %}
+                                {{ block_title }}
+                            {% endif %}
+                        </h2>
+                    </div>
+                    <div class="dashboard-wrapper">
+                        {% for block in block_group %}
+                            {{ render_block(block) }}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="block width-full">
+                    <p class="text-muted small mt-3">
+                        * {{ _("If the projects funded and lives impacted totals are less than the sum of all campaigns it is because projects may have been duplicated in multiple campaigns") }}
+                    </p>
+                </div>
+            {% endif %}
+        {% endblock %}
+    </main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ static("shuup_admin/js/dashboard.js") }}"></script>
+<script>
+    (function() {
+        $(".dashboard-wrapper").each(function (index, element) {
+            new window.Masonry(element, {
+                itemSelector: ".block",
+                columnWidth: ".block",
+                percentPosition: true
+            });
+        });
+    })();
+</script>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ shuup_static('shuup_admin/css/dashboard.css') }}">
+{% endblock %}
+

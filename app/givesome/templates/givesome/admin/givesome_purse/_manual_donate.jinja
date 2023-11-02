@@ -1,0 +1,50 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% from "shuup/admin/macros/multilanguage.jinja" import render_monolingual_fields %}
+{% set base_form = form["manual"] %}
+
+{% call content_block(_("Manual Donation"), icon="fa-gift") %}
+    <p class="section-description">{% trans %}Givesome Purse contains{% endtrans %} <b>${{ allocation.purse.balance }}</b></p>
+    <p class="section-description">{% trans %}Here you can manually donate funds from the Givesome Purse to the selected project.{% endtrans %}</p>
+    {{ bs3.field(base_form.amount) }}
+    <br>
+
+    <div class="title sub-title">
+        <h2 class="block-subtitle d-flex"><i class="fa fa-cube"></i>Selected Project</h2>
+    </div>
+
+    <div class="row content">
+        <div class="col-lg-12">
+            {% set main_image = allocation.shop_product.product.primary_image %}
+            {% if main_image %}
+                <div class="social-share-image pr-5">
+                    <img src="{{ main_image|thumbnail(size=(300, 200)) }}">
+                </div>
+            {% endif %}
+            <p class="section-description"><b>{% trans %}ID{% endtrans %}:</b> {{ allocation.shop_product.id }}</p>
+            <p class="section-description"><b>{% trans %}SKU{% endtrans %}:</b> {{ allocation.shop_product.product.sku }}</p>
+            <p class="section-description"><b>{% trans %}Project{% endtrans %}:</b>
+                <a href="{{ shuup_admin.model_url(allocation.shop_product) }}">{{ allocation.shop_product }}</a>
+            </p>
+
+            <p class="section-description"><b>{% trans %}Project Goal{% endtrans %}:</b>
+                ${{ allocation.shop_product.product.project_extra.goal_progress_amount }} /
+                ${{ allocation.shop_product.product.project_extra.goal_amount }}
+                ({{ allocation.shop_product.product.project_extra.goal_progress_percentage }}%)
+            </p>
+            <p class="section-description"><b>{% trans %}Lives impacted{% endtrans %}:</b> {{ allocation.shop_product.product.project_extra.lives_impacted }}</p>
+
+            <p class="section-description"><b>{% trans %}Charity{% endtrans %}:</b>
+            {% set supplier = allocation.shop_product.get_supplier() %}
+                {% if supplier.givesome_extra.allow_brand_page %}
+                    <a href="{{ url('shuup:supplier', slug=supplier.slug) }}">
+                {% else %}
+                    <a href="{{ shuup_admin.model_url(supplier) }}">
+                {% endif %}
+            {{ supplier.name }}</a>
+            </p>
+            {% if allocation.shop_product.product.description %}
+                <p class="section-description"><b>{% trans %}Description{% endtrans %}:</b> {{ allocation.shop_product.product.description|striptags|safe|escape }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endcall %}

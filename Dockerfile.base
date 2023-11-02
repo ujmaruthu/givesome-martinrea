@@ -1,0 +1,53 @@
+FROM python:3.9-alpine3.15
+WORKDIR /opt/app
+COPY app/requirements.txt /opt/app/requirements.txt
+RUN apk add \
+      --update \
+      --virtual \
+      .build-deps \
+      build-base \
+      curl \
+      freetype-dev \
+      gcc \
+      jpeg-dev \
+      lcms2-dev \
+      libffi-dev \
+      libffi-dev \
+      libgcc \
+      libxml2-dev \
+      libxslt-dev \
+      musl-dev \
+      npm \
+      openjpeg-dev \
+      openssl-dev \
+      postgresql-dev \
+      postgresql-libs \
+      py-pip \
+      python3-dev \
+      tcl-dev \
+      tiff-dev \
+      tk-dev \
+      zlib-dev
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# netrc / npmrc contain credentials to private npm / pip repositories
+COPY creds/netrc /root/.netrc
+COPY creds/npmrc /root/.npmrc
+
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3
+RUN npm config set python $(which python)
+
+RUN pip3 install --upgrade pip setuptools wheel
+RUN pip install \
+      --upgrade \
+      --extra-index-url https://givesome.pypi.shuup.com \
+      -r requirements.txt
+RUN pip install django-enumfields==2.1.1
+
+COPY app/ /opt/app
+COPY live_image/env /opt/app/.env
+RUN apk add --update git openssh
+RUN make install
+RUN rm -rf /root/.netrc /root/.npmrc /opt/app/.venv /opt/app/.postgresql

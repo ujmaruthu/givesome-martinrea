@@ -1,0 +1,41 @@
+FROM gcr.io/engaged-ground-343617/givesomeapp:2.10-base AS builder
+FROM golang:alpine AS gcsfusebuilder
+ARG GCSFUSE_VERSION=0.27.0
+ENV GO111MODULE=off
+RUN apk --update --no-cache add git fuse fuse-dev;
+RUN go get -d github.com/googlecloudplatform/gcsfuse
+RUN go install github.com/googlecloudplatform/gcsfuse/tools/build_gcsfuse
+RUN build_gcsfuse ${GOPATH}/src/github.com/googlecloudplatform/gcsfuse /tmp ${GCSFUSE_VERSION}
+
+
+FROM python:3.9-alpine3.15
+ENV VIRTUAL_ENV=/opt/venv
+ENV APP_HOME /opt/app
+ENV BUCKET "givesome-application-media"
+ENV MNT_DIR /opt/var
+ENV PATH "$VIRTUAL_ENV/bin:$PATH"
+RUN apk add --update \
+      freetype \
+      fuse \
+      jpeg-dev \
+      libxcb \
+      libxml2 \
+      memcached \
+      nginx \
+      npm \
+      openjpeg-dev \
+      postgresql-libs \
+      tini \
+      util-linux-misc
+COPY --from=builder /opt /opt
+COPY app/ /opt/app
+COPY --from=gcsfusebuilder /tmp/bin/gcsfuse /usr/bin
+COPY --from=gcsfusebuilder /tmp/sbin/mount.gcsfuse /usr/sbin
+COPY live_image/nginx.conf /etc/nginx/http.d/default.conf
+COPY live_image/gcsfuse_run.sh ${APP_HOME}/gcsfuse_run.sh
+RUN ln -s /usr/sbin/mount.gcsfuse /usr/sbin/mount.fuse.gcsfuse
+RUN chmod +x ${APP_HOME}/gcsfuse_run.sh
+WORKDIR $APP_HOME
+RUN rm ${APP_HOME}/.env
+ENTRYPOINT ["tini", "--"]
+CMD ["/opt/app/gcsfuse_run.sh"]

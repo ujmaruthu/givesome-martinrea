@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 17:54+0000\n"
+"PO-Revision-Date: 2020-06-29 23:29+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+#, python-format
+msgid ""
+"Error! Please enter a correct %(username)s and password. Note that both "
+"fields may be case-sensitive. In case of multiple accounts with same email "
+"only username can be used to log in."
+msgstr ""
+
+msgid "This account is inactive."
+msgstr "Ši paskyra neaktyvi"
+
+msgid "Username or email address"
+msgstr "Prisijungimo vardas arba el. pašto adresas"
+
+msgid "You are not allowed to log in to this shop."
+msgstr ""
+
+msgid "Log in"
+msgstr "Prisijungti"
+
+#, python-format
+msgid "You have already logged in as <strong>%(username)s</strong>"
+msgstr "Jūs prisijungęs kaip <strong>%(username)s</strong>"
+
+msgid "Go to Homepage"
+msgstr "Eiti į pradinį puslapį"
+
+msgid "Forgot your password?"
+msgstr "Pamiršote slaptažodį?"
+
+msgid "New user? Register here!"
+msgstr "Naujas vartotojas? Registruokitės čia!"
+
+msgid "Logged out"
+msgstr "Atsijungėte"
+
+msgid "You have been logged out. Thank you for visiting!"
+msgstr "Atsijungėte. Ačiū, kad aplankėte!"
+
+msgid "Recover your password"
+msgstr "Atkurti slaptažodį"
+
+msgid "You can recover your password with either username or email."
+msgstr "Galite atkurti slaptažodį naudodami prisijungimo vardą arba el. pašto adresą."
+
+msgid "Send password recovery instructions"
+msgstr "Siųsti slaptažodžio atkūrimo instrukciją"
+
+msgid "Password Changed"
+msgstr "Slaptažodis pakeistas"
+
+msgid "Your password has been changed and you have been logged in."
+msgstr "Jūsų slaptažodis pakeistas ir šiuo metu esate prisijungęs."
+
+msgid "Password Recovery"
+msgstr "Slaptažodžio atstatymas"
+
+msgid "Change Password"
+msgstr "Keisti slaptažodį"
+
+#, python-format
+msgid "Hi %(fullname)s"
+msgstr "Sveiki %(fullname)s"
+
+#, python-format
+msgid "In case you've forgotten, your username is %(username)s."
+msgstr "Jei pamiršote - Jūsų slaptažodis yra %(username)s."
+
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr "Gavote šį el. laišką, nes užsakėte slaptažodžio atkūrimą svetainėje %(site_name)s."
+
+msgid "Please go to the following page and choose a new password:"
+msgstr "Eikite į šį puslapį ir pasirinkite naują slaptažodį:"
+
+msgid ""
+"If a user account is associated with the information you entered, you should"
+" receive instructions on how to reset your password shortly."
+msgstr "Jei yra vartotojo paskyra susieta su Jūsų įvesta informacija - greitai gausite instrukcijas kaip atkurti slaptažodį."
+
+msgid "Error! This recovery link is invalid."
+msgstr ""

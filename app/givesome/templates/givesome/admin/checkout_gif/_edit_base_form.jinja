@@ -1,0 +1,7 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% set checkout_gif_form = form["base"] %}
+
+{% call content_block(_("Gif"), "fa-info-circle") %}
+    {{ bs3.field(checkout_gif_form.active) }}
+    {{ bs3.field(checkout_gif_form.gif) }}
+{% endcall %}

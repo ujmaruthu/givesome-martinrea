@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-29 14:00+0000\n"
+"PO-Revision-Date: 2021-03-29 14:28+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "Customer"
+msgstr "Klientas"
+
+msgid "Filter report results by customer."
+msgstr "Filtruoti raporto rezultatus pagal klientą."
+
+msgid "Orderer"
+msgstr "Užsakovas"
+
+msgid "Filter report results by the person that made the order."
+msgstr "Filtruoti raporto rezultatus pagal asmenį, kuris padarė užsakymą."
+
+msgid "Order Line Type"
+msgstr ""
+
+msgid "Suppliers"
+msgstr ""
+
+msgid "Filter order lines by suppliers."
+msgstr ""
+
+msgid "Order status"
+msgstr ""
+
+msgid "Filter order lines by status of their order."
+msgstr ""
+
+msgid "Quantity"
+msgstr "Kiekis"
+
+msgid "Taxless Total"
+msgstr "Iš viso be mokesčių"
+
+msgid "Taxful Total"
+msgstr "Iš viso apmokestinama"
+
+msgid "Sort order"
+msgstr "Rikiavimo tvarka"
+
+msgid "Year"
+msgstr "Metai"
+
+msgid "Year/Month"
+msgstr "Metai/mėnuo"
+
+msgid "Year/Month/Day"
+msgstr "Metai/Mėnuo/Diena"
+
+msgid "Group by"
+msgstr "Grupuoti pagal"
+
+msgid "Order Count"
+msgstr "Užsakymų kiekis"
+
+msgid "Average Sales"
+msgstr "Vidutiniai pardavimai"
+
+msgid "Tax"
+msgstr "Mokesčiai"
+
+msgid "Filter report results by tax."
+msgstr "Filtruoti raporto rezultatus pagal mokesčius."
+
+msgid "Tax Class"
+msgstr "Mokesčių klasė"
+
+msgid "Filter report results by tax class."
+msgstr "Filtruoti raporto rezultatus pagal mokesčių klasę."
+
+msgid "Shipping Method"
+msgstr "Pristatymo būdas"
+
+msgid "Filter report results by shipping method."
+msgstr "Filtruoti raporto rezultatus pagal pristatymo būdą."
+
+msgid "Carrier"
+msgstr "Kurjeris"
+
+msgid "Filter report results by carrier."
+msgstr "Filtruoti raporto rezultatus pagal kurjerį."
+
+msgid "Customer Sales"
+msgstr "Klientų pardavimai"
+
+msgid "Orders"
+msgstr "Užsakymai"
+
+msgid "New Customers"
+msgstr "Nauji klientai"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Persons"
+msgstr "Asmenys"
+
+msgid "Companies"
+msgstr "Įmonės"
+
+msgid "Users"
+msgstr "Vartotojai"
+
+msgid "Orders Report"
+msgstr ""
+
+msgid "Order ref."
+msgstr ""
+
+msgid "Order date"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Order line quantity"
+msgstr ""
+
+msgid "Payment status"
+msgstr ""
+
+msgid "Shipment status"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Order Line Report"
+msgstr ""
+
+msgid "Order Line SKU"
+msgstr ""
+
+msgid "Order Line Text"
+msgstr ""
+
+msgid "Taxless Unit Price"
+msgstr ""
+
+msgid "Taxful Unit Price"
+msgstr ""
+
+msgid "Taxful Price"
+msgstr ""
+
+msgid "Created on"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Product Total Sales"
+msgstr "Visi produkto pardavimai"
+
+msgid "Product"
+msgstr "Produktas"
+
+msgid "SKU"
+msgstr "SKU"
+
+msgid "Refunded Sales"
+msgstr "Grąžinti pardavimai"
+
+msgid "Refunded Orders"
+msgstr "Grąžinti užsakymai"
+
+msgid "Total Refunded"
+msgstr "Iš viso grąžinta"
+
+msgid "Sales Report"
+msgstr "Pardavimu raportas"
+
+msgid "Products"
+msgstr "Produktai"
+
+msgid "Sales Per Hour"
+msgstr "Pardavimai per valandą"
+
+msgid "Hour"
+msgstr "Valanda"
+
+msgid "Order Amount"
+msgstr "Užsakymo suma"
+
+msgid "Total Sales"
+msgstr "Iš viso pardavimų"
+
+msgid "Shipping"
+msgstr "Pristatymas"
+
+msgid "Shipping method"
+msgstr "Pristatymo būdas"
+
+msgid "Total Charged"
+msgstr "Iš viso mokėta"
+
+msgid "Taxes"
+msgstr "Mokesčiai"
+
+msgid "Rate (%)"
+msgstr "Tarifas (%)"
+
+msgid "Pre-tax Total"
+msgstr ""
+
+msgid "Total Tax Amount"
+msgstr ""
+
+msgid "Shop Name"
+msgstr "Parduotuvės pavadinimas"
+
+msgid "Currency"
+msgstr "Valiuta"
+
+msgid "Customers"
+msgstr "Klientai"
+
+msgid "Customer Average Sale"
+msgstr "Vidutinis pardavimas"

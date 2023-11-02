@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Christian Hess <christianhess.rlz@gmail.com>, 2020
+# 2e5f34f1c58eda4787a14c9dc139ca5f, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-28 10:59+0000\n"
+"PO-Revision-Date: 2020-12-31 16:24+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/shuup/shuup/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Contact Importer"
+msgstr "Importador de Contatos"
+
+msgid "Company Contact Importer"
+msgstr "Importador de Grupo de Contatos"
+
+msgid ""
+"Parent SKU set for the row, but couldn't find product to match with the "
+"given SKU."
+msgstr ""
+
+msgid "Parent SKU set for the row, but no variation variables found."
+msgstr ""
+
+#, python-format
+msgid "Image '%s' was not found, please check whether the image exists."
+msgstr ""
+
+msgid "Please add supplier to the row, before importing stock quantities."
+msgstr ""
+
+msgid "No supplier found, please check that the supplier exists."
+msgstr ""
+
+msgid "No supplier module set, please check that the supplier module is set."
+msgstr ""
+
+msgid "Product Importer"
+msgstr "Importador de Produto"
+
+msgid "Quantities"
+msgstr "Quantidades"
+
+msgid "If you are importing products with quantities, ensure the following:"
+msgstr "Se você está importando produtos com quantidades, assegure-se de:"
+
+#, python-format
+msgid ""
+"You have atleast one <a href=\"%(supplier_url)s\">supplier</a> with \"Stock "
+"Managed\" <strong>on</strong>."
+msgstr "Você tem ao menos um <a href=\"%(supplier_url)s\">fornecedor</a> com gerenciamento de estoques <strong>ativo</strong>."
+
+#, python-format
+msgid ""
+"your <a href=\"%(supplier_url)s\">supplier</a> has \"Stock Managed\" "
+"<strong>on</strong>. (Currently <strong>off</strong>)"
+msgstr "seu <a href=\"%(supplier_url)s\">fornecedor</a> tem o gerenciamento de estoques <strong>ativo</strong>. (Atualmente <strong>desativado</strong>)"
+
+msgid "your import file has <strong>supplier</strong> field"
+msgstr "seu arquivo tem o campo <strong>supplier</strong>"
+
+msgid "Images"
+msgstr "Imagens"
+
+msgid "If you are importing products with images, ensure the following:"
+msgstr "Se você estiver importando produtos com imagens, assegure-se de:"
+
+#, python-format
+msgid ""
+"\n"
+"                Upload all product images using the <a href=\"%(media_browser_url)s\" target=\"_blank\">Media Browser</a>.\n"
+"            "
+msgstr ""
+
+msgid "Upload all product images using the Media Browser."
+msgstr ""
+
+msgid ""
+"Use the image file name on <strong>image</strong> and/or "
+"<strong>images</strong> column(s)."
+msgstr "Use o nome do arquivo nas colunas <strong>image</strong> e/ou <strong>images</strong>."
+
+msgid ""
+"<strong>images</strong> column can receive a comma-separated list of image "
+"names."
+msgstr "A coluna <strong>images</strong> por receber uma lista de nome de imagens separada por vírgulas."
+
+msgid ""
+"Image names can be the file name (e.g.: <em>product_001.png</em>) or the path to the image (e.g.: <em>Products/Images/product_001.jpeg</em>).\n"
+"        Using the full path will ensure that the correct image will be used when there is more than one image with the same name."
+msgstr "O nome das imagens pode ser o nome da imagem (ex: <em>produto_001.png</em>) ou o caminho para a imagem (ex: <em>Produtos/Imagens/produto_001.jpeg</em>).\nUtilizar o caminho completo garante que a imagem correta seja utilizando quando existir várias imagens com o mesmo nome."
+
+msgid "Related objects"
+msgstr "Objetos relacionados"
+
+msgid ""
+"Columns that are relations to other objects (like Category and Supplier) accept both the object ID number\n"
+"    and the object name. Make sure that when using the name, there should be only a single object for that given name."
+msgstr "Colunas que estão relacionadas a outros objetos (como Categoria e Fornecedor) aceitam tanto o número do ID do objeto\nquanto o nome do objeto. Tenha certeza de que quando utilizar o nome, deve existir apenas um único objeto usando aquele nome."

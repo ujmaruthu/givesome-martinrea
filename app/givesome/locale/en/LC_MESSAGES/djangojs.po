@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-12 23:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Stop promoting this project"
+msgstr ""
+
+msgid "Project is now being promoted!"
+msgstr ""
+
+msgid "Start promoting this project"
+msgstr ""
+
+msgid "Project removed from being promoted!"
+msgstr ""
+
+msgid "An error has occurred while promoting project, please try again."
+msgstr ""
+
+msgid "Remove as primary project"
+msgstr ""
+
+msgid "Set as primary project"
+msgstr ""
+
+msgid ""
+"An error has occurred while setting project as primary, please try again."
+msgstr ""
+
+msgid "View Givecards"
+msgstr ""
+
+msgid "Givecards successfully generated!"
+msgstr ""
+
+msgid "Error generating givecards!"
+msgstr ""
+
+msgid "Heads Up! These funds expire on "
+msgstr ""
+
+msgid "Unspecified error"
+msgstr ""
+
+msgid "Invalid code format"
+msgstr ""
+
+msgid "Please verify your email to login."
+msgstr ""
+
+msgid "Save"
+msgstr ""

@@ -1,0 +1,7 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs, render_monolingual_fields %}
+{% set base_form = form["base"] %}
+
+{% call content_block(_("General Information"), icon="fa-building-o") %}
+    {{ render_monolingual_fields(base_form) }}
+{% endcall %}

@@ -1,0 +1,361 @@
+{%- import "shuup/front/macros/category.jinja" as category_macros with context -%}
+{%- import "givesome/macros.jinja" as givesome_macros with context -%}
+{%- from "givesome/receipting_icon.jinja" import render_receipting_icon as receipt_icon %}
+{%- import "givesome/shuup/front/macros/supplier.jinja" as supplier_macros with context -%}
+{%- from "shuup/front/macros/product.jinja" import product_box with context -%}
+{% if request.is_ajax() %}
+    {{ category_macros.render_product_list(supplier) }}
+{% else %}
+    {% extends "shuup/front/base.jinja" %}
+    {%- import "shuup/front/macros/general.jinja" as macros with context -%}
+
+    {% block extrameta %}
+        {{ macros.render_metadata(object, object.name, "", "website") }}
+        <link rel="stylesheet" href="{{ static('shuup_multivendor/vendor.css') }}">
+    {% endblock %}
+
+    {% block title %}{{ object.name }}{% endblock %}
+
+    {% block content_title %}{% endblock %}
+
+    {% block breadcrumb %}{% endblock %}
+
+    {% block banner %}
+        <header class="partner-main-banner">
+        <div class="watermarked" data-watermark="{{object.name}}"></div>
+            {#<div class="partner-background"></div>#}
+            <div class="container">
+                <div class="header-reverse">
+                    {{ render_vendor_info_section(object) }}
+                </div>
+            </div>
+        </header>
+    {% endblock %}
+
+    {% macro render_products_section(supplier) %}
+        {% set pagination = shuup.general.get_pagination_variables(products, page_size or 12) %}
+        {% if pagination.objects|length > 4 %}
+         {{ supplier_macros.givesome_slider(pagination)}}
+         {% endif %}
+         <div class="choose-a-project-container10 " style="margin-bottom:5%;">
+                    <b>
+                        <span>Choose a project, </span>
+                        <span class="see-the9"> <span class="see5">see</span> the </span>
+                    </b>
+                    <span class="see-the9">
+                        <span class="good21">good.</span>
+                    </span>
+                </div>
+        <h2 class="my-5 test">
+            <!-- test -->
+            {# {% if supplier.givesome_extra and supplier.givesome_extra.vendor_type.name == 'CHARITY' %}
+                {{ _("Our Projects") }}
+            {% else %}
+                {{ _("Charitable Projects") }}
+            {% endif %}#}
+        </h2>
+        <div class="row m-0">
+            <div class="col-md-4 col-lg-3">
+                <div class="product-list-actions">
+                    <h3 class="mt-0 mb-4 h4">{{ _("Filter") }}</h3>
+
+                    {% if "sort" in form.fields.keys() %}
+                        {{ macros.render_field(form.sort) }}
+                    {% endif %}
+
+                    {% if "limit" in form.fields.keys() %}
+                        {{ macros.render_field(form.limit) }}
+                    {% endif %}
+
+                    <form role="form" method="get" action="" id="sorts_and_filters_2">
+                        {% if "categories" in form.fields %}
+                            {{ macros.render_field(form.categories) }}
+                        {% endif %}
+                        {% if "sustainability_goals" in form.fields %}
+                            {{ macros.render_field(form.sustainability_goals) }}
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-9 product-list-with-two slider-card hidden-sm hidden-xs">
+                {{ category_macros.render_product_list(supplier) }}
+            </div>
+            <div class="givesome-carousel project-carousel-plugin slider-card-mob hidden-md hidden-lg">
+            <div class="project-carousel owl-carousel">
+             {% for product in pagination.objects if shuup.product.is_visible(product) %}
+                    {{ product_box(product) }}
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+
+         {% if supplier.givesome_extra.display_type == 1 %}
+         <div class="row end-content m-0" style="position: unset;margin-bottom:5%;text-align: center;">
+         {# {% if supplier.description|safe_vendor_description_video  %}
+         {% if supplier.description|safe_vendor_description_video_title %}<b class="header2 pl-4 pr-4">{{ supplier.description|safe_vendor_description_video_title }}</b>{% endif %}
+        <div class="video2" style="margin-bottom: 10%">
+        <iframe src="{{ supplier.description|safe_vendor_description_video }}" class="note-video-clip" flex-wrap="wrap" display="flex"  height="450" width="800" frameborder="10"></iframe>
+
+        </div>
+      {% endif %} #}
+         {% if supplier.video_header  %}
+         <b class="header2 pl-4 pr-4">{{ supplier.video_header }}</b>{% endif %}
+         {% if supplier.description|safe_vendor_description_video  %}
+         <div class="video2" style="margin-bottom: 10%">
+        <iframe src="{{ supplier.description|safe_vendor_description_video }}" class="note-video-clip" flex-wrap="wrap" display="flex"  height="450" width="800" frameborder="10"></iframe>
+        </div>
+        {% endif %}
+
+        <div class="about-section2" style="margin-top: 5%">
+{% if supplier.description|safe_vendor_description_img %}
+    <div class="about-section2-content" style="margin-bottom:30px;">
+           <img
+          class="about-image-icon2"
+          style="position:unset;width:100%;border-radius: unset;object-fit: cover;"
+          alt=""
+          src="{{ supplier.description|safe_vendor_description_img }}"
+        />
+    </div>
+
+        {% else %}
+            <div class="no-img">
+            <img
+            class="about-image-icon2"
+            alt=""
+            style="position:unset;width:100%;border-radius:50px;"
+            src="{{ static('givesome_V1/public/text-input.png') }}"
+            />
+        </div>
+
+        {% endif %}
+
+      <div class="vertical-container6 vertical-content">
+               {% if supplier.logo|thumbnail(size=(200, 200), upscale=True) == None %}
+
+          {% else %}
+             <div class="vertical-img">
+                <img class="image-icon8 vertical-icon" alt="{{supplier.logo|thumbnail(size=(200, 200), upscale=True)}}" src="{{ supplier.logo|thumbnail(size=(200, 200), upscale=True) }}" />
+                </div>
+
+          {% endif %}
+            {#{% if supplier.description|safe_vendor_description_title %}
+          <b class="our-mission-is4"
+            >{{ supplier.description|safe_vendor_description_title }}</b
+          >{% endif %}#}
+
+          {% if supplier.content_header %}
+          <b class="our-mission-is4">{{ supplier.content_header }}</b>
+          {% endif %}
+
+          {#<div class="the-gvf-group4 info-content">
+                    {% if supplier.description|safe_vendor_description_content %}
+                            {{ supplier.description|safe_vendor_description_content }}
+                        {% else %}
+                            <p>{% trans %}No product description available{% endtrans %}</p>
+                        {% endif %}
+          </div>#}
+           <div class="the-gvf-group4 info-content">
+                    {% if supplier.desc %}
+                            {{ supplier.desc|safe_vendor_description }}
+                        {% else %}
+                            <p>{% trans %}No product description available{% endtrans %}</p>
+                        {% endif %}
+          </div>
+          {% if object.givesome_extra %}
+             <div class="button9">
+                <a class="text-muted weblink-btn" target="_blank" href="{{ object.givesome_extra.website_url }}">
+                <b class="learn-more46">Learn More</b></a>
+            </div>
+          {% endif %}
+        </div>
+        </div>
+        </div>
+         {% elif supplier.givesome_extra.display_type == 2 %}
+        <div class="row end-content m-0" style="position: unset;margin-bottom:5%;text-align: center;">
+
+
+        <div class="about-section2" style="margin-top: 5%">
+{% if supplier.description|safe_vendor_description_img %}
+    <div class="about-section2-content" style="margin-bottom:30px;">
+           <img
+          class="about-image-icon2"
+          style="position:unset;width:100%;border-radius: unset;object-fit: cover;"
+          alt=""
+          src="{{ supplier.description|safe_vendor_description_img }}"
+        />
+    </div>
+
+        {% else %}
+            <div class="no-img">
+            <img
+            class="about-image-icon2"
+            alt=""
+            style="position:unset;width:100%;border-radius:50px;"
+            src="{{ static('givesome_V1/public/text-input.png') }}"
+            />
+        </div>
+
+        {% endif %}
+
+      <div class="vertical-container6 vertical-content">
+               {% if supplier.logo|thumbnail(size=(200, 200), upscale=True) == None %}
+
+          {% else %}
+             <div class="vertical-img">
+                <img class="image-icon8 vertical-icon" alt="{{supplier.logo|thumbnail(size=(200, 200), upscale=True)}}" src="{{ supplier.logo|thumbnail(size=(200, 200), upscale=True) }}" />
+                </div>
+
+          {% endif %}
+
+          {% if supplier.content_header %}
+          <b class="our-mission-is4">{{ supplier.content_header }}</b>
+          {% endif %}
+
+          <div class="the-gvf-group4 info-content">
+                    {% if supplier.desc %}
+                            {{ supplier.desc|safe_vendor_description }}
+                        {% else %}
+                            <p>{% trans %}No product description available{% endtrans %}</p>
+                        {% endif %}
+          </div>
+          {% if object.givesome_extra %}
+             <div class="button9">
+                <a class="text-muted weblink-btn" target="_blank" href="{{ object.givesome_extra.website_url }}">
+                <b class="learn-more46">Learn More</b></a>
+            </div>
+          {% endif %}
+        </div>
+        </div>
+
+       {% if supplier.video_header  %}
+         <b class="header2 pl-4 pr-4">{{ supplier.video_header }}</b>{% endif %}
+         {% if supplier.description|safe_vendor_description_video  %}
+         <div class="video2" style="margin-bottom: 10%">
+        <iframe src="{{ supplier.description|safe_vendor_description_video }}" class="note-video-clip" flex-wrap="wrap" display="flex"  height="450" width="800" frameborder="10"></iframe>
+        </div>
+        {% endif %}
+        </div>
+         {% else %}
+            <div class="row end-content m-0" style="position: unset;margin-bottom:5%;text-align: center;">
+
+
+        <div class="about-section2" style="margin-top: 5%">
+
+
+      <div class="vertical-container6 vertical-content">
+               {% if supplier.logo|thumbnail(size=(200, 200), upscale=True) == None %}
+
+          {% else %}
+             <div class="vertical-img">
+                <img class="image-icon8 vertical-icon" alt="{{supplier.logo|thumbnail(size=(200, 200), upscale=True)}}" src="{{ supplier.logo|thumbnail(size=(200, 200), upscale=True) }}" />
+                </div>
+
+          {% endif %}
+          {% if supplier.content_header %}
+          <b class="our-mission-is4">{{ supplier.content_header }}</b>
+          {% endif %}
+
+          <div class="the-gvf-group4 info-content">
+                    {% if supplier.desc %}
+                            {{ supplier.desc|safe_vendor_description }}
+                        {% else %}
+                            <p>{% trans %}No product description available{% endtrans %}</p>
+                        {% endif %}
+          </div>
+          {% if object.givesome_extra %}
+             <div class="button9">
+                <a class="text-muted weblink-btn" target="_blank" href="{{ object.givesome_extra.website_url }}">
+                <b class="learn-more46">Learn More</b></a>
+            </div>
+          {% endif %}
+        </div>
+        {% if supplier.description|safe_vendor_description_img %}
+    <div class="about-section2-content" style="margin-bottom:30px;">
+           <img
+          class="about-image-icon2"
+          style="position:unset;width:100%;border-radius: unset;object-fit: cover;"
+          alt=""
+          src="{{ supplier.description|safe_vendor_description_img }}"
+        />
+    </div>
+
+        {% else %}
+            <div class="no-img">
+            <img
+            class="about-image-icon2"
+            alt=""
+            style="position:unset;width:100%;border-radius:50px;"
+            src="{{ static('givesome_V1/public/text-input.png') }}"
+            />
+        </div>
+
+        {% endif %}
+        </div>
+       {% if supplier.video_header  %}
+         <b class="header2 pl-4 pr-4">{{ supplier.video_header }}</b>{% endif %}
+         {% if supplier.description|safe_vendor_description_video  %}
+         <div class="video2" style="margin-bottom: 10%">
+        <iframe src="{{ supplier.description|safe_vendor_description_video }}" class="note-video-clip" flex-wrap="wrap" display="flex"  height="450" width="800" frameborder="10"></iframe>
+        </div>
+        {% endif %}
+        </div>
+        {% endif %}
+    {% endmacro %}
+
+    {% block content %}
+        <script>window.PRODUCT_LIST_FILTERS = {{ form.fields.keys()|list|json }};</script>
+        <div class="supplier-view">
+            {% placeholder "vendor_extra_center" %}{% endplaceholder %}
+            {% if products %}{{ render_products_section(supplier) }}{% endif %}
+            {% if products and offices %}<hr class="mt-6">{% endif %}
+            {% if offices %}{{ render_offices_content(object) }}{% endif %}
+            {% placeholder "vendor_footer" %}{% endplaceholder %}
+        </div>
+    {% endblock %}
+
+    {% block supported_by %}
+        {% if sponsoring_vendor %}
+            {{ givesome_macros.render_supported_by_supplier(supplier=sponsoring_vendor) }}
+        {% endif %}
+    {% endblock %}
+
+    {% block extrajs %}
+        {{ category_macros.render_extrajs() }}
+        <script src="{{ shuup_static('shuup_multivendor/vendor.js', 'shuup-multivendor') }}"></script>
+        <script>
+            {# Initialize SDG select2 filter #}
+            $(function () {
+                var sdgsElement = $("#id_sustainability_goals");
+                if (sdgsElement) {
+                    sdgsElement.select2();
+                    sdgsElement.on("select2:select", function () {
+                        window.refreshVendorFilters(window.PAGE_NUMBER);
+                    });
+                    sdgsElement.on("select2:unselect", function () {
+                        window.refreshVendorFilters(window.PAGE_NUMBER);
+                    });
+                }
+            });
+        </script>
+    {% endblock %}
+
+    {% block extracss %}
+        {% if supplier.givesome_extra and supplier.givesome_extra.color %}
+            <style>
+                :root {
+                    --primary: {{ supplier.givesome_extra.color }} !important;
+                }
+                .partner-background {
+                    background-color: var(--primary) !important;
+                }
+                .partner-main-banner .vendor-logo {
+                    border-color: var(--primary) !important;
+                }
+                .supported-by-section img {
+                    max-width: 175px;
+                    max-height: 150px;
+                }
+            </style>
+        {% endif %}
+    {% endblock %}
+{% endif %}

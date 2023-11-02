@@ -1,0 +1,19 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs, render_monolingual_fields%}
+{# use the base form #}
+{% set base_form_name = form_def.name.split('_')[0] %}
+{% set shop_product_form = form[base_form_name] %}
+
+{% call content_block(_("Sustainability Goals"), "fa fa-globe") %}
+    <p class="section-description">
+        {% trans %}Choose up to three Sustainable Development Goals to associate with the project.{% endtrans %}<br>
+    </p>
+
+    {% call(form, language, map) language_dependent_content_tabs(shop_product_form, tab_id_prefix="shop-language") %}
+        {{ bs3.field(shop_product_form[map.status_text]) }}
+    {% endcall %}
+
+    {{ bs3.field(shop_product_form.sustainability_goals) }}
+
+{% endcall %}
+

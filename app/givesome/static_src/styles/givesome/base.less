@@ -1,0 +1,95 @@
+:root {
+    --primary: @brand-primary;
+}
+
+.product-list-view {
+    display: flex;
+    flex-wrap: wrap;
+    .single-product {
+        display: flex;
+        width: 25%!important;
+        float: left;
+        @media screen and (max-width: 500px){
+            width: 100%!important;
+        }
+    }
+}
+
+.main-content {
+    margin-top: @grid-gutter-width/3;
+
+    @media (min-width: @screen-md-min) {
+        margin-top: 30px;
+    }
+}
+
+.dropdown-menu {
+    border-color: @border-color-light;
+    box-shadow: 0px 10px 20px rgba(0,0,0,.1) !important;
+}
+
+.dropdown-header-hr {
+    margin: @grid-gutter-width/2 0 0 0;
+    border-color: @border-color-light;
+}
+
+body a {
+    color: @link-color;
+}
+
+.overflow-section {
+    overflow: hidden;
+}
+
+.breadcrumb {
+    font-size: @font-size-small;
+
+    @media (max-width: @screen-xxs-max) {
+        display: none;
+    }
+}
+
+.message-box {
+    margin: @grid-gutter-width*1.5 auto;
+    padding: @grid-gutter-width @grid-gutter-width/2;
+    border-radius: @border-radius-large;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.08);
+    max-width: @screen-xs-min;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+
+    @media (min-width: @screen-xs-min) {
+        padding: @grid-gutter-width*2;
+    }
+}
+
+.title-suffix {
+    font-weight: 400;
+    color: @text-muted;
+}
+
+.select2 {
+    width: 100% !important;
+}
+
+.supplier-info-link {
+    text-decoration: underline;
+}
+
+.container {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        width: 100%;
+        padding-left: @grid-gutter-width;
+        padding-right: @grid-gutter-width;
+    }
+}
+
+.receipting-logo-sm {
+    width: 29px !important;
+    height: 25px;
+}
+
+.receipting-logo-md {
+    width: 34px;
+    height: 30px;
+}

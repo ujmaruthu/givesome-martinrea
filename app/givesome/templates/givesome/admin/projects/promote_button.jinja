@@ -1,0 +1,7 @@
+<div class="text-center mb-3">
+    <button
+        class="btn{% if is_promoting %} btn-danger{% else %} btn-success{% endif %} toggle-{{ kind }}-promote-btn"
+        id="toggle-{{ kind }}-promote-{{ instance.id }}"
+        onclick="window.toggle{{ kind.title() }}Promote(event, {{ instance.id }}, {{ chooser_id }})"
+    >{{ text }}</button>
+</div>

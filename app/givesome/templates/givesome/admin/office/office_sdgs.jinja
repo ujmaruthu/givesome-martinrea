@@ -1,0 +1,7 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs, render_monolingual_fields %}
+{% set base_form = form["office_sdg"] %}
+
+{% call content_block(_("SDGs"), icon="fa-globe") %}
+    {{ render_monolingual_fields(base_form) }}
+{% endcall %}

@@ -1,0 +1,8 @@
+{% if is_vendor %}
+    {% for page in vendor_information_pages %}
+        {% set page_url = url('shuup:vendor_information', pk=page.pk) %}
+        <div>
+            <a href="{{ page_url }}">{{ page }}</a>
+        </div>
+    {% endfor %}
+{% endif %}

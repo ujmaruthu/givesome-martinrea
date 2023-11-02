@@ -1,0 +1,28 @@
+{%- from "shuup/front/macros/product.jinja" import product_box with context -%}
+
+{%- set cross_sell_products = shuup.product.get_product_cross_sells(
+    product,
+    type,
+    count=count,
+    orderable_only=orderable_only,
+    use_variation_parents=use_variation_parents) -%}
+
+{% if cross_sell_products %}
+    <section class="givesome-carousel project-carousel-plugin product-cross-sells-plugin">
+        {% if title %}
+            <div class="carousel-text">
+                <h2>{{ title }}</h2>
+            </div>
+        {% endif %}
+
+        <div class="owl-loading-indicator">
+            <i class="fa fa-spin fa-spinner text-muted fa-2x"></i>
+        </div>
+
+        <div class="project-carousel owl-carousel">
+            {% for product in cross_sell_products %}
+                {{ product_box(product) }}
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}

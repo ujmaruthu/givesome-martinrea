@@ -1,0 +1,42 @@
+body.auth {
+    background: lighten(@brand-lightest, 2%);
+
+    .firebaseui-title {
+        text-align: center;
+    }
+
+    .firebaseui-card-content {
+        padding: 0;
+    }
+
+    .firebaseui-idp-button,
+    .firebaseui-tenant-button {
+        width: 100%;
+        max-width: none;
+    }
+
+    .firebaseui-container {
+        max-width: none;
+        box-shadow: none;
+    }
+
+    .firebaseui-form-actions {
+        text-align: center;
+    }
+
+    .mdl-button--primary.mdl-button--primary {
+        color: @brand-primary;
+    }
+
+    .mdl-button--raised.mdl-button--colored {
+        background-color: @brand-primary;
+    }
+
+    .firebaseui-textfield.mdl-textfield .firebaseui-label:after {
+        background-color: @brand-primary;
+    }
+
+    .mdl-button {
+        .btn-rounded();
+    }
+}

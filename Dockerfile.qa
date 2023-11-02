@@ -1,0 +1,2 @@
+FROM gcr.io/engaged-ground-343617/givesomeapp:2.10.42
+COPY qa_image/nginx.conf /etc/nginx/http.d/default.conf

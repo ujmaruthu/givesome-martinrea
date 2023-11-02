@@ -1,0 +1,40 @@
+{% macro render_stripe_payment() %}
+    <div id="stripe-container">
+        <div id="stripe-checkout">
+            <div class="text-center my-4 text-muted">
+                <i class="fa fa-spinner fa-spin fa-lg"></i>
+            </div>
+        </div>
+    </div>
+    <div id="card-errors" class="text-danger my-2"></div>
+{% endmacro %}
+
+{% macro render_payment_content(stripe, form_action='') %}
+    <form role="form" method="post" action="{{ form_action }}" id="payment-form">
+        {% csrf_token %}
+    </form>
+
+    {{ render_stripe_payment() }}
+
+    <script>
+        function loadStripeForm() {
+            window.stripeDonation().init({
+                "public_key": "{{ stripe }}",
+                "url": "{{ request.path }}",
+                "allowDonations": {{ allow_donations }},
+                "btnText": "{{ btn_text }}",
+                "showCreditCard": $('#show-cc'),
+                "paymentMethodId": "{{ payment_method_id }}",
+                "usable_givecards_sum": {{ usable_givecards_sum }},
+            });
+        }
+        if (window.stripeDonation) {
+            loadStripeForm()
+        } else {
+            // wait for page to finish loading
+            window.addEventListener("loadStripeForm", function () {
+                loadStripeForm()
+            });
+        }
+    </script>
+{% endmacro %}

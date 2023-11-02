@@ -1,0 +1,34 @@
+# This file is part of Shuup.
+#
+# Copyright (c) 2012-2021, Shuup Commerce Inc. All rights reserved.
+#
+# This source code is licensed under the Shuup Commerce Inc -
+# SELF HOSTED SOFTWARE LICENSE AGREEMENT executed by Shuup Commerce Inc, DBA as SHUUP®
+# and the Licensee.
+from django.utils.translation import ugettext_lazy as _
+
+from shuup.admin.forms.fields import PercentageField
+from shuup.campaigns.models.product_effects import ProductDiscountAmount, ProductDiscountPercentage
+
+from ._base import BaseEffectModelForm
+
+COMMON_EXCLUDES = ["identifier", "active"]
+
+
+class ProductDiscountAmountForm(BaseEffectModelForm):
+    class Meta(BaseEffectModelForm.Meta):
+        model = ProductDiscountAmount
+        exclude = COMMON_EXCLUDES
+
+
+class ProductDiscountPercentageForm(BaseEffectModelForm):
+    discount_percentage = PercentageField(
+        max_digits=6,
+        decimal_places=5,
+        label=_("discount percentage"),
+        help_text=_("The discount percentage for this campaign."),
+    )
+
+    class Meta(BaseEffectModelForm.Meta):
+        model = ProductDiscountPercentage
+        exclude = COMMON_EXCLUDES

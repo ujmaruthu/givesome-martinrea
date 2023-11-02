@@ -1,0 +1,76 @@
+# English translations for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
+# Translators:
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 17:57+0000\n"
+"PO-Revision-Date: 2020-06-30 00:29+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "Error!"
+msgstr ""
+
+msgid "Success!"
+msgstr ""
+
+msgid "Error! An unspecified error occurred."
+msgstr ""
+
+msgid "Warning! Unexpected edit data was received."
+msgstr ""
+
+msgid "Add new"
+msgstr "Pridėti naują"
+
+msgid ""
+"Delete this item?\n"
+"This is final and can't be undone."
+msgstr ""
+
+msgid "New"
+msgstr "Naujas"
+
+msgid "Move Up"
+msgstr "Passtumti aukštyn"
+
+msgid "Move Down"
+msgstr "Pastumti žemyn"
+
+msgid "Disable"
+msgstr "Išjungti"
+
+msgid "Enable"
+msgstr "Įjungti"
+
+msgid "Delete"
+msgstr "Trinti"
+
+msgid "Are you sure you want to delete this step?"
+msgstr ""
+
+msgid "If"
+msgstr ""
+
+msgid "of these conditions hold..."
+msgstr ""
+
+msgid "then execute these actions..."
+msgstr "paleisti šiuos veiksmus..."
+
+msgid "and then..."
+msgstr "ir tada..."
+
+msgid "New step"
+msgstr "Naujas žingsnis"

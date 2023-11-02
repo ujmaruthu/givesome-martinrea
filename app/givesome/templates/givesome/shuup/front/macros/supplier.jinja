@@ -1,0 +1,304 @@
+{# Common macros used in supplier and office templates #}
+{%- import "shuup/front/macros/category.jinja" as category_macros with context -%}
+{%- import "shuup/front/macros/general.jinja" as macros with context -%}
+{%- from "givesome/receipting_icon.jinja" import render_receipting_icon as receipt_icon %}
+
+{% macro render_sdg_section(sustainability_goals) %}
+    {% if sustainability_goals %}
+        <div class="vendor-sdg">
+            <h2 class="h3 my-5">
+                {{ _("UN SDG's We Focus On") }}
+                <span class="title-suffix" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title={% trans %}"The Sustainable Development Goals are the blueprint to achieve a better and more sustainable future for all. They address the global challenges we face, including those related to poverty, inequality, climate change, environmental degradation, peace and justice."{% endtrans %}><i class="fa fa-info-circle fa-fw"></i></span>
+            </h2>
+            <div class="sdg-row">
+                {% for sdg in sustainability_goals %}
+                    <button tabindex="0" class="single-sdg" type="button" data-toggle="popover" data-placement="bottom"
+                            data-container="body" data-trigger="hover" title="{{ sdg.name }}"
+                            data-content="{{ sdg.description }}">
+                        <img src="{{ sdg.image|thumbnail(size=(200,200), upscale=True) }}" alt="{{ sdg.name }}">
+                        <span class="sdg-help-icon" aria-hidden="true"><i class="fa fa-info-circle"></i></span>
+                    </button>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro givesome_render_office_banner(office, type='') %}
+    <div class="vendor-details">
+        {% if office.supplier.logo %}
+            {% set u = url("shuup:supplier", slug=office.supplier.slug) %}
+            <a href="{{u}}" class="vendor-logo text-center">
+                <img src="{{ office.supplier.logo|thumbnail(size=(200, 200), upscale=True) }}"
+                     class="vendor-logo-img"/>
+            </a>
+        {% endif %}
+
+        <div class="vendor-name-address">
+            {% call macros.breadcrumb() %}
+                {{ macros.render_breadcrumb_item("/", _("Home")) }}
+
+                {{ macros.render_breadcrumb_item(url('branded_vendor_list'), _("Partners")) }}
+                {{ macros.render_breadcrumb_item(url('shuup:supplier', slug=office.supplier.slug), office.supplier.name) }}
+                {% for parent in office.get_ancestors() %}
+                    {{ macros.render_breadcrumb_item(url('office', pk=parent.pk), parent.name) }}
+                {% endfor %}
+                {% if type == 'GivesomeOffice' %}
+                    {{ macros.render_breadcrumb_item(url('office', pk=office.pk), office.name) }}
+                {% endif %}
+                {{ macros.render_breadcrumb_item(None, object.name, True) }}
+            {% endcall %}
+
+            <div class="vendor-name">
+                <h1 class="h2 mt-0 mb-3">
+                    <span class="smaller"><a href="{{ url('shuup:supplier', slug=office.supplier.slug) }}">{{ office.supplier }}</a> / </span>
+                    <span class="dropdown">
+                        <button type="button"
+                                class="dropdown-button"
+                                id="dropdown-label"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                data-toggle="dropdown">
+                            {{ office.name }} <i class="fa fa-angle-down text-muted"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown-label">
+                        {% set root_offices = office.supplier.offices.filter(supplier=office.supplier, disabled=False, level=0).order_by("level", "ordering") %}
+                        {% for o in root_offices recursive %}
+                            {% set children = o.get_children() %}
+                            {# Make deeper list items smaller #}
+                            <li><a {% if office != o %}href="{{ url('office', pk=o.pk) }}" {% else %}class="weight-bold"{% endif %}
+                                   {% if o.level != 0 %}style="font-size:{{ 16 - o.level*0.6 }}px; padding-top:{{ 5 - o.level }}px; padding-bottom:{{ 5 - o.level }}px; margin-left: {{ 16 * o.level }}px;"{% endif %}>
+                                {{ o.name }}
+                            </a></li>
+                            {% if children %}
+                                {{ loop(children) }}
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </span>
+                </h1>
+            </div>
+
+            {% if office.supplier.description %}
+                <div class="vendor-description">
+                    <p>{{ office.supplier.description|safe_vendor_description }}</p>
+                </div>
+            {% endif %}
+
+            {{ render_sdg_section(sustainability_goals) }}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro givesome_render_partner_banner(vendor, hide_vendor_link=False) %}
+    {% set vendor_address = ", ".join(get_vendor_broad_address(vendor.contact_address)) %}
+
+
+       {% if vendor.logo %}
+       <div class="header-icon">
+            <img class="vendor-logo-icon3"  alt="" src="{{ vendor.logo|thumbnail(size=(200, 200), upscale=True) }}" />
+        </div>
+       {% endif %}
+
+        <div class="">
+            <div class="vendor-name">
+                <h1 class="mt-0 mb-3 h1-vendor-name2">{{ vendor.name }}{% if vendor.givesome_extra.enable_receipting %}&nbsp;{{ receipt_icon(vendor, "charity_page") }}{% endif %}</h1>
+            </div>
+            {#{{ render_sdg_section(sustainability_goals) }}#}
+        </div>
+{% endmacro %}
+
+{% macro givesome_slider(proj) %}
+       <div class="featured-project-section5" style="margin-bottom: 6%">
+                    <img
+                        class="featured-image-project-24"
+                        alt=""
+                        src=""
+                        style="opacity:0.5;top:20%;"
+                    />
+
+                    <img
+                        class="featured-image-project-14"
+                        alt=""
+                        src=""
+                        style="opacity:0.5;top:20%;"
+                    />
+
+                    <div class="featured-project-background5" style="height: 410px">
+                   {% for product in proj.objects if shuup.product.is_visible(product) %}
+                        {{ sliderlist(product=product) }}
+                    {% endfor %}
+                    </div>
+                <div>
+                    <a onclick="plusSlides(1)">
+                        <img class="switch-container-icon4 parent-button" style="width:70px;right:3%;top:36%;" alt="" src="{{ static('givesome_V1/public/switch-container1.svg')}}"/>
+                    </a>
+                </div>
+                <a onclick="plusSlides(-1)">
+                    <img class="slider-left-switch-container4 parent-button" style="width:70px;left:45px;top:36%;" alt="" src="{{ static('givesome_V1/public/slider-left-switch-container1.svg')}}" />
+                </a>
+
+                <div id="carousel">
+                {% for product in proj.objects if shuup.product.is_visible(product) %}
+                    <span class="dot" onclick="currentSlide({{ loop.index }})"></span>
+                {% endfor %}
+                </div>
+                </div>
+{% endmacro %}
+
+{% macro sliderlist(product,
+        show_image=True,
+        show_description=True,
+        class="",
+        thumbnail_size=(400,300),
+        show_user_actions=True,
+        show_actions=False,
+        supplier=None,
+        lives_impacted=0,
+        video=None,
+        donations={}) %}
+        {% set shop_product = product.get_shop_instance(request.shop, allow_cache=True) %}
+        {# supplier = charity who owns the product, not the supplier whose page this is #}
+        {% set supplier = shop_product.get_supplier() %}
+        {# Always lead to product page, instead of supplier-product page #}
+        {% set u = url("shuup:product", pk=product.pk, slug=product.slug) %}
+        {# Set promoter to the url only if project is promoted, or if it's the charity's own project #}
+        {% if promoter %}
+            {# Add query string to be able to display the banner in the product page. #}
+            {% set u = u ~ '?type=' ~ promoter.__class__.__name__ ~ '&id=' ~ promoter.id %}
+        {% endif %}
+        {% set show_charity_info = supplier %}
+        {% if product.project_extra %}
+            {% set fully_funded = product.project_extra.fully_funded_date %}
+            {% set coming_soon = False %}
+            {% set goal_amount = product.project_extra.goal_amount %}
+            {% set goal_progress_amount = product.project_extra.goal_progress_amount %}
+            {% set goal_progress_percentage = product.project_extra.goal_progress_percentage %}
+        {% else %}
+            {% set fully_funded = False %}
+            {% set coming_soon = False %}
+            {% set goal_amount = 0 %}
+            {% set goal_progress_amount = 0 %}
+            {% set goal_progress_percentage = 0 %}
+        {% endif %}
+        {% set show_lives_impacted = lives_impacted > 0 %}
+        {% if donations.get(product.id) %}
+            {% set donation_value = donations[product.id] %}
+        {% endif %}
+            {% set product_image = shop_product.public_primary_image or shop_product.public_images.first() %}
+                {% set primary_image_thumb = product_image|thumbnail(size=thumbnail_size) %}
+                {% if product_image and primary_image_thumb %}
+                    {% set image_url = primary_image_thumb %}
+                {% else %}
+                    {% set image_url = None %}
+                {% endif %}
+
+        <div class="slide" style="padding-left: 50px">
+         <div class="radial-bar-container42 outer-circle">
+            <div class="radial-bar-container42 inner-circle" style="background:radial-gradient(closest-side, white 74%, transparent 80% 100%), conic-gradient(#3b2470 {{ goal_progress_percentage }}%, #ededed 0)!important">
+                    <div class="radial-percentage-number6">{{ goal_progress_percentage }}%</div>
+                </div>
+            </div>
+            <div class="portion-of-goal5">
+                <div class="of-308-goal-container5">
+                     <b>${{ recalculate_currency(request, goal_progress_amount) }}</b>
+                    <span class="of-308-goal9"> {{ _("of") }} ${{ recalculate_currency(request, goal_amount) }} {{ _("GOAL") }}</span>
+                </div>
+            </div>
+            <b class="help-sponsor-an6" style="position:unset;margin-top: 20px;text-align: left">{{ product.name }}</b>
+            <div class="give-button-parent2" style="position:unset;margin-top: 20px;">
+              {# <button class="btn-primary give-button5" data-toggle="modal" data-target="#fund-dialog{{ product.id }}" id="fund-project{{product.id}}">
+                    <span><b class="learn-more46" style="color:white">Give To This Project</b></span>
+                </button>#}
+                <a href="{{ u }}"><button class="btn-primary  give-button5" style="border: 1px solid #412e67;">
+                    <span><b class="learn-more46" style="color:white">Give To This Project</b></span>
+                </button></a>
+                {#<button class="learn-more-button5">
+                <a href="{{ u }}" class="project-card {{ class }}" id="product-{{ product.id }}">
+                    <span><b class="learn-more46" style="color:black">Learn More</b></span></a>
+                </button>#}
+            </div>
+            <div style="position:unset;width:135px;height:100px;"> 
+            {% if supplier.logo %}
+                {% set logo = supplier.logo.url %}
+                <img class="project-logo-icon5" style="position:unset;width:100%;height:100%;object-fit:contain;margin-top:10px;" alt=""src="{{ logo }}" />
+            {% else %}
+                <i class="fa fa-fw fa-users"></i>
+            {% endif %}
+            </div>
+            <img class="featured-project-image5" style="height: 360px;top:6%;right:2%;" alt="" src="{{ image_url }}" />
+
+        </div>
+
+{% endmacro %}
+
+
+{% macro givesome_render_partner_banner_old(vendor, hide_vendor_link=False) %}
+    {% set vendor_address = ", ".join(get_vendor_broad_address(vendor.contact_address)) %}
+
+    <div class="vendor-details">
+
+        {% if vendor.logo %}
+            {% set u = url("shuup:supplier", slug=vendor.slug) %}
+            <a href="{{u}}" class="vendor-logo text-center">
+                <img src="{{ vendor.logo|thumbnail(size=(200, 200), upscale=True) }}" class="vendor-logo-img"/>
+            </a>
+        {% endif %}
+
+        <div class="vendor-name-address">
+            {% call macros.breadcrumb() %}
+                {{ macros.render_breadcrumb_item("/", _("Home")) }}
+                {% if vendor.givesome_extra and vendor.givesome_extra.vendor_type.name == 'BRANDED_VENDOR' %}
+                    {{ macros.render_breadcrumb_item(url('branded_vendor_list'), _("Partners")) }}
+                {% else %}
+                    {{ macros.render_breadcrumb_item(url('shuup:supplier_list'), _("Charities")) }}
+                {% endif %}
+                {% if not hide_vendor_link %}
+                    {# To hide duplicate breadcumb on supplier page #}
+                    {{ macros.render_breadcrumb_item(url('shuup:supplier', slug=vendor.slug), vendor.name) }}
+                {% endif %}
+                {{ macros.render_breadcrumb_item(None, object.name, True) }}
+            {% endcall %}
+
+            {#{% if render_favorite_button() %}
+                {% from "shuup_multivendor/supplier/favorites_macro.jinja" import render_profile_favorite_button %}
+                {{ render_profile_favorite_button(vendor.pk, is_favorite_vendor(vendor)) }}
+            {% endif %}#}
+
+            <div class="vendor-name">
+                <h1 class="mt-0 mb-3">{{ vendor.name }}{% if vendor.givesome_extra.enable_receipting %}&nbsp;{{ receipt_icon(vendor, "charity_page") }}{% endif %}</h1>
+            </div>
+
+            {% if vendor.givesome_extra and vendor.givesome_extra.website_url %}
+                <div class="vendor-address"
+                style="margin: 0.5rem 0; display: inline-block;">
+                    <a class="text-muted weblink-btn" target="_blank" href="{{ vendor.givesome_extra.website_url }}">
+                        {{ vendor.givesome_extra.pretty_website_url }}
+                    </a>
+                </div>
+            {% endif %}
+
+            <div class="vendor-address">
+                <p class="text-muted">
+                    {{ vendor_address }}
+                </p>
+            </div>
+
+            {% if vendor.description %}
+                <div class="vendor-description">
+                    <p>{{ vendor.description|safe_vendor_description }}</p>
+                </div>
+            {% endif %}
+
+            {{ render_sdg_section(sustainability_goals) }}
+        </div>
+    </div>
+{% endmacro %}
+{% macro givesome_render_banner(object, type='') %}
+    {%- import "givesome/shuup/front/macros/supplier.jinja" as supplier_macros with context -%}
+    {% if type == 'GivesomeOffice' %}
+        {{ givesome_render_office_banner(object, type=type) }}
+    {% elif type == 'Supplier' %}
+        {{ givesome_render_partner_banner(object) }}
+    {% endif %}
+{% endmacro %}

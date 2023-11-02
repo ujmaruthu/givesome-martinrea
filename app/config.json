@@ -1,0 +1,875 @@
+{
+    "admin_menu_staff": {
+        "en": [
+            {
+                "id": "d5c9d25cb32913b279ff00148749872a",
+                "is_hidden": false,
+                "name": "Vendor Management"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "17d9db87bb7ada76f2fe5e6829ce447a",
+                        "is_hidden": false,
+                        "name": "All Orders"
+                    },
+                    {
+                        "id": "8386fdc5d45bf7169e34fa85cff32dc5",
+                        "is_hidden": false,
+                        "name": "Payments"
+                    },
+                    {
+                        "id": "afdf4c336514bdacf376f43ba1a1b197",
+                        "is_hidden": true,
+                        "name": "Shipments"
+                    },
+                    {
+                        "id": "3b05146a12d945d66465869b2f44eddf",
+                        "is_hidden": false,
+                        "name": "Delete Orders"
+                    }
+                ],
+                "id": "c4ca4238a0b923820dcc509a6f75849b",
+                "is_hidden": false,
+                "name": "Orders"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "9f468a624d915581fe9e5f8db14208de",
+                        "is_hidden": false,
+                        "name": "Projects"
+                    },
+                    {
+                        "id": "0b9961843baa1b6b9e279274ee42eb88",
+                        "is_hidden": false,
+                        "name": "Vendor Project Promotion"
+                    },
+                    {
+                        "id": "3a44bfc6ecb55782984c310dd3609a18",
+                        "is_hidden": false,
+                        "name": "Office Project Promotion"
+                    },
+                    {
+                        "id": "c27dc40d77ad6e4acf265a8e6d5afbed",
+                        "is_hidden": false,
+                        "name": "Approve Vendor Projects"
+                    },
+                    {
+                        "id": "e7548075bdbe8ceea0a86e1272467e94",
+                        "is_hidden": false,
+                        "name": "Project Locations"
+                    },
+                    {
+                        "id": "2a2f75dec661d6b60b08015d6512a4c7",
+                        "is_hidden": false,
+                        "name": "Checkout gif"
+                    }
+                ],
+                "id": "c81e728d9d4c2f636f067f89cc14862c",
+                "is_hidden": false,
+                "name": "Projects"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "0f36fb55f4ace3a6318d2fe50c16f439",
+                        "is_hidden": false,
+                        "name": "Givecard Campaigns"
+                    },
+                    {
+                        "id": "adf472def99f2b1c72924b5b2f9f22cd",
+                        "is_hidden": false,
+                        "name": "Givecard Batches"
+                    },
+                    {
+                        "id": "cb683d48bd983ea7899ff5ac05354eeb",
+                        "is_hidden": false,
+                        "name": "Givesome Purses"
+                    },
+                    {
+                        "id": "82b3298241b2efcf5ed2bfe8cf425a34",
+                        "is_hidden": false,
+                        "name": "Manage Competitions"
+                    },
+                    {
+                        "id": "65ac546122c3062cdccc5b9ec11e096e",
+                        "is_hidden": false,
+                        "name": "New Competition"
+                    },
+                    {
+                        "id": "166a6858478d9f752c391770773828a2",
+                        "is_hidden": false,
+                        "name": "Offices"
+                    }
+                ],
+                "id": "1679091c5a880faf6fb5e6087eb1b2dc",
+                "is_hidden": false,
+                "name": "Givesome"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "24f44695bb0a1eb97ea67c4616010fa6",
+                        "is_hidden": false,
+                        "name": "Contacts"
+                    },
+                    {
+                        "id": "7598cc1c3e7ef0a1a791ae1b45592642",
+                        "is_hidden": false,
+                        "name": "Users"
+                    }
+                ],
+                "id": "eccbc87e4b5ce2fe28308fd9f2a7baf3",
+                "is_hidden": false,
+                "name": "Contacts"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "d9cc5c1cbeecfa68899c969fa76c4c32",
+                        "is_hidden": false,
+                        "name": "Reports"
+                    }
+                ],
+                "id": "a87ff679a2f3e71d9181a67b7542122c",
+                "is_hidden": false,
+                "name": "Reports"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "ef4cfd32362ac58e5b660031751b6b37",
+                        "is_hidden": false,
+                        "name": "Media browser"
+                    },
+                    {
+                        "id": "f449dd474472835b1ef0524e8ff5795d",
+                        "is_hidden": false,
+                        "name": "Pages"
+                    },
+                    {
+                        "id": "2d95f40080e041b69e35d7f950c6c2d3",
+                        "is_hidden": false,
+                        "name": "Themes"
+                    },
+                    {
+                        "id": "97acadf2f8dffdad03f65eeaa866b536",
+                        "is_hidden": false,
+                        "name": "Theme Custom CSS/JS"
+                    }
+                ],
+                "id": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+                "is_hidden": false,
+                "name": "Site Content"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "784e8557bce4bf68f10c7427c8922a3b",
+                        "is_hidden": false,
+                        "name": "Shops"
+                    },
+                    {
+                        "id": "9e64510c8bee74a399af77f6bba936ea",
+                        "is_hidden": false,
+                        "name": "Sustainability Goal"
+                    },
+                    {
+                        "id": "017fb9d1f0ff5c9f1d950bc412fa2be0",
+                        "is_hidden": false,
+                        "name": "Notifications"
+                    },
+                    {
+                        "id": "3a9a18bd899629b2af48c7397355c03d",
+                        "is_hidden": false,
+                        "name": "GDPR"
+                    },
+                    {
+                        "id": "a65c8f895b68eb5b807be139d1c9c52b",
+                        "is_hidden": false,
+                        "name": "Vendor Category"
+                    },
+                    {
+                        "id": "2033762ef00c91fac1c739bac438232e",
+                        "is_hidden": false,
+                        "name": "Vendor Information Pages"
+                    },
+                    {
+                        "id": "9037781f2cf36fb874d6c34ebdc7af6c",
+                        "is_hidden": false,
+                        "name": "Admin permissions"
+                    },
+                    {
+                        "id": "43b0d65fe13c9724cbe27dab99551f85",
+                        "is_hidden": false,
+                        "name": "Arrange Staff Menu"
+                    },
+                    {
+                        "id": "184c7cf5611b252161c282cb9cb41193",
+                        "is_hidden": false,
+                        "name": "Receipting Messages"
+                    }
+                ],
+                "id": "c9f0f895fb98ab9159f51fd0297e236d",
+                "is_hidden": false,
+                "name": "Settings"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "1a943e1b8d5664794ad96efeb3d7e5ee",
+                        "is_hidden": false,
+                        "name": "Inbox"
+                    },
+                    {
+                        "id": "b7218ac753635fe1fda412f87d904ad6",
+                        "is_hidden": false,
+                        "name": "Sent"
+                    },
+                    {
+                        "id": "3c7f4d725b779deff1987a12f44348f0",
+                        "is_hidden": false,
+                        "name": "All Messages"
+                    }
+                ],
+                "id": "6512bd43d9caa6e02c990b0a82652dca",
+                "is_hidden": false,
+                "name": "Messages"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "28b002a1f3d687186492da912f6f0a65",
+                        "is_hidden": false,
+                        "name": "Notification Logs"
+                    },
+                    {
+                        "id": "dba114b405700d0cc0e5a041cc669ed0",
+                        "is_hidden": false,
+                        "name": "Product Logs"
+                    },
+                    {
+                        "id": "18aa04dffc5fa25011ba68b3da8cf026",
+                        "is_hidden": false,
+                        "name": "Shop Product Logs"
+                    },
+                    {
+                        "id": "cf7dade533c99cc05c56ca47da801a97",
+                        "is_hidden": false,
+                        "name": "Supplier Logs"
+                    },
+                    {
+                        "id": "5cd7374b09f3b5ffef46fb09e732d313",
+                        "is_hidden": false,
+                        "name": "Sent Emails"
+                    }
+                ],
+                "id": "d3d9446802a44259755d38e6d163e820",
+                "is_hidden": false,
+                "name": "Logs"
+            }
+        ]
+    },
+    "admin_menu_supplier": {
+        "en": [
+            {
+                "id": "48392d468bf6865c7c0e3676db5c0cee",
+                "is_hidden": false,
+                "name": "Vendor Settings"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "2068e4957f8596e4a28884f360dd7f8a",
+                        "is_hidden": true,
+                        "name": "Plans"
+                    }
+                ],
+                "id": "c81e728d9d4c2f636f067f89cc14862c",
+                "is_hidden": true,
+                "name": "Products"
+            },
+            {
+                "id": "058487882b376ae23bac0bde5be8717e",
+                "is_hidden": false,
+                "name": "Products"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "8e7fd0fd4a1237560677cae985283647",
+                        "is_hidden": false,
+                        "name": "Orders"
+                    },
+                    {
+                        "id": "24358e6c5ea15b434aeecb3ae4a9e90f",
+                        "is_hidden": true,
+                        "name": "Subscriptions"
+                    },
+                    {
+                        "id": "f467c1ca9e10c1f94406cec293f4852f",
+                        "is_hidden": true,
+                        "name": "Shipments"
+                    }
+                ],
+                "id": "c4ca4238a0b923820dcc509a6f75849b",
+                "is_hidden": false,
+                "name": "Orders"
+            },
+            {
+                "id": "166a6858478d9f752c391770773828a2",
+                "is_hidden": false,
+                "name": "Givesome Offices"
+            },
+            {
+                "id": "0b9961843baa1b6b9e279274ee42eb88",
+                "is_hidden": false,
+                "name": "Vendor Project Promotion"
+            },
+            {
+                "id": "3a44bfc6ecb55782984c310dd3609a18",
+                "is_hidden": false,
+                "name": "Office Project Promotion"
+            },
+            {
+                "id": "d9cc5c1cbeecfa68899c969fa76c4c32",
+                "is_hidden": false,
+                "name": "Reports"
+            },
+            {
+                "id": "cb683d48bd983ea7899ff5ac05354eeb",
+                "is_hidden": false,
+                "name": "Brand Purse"
+            },
+            {
+                "id": "a87ff679a2f3e71d9181a67b7542122c",
+                "is_hidden": true,
+                "name": "Reports"
+            },
+            {
+                "id": "c9f0f895fb98ab9159f51fd0297e236d",
+                "is_hidden": true,
+                "name": "Settings"
+            },
+            {
+                "entries": [
+                    {
+                        "id": "1a943e1b8d5664794ad96efeb3d7e5ee",
+                        "is_hidden": false,
+                        "name": "Inbox"
+                    },
+                    {
+                        "id": "b7218ac753635fe1fda412f87d904ad6",
+                        "is_hidden": false,
+                        "name": "Sent"
+                    }
+                ],
+                "id": "6512bd43d9caa6e02c990b0a82652dca",
+                "is_hidden": false,
+                "name": "Messages"
+            },
+            {
+                "id": "7cbf37fa6526504afceea6f0d543200a",
+                "is_hidden": false,
+                "name": "Arrange Vendor Menu"
+            }
+        ]
+    },
+    "api_permissions": [
+        {
+            "key": "api_permission_ProductAttributeViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_TaxClassViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ContactViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_FrontOrderViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_FrontProductViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_FrontShopProductViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_FrontUserViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ManufacturerViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_MapViewSet",
+            "value": "1"
+        },
+        {
+            "key": "api_permission_ProductMediaViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_MutableAddressViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_OrderViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_PasswordResetViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_PersonContactViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ProductPackageViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ProductTypeViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_AttributeViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_BasketViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_CategoryViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_CgpPriceViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ProductVariationVariableValueViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ProductVariationVariableViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ProductViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_SalesUnitViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_SetPasswordViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ShipmentViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ShippingMethodServiceAreaViewSet",
+            "value": "4"
+        },
+        {
+            "key": "api_permission_ShippingServiceAreaViewSet",
+            "value": "4"
+        },
+        {
+            "key": "api_permission_ShopProductViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ShopServiceAreaViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ShopViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_SupplierViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_TaxViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_UserViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_ContactGroupViewSet",
+            "value": "5"
+        },
+        {
+            "key": "api_permission_VendorViewSet",
+            "value": "1"
+        },
+        {
+            "key": "api_permission_VendorServiceAreaViewSet",
+            "value": "4"
+        },
+        {
+            "key": "api_permission_ContactGroupPriceDisplayViewSet",
+            "value": "5"
+        }
+    ],
+    "group_permissions": {
+        "Brand": [
+            "Givesome Offices",
+            "Givesome Purse",
+            "Office Project Promotion",
+            "Reports",
+            "Vendor Project Promotion",
+            "givecard_donation_report",
+            "givecard_redemption_report",
+            "givesome_purse.edit",
+            "givesome_purse.list",
+            "givesome_purse.project_list",
+            "office.delete",
+            "office.edit",
+            "office.list",
+            "office.new",
+            "office_project_promote.edit",
+            "office_project_promote.list",
+            "office_project_promote.set_primary",
+            "office_project_promote.toggle_promote",
+            "reports.list",
+            "vendor_project_promote.edit",
+            "vendor_project_promote.list",
+            "vendor_project_promote.set_primary",
+            "vendor_project_promote.toggle_promote"
+        ],
+        "Charity": [
+            "Reports",
+            "Subscription Plans",
+            "Subscriptions",
+            "Vendor Orders",
+            "Vendor Products",
+            "Vendor Project Promotion",
+            "multivendor_full_sales_report",
+            "multivendor_sales_report",
+            "reports.list",
+            "shop_product.add_media",
+            "shop_product.edit_cross_sell",
+            "shop_product.list",
+            "shuup_multivendor.order_line_list",
+            "shuup_multivendor.order_list",
+            "shuup_multivendor.products_edit",
+            "shuup_multivendor.products_list",
+            "shuup_multivendor.products_new",
+            "shuup_multivendor.products_set_price",
+            "shuup_multivendor.products_toggles_sale",
+            "shuup_multivendor.set_line_status",
+            "subscription.plan.edit",
+            "subscription.plan.list",
+            "subscription.plan.new",
+            "subscription.sub.edit",
+            "subscription.sub.list",
+            "subscription.sub.new",
+            "subscription.subscription_product.edit",
+            "vendor_project_promote.edit",
+            "vendor_project_promote.list",
+            "vendor_project_promote.toggle_promote"
+        ],
+        "Staff": [
+            "Categories",
+            "Category Organizer",
+            "Contacts",
+            "Content Pages",
+            "Customers Dashboard",
+            "Customize Staff Admin Menu",
+            "Delete Orders",
+            "GDPR",
+            "Givecard Batches",
+            "Givecard Campaigns",
+            "Givesome Offices",
+            "Givesome Purse",
+            "Givesome checkout gif",
+            "Granular Permission Groups",
+            "Logs",
+            "Manage Competitions",
+            "Media",
+            "Messages",
+            "New Competition",
+            "Notifications",
+            "Office Project Promotion",
+            "Orders",
+            "Products",
+            "Receipting Messages",
+            "Reports",
+            "Sales Dashboard",
+            "Sent Emails",
+            "Shops",
+            "Shuup Extensible Theme Engine",
+            "Shuup Extensible Theme Engine Snippets",
+            "Subscriptions Payments",
+            "Sustainability Goal",
+            "Users",
+            "Vendor Category",
+            "Vendor Information",
+            "Vendor Products Approvals",
+            "Vendor Project Promotion",
+            "Vendors Management",
+            "campaign_summary_report",
+            "category.copy_visibility",
+            "category.delete",
+            "category.duplicate",
+            "category.edit",
+            "category.list",
+            "category.list_settings",
+            "category.new",
+            "category.organize",
+            "charity_competition.edit",
+            "charity_competition.list",
+            "charity_competition.new",
+            "contact.detail",
+            "contact.edit",
+            "contact.list",
+            "contact.list_settings",
+            "contact.mass_edit",
+            "contact.mass_edit_group",
+            "contact.new",
+            "contact.reset_password",
+            "customer_sales_report",
+            "gdpr.anonymize",
+            "gdpr.download_data",
+            "gdpr.settings",
+            "givecard.generate",
+            "givecard.list",
+            "givecard_batch.delete",
+            "givecard_batch.edit",
+            "givecard_batch.list",
+            "givecard_batch.new",
+            "givecard_campaign.delete",
+            "givecard_campaign.edit",
+            "givecard_campaign.list",
+            "givecard_campaign.list_settings",
+            "givecard_campaign.new",
+            "givecard_donation_report",
+            "givecard_redemption_report",
+            "givesome_automatic_donations_report",
+            "givesome_gif.delete",
+            "givesome_gif.edit",
+            "givesome_gif.list",
+            "givesome_gif.list_settings",
+            "givesome_gif.new",
+            "givesome_purse.edit",
+            "givesome_purse.list",
+            "givesome_purse.project_list",
+            "givesome_purse_charge_report",
+            "givesome_purse_donations",
+            "manage_orders.delete",
+            "manage_orders.edit",
+            "manage_orders.list",
+            "media.browse",
+            "media.create-folder",
+            "media.delete-file",
+            "media.delete-folder",
+            "media.edit-access",
+            "media.rename-file",
+            "media.rename-folder",
+            "media.upload",
+            "media.upload-to-folder",
+            "media.view-all",
+            "menu.arrange_staff",
+            "menu.reset_staff",
+            "message.all_messages",
+            "message.delete",
+            "message.edit",
+            "message.mark_as_read",
+            "message.mark_as_unread",
+            "message.new",
+            "message.new_to_contact",
+            "message.new_to_staff",
+            "message.new_to_supplier",
+            "message.received",
+            "message.see-read-status",
+            "message.sent",
+            "multivendor_full_sales_report",
+            "multivendor_sales_report",
+            "multivendor_vendors_summary_report",
+            "new_customers_report",
+            "notify.mark-read",
+            "notify.script-item-editor",
+            "notify.script.delete",
+            "notify.script.edit",
+            "notify.script.edit-content",
+            "notify.script.list",
+            "notify.script.list_settings",
+            "notify.script.new",
+            "office.delete",
+            "office.edit",
+            "office.list",
+            "office.list_settings",
+            "office.new",
+            "office_project_promote.edit",
+            "office_project_promote.list",
+            "office_project_promote.set_primary",
+            "office_project_promote.toggle_promote",
+            "order.create-full-refund",
+            "order.create-payment",
+            "order.create-refund",
+            "order.delete-payment",
+            "order.detail",
+            "order.edit",
+            "order.edit-addresses",
+            "order.list",
+            "order.list_settings",
+            "order.new",
+            "order.new-log-entry",
+            "order.set-paid",
+            "order.set-status",
+            "order.update-admin-comment",
+            "permission_group.edit",
+            "permission_group.list",
+            "permission_group.list_settings",
+            "permission_group.new",
+            "printouts.confirmation_pdf",
+            "product_total_sales_report",
+            "receipting_messages.edit",
+            "receipting_report",
+            "reports.list",
+            "sales-per-hour",
+            "sales_report",
+            "shop.edit",
+            "shop.list",
+            "shop.list_settings",
+            "shop_product.add_media",
+            "shop_product.copy",
+            "shop_product.delete",
+            "shop_product.edit",
+            "shop_product.edit_cross_sell",
+            "shop_product.edit_media",
+            "shop_product.edit_package",
+            "shop_product.list",
+            "shop_product.list_settings",
+            "shop_product.mass_edit",
+            "shop_product.new",
+            "shuup_logging.notification_log",
+            "shuup_logging.product_log",
+            "shuup_logging.shop_product_log",
+            "shuup_logging.supplier_log",
+            "shuup_multivendor.mass_approve_vendors",
+            "shuup_multivendor.products_approvals",
+            "shuup_multivendor.products_approvals_approve",
+            "shuup_multivendor.products_approvals_revoke",
+            "shuup_multivendor.vendor.approve",
+            "shuup_multivendor.vendor.delete",
+            "shuup_multivendor.vendor.edit",
+            "shuup_multivendor.vendor.list",
+            "shuup_multivendor.vendor.list_settings",
+            "shuup_multivendor.vendor.login-as",
+            "shuup_multivendor.vendor.new",
+            "shuup_sent_emails.detail",
+            "shuup_sent_emails.list",
+            "simple_cms.page.delete",
+            "simple_cms.page.edit",
+            "simple_cms.page.list",
+            "simple_cms.page.list_settings",
+            "simple_cms.page.new",
+            "simple_supplier.stocks",
+            "subscription.payment.edit",
+            "subscription.payment.list",
+            "subscription.payment.list_settings",
+            "subscription.payment.new",
+            "subscription.subscription_product.edit",
+            "supplier.edit",
+            "sustainability_goal.delete",
+            "sustainability_goal.edit",
+            "sustainability_goal.list",
+            "sustainability_goal.list_settings",
+            "sustainability_goal.new",
+            "total_sales_report",
+            "user.change-password",
+            "user.change-permissions",
+            "user.detail",
+            "user.list",
+            "user.list_settings",
+            "user.login-as",
+            "user.login-as-staff",
+            "user.new",
+            "user.reset-password",
+            "vendor_category.delete",
+            "vendor_category.edit",
+            "vendor_category.list",
+            "vendor_category.list_settings",
+            "vendor_category.new",
+            "vendor_information.delete",
+            "vendor_information.edit",
+            "vendor_information.list",
+            "vendor_information.list_settings",
+            "vendor_information.new",
+            "vendor_project_promote.edit",
+            "vendor_project_promote.list",
+            "vendor_project_promote.set_primary",
+            "vendor_project_promote.toggle_promote",
+            "xtheme.config",
+            "xtheme.config_detail",
+            "xtheme.guide",
+            "xtheme_snippet.delete",
+            "xtheme_snippet.edit",
+            "xtheme_snippet.list",
+            "xtheme_snippet.list_settings",
+            "xtheme_snippet.new"
+        ],
+        "Staff Menu Edit Permissions": [
+            "Customize Staff Admin Menu",
+            "menu.arrange_staff",
+            "menu.reset_staff"
+        ],
+        "Vendor Menu Edit Permissions": [
+            "Customize Supplier Admin Menu",
+            "menu.arrange_supplier",
+            "menu.reset_supplier"
+        ],
+        "Vendors": [
+            "Messages",
+            "Office Project Promotion",
+            "Vendor Project Promotion",
+            "Vendor Settings",
+            "media.upload",
+            "media.upload-to-folder",
+            "message.edit",
+            "message.mark_as_read",
+            "message.mark_as_unread",
+            "message.new",
+            "message.new_to_staff",
+            "message.received",
+            "message.see-read-status",
+            "message.sent",
+            "multivendor.service_provider.edit",
+            "multivendor.service_provider.list",
+            "multivendor.service_provider.list_settings",
+            "multivendor.service_provider.new",
+            "office_project_promote.edit",
+            "office_project_promote.list",
+            "office_project_promote.set_primary",
+            "office_project_promote.toggle_promote",
+            "shuup_multivendor.attach_media",
+            "shuup_multivendor.dashboard.supplier",
+            "shuup_multivendor.upload_media",
+            "shuup_multivendor.vendor.settings",
+            "vendor_project_promote.edit",
+            "vendor_project_promote.list",
+            "vendor_project_promote.set_primary",
+            "vendor_project_promote.toggle_promote"
+        ]
+    }
+}

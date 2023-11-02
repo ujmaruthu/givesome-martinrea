@@ -1,0 +1,19 @@
+{% extends "shuup/front/dashboard/dashboard_base.jinja" %}
+{%- from "shuup/front/macros/dashboard.jinja" import content_block -%}
+{%- from "shuup_firebase_auth/macros/address.jinja" import render_address -%}
+
+{% block dashboard_item_content %}
+<div class="row">
+    <div class="col-md-12">
+        <p><b>{% trans %}Name{% endtrans %}:</b> {{ customer.full_name }}</p>
+        <p><b>{% trans %}Email{% endtrans %}:</b> {{ customer.email or "-" }}</p>
+    </div>
+
+    {% set address = customer.default_billing_address %}
+    {% if address %}
+        {% call content_block(_("Mailing Address")) %}
+            {{ render_address(address) }}
+        {% endcall %}
+    {% endif %}
+</div>
+{% endblock %}

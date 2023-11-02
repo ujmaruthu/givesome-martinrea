@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Global Solutions <globsolutions@hotmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-15 14:39+0000\n"
+"PO-Revision-Date: 2020-09-15 19:16+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/shuup/shuup/language/ar_SA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: ar_SA\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Addons"
+msgstr "إضافات"
+
+#, python-format
+msgid "Enable %s"
+msgstr "تمكين %s"
+
+#, python-format
+msgid "%d new addons enabled."
+msgstr "تم تمكين %d اضافات جديدة"
+
+#, python-format
+msgid "%d previously enabled addons disabled."
+msgstr "تم تمكين %d اضافات سابقاً"
+
+msgid "No changes were made."
+msgstr "لم يتم إجراء أية تغييرات"
+
+msgid "Save addon changes"
+msgstr "حفظ تحديثات الاضافات"
+
+msgid "Upload new addon"
+msgstr "تحديث الاضافات الجديدة"
+
+msgid "Reload application"
+msgstr "اعادة تحميل التطبيق"
+
+msgid ""
+"There are no viable reload methods available. Please contact your system "
+"administrator."
+msgstr "لا توجد طرق تحديث  متوفرة. من فضلك تواصل مع مسؤول نظامك."
+
+msgid "Reload Method"
+msgstr "اعادة تحميل الطريقة"
+
+msgid "Reloading."
+msgstr "جاري اعادة التحميل"
+
+msgid "Addon file (ZIP)"
+msgstr "ملف اضافات (ة)"
+
+msgid "Only upload the addon files you trust."
+msgstr ""
+
+msgid "Only wheel files (`.whl`) are supported."
+msgstr ""
+
+msgid "Upload"
+msgstr "رفع"
+
+msgid "Install Addon"
+msgstr "تنصيب الاضافات"
+
+msgid "Installed addons"
+msgstr "الاضافات المنصبة"
+
+msgid "Addon name"
+msgstr "اسم الاضافات"
+
+msgid "Is enabled"
+msgstr "تم تمكينه"
+
+msgid "You don't have any installed addons"
+msgstr "لايوجد لديك اضافات منصبة"
+
+msgid "Reload Application Server"
+msgstr ""
+
+msgid ""
+"When you reload the application server, it may take some time for the new "
+"instance of your application to properly initialize."
+msgstr ""
+
+msgid ""
+"In addition, there is always a chance for the server to not properly "
+"initialize at all, in which case you may need to troubleshoot the problem "
+"yourself (or have a system administrator handy)."
+msgstr ""
+
+msgid "Reload steps"
+msgstr ""
+
+msgid ""
+"Finalize installations for newly installed addons (migrate and collect "
+"static resources)"
+msgstr ""
+
+msgid "Reload application server"
+msgstr ""
+
+msgid "Reload was initiated."
+msgstr ""
+
+msgid "Reloading application failed."
+msgstr ""
+
+msgid "Finalizing installations."
+msgstr ""
+
+msgid "Your Shuup seems to be back up!"
+msgstr ""
+
+msgid "Your Shuup is not up yet. Trying again soon."
+msgstr ""
+
+msgid "Select file"
+msgstr ""
+
+msgid "Installation Finished"
+msgstr ""
+
+msgid "Installation Failed"
+msgstr ""
+
+msgid "Success"
+msgstr "نجاح"
+
+#, python-format
+msgid ""
+"Next, <a href=\"%(addon_list_url)s\" class=\"text-success\"><strong>activate"
+" the newly installed addon</strong></a> and <a href=\"%(addon_reload_url)s\""
+" class=\"text-success\"><strong>reload your application server</strong></a>."
+msgstr ""
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Installer Log"
+msgstr ""
+
+msgid "Upload Addon - Install"
+msgstr ""
+
+msgid "Package Information"
+msgstr ""
+
+msgid "No package information could be extracted."
+msgstr ""
+
+msgid "File List"
+msgstr ""

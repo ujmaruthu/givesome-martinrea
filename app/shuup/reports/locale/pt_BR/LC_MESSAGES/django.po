@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Christian Hess <christianhess.rlz@gmail.com>, 2020
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-02 16:24+0000\n"
+"PO-Revision-Date: 2017-01-06 15:35+0000\n"
+"Last-Translator: Christian Hess <christianhess.rlz@gmail.com>, 2020\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/shuup/teams/55306/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Reports"
+msgstr "Relatórios"
+
+msgid "Whether the user can have access to the Report Settings."
+msgstr ""
+
+msgid "Report Settings"
+msgstr ""
+
+msgid "Default Report Item Limit"
+msgstr ""
+
+msgid "Defines the maximum number of items that will be rendered by a report."
+msgstr ""
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Select the type of report to run."
+msgstr "Selecione o tipo de relatório a ser executado."
+
+msgid "Custom"
+msgstr "Personalizado"
+
+msgid "Today"
+msgstr "Hoje"
+
+msgid "Running Week (last 7 days)"
+msgstr "Semana corrente (últimos 7 dias)"
+
+msgid "Running Month (last 30 days)"
+msgstr "Mês corrente (últimos 30 dias)"
+
+msgid "This Week"
+msgstr "Esta semana"
+
+msgid "This Month"
+msgstr "Este mês"
+
+msgid "This Year"
+msgstr "Este ano"
+
+msgid "All Time"
+msgstr "Tudo"
+
+msgid "Output Format"
+msgstr "Formato de saída"
+
+msgid "The format to show the report results."
+msgstr "O formato para mostrar os resultados do relatório."
+
+msgid "Download"
+msgstr "Baixar"
+
+msgid "Enable this to download the report."
+msgstr "Habilite isto para baixar o relatório."
+
+msgid "Shop"
+msgstr "Loja"
+
+msgid "Filter report results by shop."
+msgstr "Filtre os resultados do relatório por loja."
+
+msgid "Date Range"
+msgstr "Intervalo de datas"
+
+msgid "Filter report results by a date range."
+msgstr "Filtre os resultados do relatório por um intervalo de datas."
+
+msgid "Start Date"
+msgstr "Data de início"
+
+msgid "For a custom date range."
+msgstr "Para um intervalo de datas personalizado."
+
+msgid "End Date"
+msgstr "Data final"
+
+msgid "Report Description"
+msgstr ""
+
+msgid "Toggle Filters"
+msgstr "Alternar Filtros"
+
+msgid "Get Report"
+msgstr "Obter relatório"
+
+msgid "No reports available"
+msgstr "Nenhum relatório disponível"

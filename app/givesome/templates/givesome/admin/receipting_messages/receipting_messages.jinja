@@ -1,0 +1,30 @@
+{% extends "shuup/admin/base.jinja" %}
+{% from "shuup/admin/macros/general.jinja" import content_block, single_section_form %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs %}
+
+{% block title %}Receipting Messages{% endblock %}
+
+{% block body_class %}shuup-details{% endblock %}
+{% block content %}
+    <p>Character limits: 255 characters for each message.</p>
+    <p>Three variables are supported:</p>
+    <ul>
+    <li>CHARITY_NAME will be automatically replaced with the charity's name</li>
+    <li>REGISTRATION_NUMBER will be automatically replaced by the charity's registration number</li>
+    <li>CHARITY_COUNTRY will be automatically replaced by the name of the charity's country of origin</li>
+    </ul>
+
+    <div class="container-fluid">
+    {% set form_id = "receiptingmessages_form" %}
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" id="{{ form_id }}" action="{{ form_action }}" novalidate>
+                    {% csrf_token %}
+                    {% call content_block(_("Receipting Messages"), "a fa-university") %}
+                        {{ language_dependent_content_tabs(form) }}
+                    {% endcall %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

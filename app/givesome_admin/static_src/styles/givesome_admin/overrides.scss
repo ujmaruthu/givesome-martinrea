@@ -1,0 +1,29 @@
+a.item-submenu {
+    &.active-menu {
+        color: $primary !important;
+    }
+}
+
+.auth-block-logo {
+    border: 4px solid white;
+    border-radius: 200px;
+    background: #fff;
+
+    img {
+        border: none;
+        border-radius: 0;
+        padding: 10px;
+        max-width: 80px !important;
+    }
+}
+
+.logo-wrap {
+    @include media-breakpoint-up(lg) {
+        text-align: center !important;
+        justify-content: center !important;
+    }
+}
+
+address.list-group-item {
+    margin-bottom: 0px;
+}

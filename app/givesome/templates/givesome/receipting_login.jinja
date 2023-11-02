@@ -1,0 +1,185 @@
+{% extends "shuup/front/base.jinja" %}
+{% from "givesome/macros.jinja" import dynamically_translate_firebase %}
+
+{% block title %}{% trans %}Authenticate{% endtrans %}{% endblock %}
+
+{% block bodyclass %}auth{% endblock %}
+
+{% macro render_default_config() %}
+<script type="text/javascript">
+let english = $("#language-changer").find("a.dropdown-toggle").text().includes("en");
+
+if (window.firebaseui && window.firebase && window.configureUIAuth) {
+    window.configureUIAuth(
+        document.getElementById("firebaseui-auth-container"),
+        {
+            actionUrl: "{{ url('shuup:givesome-auth') }}",
+            isShopAdmin: {{ shuup.general.is_shop_admin()|json }},
+            providers: {{ get_firebase_auth_providers()|json }},
+            providerArgs: {{ givesome_get_firebase_auth_provider_args()|json }},
+        }
+    );
+}
+$(function () {
+    {# Change the /auth/ page texts dynamically from 'Sign up' to 'Log in' based on the URL fragment.  #}
+    function waitUntilElementExists(selector, callback) {
+        if ($(selector).length) {
+            return callback(selector);
+        }
+        setTimeout(function() { waitUntilElementExists(selector, callback) }, 50);
+    }
+    {{ dynamically_translate_firebase() }}
+    function setEnterPasswordTexts(selector) {
+        if (!english) {
+            translate($(".firebaseui-title"));
+            let passwordLabel = $("input[id='ui-sign-in-password-input']").siblings().first();
+            translate(passwordLabel);
+            let trouble = $(".firebaseui-form-links").find(".firebaseui-id-secondary-link").first();
+            translate(trouble);
+            let submit = $(".firebaseui-form-actions").find("button[type='submit']").first();
+            translate(submit);
+        }
+    }
+    function setNewAccountTexts(selector) {
+        if (!english) {
+            translate($(".firebaseui-title"));
+            let emailLabel = $("label[for='ui-sign-in-email-input']").first()
+            translate(emailLabel);
+            let nameLabel = $("label[for='ui-sign-in-name-input']").first()
+            translate(nameLabel);
+            let passwordLabel = $("label[for='ui-sign-in-new-password-input']").first();
+            translate(passwordLabel);
+            $(".firebaseui-form-actions").children("button").each(function() {
+                translate($(this));
+            });
+        }
+    }
+    function setButtonTexts(selector) {
+        var toReplace;
+        if(window.location.hash && window.location.hash === '#login') {
+            toReplace = gettext("Sign up");
+        } else {
+            toReplace = gettext("Sign in");
+        }
+        var replacement = english ? 'Sign in / Sign up' : "S'identifier / S'inscrire";
+        var signIn = $('#sign-in-text');
+        signIn.text(replacement);
+        if (!english) translate(signIn);
+        var firebaseBtns = $('.firebaseui-idp-text-long');
+        firebaseBtns.each(function () {
+            var original = $(this).text();
+            $(this).text(original.replace(toReplace, replacement));
+            if (!english) translate($(this));
+        });
+    }
+    function setSignInWithEmailTitle(selector) {
+        $('.firebaseui-id-secondary-link:contains("Cancel")').on('click', function () {
+            waitUntilElementExists('.firebaseui-idp-text', setButtonTexts);
+            waitUntilElementExists('.firebaseui-title:contains("Sign in with email")', setSignInWithEmailTitle);
+            waitUntilElementExists('.firebaseui-title:contains("Sign in")', setEnterPasswordTexts);
+            waitUntilElementExists('.firebaseui-title:contains("Create account")', setNewAccountTexts);
+        });
+        $('.firebaseui-id-secondary-link:contains("Annuler")').on('click', function () {
+            waitUntilElementExists('.firebaseui-idp-text', setButtonTexts);
+            waitUntilElementExists('.firebaseui-title:contains("Sign in with email")', setSignInWithEmailTitle);
+            waitUntilElementExists('.firebaseui-title:contains("Sign in")', setEnterPasswordTexts);
+            waitUntilElementExists('.firebaseui-title:contains("Create account")', setNewAccountTexts);
+        });
+        if (!english) {
+            $(".firebaseui-button").each(function() {
+                translate($(this));
+            });
+            translate($(selector));
+        }
+        $(document).on("DOMSubtreeModified", ".firebaseui-text-input-error", function() {
+            if (!english) translate($(this));
+        });
+    }
+
+
+    function buildStep(stepNumber, stepElement) {
+        let originalHTML = stepElement.html();
+        stepElement.html(`<span class="step-numbers">${stepNumber}</span>` + originalHTML)
+        stepElement.addClass("steps")
+        return stepElement
+    }
+
+    function customizeReceipting() {
+        const user = firebase.auth().currentUser;
+        $("#firebaseui-auth-container-email-verification-msg").html("");
+        let handle = $(".verify-your-account");
+        // Delete the "Please verify your email to log in" text
+        handle.addClass("email-sent");
+        handle.text(interpolate(gettext("A verification email has been sent to %s."), [user.email]));
+        let container = $("<div>").insertAfter(".verify-your-account");
+        // Add steps. Translation has already happened, so no need for `gettext` here.
+        let title = $("<h3>")
+            .text('{{ render_receipting_message("sign_in_header") }}')
+            .prop("id", "receipting-title")
+        container.append(title);
+        let msg = `{{ render_receipting_message('sign_in_step_1')|safe }}`;
+        if (msg.length > 0) {
+            let step1 = $("<p>").text(msg)
+            container.append(buildStep("1", step1));
+        }
+        msg = `{{ render_receipting_message('sign_in_step_2')|safe }}`
+        if (msg.length > 0) {
+            let step2 = $("<p>").text(msg);
+            container.append(buildStep("2", step2));
+        }
+        msg = `{{ render_receipting_message('sign_in_step_3')|safe }}`
+        if (msg.length > 0) {
+            let step3 = $("<p>").text(`{{ render_receipting_message('sign_in_step_3')|safe }}`)
+            container.append(buildStep("3", step3));
+        }
+    }
+
+    waitUntilElementExists('.firebaseui-idp-text', setButtonTexts);
+    waitUntilElementExists('.firebaseui-title:contains("Sign in with email")', setSignInWithEmailTitle);
+    waitUntilElementExists('.firebaseui-title:contains("Sign in")', setEnterPasswordTexts);
+    waitUntilElementExists('.firebaseui-title:contains("Create account")', setNewAccountTexts);
+
+    // Customize "Email sent" page during receipting
+    waitUntilElementExists('.btn-resend-verification', customizeReceipting);
+});
+</script>
+{% endmacro %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="message-box">
+            <h1 class="text-center mt-0 mb-5">You are already signed in</h1>
+        </div>
+    {% else %}
+        <div class="message-box">
+            <h1 id="sign-in-text" class="text-center mt-0 mb-5">{# Will be populated with JS, don't remove! #}</h1>
+
+            <div id="firebaseui-auth-container" class="text-center">
+                {{ _("Loading...") }}
+            </div>
+            <div id="firebaseui-extra-container" class="text-center"></div>
+        </div>
+
+        <div id="firebase-forgot-password" style="display: none;">
+            <p class="text-center">
+                <a href="{{ url('shuup_firebase_auth:reset-password') }}">
+                    {{ _("Forgot password?") }}
+                </a>
+            </p>
+        </div>
+    {% endif %}
+
+    <div class="text-center">
+        <a href="{{ changed_mind }}" class="btn btn-primary btn-rounded">{{ _("No, take me back to my donation.")}}</a>
+    </div>
+
+    {% placeholder "auth_bottom" %}
+        {% column {"sm": 12} %}
+            {% plugin "snippets" %}
+                body_end = '''
+                    {%- raw -%}{{ render_default_config() }}{%- endraw -%}
+                '''
+            {% endplugin %}
+        {% endcolumn %}
+    {% endplaceholder %}
+{% endblock %}

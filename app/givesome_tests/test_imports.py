@@ -1,0 +1,112 @@
+import pytest
+
+
+@pytest.mark.django_db
+def test_imports():
+    """
+    Increase test coverage quite a bit by simply importing these and catching any easy errors in the process
+    """
+    from givesome import admin_shop_provider  # noqa
+    from givesome import apps  # noqa
+    from givesome import core_shop_provider  # noqa
+    from givesome import enums  # noqa
+    from givesome import givecard_utils  # noqa
+    from givesome import htaccess_middleware  # noqa
+    from givesome import logging  # noqa
+    from givesome import middleware  # noqa
+    from givesome import resources  # noqa
+    from givesome import script_runner  # noqa
+    from givesome import signal_handlers  # noqa
+    from givesome import signals  # noqa
+    from givesome import supplier_provider  # noqa
+    from givesome import theme  # noqa
+    from givesome.admin_module import completion_video  # noqa
+    from givesome.admin_module import modules  # noqa
+    from givesome.admin_module import utils  # noqa
+    from givesome.admin_module.dashboard import blocks  # noqa
+    from givesome.admin_module.dashboard import module  # noqa
+    from givesome.admin_module.dashboard import views  # noqa
+    from givesome.admin_module.form_parts import givecard_batch  # noqa
+    from givesome.admin_module.form_parts import givecard_campaign  # noqa
+    from givesome.admin_module.form_parts import givesome_purse  # noqa
+    from givesome.admin_module.form_parts import office  # noqa
+    from givesome.admin_module.form_parts import product  # noqa
+    from givesome.admin_module.form_parts import supplier_office_term  # noqa
+    from givesome.admin_module.form_parts import sustainability_goal_selection  # noqa
+    from givesome.admin_module.form_parts import vendor_extra  # noqa
+    from givesome.admin_module.forms import givecard_batch  # noqa
+    from givesome.admin_module.forms import givecard_campaign  # noqa
+    from givesome.admin_module.forms import givesome_purse  # noqa
+    from givesome.admin_module.forms import office  # noqa
+    from givesome.admin_module.forms import product  # noqa
+    from givesome.admin_module.forms import service_providers  # noqa
+    from givesome.admin_module.forms import shop_settings  # noqa
+    from givesome.admin_module.forms import vendor_extra  # noqa
+    from givesome.admin_module.reports import automatic_donation_reports  # noqa
+    from givesome.admin_module.reports import campaign_reports  # noqa
+    from givesome.admin_module.reports import forms  # noqa
+    from givesome.admin_module.reports import givecard_reports  # noqa
+    from givesome.admin_module.reports import givesome_purse_reports  # noqa
+    from givesome.admin_module.reports import utils  # noqa
+    from givesome.admin_module.views import givecard  # noqa
+    from givesome.admin_module.views import givecard_batch  # noqa
+    from givesome.admin_module.views import givecard_campaign  # noqa
+    from givesome.admin_module.views import givesome_purse  # noqa
+    from givesome.admin_module.views import office  # noqa
+    from givesome.admin_module.views import primary_project  # noqa
+    from givesome.admin_module.views import products  # noqa
+    from givesome.admin_module.views import progress_management  # noqa
+    from givesome.admin_module.views import project_promote  # noqa
+    from givesome.admin_module.views import sustainability_goal  # noqa
+    from givesome.admin_module.views import vendor  # noqa
+    from givesome.admin_module.views import vendor_information  # noqa
+    from givesome.front import checkout  # noqa
+    from givesome.front import product_list_modifiers  # noqa
+    from givesome.front import providers  # noqa
+    from givesome.front import urls  # noqa
+    from givesome.front import utils  # noqa
+    from givesome.front.forms import off_platform  # noqa
+    from givesome.front.forms import sustainability_goals_filter  # noqa
+    from givesome.front.forms import vendor_registration  # noqa
+    from givesome.front.views import checkout  # noqa
+    from givesome.front.views import givecard_redeem  # noqa
+    from givesome.front.views import givecard_wallet  # noqa
+    from givesome.front.views import homepage  # noqa
+    from givesome.front.views import office  # noqa
+    from givesome.front.views import post_registration  # noqa
+    from givesome.front.views import product  # noqa
+    from givesome.front.views import profile  # noqa
+    from givesome.front.views import supplier  # noqa
+    from givesome.front.views import timezone  # noqa
+    from givesome.front.views import vendor_information  # noqa
+    from givesome.front.views import vendor_registration  # noqa
+    from givesome.management.commands import handle_expired_givecards  # noqa
+    from givesome.management.commands import import_project_orders  # noqa
+    from givesome.management.commands import init_project  # noqa
+    from givesome.management.commands import load_config  # noqa
+    from givesome.management.commands import migrate_givesome_data  # noqa
+    from givesome.management.commands import migrate_martinrea_givecards  # noqa
+    from givesome.management.commands import missed_givecard_importer  # noqa
+    from givesome.management.commands import missed_order_importer  # noqa
+    from givesome.management.commands import save_config  # noqa
+    from givesome.models import completion_video  # noqa
+    from givesome.models import givecard  # noqa
+    from givesome.models import givecard_batch  # noqa
+    from givesome.models import givecard_campaign  # noqa
+    from givesome.models import givecard_payment  # noqa
+    from givesome.models import givesome_purse  # noqa
+    from givesome.models import off_platform  # noqa
+    from givesome.models import office  # noqa
+    from givesome.models import project_extra  # noqa
+    from givesome.models import project_promote  # noqa
+    from givesome.models import reports  # noqa
+    from givesome.models import sustainability_goal  # noqa
+    from givesome.models import vendor_extra  # noqa
+    from givesome.models import vendor_information  # noqa
+    from givesome.plugins import homepage_vendors  # noqa
+    from givesome.plugins import product_selection  # noqa
+    from givesome.plugins import vendor_information  # noqa
+    from givesome.templatetags import givesome  # noqa
+    from givesome_admin import apps  # noqa
+
+    assert True

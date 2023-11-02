@@ -1,0 +1,144 @@
+{% extends "shuup/front/base.jinja" %}
+
+{% block title %}{% trans %}Home{% endtrans %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block extra_main_class %}index{% endblock %}
+{% block bodyclass %}homepage{% endblock %}
+
+{% block container_start %}{% endblock %}
+{% block container_end %}{% endblock %}
+
+{% block banner %}
+    <div class="homepage-banners" style="background-image: url('//source.unsplash.com/0EVKn3-5JSU/1600x600')">
+        <div class="container">
+            {% placeholder "homepage_banner" %}
+                {% row %}
+                    {% column {"sm": 12} %}
+                        {% plugin "text" %}
+                            text = "<h1>Welcome to Givesome!</h1><p class='lead'>Give a little. <u>See</u> the good.</p>"
+                        {% endplugin %}
+                    {% endcolumn %}
+                {% endrow %}
+            {% endplaceholder %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section class="homepage-section overflow-section">
+        <div class="container">
+            {% placeholder "homepage_1" %}
+                {% row %}
+                    {% column {"sm": 12} %}
+                        {% plugin "givesome_product_selection_order_specific" %}
+                            title = "Featured Projects"
+                        {% endplugin %}
+                    {% endcolumn %}
+                {% endrow %}
+            {% endplaceholder %}
+            <hr>
+        </div>
+    </section>
+
+    <section class="homepage-section browse-section overflow-section">
+        <div class="container">
+            <div class="flex-row pt-2 pb-2">
+                <div class="text-column" style="margin-top: 0;">
+                    {% placeholder "homepage_partners_text" %}
+                        {% row %}
+                            {% column {"sm": 12} %}
+                                {% plugin "text" %}
+                                    text = "<h2>Browse Projects by Company</h2><p>Check out the projects these companies are supporting.</p>"
+                                {% endplugin %}
+                            {% endcolumn %}
+                        {% endrow %}
+                    {% endplaceholder %}
+                    <a href="{{ url("branded_vendor_list") }}" class="btn btn-rounded btn-primary hidden-xs hidden-sm btn-style">
+                        {{ _("See All") }}
+                    </a>
+                </div>
+                <div class="logos-column">
+                    {% placeholder "homepage_partners" %}
+                        {% row %}
+                            {% column {"sm": 12} %}
+                                {% plugin "homepage_vendors" %}
+                                    count = 12
+                                    type = 2
+                                {% endplugin %}
+                            {% endcolumn %}
+                        {% endrow %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <a href="{{ url("branded_vendor_list") }}" class="btn btn-rounded btn-primary btn-block visible-xs visible-sm">
+                {{ _("See All") }}
+            </a>
+            <hr>
+        </div>
+    </section>
+
+    <section class="homepage-section browse-section overflow-section">
+        <div class="container">
+            <div class="flex-row pt-2 pb-2">
+                <div class="text-column" style="margin-top: 0;">
+                    {% placeholder "homepage_charities_text" %}
+                        {% row %}
+                            {% column {"sm": 12} %}
+                                {% plugin "text" %}
+                                    text = "<h2>Browse Projects by Charity</h2><p>Check out what these charities are currently featuring.</p>"
+                                {% endplugin %}
+                            {% endcolumn %}
+                        {% endrow %}
+                    {% endplaceholder %}
+                    <a href="{{ url("supplier_list") }}" class="btn btn-rounded btn-primary hidden-xs hidden-sm btn-style">
+                        {{ _("See All") }}
+                    </a>
+                </div>
+                <div class="logos-column">
+                    {% placeholder "homepage_charities" %}
+                        {% row %}
+                            {% column {"sm": 12} %}
+                                {% plugin "homepage_vendors" %}
+                                    count = 12
+                                    type = 1
+                                {% endplugin %}
+                            {% endcolumn %}
+                        {% endrow %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <a href="{{ url("supplier_list") }}" class="btn btn-rounded btn-primary btn-block visible-xs visible-sm">
+                {{ _("See All") }}
+            </a>
+            <hr>
+        </div>
+    </section>
+
+    <section class="homepage-section video-carousel-section overflow-section givesome-carousel">
+        <div class="container">
+            <div class="carousel-text">
+                {% placeholder "homepage_featured_text" %}
+                    {% row %}
+                        {% column {"sm": 12} %}
+                            {% plugin "text" %}
+                                text = "<h2 style='margin-bottom:20px'>Featured Stories</h2><p style='margin-bottom:20px'>See what happened when these projects were funded.</p>"
+                            {% endplugin %}
+                        {% endcolumn %}
+                    {% endrow %}
+                    {% row %}
+                        {% column {"sm": 12} %}
+                            {% plugin "givesome_video_selection_order_specific" %}
+                            {% endplugin %}
+                        {% endcolumn %}
+                    {% endrow %}
+                {% endplaceholder %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block supported_by %}
+    {{ givesome_macros.render_supported_by_static(text=_("Supported by"), image_name="martinrea") }}
+{% endblock %}

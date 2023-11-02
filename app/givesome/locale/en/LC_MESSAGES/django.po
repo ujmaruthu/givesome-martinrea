@@ -1,0 +1,1860 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-12 23:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Copy/paste the video URL from YouTube."
+msgstr ""
+
+msgid "Cards Redeemed"
+msgstr ""
+
+msgid "Total Donated"
+msgstr ""
+
+msgid "Projects Funded"
+msgstr ""
+
+msgid "Lives Impacted"
+msgstr ""
+
+msgid "By Campaign"
+msgstr ""
+
+msgid "Givesome Vendor Dashboard"
+msgstr ""
+
+msgid "Vendors"
+msgstr ""
+
+msgid "All time"
+msgstr ""
+
+msgid "New customers"
+msgstr ""
+
+#, python-format
+msgid "past %(number_of_hours)s hours"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "Batches"
+msgstr ""
+
+msgid "Branded Vendor Restriction"
+msgstr ""
+
+msgid "Office Restriction"
+msgstr ""
+
+msgid "Quantity"
+msgstr ""
+
+msgid "Value ($)"
+msgstr ""
+
+msgid "Campaign Name"
+msgstr ""
+
+msgid "Onboarding message"
+msgstr ""
+
+msgid "Branded Vendor"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "Manual donation amount"
+msgstr ""
+
+msgid "Amount to donate from Givesome Purse"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Charity"
+msgstr ""
+
+msgid ""
+"The owner of this project. Changing the charity afterwards is not possible."
+msgstr ""
+
+msgid "Please select a charity with which to associate this new project."
+msgstr ""
+
+msgid "A pre-determined amount a user may choose to donate."
+msgstr ""
+
+msgid "Givesome Settings"
+msgstr ""
+
+msgid "Allow partner vendors to select invisible projects"
+msgstr ""
+
+msgid ""
+"Should Branded Vendors be able to pick a project, that is still invisible "
+"for customers, to be promotedon their brand page? It will be visible only "
+"after the charity changes it's visibility settings."
+msgstr ""
+
+msgid "Days to display a project after being fully funded"
+msgstr ""
+
+msgid "Days to display a project on the vendor pages after being fully funded."
+msgstr ""
+
+msgid ""
+"Indicates the type of vendor. WARNING! Changing this for existing vendors "
+"might lead to unexpected consequences."
+msgstr ""
+
+msgid "Allow brand page"
+msgstr ""
+
+msgid "Indicates whether this vendor is approved for a branded page."
+msgstr ""
+
+msgid "Hex code for your organization's main colour."
+msgstr ""
+
+msgid ""
+"This code will tell the browser how to render your organization's colour on "
+"your brand page. A hex code is a hash symbol followed by six characters, "
+"which can be numbers 0-9 or the letters A-F."
+msgstr ""
+
+msgid "Office Term"
+msgstr ""
+
+msgid ""
+"This is the term that will be shown to users for your offices/chapters/"
+"locations ie. a sub-organization under your main organization"
+msgstr ""
+
+msgid "External website URL"
+msgstr ""
+
+msgid "Enter the URL of the vendor's website"
+msgstr ""
+
+msgid "Ordering"
+msgstr ""
+
+msgid ""
+"This value is used for the ordering of vendors in lists. Higher ordering "
+"will be shown first"
+msgstr ""
+
+msgid "Sponsored by"
+msgstr ""
+
+msgid ""
+"This vendor will be visible as this charity's sponsor on their brand page"
+msgstr ""
+
+msgid "Office Project Promotion"
+msgstr ""
+
+msgid "Vendor Project Promotion"
+msgstr ""
+
+msgid "Givesome Offices"
+msgstr ""
+
+msgid "Sustainability Goal"
+msgstr ""
+
+msgid "Givecard Campaigns"
+msgstr ""
+
+msgid "Givecard Batches"
+msgstr ""
+
+msgid "Givesome Purse"
+msgstr ""
+
+msgid "Featured Projects"
+msgstr ""
+
+msgid "All Automatic Donations Donations Report"
+msgstr ""
+
+msgid "Project"
+msgstr ""
+
+msgid "Campaign"
+msgstr ""
+
+msgid "Donation Type"
+msgstr ""
+
+msgid "Donor"
+msgstr ""
+
+msgid "Amount"
+msgstr ""
+
+msgid "Donation Date"
+msgstr ""
+
+msgid "Givesome Campaign Summary Report"
+msgstr ""
+
+msgid "Brand"
+msgstr ""
+
+msgid "Cards redeemed"
+msgstr ""
+
+msgid "Donations made"
+msgstr ""
+
+msgid "Total donated"
+msgstr ""
+
+msgid "Projects"
+msgstr ""
+
+msgid "Lives impacted"
+msgstr ""
+
+msgid "Continued Givers"
+msgstr ""
+
+msgid "Brand Vendor"
+msgstr ""
+
+msgid "Filter results by brand vendor"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Filter results by Office"
+msgstr ""
+
+msgid "Filter results by charity"
+msgstr ""
+
+msgid "Givecard Campaign"
+msgstr ""
+
+msgid "Filter results by Givecard Campaign"
+msgstr ""
+
+msgid "Givecard Donation Report"
+msgstr ""
+
+msgid "Givecard"
+msgstr ""
+
+msgid "Order Date"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Givecard Redemption Report"
+msgstr ""
+
+msgid "Redeemed Date"
+msgstr ""
+
+msgid "Givesome Purse Charge Report"
+msgstr ""
+
+msgid "Batch"
+msgstr ""
+
+msgid "Charge Date"
+msgstr ""
+
+msgid "Givesome Purse Donations Report"
+msgstr ""
+
+msgid "Donation date"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "PIN"
+msgstr ""
+
+msgid "Redeemed on"
+msgstr ""
+
+msgid "Redeemed"
+msgstr ""
+
+msgid "Not Redeemed"
+msgstr ""
+
+msgid "Balance"
+msgstr ""
+
+msgid "Automatically donated"
+msgstr ""
+
+msgid "New Givecard Batch"
+msgstr ""
+
+msgid "View Generated Givecards"
+msgstr ""
+
+msgid "Download generated Givecards as a CSV file"
+msgstr ""
+
+msgid ""
+"Once the batch balance has been handled off-platform, nullify the balance "
+"here."
+msgstr ""
+
+#, python-format
+msgid "Have you handled the funds for %s?"
+msgstr ""
+
+msgid "Generate Givecards"
+msgstr ""
+
+msgid "New Multicard Batch"
+msgstr ""
+
+msgid "Vendor"
+msgstr ""
+
+msgid "Multicard"
+msgstr ""
+
+msgid "Unique Givecard"
+msgstr ""
+
+msgid "Restriction"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Used %"
+msgstr ""
+
+msgid "Generated on"
+msgstr ""
+
+msgid "Redeem start"
+msgstr ""
+
+msgid "Expires"
+msgstr ""
+
+msgid "Expiry type"
+msgstr ""
+
+msgid "Givecard Batch has been deleted."
+msgstr ""
+
+#, python-format
+msgid "A problem occurred: %s"
+msgstr ""
+
+msgid "Givecard Batch has been nullified."
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Created on"
+msgstr ""
+
+msgid "Givecard Campaign has been deleted."
+msgstr ""
+
+msgid "Manage office promoted projects"
+msgstr ""
+
+msgid "Office has been deleted."
+msgstr ""
+
+msgid "Primary Image"
+msgstr ""
+
+msgid "Filter by name..."
+msgstr ""
+
+msgid "Short Description"
+msgstr ""
+
+msgid "Filter by charity..."
+msgstr ""
+
+msgid "Filter by location name..."
+msgstr ""
+
+msgid "Goal Progress"
+msgstr ""
+
+msgid "Set as Primary"
+msgstr ""
+
+msgid "Set as primary project"
+msgstr ""
+
+msgid "Remove as primary project"
+msgstr ""
+
+msgid "Complete"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
+
+msgid "SKU"
+msgstr ""
+
+msgid "Mode"
+msgstr ""
+
+msgid "Filter by category name..."
+msgstr ""
+
+msgid "Quantity to add"
+msgstr ""
+
+msgid "Please enter a non-zero amount."
+msgstr ""
+
+#, python-format
+msgid ""
+"Success! Added $ %(delta)s towards %(project_name)s by %(charity_name)s."
+msgstr ""
+
+msgid "Promote"
+msgstr ""
+
+msgid "Select Office"
+msgstr ""
+
+msgid "Start promoting this product"
+msgstr ""
+
+msgid "Stop promoting this product"
+msgstr ""
+
+msgid "Manage vendor promoted projects"
+msgstr ""
+
+msgid "Select Vendor"
+msgstr ""
+
+msgid "Identifier"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "SDG has been marked deleted."
+msgstr ""
+
+msgid "Slug must be provided for vendors."
+msgstr ""
+
+msgid "Slug is too short."
+msgstr ""
+
+msgid "Slug is already in use by another vendor."
+msgstr ""
+
+msgid "Page Title"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Vendor Information has been deleted."
+msgstr ""
+
+msgid "You must have the Access to Admin Panel permission."
+msgstr ""
+
+msgid "You must have the Access to Admin Panel permissions to this shop."
+msgstr ""
+
+msgid "charity"
+msgstr ""
+
+msgid "branded vendor"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "One-Time"
+msgstr ""
+
+msgid "Subscription"
+msgstr ""
+
+msgid "Purse Manual"
+msgstr ""
+
+msgid "Purse Automatic"
+msgstr ""
+
+msgid "Office Primary Project"
+msgstr ""
+
+msgid "Brand Primary Project"
+msgstr ""
+
+msgid "Office Promoted Project"
+msgstr ""
+
+msgid "Brand Promoted Project"
+msgstr ""
+
+msgid "Other Amount"
+msgstr ""
+
+msgid "Order doesn't seem to have a project selected."
+msgstr ""
+
+msgid ""
+"Please configure the Stripe Multivendor Payment Processor to enable "
+"donations by credit card."
+msgstr ""
+
+msgid "Payment for Givesome donation # {} (to {})"
+msgstr ""
+
+msgid ""
+"Please configure the Givecard Payment Processor to enable donations by "
+"Givecard."
+msgstr ""
+
+msgid ""
+"Not enough Givecard funds. Some of your Givecard funds may have been already "
+"used by another user. All invalid Givecards have been cleared from your "
+"wallet. Please refresh this page."
+msgstr ""
+
+msgid ""
+"You have enough Givecard funds, but these funds can only be used on a "
+"specific brand page."
+msgstr ""
+
+msgid "Not enough Givecard funds."
+msgstr ""
+
+msgid "This project has reached its funding goal!"
+msgstr ""
+
+msgid "Check back later to make a donation!"
+msgstr ""
+
+msgid "Filter projects by Sustainable Development Goal"
+msgstr ""
+
+msgid "Ordering for projects by Sustainable Development Goal"
+msgstr ""
+
+msgid "Sustainable Development Goals"
+msgstr ""
+
+msgid ""
+"Enable this to allow projects to be filterable by Sustainable Development "
+"Goals "
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the Sustainability Goal list "
+"filters will appear on the product listing page."
+msgstr ""
+
+msgid "Please supply the website address for your organization."
+msgstr ""
+
+msgid "Website"
+msgstr ""
+
+msgid "The website address for the organization."
+msgstr ""
+
+msgid "Error getting donation amount."
+msgstr ""
+
+msgid "Please enter an integer amount."
+msgstr ""
+
+msgid "Do not enter a dollar sign."
+msgstr ""
+
+msgid "Do not enter decimals."
+msgstr ""
+
+msgid "You need to enter a number."
+msgstr ""
+
+msgid "Please enter a donation amount."
+msgstr ""
+
+msgid "Error getting Givecard PIN!"
+msgstr ""
+
+msgid "You have already redeemed this PIN"
+msgstr ""
+
+msgid "This PIN is not recognized or has expired"
+msgstr ""
+
+msgid "Error redeeming Givecard!"
+msgstr ""
+
+msgid "Restricted Access"
+msgstr ""
+
+msgid "Authorization Required"
+msgstr ""
+
+#, python-brace-format
+msgid "Migrated Payment for Donation # {order.id}"
+msgstr ""
+
+msgid "Paste a link to a YouTube video."
+msgstr ""
+
+msgid "givecard batch"
+msgstr ""
+
+msgid "Related Givecard Campaign."
+msgstr ""
+
+msgid "User that has redeemed this givecard."
+msgstr ""
+
+msgid "Used for givecard redemption."
+msgstr ""
+
+msgid "value"
+msgstr ""
+
+msgid "Balance ($) left on this givecard"
+msgstr ""
+
+msgid "redeemed on"
+msgstr ""
+
+msgid "automatically donated amount"
+msgstr ""
+
+msgid "Balance ($) from this givecard that was donated automatically"
+msgstr ""
+
+msgid "A Multicard with given code already exists."
+msgstr ""
+
+msgid "A Givecard with given code already exists."
+msgstr ""
+
+msgid "PIN format is invalid."
+msgstr ""
+
+msgid "This PIN has already been used."
+msgstr ""
+
+msgid "Givecard has no balance left."
+msgstr ""
+
+msgid "Givecard does not have a campaign set."
+msgstr ""
+
+msgid "This PIN has already been used!"
+msgstr ""
+
+msgid "Givecard has already expired."
+msgstr ""
+
+msgid "Givecard redemption has already ended."
+msgstr ""
+
+msgid "Givecard redemption has not started yet."
+msgstr ""
+
+msgid "Supplier brand page is disabled."
+msgstr ""
+
+msgid "Givecard is not redeemable."
+msgstr ""
+
+msgid "created on"
+msgstr ""
+
+msgid "generated on"
+msgstr ""
+
+msgid "givecard campaign"
+msgstr ""
+
+msgid ""
+"Related Givecard Campaign. This is required to enable Givecard redemption."
+msgstr ""
+
+msgid "Donation restriction type"
+msgstr ""
+
+msgid ""
+"Defines how Givecards are allowed to be donated. Office - Givecards can only "
+"be used on this Office's branded page. Supplier - Givecards can only be used "
+"on vendor's and it's office's branded pages. Disabled - No donation "
+"restrictions."
+msgstr ""
+
+msgid ""
+"When user redeems a Givecard they will be redirected to this vendor's "
+"branded page. Givecards may also be restricted to this vendor depending on "
+"set 'Donation restriction type'"
+msgstr ""
+
+msgid "office"
+msgstr ""
+
+msgid ""
+"When user redeems a Givecard they will be redirected to this office's "
+"branded page. Givecards may also be restricted to this office depending on "
+"set 'Donation restriction type'"
+msgstr ""
+
+msgid "Redemption start date"
+msgstr ""
+
+msgid ""
+"The date and time the Givecard redemption starts. Givecards are not "
+"redeemable before this time."
+msgstr ""
+
+msgid "Redemption end date"
+msgstr ""
+
+msgid ""
+"The date and time the Givecard redemption ends. Givecards are not redeemable "
+"after this time."
+msgstr ""
+
+msgid "Expiration date"
+msgstr ""
+
+msgid ""
+"The date and time on which the Givecard expires. After this it is no longer "
+"able to be used, and it will be hidden in donor wallets."
+msgstr ""
+
+msgid "Expiration type"
+msgstr ""
+
+msgid ""
+"Action taken when Givecard Batch expires. Automatic - Funds are "
+"automatically reallocated to active projects through a preset process. "
+"Manual - Funds are redirected to Givesome Purse to be manually reallocated "
+"to projects. Disabled - Funds are not reallocated to projects, but managed "
+"outside Shuup. "
+msgstr ""
+
+msgid "quantity"
+msgstr ""
+
+msgid "Quantity of Givecards to generate in this batch."
+msgstr ""
+
+msgid "Value ($) on all the Givecards generated in this batch."
+msgstr ""
+
+msgid ""
+"Used for givecard redemption. Required for Multicards. This code will be the "
+"same for all Multicards in this batch."
+msgstr ""
+
+msgid "givecard batches"
+msgstr ""
+
+msgid "Redemption start date can not be after end date."
+msgstr ""
+
+msgid "Redemption start date can not be after expiration date."
+msgstr ""
+
+msgid "Redemption end date can not be after expiration date."
+msgstr ""
+
+msgid "Supplier is required if office is set."
+msgstr ""
+
+msgid "Office needs to belong selected supplier."
+msgstr ""
+
+msgid "Givecards already generated."
+msgstr ""
+
+msgid "Givecard Batch does not have a campaign set."
+msgstr ""
+
+msgid "Givecard Batch redemption has not started yet."
+msgstr ""
+
+msgid "Givecard Batch redemption has already ended."
+msgstr ""
+
+msgid "Givecard Batch has expired."
+msgstr ""
+
+msgid "Multicard does not have any valid Givecards"
+msgstr ""
+
+msgid "Unable to redeem non-Multicard batches."
+msgstr ""
+
+msgid "Multicard is not redeemable."
+msgstr ""
+
+msgid "Batch is not expired yet."
+msgstr ""
+
+msgid "Batch does not have expiry type of Manual."
+msgstr ""
+
+msgid "Batch has no balance left to nullify."
+msgstr ""
+
+msgid ""
+"This Givecard Campaign and all givecards related to it will be available for "
+"selected vendor to be queried in reports."
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid ""
+"Add a message to be shown to donors when they redeem a Givecard belonging to "
+"this campaign."
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid ""
+"Add an image to be shown to donors when they redeem a Givecard belonging to "
+"this campaign."
+msgstr ""
+
+msgid "givecard campaigns"
+msgstr ""
+
+msgid "Givecard Campaign identifier is required"
+msgstr ""
+
+msgid "Givecard processor"
+msgstr ""
+
+msgid "Givecard processors"
+msgstr ""
+
+msgid "Givecard checkout"
+msgstr ""
+
+msgid "shop"
+msgstr ""
+
+msgid "balance"
+msgstr ""
+
+msgid "Balance ($) left in the Givesome Purse"
+msgstr ""
+
+msgid "givesome purse"
+msgstr ""
+
+msgid "givesome purses"
+msgstr ""
+
+msgid "weight"
+msgstr ""
+
+msgid "givesome purse allocation"
+msgstr ""
+
+msgid "givesome purse allocations"
+msgstr ""
+
+msgid "How many hours did you volunteer?"
+msgstr ""
+
+msgid "When did you volunteer?"
+msgstr ""
+
+msgid "Who did you help?"
+msgstr ""
+
+msgid "Where did you volunteer?"
+msgstr ""
+
+msgid "How much did you donate?"
+msgstr ""
+
+msgid "When did you donate?"
+msgstr ""
+
+msgid "Where did you give to?"
+msgstr ""
+
+msgid "name"
+msgstr ""
+
+msgid "ordering"
+msgstr ""
+
+msgid "Primary project"
+msgstr ""
+
+msgid ""
+"Selected project will be prioritized when automatically reallocating "
+"expiring Givecard funds."
+msgstr ""
+
+msgid "Fully funded date"
+msgstr ""
+
+msgid "The date at which the project reached its funding goal."
+msgstr ""
+
+msgid "The total number of projected lives to be impacted."
+msgstr ""
+
+msgid ""
+"Feature this project's video on the home page. Projects must have a video."
+msgstr ""
+
+msgid "Feature this project on the homepage \"Featured Projects\" carousel."
+msgstr ""
+
+msgid "Payment"
+msgstr ""
+
+msgid "Promoting Brand"
+msgstr ""
+
+msgid "Promoting Office"
+msgstr ""
+
+msgid "Purchase Report Data"
+msgstr ""
+
+msgid "Givesome Purse Charge"
+msgstr ""
+
+msgid "Charge date"
+msgstr ""
+
+msgid "Charge amount"
+msgstr ""
+
+msgid "Amount of balance transferred from the Givecard Batch to Givesome Purse"
+msgstr ""
+
+msgid "Supplier"
+msgstr ""
+
+msgid "Givecard Batch"
+msgstr ""
+
+msgid "You can choose up to three Sustainable Development Goals (SDGs)."
+msgstr ""
+
+msgid "description"
+msgstr ""
+
+msgid "Describe the SDG to your potential donors."
+msgstr ""
+
+msgid "Supply an image to illustrate the SDG to your potential donors."
+msgstr ""
+
+msgid "vendors"
+msgstr ""
+
+msgid "projects"
+msgstr ""
+
+msgid "offices"
+msgstr ""
+
+msgid "vendor type"
+msgstr ""
+
+msgid ""
+"Charities may sign up as charities in order to create charity projects. They "
+"may pay to upgrade to Branded Vendor status if they wish, which will enable "
+"them to feature their projects on their Branded Vendor Page."
+msgstr ""
+
+msgid "The vendor described by this extra information."
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Enter the URL of the vendor's website."
+msgstr ""
+
+msgid "Hex colour code"
+msgstr ""
+
+msgid "Enter the hex code of the organization's main colour."
+msgstr ""
+
+msgid "Office term"
+msgstr ""
+
+msgid "Enter a term you want to use for your offices/chapters/locations."
+msgstr ""
+
+msgid "Vendor and Charity Information"
+msgstr ""
+
+msgid "Describe any information that vendors and charities should know."
+msgstr ""
+
+msgid "Homepage Vendors"
+msgstr ""
+
+msgid "Type of vendor to show"
+msgstr ""
+
+msgid "Count"
+msgstr ""
+
+msgid "Givesome Featured Product Highlights"
+msgstr ""
+
+msgid "Vendor Information"
+msgstr ""
+
+msgid "Project fully funded, Charity"
+msgstr ""
+
+msgid "Givesome Email"
+msgstr ""
+
+msgid "Charity Email"
+msgstr ""
+
+msgid "Goal Amount"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Donated"
+msgstr ""
+
+msgid "Lives"
+msgstr ""
+
+msgid "General Information"
+msgstr ""
+
+msgid "Summary information about selected Givecard Batch."
+msgstr ""
+
+msgid "Only donations made by users are counted"
+msgstr ""
+
+msgid ""
+"Summary of all the Givecard Batches that belong to this Givecard Campaign."
+msgstr ""
+
+msgid "Batch ID"
+msgstr ""
+
+msgid "No Givecard Batches found"
+msgstr ""
+
+msgid ""
+"If the projects funded and lives impacted totals are less than the sum of "
+"all campaigns it is because projects may have been duplicated in multiple "
+"campaigns"
+msgstr ""
+
+msgid "New Givecard Campaign"
+msgstr ""
+
+msgid "Automatic Donation"
+msgstr ""
+
+msgid "Manual Donation"
+msgstr ""
+
+msgid "Givesome Purse contains"
+msgstr ""
+
+msgid ""
+"Here you can manually donate funds from the Givesome Purse to the selected "
+"project."
+msgstr ""
+
+msgid "Project Goal"
+msgstr ""
+
+msgid "New Office"
+msgstr ""
+
+msgid "SDGs"
+msgstr ""
+
+msgid "Completion Videos"
+msgstr ""
+
+msgid ""
+"Provide a YouTube link to the project's completion video (E.g. https://www."
+"youtube.com/watch?v=123456789ab)."
+msgstr ""
+
+msgid "Preview (most recent video)"
+msgstr ""
+
+msgid "Add another link"
+msgstr ""
+
+msgid "Sustainability Goals"
+msgstr ""
+
+msgid ""
+"Choose up to three Sustainable Development Goals to associate with the "
+"project."
+msgstr ""
+
+msgid "This theme has no guide."
+msgstr ""
+
+msgid "AAA-AAA"
+msgstr ""
+
+msgid "Redeem"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "PIN Redeemed!"
+msgstr ""
+
+msgid "has given you"
+msgstr ""
+
+msgid "It has been added to your Givecard balance."
+msgstr ""
+
+msgid "Create an account here"
+msgstr ""
+
+msgid ""
+"to track your personal impact, receive project completion videos and save "
+"your Givecard PIN balance. Any unused balance way otherwise be lost!"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Can only be used on"
+msgstr ""
+
+msgid "promoted projects"
+msgstr ""
+
+msgid "Can be used on any Givesome project"
+msgstr ""
+
+msgid "Give Now"
+msgstr ""
+
+msgid "Redeem PIN"
+msgstr ""
+
+msgid "Pay "
+msgstr ""
+
+msgid "with "
+msgstr ""
+
+msgid "Add Credit Card"
+msgstr ""
+
+msgid "Donate"
+msgstr ""
+
+msgid "Mobile menu"
+msgstr ""
+
+msgid "Language select"
+msgstr ""
+
+msgid "User menu"
+msgstr ""
+
+msgid "Hello"
+msgstr ""
+
+msgid "Admin Panel"
+msgstr ""
+
+msgid "My Portfolio"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Sign Up"
+msgstr ""
+
+msgid "Why create an account?"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Browse"
+msgstr ""
+
+msgid "Main menu"
+msgstr ""
+
+msgid "Homepage"
+msgstr ""
+
+msgid "Companies"
+msgstr ""
+
+msgid "Charities"
+msgstr ""
+
+msgid "About Us"
+msgstr ""
+
+msgid "Address Book"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Default Addresses"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Default Billing Address"
+msgstr ""
+
+msgid "No Default Billing Address set."
+msgstr ""
+
+msgid "Additional Addresses"
+msgstr ""
+
+msgid "Create new"
+msgstr ""
+
+msgid "Role"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "You don't have any additional addresses"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Skip to main content"
+msgstr ""
+
+msgid "Scroll to top"
+msgstr ""
+
+msgid "See All"
+msgstr ""
+
+msgid "Supported by"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+#, python-format
+msgid "Items %(start_index)d to %(end_index)d of %(count)d total"
+msgstr ""
+
+msgid "Change visibility limit to"
+msgstr ""
+
+msgid "show only visible products and categories"
+msgstr ""
+
+msgid "show all products and categories"
+msgstr ""
+
+msgid "Change customer to person contact mode"
+msgstr ""
+
+msgid "Change customer to company contact mode"
+msgstr ""
+
+msgid "Change customer mode to guest"
+msgstr ""
+
+msgid "Tools"
+msgstr ""
+
+msgid "Maintenance"
+msgstr ""
+
+msgid "Live"
+msgstr ""
+
+msgid "Customer mode"
+msgstr ""
+
+msgid "GUEST"
+msgstr ""
+
+msgid "COMPANY CONTACT"
+msgstr ""
+
+msgid "PERSON CONTACT"
+msgstr ""
+
+msgid "Toggle navigation"
+msgstr ""
+
+#, python-brace-format
+msgid "Edit '{object_title}' in administration page"
+msgstr ""
+
+#, python-brace-format
+msgid "Edit {object_name} in Admin"
+msgstr ""
+
+msgid "Shop Administration"
+msgstr ""
+
+msgid "Error!"
+msgstr ""
+
+msgid ""
+"There were errors on submitted form fields. Please check them and try again."
+msgstr ""
+
+#, python-format
+msgid "By <strong>%(supplier_name)s</strong>"
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"Available until: <span class=\"availability-date\">{date}</span></small>"
+msgstr ""
+
+msgid "UN SDG's We Focus On"
+msgstr ""
+
+msgid "Partners"
+msgstr ""
+
+msgid "Show more"
+msgstr ""
+
+msgid "Show less"
+msgstr ""
+
+msgid "Register as a Company"
+msgstr ""
+
+msgid "Register as a Charity"
+msgstr ""
+
+msgid "Fully Funded"
+msgstr ""
+
+msgid "Coming Soon"
+msgstr ""
+
+msgid "Read More"
+msgstr ""
+
+#, python-format
+msgid "You impacted %(lives_impacted)s lives"
+msgstr ""
+
+msgid "Thank you for your order!"
+msgstr ""
+
+msgid ""
+"Your order has been received. You can see the details of your order below."
+msgstr ""
+
+msgid "User account activation"
+msgstr ""
+
+msgid ""
+"If you want to be able to see your order history, please create a password "
+"for your account: "
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Order #{} ({})"
+msgstr ""
+
+msgid "No product description available"
+msgstr ""
+
+msgid "Fund $2, $5, $10, Other"
+msgstr ""
+
+msgid "Support "
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "Other Projects Promoted by "
+msgstr ""
+
+msgid "Browse other projects promoted by "
+msgstr ""
+
+msgid "Other Projects"
+msgstr ""
+
+msgid "Browse other by "
+msgstr ""
+
+msgid "Donate with PIN"
+msgstr ""
+
+msgid "Donate with Credit Card"
+msgstr ""
+
+msgid "Thank you for your "
+msgstr ""
+
+msgid " contribution!"
+msgstr ""
+
+msgid "You have impacted "
+msgstr ""
+
+msgid " lives!"
+msgstr ""
+
+msgid "Share with your friends"
+msgstr ""
+
+msgid "I just contributed to "
+msgstr ""
+
+msgid " by "
+msgstr ""
+
+msgid ""
+"Create an account to track your personal impact and receive project "
+"completion videos."
+msgstr ""
+
+msgid "Create an Account"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "Edit Profile"
+msgstr ""
+
+msgid "Take a look at the difference you've made so far!"
+msgstr ""
+
+msgid "Funded Projects"
+msgstr ""
+
+msgid "Completed Projects"
+msgstr ""
+
+msgid ""
+"Watch videos of completed projects to see the impact you've helped to "
+"achieve."
+msgstr ""
+
+msgid "Ongoing Projects"
+msgstr ""
+
+msgid "Projects you have donated to that are not yet finalized."
+msgstr ""
+
+msgid "Off-Platform Tracker"
+msgstr ""
+
+msgid "Personal Volunteer Hours"
+msgstr ""
+
+msgid "Keep track of your volunteer hours."
+msgstr ""
+
+msgid "volunteer hours"
+msgstr ""
+
+msgid "Off-Platform Donations"
+msgstr ""
+
+msgid "Keep track of your other donations."
+msgstr ""
+
+msgid "new donation"
+msgstr ""
+
+msgid "Powered by"
+msgstr ""
+
+msgid "Hours"
+msgstr ""
+
+#, python-format
+msgid "Browse Projects by %(term)s"
+msgstr ""
+
+msgid "Browse Projects by Office"
+msgstr ""
+
+msgid "Our Projects"
+msgstr ""
+
+msgid "Charitable Projects"
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "Add to Progress"
+msgstr ""
+
+msgid "Progress"
+msgstr ""
+
+msgid "Percentage Complete"
+msgstr ""
+
+msgid "Goal"
+msgstr ""
+
+msgid "No goal information available."
+msgstr ""
+
+msgid "Log in"
+msgstr "Sign in"
+
+msgid "Login"
+msgstr "Sign in"
+
+msgid "Log in again"
+msgstr "Sign in again"
+
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Your password has been set. You may go ahead and sign in now."
+
+msgid "Login with Facebook"
+msgstr "Sign in with Facebook"
+
+msgid "Login with Google"
+msgstr "Sign in with Google"
+
+msgid "Login with Apple"
+msgstr "Sign in with Apple"
+
+msgid "Log in to the administration interface"
+msgstr "Sign in to the administration interface"
+
+#, python-format
+msgid "%(vendor_information)s"
+msgstr ""
+
+msgid "Logged out"
+msgstr ""
+
+msgid "You have been securely logged out. Hope to see you soon!"
+msgstr ""
+
+msgid "Sign in again"
+msgstr ""
+
+msgid "Visit shop"
+msgstr ""
+
+msgid "Order Details"
+msgstr ""
+
+msgid "Order Status"
+msgstr ""
+
+msgid "Payment Status"
+msgstr ""
+
+msgid "Order Shop"
+msgstr ""
+
+msgid "Order Number"
+msgstr ""
+
+msgid "Reference"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Payment Method"
+msgstr ""
+
+msgid "Customer"
+msgstr ""
+
+msgid "Ordered by"
+msgstr ""
+
+msgid "Creator"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Tax number"
+msgstr ""
+
+msgid "Total Price (taxless)"
+msgstr ""
+
+msgid "Total Price"
+msgstr ""
+
+msgid "Customer Comment"
+msgstr ""
+
+msgid "Tracking codes"
+msgstr ""
+
+msgid "Address Information"
+msgstr ""
+
+msgid "Billing address"
+msgstr ""
+
+msgid "No billing address defined."
+msgstr ""
+
+msgid "Additional Details"
+msgstr ""
+
+msgid "Product features such as size, weight and keywords are located here."
+msgstr ""
+
+msgid "Additional"
+msgstr ""
+
+msgid ""
+"Strictly shop related information. For example set the minimum price "
+"applicable in this shop."
+msgstr ""
+
+#, python-format
+msgid "These settings apply only for shop: <b>%(shop_name)s</b>."
+msgstr ""
+
+msgid "Authenticate"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Forgot password?"
+msgstr ""
+
+msgid "User account information"
+msgstr ""
+
+msgid "Reset password"
+msgstr ""
+
+msgid "Reset your password"
+msgstr ""
+
+msgid "Enter the email address associated to your account"
+msgstr ""
+
+msgid "Reset Password"
+msgstr ""
+
+msgid "Password reset email sent!"
+msgstr ""
+
+msgid " Dashboard"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
+msgid "Mark as read"
+msgstr ""
+
+msgid "Activity Feed"
+msgstr ""
+
+msgid "No sales to report."
+msgstr ""
+
+msgid "Daily Sales"
+msgstr ""
+
+msgid "Last 7 days"
+msgstr ""
+
+msgid "Last 30 days"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "Taxless Unit Price"
+msgstr ""
+
+msgid "Tax"
+msgstr ""
+
+msgid "Taxless Total"
+msgstr ""
+
+msgid "Total incl. Tax"
+msgstr ""
+
+#, python-format
+msgid "Supplied by %(supplier)s"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Taxless"
+msgstr ""
+
+msgid "Customer information"
+msgstr ""
+
+msgid "Shop"
+msgstr ""
+
+msgid "Items"
+msgstr ""
+
+msgid ""
+"Strictly shop related information. For example set the minimum price "
+"applicable."
+msgstr ""
+
+#, python-format
+msgid "Items %(start_index)d - %(end_index)d of %(count)d total"
+msgstr ""
+
+msgid "Corporate Pages"
+msgstr ""
+
+msgid "Charity Pages"
+msgstr ""
+
+msgid "Partner"
+msgstr ""
+
+msgid "Register as a"
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid "information"
+msgstr ""
+
+msgid "Enter the name and address of your organization."
+msgstr ""
+
+msgid "Owner"
+msgstr ""
+
+msgid "Enter the information of the owner."
+msgstr ""
+
+msgid "Login information"
+msgstr ""
+
+msgid "The information you will sign in with."
+msgstr ""
+
+msgid "Register is not available for superusers and shop staff."
+msgstr ""
+
+msgid "Givesome Theme"
+msgstr ""
+
+msgid "Consider product new for days"
+msgstr ""
+
+msgid "Allow Linking Accounts to Company"
+msgstr ""

@@ -1,0 +1,59 @@
+<div class="color-block block-purple mb-3">
+    <div class="block-content">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">{% trans %}Campaign{% endtrans %}</th>
+                        <th class="text-center">{% trans %}Redeemed{% endtrans %}</th>
+                        <th class="text-center">{% trans %}Donated{% endtrans %}</th>
+                        <th class="text-center">{% trans %}Projects{% endtrans %}</th>
+                        <th class="text-center">{% trans %}Lives{% endtrans %}</th>
+                        <th class="text-center">{% trans %}Continued Givers{% endtrans %}</th>
+                        <th class="text-center">{% trans %}Continued Giving{% endtrans %}</th>
+                        <th class="text-center">{% trans %}Off-platform Donations{% endtrans %}</th>
+                        <th class="text-center">{% trans %}Volunteer Hours{% endtrans %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for campaign in campaigns %}
+                        <tr>
+                            <td class="text-center">{{ campaign.identifier }}</td>
+                            <td class="text-center">{{ campaign.sum_redeemed_givecards|int }} / {{ campaign.sum_givecards|int }} ({{ campaign.percentage_redeemed }}%)</td>
+                            {# Only display values if campaign has donations made #}
+                            {% if campaign.total_amount_donated %}
+                                <td class="text-center">$ {{ campaign.total_amount_donated }}</td>
+                                <td class="text-center">{{ campaign.count_projects_donated }}</td>
+                                <td class="text-center">{{ campaign.sum_lives_impacted }}</td>
+                            {% else %}
+                                <td class="text-center">-</td>
+                                <td class="text-center">-</td>
+                                <td class="text-center">-</td>
+                            {% endif %}
+
+                            {% if campaign.continued_givers %}
+                                <td class="text-center">{{ campaign.continued_givers }}</td>
+                                <td class="text-center">$ {{ campaign.continued_giving }}</td>
+                            {% else %}
+                                <td class="text-center">-</td>
+                                <td class="text-center">-</td>
+                            {% endif %}
+
+                            {% if campaign.off_platform_donated %}
+                                <td class="text-center">$ {{ campaign.off_platform_donated }}</td>
+                            {% else %}
+                                <td class="text-center">-</td>
+                            {% endif %}
+
+                            {% if campaign.off_platform_hours %}
+                                <td class="text-center">{{ campaign.off_platform_hours|round }} h</td>
+                            {% else %}
+                                <td class="text-center">-</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

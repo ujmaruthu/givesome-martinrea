@@ -1,0 +1,29 @@
+<p class="section-description">{% trans %}Summary information about selected Givecard Batch.{% endtrans %}</p>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>{% trans %}Generated on{% endtrans %}</th>
+                <th>{% trans %}Cards Redeemed{% endtrans %}</th>
+                <th>{% trans %}Balance{% endtrans %}</th>
+                <th>{% trans %}Total Donated{% endtrans %}<small> *</small></th>
+                <th>{% trans %}Projects{% endtrans %}</th>
+                <th>{% trans %}Lives impacted{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set batch = givecard_batch %}
+        <tr>
+            <td>{{ batch.generated_on|datetime }}</td>
+            <td>{{ batch.givecards_redeemed }} / {{ batch.amount }}</td>
+            <td>${{ batch.total_balance }} / ${{ batch.original_balance }}</td>
+            <td>${{ batch.total_amount_donated }}</td>
+            <td>{{ batch.projects_donated_count }}</td>
+            <td>{{ batch.total_lives_impacted }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <p><small>* {{ _("Only donations made by users are counted") }}</small></p>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs, render_monolingual_fields %}
+{% set test_email_form = form["test_email"] %}
+
+{% call content_block(_("Send Test Email"), icon="fa-envelope-o") %}
+        <form method="post" id="test_email">
+            {% csrf_token %}
+            {{ bs3.field(test_email_form.recipient) }}
+            {{ bs3.field(test_email_form.send) }}
+        </form>
+{% endcall %}

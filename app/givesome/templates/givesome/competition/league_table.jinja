@@ -1,0 +1,44 @@
+{% extends "shuup/front/base.jinja" %}
+
+{% block title %}{{ competition_name }}{% endblock %}
+
+{% block content_title %}
+{{ start_date }} - {{ end_date}}
+<br>
+{% if competition_runner %}
+{{ competition_runner }} - {{ competition_name }}
+{% else %}
+{{ competition_name }}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+  {% if competitors|length == 0 %}
+    {{ vars }}
+    {{ var }}
+    No competitors have signed up to the competition yet.
+  {% else %}
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Donations</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for competitor in competitors %}
+            <tr {{'class=bg-info' if competitor["is_user"] }}>
+                <td>{{ loop.index }}</td>
+                <td>{{ competitor["first_name"] }}</td>
+                <td>{{ competitor["last_name"] }}</td>
+                <td>{{ competitor["orders"] }}</td>
+                <td>${{ competitor["score"] }}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endblock %}

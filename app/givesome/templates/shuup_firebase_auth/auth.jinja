@@ -1,0 +1,139 @@
+{% extends "shuup/front/base.jinja" %}
+{% from "givesome/macros.jinja" import dynamically_translate_firebase %}
+
+{% block title %}{% trans %}Authenticate{% endtrans %}{% endblock %}
+
+{% block bodyclass %}auth{% endblock %}
+
+{% macro render_default_config() %}
+<script type="text/javascript">
+let english = $("#language-changer").find("a.dropdown-toggle").text().includes("en");
+if (window.firebaseui && window.firebase && window.configureUIAuth) {
+    window.configureUIAuth(
+        document.getElementById("firebaseui-auth-container"),
+        {
+            actionUrl: "{{ url('shuup:givesome-auth') }}",
+            isShopAdmin: {{ shuup.general.is_shop_admin()|json }},
+            providers: {{ get_firebase_auth_providers()|json }},
+            providerArgs: {{ givesome_get_firebase_auth_provider_args()|json }},
+        }
+    );
+}
+$(function () {
+    {# Change the /auth/ page texts dynamically from 'Sign up' to 'Log in' based on the URL fragment.  #}
+    function waitUntilElementExists(selector, callback) {
+        if ($(selector).length) {
+            return callback(selector);
+        }
+        setTimeout(function() { waitUntilElementExists(selector, callback) }, 50);
+    }
+    {{ dynamically_translate_firebase() }}
+    function setEnterPasswordTexts(selector) {
+        if (!english) {
+            translate($(".firebaseui-title"));
+            let emailLabel = $("label[for='ui-sign-in-email-input']").first()
+            translate(emailLabel);
+            let passwordLabel = $("label[for='ui-sign-in-password-input']").first();
+            translate(passwordLabel);
+            let trouble = $(".firebaseui-form-links").find(".firebaseui-id-secondary-link").first();
+            translate(trouble);
+            let submit = $(".firebaseui-form-actions").find("button[type='submit']").first();
+            translate(submit);
+        }
+    }
+    function setNewAccountTexts(selector) {
+        if (!english) {
+            translate($(".firebaseui-title"));
+            let emailLabel = $("label[for='ui-sign-in-email-input']").first()
+            translate(emailLabel);
+            let nameLabel = $("label[for='ui-sign-in-name-input']").first()
+            translate(nameLabel);
+            let passwordLabel = $("label[for='ui-sign-in-new-password-input']").first();
+            translate(passwordLabel);
+            $(".firebaseui-form-actions").children("button").each(function() {
+                translate($(this));
+            });
+        }
+    }
+    function setButtonTexts(selector) {
+        var toReplace;
+        var replacement;
+        if(window.location.hash && window.location.hash === '#login') {
+            toReplace = gettext("Sign up");
+            replacement = english ? "Sign in" : "S'identifier";
+        } else {
+            toReplace = gettext("Sign in");
+            replacement = english ? "Sign up" : "S'inscrire";
+        }
+        $('#sign-in-text').text(replacement);
+        $(selector).each(function () {
+            $(this).text($(this).text().replace(toReplace, replacement));
+        })
+    }
+    function setSignInWithEmailTitle(selector) {
+        $('.firebaseui-id-secondary-link:contains(cancelTxt)').on('click', function () {
+            waitUntilElementExists('.firebaseui-idp-text', setButtonTexts);
+            waitUntilElementExists('.firebaseui-title:contains("Sign in with email")', setSignInWithEmailTitle);
+            waitUntilElementExists('.firebaseui-title:contains("Sign in")', setEnterPasswordTexts);
+            waitUntilElementExists('.firebaseui-title:contains("Create account")', setNewAccountTexts);
+        })
+        $('.firebaseui-id-secondary-link:contains("Annuler")').on('click', function () {
+            waitUntilElementExists('.firebaseui-idp-text', setButtonTexts);
+            waitUntilElementExists('.firebaseui-title:contains("Sign in with email")', setSignInWithEmailTitle);
+            waitUntilElementExists('.firebaseui-title:contains("Sign in")', setEnterPasswordTexts);
+            waitUntilElementExists('.firebaseui-title:contains("Create account")', setNewAccountTexts);
+        });
+        if (!english) {
+            translate($(selector));
+            let emailLabel = $("label[for='ui-sign-in-email-input']").first()
+            translate(emailLabel);
+            $(".firebaseui-button").each(function() {
+                translate($(this));
+            });
+        }
+        $(document).on("DOMSubtreeModified", ".firebaseui-text-input-error", function() {
+            if (!english) translate($(this));
+        });
+    }
+    waitUntilElementExists('.firebaseui-idp-text', setButtonTexts);
+    waitUntilElementExists('.firebaseui-title:contains("Sign in with email")', setSignInWithEmailTitle);
+    waitUntilElementExists('.firebaseui-title:contains("Sign in")', setEnterPasswordTexts);
+    waitUntilElementExists('.firebaseui-title:contains("Create account")', setNewAccountTexts);
+})
+</script>
+{% endmacro %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="message-box">
+            <h1 class="text-center mt-0 mb-5">{{ _("You are already signed in") }}</h1>
+        </div>
+    {% else %}
+        <div class="message-box">
+            <h1 id="sign-in-text" class="text-center mt-0 mb-5">{# Will be populated with JS, don't remove! #}</h1>
+
+            <div id="firebaseui-auth-container" class="text-center">
+                {{ _("Loading...") }}
+            </div>
+            <div id="firebaseui-extra-container" class="text-center"></div>
+        </div>
+
+        <div id="firebase-forgot-password" style="display: none;">
+            <p class="text-center">
+                <a href="{{ url('shuup_firebase_auth:reset-password') }}">
+                    {{ _("Forgot password?") }}
+                </a>
+            </p>
+        </div>
+    {% endif %}
+
+    {% placeholder "auth_bottom" %}
+        {% column {"sm": 12} %}
+            {% plugin "snippets" %}
+                body_end = '''
+                    {%- raw -%}{{ render_default_config() }}{%- endraw -%}
+                '''
+            {% endplugin %}
+        {% endcolumn %}
+    {% endplaceholder %}
+{% endblock %}

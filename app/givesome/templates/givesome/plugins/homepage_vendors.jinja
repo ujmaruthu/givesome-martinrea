@@ -1,0 +1,29 @@
+{% if vendors %}
+    <div class="logos-desktop hidden-xs hidden-sm">
+        {% for vendor in vendors %}
+            {% set logo_url = vendor.logo and vendor.logo.url or request.shop.logo.url %}
+            <div class="single-logo">
+                <a href="{{ url("shuup:supplier", slug=vendor.slug) }}">
+                    <img src="{{ logo_url }}" alt="{{ vendor.name }}">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="logos-mobile visible-xs visible-sm">
+        <div class="owl-loading-indicator">
+            <i class="fa fa-spin fa-spinner text-muted fa-2x"></i>
+        </div>
+
+        <div class="givesome-carousel mt-0">
+            <div class="logo-carousel owl-carousel">
+                {% for vendor in vendors %}
+                    {% set logo_url = vendor.logo and vendor.logo.url or request.shop.logo.url %}
+                    <a href="{{ url("shuup:supplier", slug=vendor.slug) }}">
+                        <img src="{{ logo_url }}" alt="{{ vendor.name }}">
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

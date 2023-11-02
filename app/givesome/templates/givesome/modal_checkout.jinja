@@ -1,0 +1,60 @@
+{% from "shuup_stripe_multivendor/macros.jinja" import render_payment_content with context %}
+{%- import "shuup/front/macros/checkout.jinja" as checkout_macros with context -%}
+
+<form class="givesome-stripe-donation" id="givesome-stripe-donation" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div id="{{ field.name }}">
+            {{ bs3.field(field) }}
+        </div>
+    {% endfor %}
+</form>
+
+{{ render_payment_content(stripe) }}
+
+<div class="mt-3">
+    {% if not can_request_receipt and receipting_enabled %}
+        <div class="not-eligible" {% if not wants_receipt %}style="display:none;"{% endif %}>
+            <p>{{ render_receipting_message("checkout_warn") }}</p>
+            <a id="fix-it" class="btn btn-primary btn-rounded btn-block" href="{{ next_stop }}">{% trans %}Sign in/Sign up{% endtrans %}</a>
+        </div>
+    {% endif %}
+
+    {% if request.user.is_authenticated and last4 != '' %}
+        <div>
+            <button form="givesome-stripe-donation" type="submit" id="saved-card-submit" class="btn btn-primary btn-rounded btn-block" {% if receipting_enabled and wants_receipt and not can_request_receipt %}disabled{% endif %}>
+                {{ _("Pay ") }}<span id="dynamic-amt">{{ format_initial_donation(0) }}&nbsp</span>{{ _("with ") }}{{ brand }} *{{ last4 }}
+            </button>
+            <button  type="submit" id="saved-gpay-submit" class="btn btn-primary btn-rounded btn-block" >Google Pay
+            </button>
+            <button class="btn btn-block btn-rounded mt-3" id="show-cc">{{ _("Change Payment Card") }}</button>
+        </div>
+    {% else %}
+        <button form="givesome-stripe-donation" type="button" id="show-cc" class="btn btn-primary btn-rounded btn-block" {% if receipting_enabled and wants_receipt and not can_request_receipt %}disabled{% endif %}>
+            {{ _("Add Credit Card") }}
+        </button>
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+        <div id="save-card" class="mb-3">
+            <input type="checkbox" id="save_for_later" name="save_for_later" value="Save Card Details"/>
+            <label for="save_for_later">Save Card Details</label>
+        </div>
+    {% endif %}
+
+    <button form="givesome-stripe-donation" type="submit" id="givesome-submit" class="btn btn-primary btn-rounded btn-block">
+        {{ _("Donate") }}
+    </button>
+</div>
+
+<script>
+    $(document).ready(() => {
+        let fixItLink = $("#fix-it");
+        // Add the location to the "fix-it" link as a parameter, so a user who wants a receipt and isn't currently
+        // eligible can return directly here when finished.
+        if (typeof fixItLink !== "undefined") {
+            let href = fixItLink.attr("href") + "?origin=" + getLocation();
+            fixItLink.attr("href", href);
+        }
+    });
+</script>

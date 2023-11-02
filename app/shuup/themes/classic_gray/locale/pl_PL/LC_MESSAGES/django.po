@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Fishster Zespół <teamdecathlonpge@gmail.com>, 2021
+# MalT <malt@malt-it.com>, 2016
+# Michał Tyszkiewicz <mi.tyszkiewicz@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-21 23:09+0000\n"
+"PO-Revision-Date: 2021-02-23 09:29+0000\n"
+"Last-Translator: Fishster Zespół <teamdecathlonpge@gmail.com>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/shuup/shuup/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "This theme has no special settings to configure."
+msgstr "Ten motyw nie ma specjalnych ustawień do skonfigurowania."
+
+msgid "Home"
+msgstr "Strona startowa"
+
+#, python-format
+msgid "Welcome to %(shop_name)s!"
+msgstr "Witaj w %(shop_name)s!"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Products"
+msgstr "Produkty"
+
+msgid "Default"
+msgstr "Domyślna"
+
+msgid "Midnight Blue"
+msgstr "Niebieska północ"
+
+msgid "Candy Pink"
+msgstr "Cukierkowy różowy"
+
+msgid "Show Frontpage Welcome Text"
+msgstr "Pokaż tekst powitalny na stronie głównej"

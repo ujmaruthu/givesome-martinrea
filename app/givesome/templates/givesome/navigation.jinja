@@ -1,0 +1,343 @@
+{%- from "shuup_definite_theme/macros/basket.jinja" import render_partial_basket_supplier_info -%}
+{%- from "shuup/front/macros/general.jinja" import render_field with context -%}
+{%- set root_categories = shuup.general.get_root_categories() -%}
+
+{% macro render_navigation(show_quick_login=True) %}
+<nav class="sidebar hidesidebar menu-sidebar">
+<ul id="sidebar_menu">
+    <li class>
+        <a class="has-arrow" href="#" aria-expanded="false">
+            Browse
+        </a>
+        <ul>
+            {{ render_partners_nav_elem() }}
+            {{ render_charities_nav_elem() }}
+        </ul>
+    </li>
+
+    <li class>
+        <a class="has-arrow" href="#" aria-expanded="false">
+            Profile
+        </a>
+        <ul>
+           {#<li class="dropdown-header visible-xs">
+                        {{ _("Hello") }}, {{ person_name|capitalize }}!
+                        <hr class="dropdown-header-hr">
+                    </li>#}
+                    {% if shuup.general.is_shop_admin() %}
+                        <li>
+                            <a href="{{ url('shuup_admin:dashboard') }}">
+                                {% trans %}Admin Panel{% endtrans %}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                        <li>
+                            <a href="{{ url('shuup:profile') }}">
+                                {% trans %}My Portfolio{% endtrans %}
+                            </a>
+                        </li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{{ url('shuup:logout') }}">
+                            {% trans %}Logout{% endtrans %}
+                        </a>
+                    </li>
+                     {% else %}
+                     <li>
+                            <a href="{{ url('shuup:registration_register') }}{% if next %}?next={{next}}{% endif %}#register">
+                                {% trans %}Sign Up{% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('shuup:login') }}#login">
+                                {% trans %}Sign In{% endtrans %}
+                            </a>
+                        </li>
+                     {% endif %}
+        </ul>
+    </li>
+    <li class>
+        <a class="has-arrow" href="#" aria-expanded="false">
+            Language
+        </a>
+
+        {{- render_language_changer() -}}
+
+    </li>
+    {{ render_cms_nav_list() }}
+</nav>
+    <nav class="site-nav" role="navigation">
+        <div class="container-fluid">
+            <div class="flex-row row">
+
+                <div class="logo-wrap">
+                    {#<button class="nav-toggler" id="offcanvas-nav-toggler" type="button" aria-haspopup="true" aria-controls="offcanvas-nav" aria-expanded="false">
+                        <span class="hamburger"></span>
+                        <span class="sr-only">{% trans %}Mobile menu{% endtrans %}</span>
+                    </button>#}
+
+                    <div class="">
+                    {{ render_logo() }}
+                    </div>
+                </div>
+                
+
+
+                <div class="secondary-nav clearfix{% if xtheme.search_on_top() %} search-on-top{% endif %}">
+                    <div class="secondary-nav-dropdowns">
+                        {{ render_nav_givecard() }}
+
+                        {%- set languages = shuup.general.get_shop_language_choices() -%}
+                        {#{%- if languages|length > 1 -%}
+                            <div class="hidden-sm hidden-xs">
+                                {{- render_language_changer() -}}
+                            </div>
+                        {% endif %}#}
+
+
+                        {{ render_menu_icon() }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    {{ render_offcanvas_nav() }}
+{% endmacro %}
+
+{% macro render_nav_givecard() %}
+    {% set givecard_wallet_balance = givecard_wallet_total_balance(request) %}
+    <div class="nav-givecard">
+        {# Redeem givecard button #}
+        <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#givecard-dialog" id="show-givecard-dialog-btn">
+            {{ _("Redeem PIN") }}
+        </button>
+        {# Wallet button #}
+      <button type="button" class="btn btn-primary btn-rounded{% if givecard_wallet_balance == 0 %} hidden{% endif %}" data-toggle="modal" data-target="#givecard-balance-dialog" id="show-givecard-balance-dialog-btn">
+            <span class="hidden-xs">{{ _("Givecard") }}: </span><span id="givecard-total-value">${{ recalculate_currency(request, givecard_wallet_balance) }}</span>
+        </button>
+    </div>
+{% endmacro %}
+
+{% macro render_language_changer(full_text=False) %}
+    {%- set languages = shuup.general.get_shop_language_choices() -%}
+
+    {%- if languages|length > 1 -%}
+        {% set lang = {"name": LANGUAGE_CODE} %}
+        {% for (code, name, local_name) in languages %}
+            {% if code == LANGUAGE_CODE %}
+                {% if lang.update({"name": local_name}) %}{% endif %}
+            {% endif %}
+        {% endfor %}
+
+                 <ul class="languages" id="language-changer" role="menu">
+                {# For language change #}
+                 <a aria-expanded="false" href="#" style="display: none" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="menu-icon fa fa-globe"></i>
+                    {% if full_text %}{{ lang.name|capitalize }}{% else %}{{ LANGUAGE_CODE }}{% endif %}
+                </a>
+                    {% for (code, name, local_name) in languages %}
+                        <li>
+                            <a href="#" class="language" data-value="{{ code }}">
+<span lang="{{ code }}">{{ local_name|capitalize }}</span> {% if local_name == lang.name %}<i class="menu-icon fa fa-globe" style="padding-left: 20px;
+"></i>{% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+    {%- endif -%}
+{% endmacro %}
+
+{% macro render_user_nav_list(show_quick_login) %}
+    {% if user.is_authenticated %}
+        <ul class="user-nav" aria-label="{% trans %}User menu{% endtrans %}">
+            {% set person_name = (request.customer.first_name or request.person.firstname or request.user.username) %}
+            <li class="dropdown">
+                <a href="{{ url('shuup_admin:dashboard') }}" class="" id="nav-log-in" data-toggle="dropdown">
+                    <i class="menu-icon fa fa-user-o"></i>
+                    <span class="hidden-xs">
+                        {{ person_name|capitalize }}
+                    </span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                   {# <li class="dropdown-header visible-xs">
+                        {{ _("Hello") }}, {{ person_name|capitalize }}!
+                        <hr class="dropdown-header-hr">
+                    </li>#}
+                    {% if shuup.general.is_shop_admin() %}
+                        <li>
+                            <a href="{{ url('shuup_admin:dashboard') }}">
+                                {% trans %}Admin Panel{% endtrans %}
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if request.person and shuup.urls.has_url("shuup:profile") %}
+                        <li>
+                            <a href="{{ url('shuup:profile') }}">
+                                {% trans %}My Portfolio{% endtrans %}
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li>
+                        <a href="{{ url('shuup:logout') }}">
+                            {% trans %}Logout{% endtrans %}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    {% else %}
+        <ul class="user-nav" aria-label="{% trans %}User menu{% endtrans %}">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="hidden-xs">{{ _("Sign In") }} / {{ _("Sign Up") }}</span>
+                    <i class="menu-icon fa fa-user-o hidden-sm hidden-md hidden-lg"></i>
+                </a>
+                <ul class="dropdown-menu sign-up-dropdown" role="menu">
+                    <p class="lead">
+                        {{ _("Why create an account?") }}
+                    </p>
+                    <ul class="sign-up-list text-muted">
+                        <li class="d-flex align-items-top"><i class="fa fa-check fa-fw mt-1 mr-2 text-primary"></i> <span>{{ _("Receive videos of the completed projects you've funded.") }}</span></li>
+                        <li class="d-flex align-items-top"><i class="fa fa-check fa-fw mt-1 mr-2 text-primary"></i> <span>{{ _("Track your impact through giving.") }}</span></li>
+                    </ul>
+                    <li>
+                        <div>
+                            <a href="{{ url('shuup:registration_register') }}{% if next %}?next={{next}}{% endif %}#register" class="btn btn-primary btn-rounded btn-block">
+                                {% trans %}Sign Up{% endtrans %}
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="{{ url('shuup:login') }}#login" class="btn btn-default btn-rounded btn-block mt-3">
+                                {% trans %}Sign In{% endtrans %}
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% macro render_logo() %}
+    {% if request.shop.logo %}
+        {% set best_height = 120 %}
+
+        {% set original_height = request.shop.logo.height %}
+        {% set original_width = request.shop.logo.width %}
+
+        {% set logo_width = original_width %}
+        {% set logo_height = original_height %}
+
+        {% if original_height > best_height %}
+            {% set logo_height = best_height %}
+            {% set logo_width = ((original_width / original_height) * logo_height)|int %}
+        {% endif %}
+
+        {% if original_width > original_height %}
+            {% set logo_direction = "logo-horizontal" %}
+        {% elif original_height > original_width %}
+            {% set logo_direction = "logo-vertical" %}
+        {% else %}
+            {% set logo_direction = "logo-square" %}
+        {% endif %}
+
+        {% set cropped_logo = request.shop.logo|thumbnail(size=(logo_width, logo_height), quality=100) %}
+    {% endif %}
+    <div class="logo{% if not cropped_logo %} no-image{% else %} has-image {{ logo_direction }}{% endif %}">
+        <a href="/" data-toggle="tooltip" data-placement="bottom" title="{{ request.shop }} {% trans %}Home{% endtrans %}">
+            {% if cropped_logo %}
+                <img style="width:200px; height: 39px;" src="{{ cropped_logo }}" alt="{{ request.shop }}" class="hidden-xs hidden-sm visible-md visible-lg ">
+                <img style="width:120px; height: auto;margin:auto;" src="{{ cropped_logo }}" alt="{{ request.shop }}" class="visible-xs visible-sm hidden-md hidden-lg">
+            {% else %}
+                <div class="h4">{{ request.shop.public_name }}</div>
+            {% endif %}
+        </a>
+    </div>
+{% endmacro %}
+{% macro render_menu_icon() %}
+<div id="hide" class="line_icon open_miniSide d-none d-lg-block" style="cursor: pointer;">
+<img src="{{ static('givesome/img/givesomev1/menu_icon.png') }}" class="notify-icon" id="settiing_icon" style="width: 50px; height: auto"></img>
+</div>
+{% endmacro %}
+{% macro render_menu() %}
+    <ul>
+        <li class="dropdown">
+            <a aria-expanded="false" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{ _("Browse") }}
+                <i class="dropdown-icon fa fa-angle-down" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu">
+                {{ render_partners_nav_elem() }}
+                {{ render_charities_nav_elem() }}
+            </ul>
+        </li>
+
+        {{ render_cms_nav_list() }}
+    </ul>
+{% endmacro %}
+
+{% macro render_offcanvas_nav() %}
+    <div class="offcanvas-nav" id="offcanvas-nav" role="navigation" aria-label="{% trans %}Main menu{% endtrans %}">
+        {%- set languages = shuup.general.get_shop_language_choices() -%}
+       {# {%- if languages|length > 1 -%}
+            <div class="offcanvas-lang">
+                {{- render_language_changer(full_text=True) -}}
+            </div>
+        {%- endif -%}#}
+
+        <ul>
+            <li class="level-0{% if request.path == '/' %} current{% endif %}">
+                <a href="/">
+                    {% trans %}Homepage{% endtrans %}
+                </a>
+            </li>
+
+            {{ render_partners_nav_elem() }}
+            {{ render_charities_nav_elem() }}
+
+            {{ render_cms_nav_list() }}
+        </ul>
+    </div>
+{% endmacro %}
+
+{% macro render_partners_nav_elem() %}
+    <li class=" {% if request.path == '/b/' %}current{% endif %}">
+        <a href="{{ url("branded_vendor_list") }}">
+            <div class="page-title">{{ _("Companies") }}</div>
+            {#<small class="text-muted">{{ _("See all company pages") }}</small>#}
+        </a>
+    </li>
+{% endmacro %}
+
+{% macro render_charities_nav_elem() %}
+    <li class="{% if request.path == '/v/' %}current{% endif %}">
+        <a href="{{ url("supplier_list") }}">
+            <div class="page-title">{{ _("Charities") }}</div>
+            {#<small class="text-muted">{{ _("See all charity pages") }}</small>#}
+        </a>
+    </li>
+{% endmacro %}
+
+{% macro render_cms_nav_list() %}
+    {%- if shuup.simple_cms -%}
+        {%- for page in xtheme.get_cms_navigation_links(request) -%}
+            <li class="level-{{ loop.depth0 }} cms-link{% if request.path == '%s/' % page.url %} current{% endif %}">
+                <a href="/cms{{ page.url }}">
+                    {{ page.text }}
+                </a>
+            </li>
+        {%- endfor -%}
+    {%- endif -%}
+    <li>
+        <a href="//www.givesome.com" target="_blank">
+            {{ _("About Us") }} <sup><i class="fa fa-external-link"></i></sup>
+        </a>
+    </li>
+{% endmacro %}
+
+

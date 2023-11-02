@@ -1,0 +1,945 @@
+{% extends "shuup/front/base.jinja" %}
+{% from "shuup/front/macros/general.jinja" import render_supplier_info %}
+{%- from "shuup/front/macros/product.jinja" import product_box with context -%}
+{%- import "givesome/shuup/front/macros/supplier.jinja" as supplier_macros with context -%}
+{%- from "givesome/receipting_icon.jinja" import render_receipting_icon as receipt_icon %}
+
+{% set supplier = supplier or shop_product.get_supplier() %}
+{% set product_images = shop_product.public_images.all() %}
+{% set is_orderable = shop_product.is_orderable(supplier=None, customer=request.customer, quantity=1) %}
+{% set show_supplier_info = supplier %}
+{% set coming_soon = not object.shop_products.first().purchasable %}
+
+{% set main_image = product.primary_image %}
+{% if main_image %}
+    {% set cropped_main_image = main_image|thumbnail(size=(900, 600)) %}
+{% endif %}
+{% set all_images = product_images if product_images else images %}
+{% if all_images and not main_image %}
+    {% set cropped_main_image = images[0]|thumbnail(size=(900, 600)) %}
+{% endif %}
+
+{% block extrameta %}
+    {{ macros.render_metadata(product, product.name, product.short_description, "project") }}
+    {% if cropped_main_image %}
+        <meta property="og:image" content="{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host() }}{{ cropped_main_image }}" />
+    {% endif %}
+{% endblock %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block bodyclass %}project-page{% endblock %}
+
+{% block content_title %}{% endblock %}
+{% block container_start %}{% endblock %}
+{% block container_end %}{% endblock %}
+
+{% block banner %}
+    {% if promoter or charity_allow_brand_page %}
+        <header class="partner-main-banner">
+            {#<div class="partner-background"></div>#}
+            <div class="">
+                {#<div class="partner-details-block">#}
+                <div class="">
+                    {% if promoter%}
+                        {{ supplier_macros.givesome_render_banner(promoter, promoter_type) }}
+                    {% else %}
+                        {{ supplier_macros.givesome_render_banner(supplier, "Supplier") }}
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <section class="project-main">
+        <div class="container">
+        {#{% if promoter and promoted_projects %}
+         {{ supplier_macros.givesome_slider(promoted_projects)}}
+         {% elif supplier_projects %}
+         {{ supplier_macros.givesome_slider(supplier_projects)}}
+         {% endif %}#}
+         {% if show_supplier_info %}
+        <div class="container">
+            <section class="givesome-carousel">
+                {% if promoter and promoted_projects %}
+                    {# Show promoted projects from the same brand #}
+                    {#<div class="carousel-text">
+                        <h3 class="mt-0">{{ _("Other Projects Promoted by ") }}{{ brand.name }}</h3>
+                        <p>{{ _("Browse other projects promoted by ") }}{{ brand.name }}</p>
+                    </div>
+
+                    <div class="owl-loading-indicator">
+                        <i class="fa fa-spin fa-spinner text-muted fa-2x"></i>
+                    </div>#}
+
+                 {#   <div class=" product-list-view">
+                        {% for project in promoted_projects %}
+                        <div class="single-product">
+                            {{ product_box(product=project) }}
+                            </div>
+                        {% endfor %}
+                    </div>#}
+                {% elif supplier_projects %}
+                    {# Display other charity's projects #}
+                    {#<div class="carousel-text">
+                        <h3 class="mt-0">{{ _("Other Projects") }}</h3>
+                        <p>{{ _("Browse other by ") }}{{ supplier.name }}</p>
+                    </div>
+
+                    <div class="owl-loading-indicator">
+                        <i class="fa fa-spin fa-spinner text-muted fa-2x"></i>
+                    </div>#}
+
+                 {#   <div class="product-list-view">
+                        {% for project in supplier_projects %}
+                        <div class="single-product">
+                            {{ product_box(product=project) }}
+                            </div>
+                        {% endfor %}
+                    </div>#}
+                {% endif %}
+
+            </section>
+        </div>
+    {% endif %}
+   {# {% if supplier.description %}
+         <b class="header2">We believe in a life of generosity and helping those who need it.</b>
+        <div class="video2">
+        {{ supplier.description|safe_vendor_description }}
+        </div>
+      {% endif %}#}
+         {#{{ supplier_macros.about(supplier) }}#}
+         <div class="about-section2">
+
+          {% if product_images %}
+           <img
+          class="about-image-icon2"
+          alt=""
+          style="margin-bottom:30px;"
+          src="{{ product_images[0]|thumbnail(size=(700, 700)) }}"
+        />
+
+                    {% endif %}
+
+         <div class="vertical-container6">
+          <img class="image-icon8" alt="" src="{{ supplier.logo|thumbnail(size=(200, 200), upscale=True) }}" />
+
+          <b class="our-mission-is4"
+            >{{ product.name }}</b
+          >
+          <div class="the-gvf-group4 info-content">
+                    {% if product.description %}
+                            {{ product.description|safe_product_description }}
+                        {% else %}
+                            <p>{% trans %}No product description available{% endtrans %}</p>
+                        {% endif %}
+          </div>
+
+          <a href="http://34.170.249.201:3000/?dataOne={{product.id}}&dataTwo={{supplier.id}}&dataThree={{product.name}}&dataFour={{supplier.name}}&dataFive={{ product_images[0]|thumbnail(size=(700, 700))}}&dataSix={% if request.user!='AnonymousUser'%}{{request.user.id}}{%endif%}" class="btn-primary give-button4" target="popup" onclick="window.open('http://34.170.249.201:3000/?dataOne={{product.id}}&dataTwo={{supplier.id}}&dataThree={{product.name}}&dataFour={{supplier.name}}&dataFive={{ product_images[0]|thumbnail(size=(700, 700))}}&dataSix={% if request.user!='AnonymousUser'%}{{request.user.id}}{%endif%}','name','width=500,height=600');return false;" style="margin-bottom: 0px;">Give</a>
+              {#<button class="btn-primary give-button4" data-toggle="modal" data-target="#new-fund-dialog"  id="fund-project" disable>
+                    <span><b class="learn-more46" style="color:white">Give</b></span>
+                </button>#}
+            <button class="btn-primary give-button4" data-toggle="modal" data-target="#fund-dialog"  id="fund-project" disable>
+                    <span><b class="learn-more46" style="color:white">Give To This Project</b></span>
+                </button>
+         {# <div class="button9">
+            <b class="learn-more46">Learn More</b>
+          </div>#}
+        </div>
+</div>
+           {# <h1 class="project-name">
+                {{ product.name }}
+                {% if shop_product.primary_category %}<small>&ndash; {{ shop_product.primary_category }}</small>{% endif %}&nbsp;
+                {% if product.project_extra.enable_receipting and supplier.givesome_extra.enable_receipting %}
+                    {{ receipt_icon(supplier, "project_page", class_size="md") }}
+                {% endif %}
+            </h1>
+
+            <div class="project-supplier-line">
+                {% if show_supplier_info %}
+                    {{ render_supplier_info(supplier) }}
+                {% endif %}
+            </div>#}
+
+            {#<div class="row project-details-image-row">
+                <div class="project-image product-image col-sm-5 col-sm-push-7">
+                    {% if product_images %}
+                        {{ product_macros.render_product_image_section(product, product_images=product_images) }}
+                    {% endif %}
+                </div>
+
+                <div class="project-basic-details col-sm-7 col-sm-pull-5">
+                    <div class="project-description">
+                        {% if product.description %}
+                            {{ product.description|safe_product_description }}
+                        {% else %}
+                            <p>{% trans %}No product description available{% endtrans %}</p>
+                        {% endif %}
+                    </div>
+                    {% if not coming_soon %}
+                        {{ render_project_progress() }}
+                        {% if product.project_extra.give_now_display %}
+                            {% if donation_url %}
+                                <button class="btn btn-primary btn-rounded text-wrap" type="button" data-toggle="modal" id="fund-project" onclick="window.location.assign('{{ donation_url }}')">
+                                    {{ _("Give Now") }}
+                                </button>
+                            {% else %}#}
+                                {# Button is initially disabled, but is re-enabled by js if project can accept donations #}
+                                {#<button class="btn btn-primary btn-rounded text-wrap" type="button" data-toggle="modal" data-target="#fund-dialog" id="fund-project" disabled>
+                                    {{ _("Give Now") }}
+                                </button>
+                            {% endif %}
+                        {% else %}
+                        <button class="btn btn-primary btn-rounded text-wrap" type="button" data-toggle="modal" data-target="#fund-dialog" id="fund-project" disabled>
+                        {{ ("THANK YOU FOR YOUR GENEROSITY, THIS PROJECT HAS BEEN FULLY FUNDED") }}
+                        </button>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>#}
+            {% if subscription %}
+                <button class="btn btn-primary btn-rounded text-wrap" type="button" data-toggle="modal" data-target="#fund-dialog" id="fund-project">
+                    {{ _("Support ") }}{{ supplier.name }} {{ _("Monthly") }}
+                </button>
+            {% endif %}
+        </div>
+    </section>
+
+
+
+    {% if sponsoring_vendor %}
+        {{ givesome_macros.render_supported_by_supplier(supplier=sponsoring_vendor) }}
+    {% endif %}
+{% endblock %}
+
+{% block dialog %}
+{% call givesome_macros.givesome_dialog(dialog_id="new-fund-dialog", size="md", body_class="fund-modal") %}
+<iframe  width="100%" height="550px" src="http://34.170.249.201:3000/?id={{product.id}}&supplier_id={{supplier.id}}&name={{product.name}}&sub_name={{supplier.name}}&image={{ product_images[0]|thumbnail(size=(700, 700))}}" title="payment"></iframe>
+{% endcall %}
+
+    {% call givesome_macros.givesome_dialog(dialog_id="fund-dialog", size="md", body_class="fund-modal") %}
+         <div class="fund-modal-header">
+            <h2>{{ product.name }}</h2>
+            {% if show_supplier_info %}
+                {{ render_supplier_info(supplier) }}
+            {% endif %}
+            {% if not subscription %}
+                {{ render_project_progress() }}
+            {% endif %}
+        </div>
+        <div class="fund-modal-content" id="for-email">
+            <p class="help-block text-center mx-md-5" id="checkout-help-text"></p>
+            {% if not request.user.is_authenticated  %}
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter Your Email">
+            {% endif %}
+            <h3 id="givecard-title" class="mb-3">{{ _("Donate with PIN") }}</h3>
+            <div id="givecard-checkout">
+                <div class="text-center my-4 text-muted">
+                    <i class="fa fa-spinner fa-spin fa-lg"></i>
+                </div>
+            </div>
+
+            <h3 id="credit-card" class="mb-3">{{ _("Donate with Credit Card") }}</h3>
+            <div id="checkout">
+                <div class="text-center my-4 text-muted">
+                    <i class="fa fa-spinner fa-spin fa-lg"></i>
+                </div>
+            </div>
+            <div id="submit-loader" style="display: none;" class="my-3 text-center text-muted">
+                <i class="fa fa-spin fa-spinner fa-lg"></i>
+            </div>
+        </div>
+        <div class="fund-modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-modal-close">
+                {{ _("Cancel") }}
+            </button>
+        </div>
+        {#<div>
+        <div class="container1 div0">
+                <div class="Back-arrow">
+        <a onclick="backpage()"><img class="" width="30" src="{{ static('givesome_v1/Images/arrow-left.png')}}"></img></a>
+            </div>
+    <div class="slideshow-container">
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+        <div class="slider">
+            <span class="dot1" onclick="dotclick()"></span>
+            <span class="dot1"></span>
+            <span class="dot1"></span>
+          </div>
+        </div>
+<div class="cont mt-2 mb-4">
+<div>
+<p style="font-size: 20px;"><B>How much would you like to donate?</B></p>
+</div>
+<div class="fontsize mt-5">
+<p><B>Specify amount:</B></p>
+</div>
+<div class="buttons flexclass mb-4">
+<a role="button" class="btn btn-success1 next1 mybtn" style="margin-right:10px">$10</a>
+<a role="button" class="btn btn-success1 next1 mybtn">$50</a>
+<a role="button" class="btn btn-success1 next1 mybtn" style="margin-left:10px">$100</a>
+
+</div>
+<div class="input-container input-container1 cardsize mb-5 .input-container input1">
+        <input type="text" class="input-field t-textbox" placeholder="Enter a custom amount">
+        <label class="t-textbox1"><b>$</b>
+        </label>
+        </div>
+<div class="form-group fontsize">
+<label><B>Redeem a Givecard:</B></label>
+<div class="input-container input-container1">
+<input type="text" class="input-field" placeholder="Enter 6 digit PIN">
+<button class="input-button btn next next2 hover2 fontsize">Apply</button>
+</div>
+<div class="input-container mt-5">
+<p>Givecard Credit Applied</p>
+<p>$0.00</p>
+</div>
+<div class="input-container">
+<p>You Give</p>
+<p>$0.00</p>
+</div>
+<div class="input-container">
+<p><B>Total</B></p>
+<p><B>$0.00</B></p>
+</div>
+</div>
+<a role="button" class="btn btn-success btn next next3 fontsize1" style="
+    display: block;" onclick="nex1()"><B>Next</B></a>
+</div>
+</div>
+<div class="container1 div1" style="display: none;padding-bottom: 35px;">
+                <div class="Back-arrow">
+        <a onclick="backpage()"><img class=""width="30" src="{{ static('givesome_v1/Images/arrow-left.png')}}"></img></a>
+            </div>
+    <div class="slideshow-container">
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+        <div class="slider">
+            <span class="dot1"></span>
+            <span class="dot1"></span>
+            <span class="dot1"></span>
+          </div>
+        </div>
+<div class="cont">
+<div md-3 mt-6>
+<p style="font-size: 20px;"><B>How much would you like to donate?</B></p>
+</div>
+<div class="fontsize mt-5">
+<p><B>Pay via wallet</B></p>
+</div>
+<div class="buttons flexclass mb-5">
+<a role="button" class="btn btn-success2 mybtn next1" style="margin-right:10px"><img width="40px" src="{{ static('\givesome_v1\Images\Apple Pay.svg')}}"></img></a>
+<a role="button" class="btn btn-success2 mybtn next1"><img width="40px" src="{{ static('\givesome_v1\Images\Gpay.svg')}}"></img></a>
+<a role="button" class="btn btn-success2 mybtn next1" style="margin-left:10px"><img width="40px" src="{{ static('\givesome_v1\Images\Paypal.svg')}}"></img></a>
+</div>
+<div class="mt-5 md-1 fontsize">
+<label><B>Pay with creditcard</B></label>
+</div>
+<div class="form-group">
+<div class="input-container input-container1 cardsize mb-2 .input-container input1">
+<input type="text" class="input-field" style="
+width: 90%" placeholder="Credit Card Number">
+<img width="40px" src="{{ static('\givesome_v1\Images\Mastercard.svg')}}"></img>
+</div>
+<div class="input1 mb-2">
+    <input type="text" class="input-field" placeholder="Expiration MM/YY">
+    <input type="text" class="input-field" placeholder="CVV">
+    </div>
+    <div class="input-container input-container1 cardsize input-container input1">
+        <input type="text" class="input-field" style="
+        width: 90%" placeholder="Postal Code">
+        </div>
+<div class="input-container mt-5">
+<p>Givecard Credit Applied</p>
+<p>$0.00</p>
+</div>
+<div class="input-container">
+<p>You Give</p>
+<p>$0.00</p>
+</div>
+<div class="input-container">
+<p><B>Total</B></p>
+<p><B>$0.00</B></p>
+</div>
+</div>
+<a role="button" class="btn btn-success next next3 fontsize1" onclick="nex2()" ><B>Next</B></a>
+</div>
+</div>
+<div class="container1 div2" style="display: none;">
+                <div class="Back-arrow">
+        <a onclick="backpage()"><img class="" width="30" src="{{ static('givesome_v1/Images/arrow-left.png')}}"></img></a>
+            </div>
+    <div class="slideshow-container">
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+        <div class="slider">
+            <span class="dot1"></span>
+            <span class="dot1"></span>
+            <span class="dot1"></span>
+          </div>
+        </div>
+<div class="cont mt-2 mb-4">
+<p style="text-align: center;font-size: 20px;"><B>See the impact of your donation!</B></p>
+<p style="text-align: center;font-size:16px">Create a Givesome account to automatically receive tax <br> receipts and updates about your projects.</p>
+<div class="mt-5 fontsize">
+<p style="text-align: center;"><B>Sign up via social</B></p>
+</div>
+<div class="buttons flexclass mb-3 fontsize">
+<a role="button" class="t-btn btn-icon icon-left btn-success2 mybtn" style="margin-right:10px"><img style="margin-right: 10px; width:25px" src="{{ static('\givesome_v1\Images\Google.svg')}}"></img>Login with google</a>
+<a role="button" class="t-btn btn-icon icon-left btn-success2 mybtn" ><img style="margin-right: 10px; width:25px" src="{{ static('\givesome_v1\Images\Facebook.svg')}}"></img>Login with Facebook</a>
+</div>
+<div class="mb-1 mt-5 fontsize" style="text-align: center;">
+<label><B>Or create an account via email</B></label>
+</div>
+<div class="buttons flexclass mb-3 mt-1 fontsize">
+  <a role="button" class="t-btn btn-icon icon-left btn-success2 mybtn" ><img style="margin-right: 10px; width:25px" src="{{ static('\givesome_v1\Images\Mail.svg')}}"></img>Sign up with Email</a>
+  </div>
+<div class="mb-5 mt-4 fontsize">
+<input type="checkbox">
+<span>Send me a tax receipt for this donation.</span>
+</div>
+<a role="button" class="btn btn-success next next3 mt-3" onclick="nex3()">Confirm Donation</a>
+</div>
+</div>
+<div class="container1 div3" style="display: none;">
+                <div class="Back-arrow">
+        <a onclick="backpage()"><img class="" width="30" src="{{ static('givesome_v1/Images/arrow-left.png')}}"></img></a>
+            </div>
+    <div class="slideshow-container">
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+
+        <div class="mySlides">
+          <img class="img_align" width="100%" src="{{ static('\givesome_v1\Images\Photo1.png')}}"></img>
+          <div class="text2">Help Sponsor an Autism Service Dog at NSD</div>
+          <div class="text1">By National Service Dogs</div>
+        </div>
+        <div class="slider">
+            <span class="dot1"></span>
+            <span class="dot1"></span>
+            <span class="dot1"></span>
+          </div>
+        </div>
+        <div class="cont mt-2 mb-4">
+<p style="text-align: center;font-size: 20px;"><B>See the impact of your donation!</B></p>
+<p style="text-align: center;font-size: 16px;">Create a Givesome account to automatically receive tax <br> receipts and updates about your projects.</p>
+<div class="mt-5 md-5 fontsize">
+<p style="text-align: center;"><B>Or create an account via email</B></p>
+</div>
+<!-- <div class="input-container">
+  <p>First Name</p>
+  <p>Last Name</p>
+  </div> -->
+<div class="form-group mb-3 mt-5">
+  <div class="rowrow1 fontsize">
+  <div class="col-sm">
+    <label>First Name</label>
+    <input type="text" class="form-control" placeholder="First Name">
+  </div>
+  <div class="col-sm">
+  <label>Last Name</label>
+  <input type="text" class="form-control" placeholder="Last Name">
+</div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="rowrow1 mb-3 fontsize">
+    <div class="col-sm">
+  <label>Email</label>
+  <input type="text" class="form-control" placeholder="Email">
+      </div>
+    </div>
+      <div class="rowrow1 mb-3 fontsize">
+      <div class="col-sm">
+        <label>Address</label>
+        <input type="text" class="form-control" placeholder="Address">
+            </div>
+          </div>
+      </div>
+<div class="mb-5 mt-4">
+<input type="checkbox">
+<span>Send me a tax receipt for this donation.</span>
+</div>
+<a role="button" class="btn btn-success next next3 mt-3" onclick="nex4()">Confirm Donation</a>
+</div>
+</div>
+<div class="container1 div4" style="display: none;height: 584px;">
+<div class="cont mt-6 mb-4">
+<div>
+<img class="t-img_align" style="width:100%;" " src="{{ static('\givesome_v1\Images\color_paper.png')}}"></img>
+<img class="t-img_align t-center " src="{{ static('\givesome_v1\Images\Photo2.png')}}"></img>
+</div>
+<div class="mt-2 mb-4 t-done">
+<p style="text-align: center;font-size: 26px;"><B>Thank you! Now, see the good.</B></p>
+<p style="text-align: center;font-size: 16px;">Once the project is fully funded, we’ll send you <br> video and blog updates.</p>
+</div>
+<div class="input1 t-twobutton">
+    <a role="button" class="btn btn-success next next4 mt-3" onclick="nex5()">More Projects</a>
+    <a role="button" class="btn btn-success next next4 mt-3" onclick="nex5()">Exclusive Content</a>
+</div>
+</div>
+</div>
+</div>#}
+<script>
+    let _slideIndex = 0;
+     let slideIndex1 = 0;
+     let slideIndex2 = 0;
+     let slideIndex3 = 0;
+     let stop1;
+     let currentpage=0;
+    showSlides_();
+
+    function showSlides_() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot1");
+      for (i = 0; i < 3; i++) {
+        slides[i].style.display = "none";
+      }
+      _slideIndex++;
+      if (_slideIndex > 3) {_slideIndex = 1}
+      for (i = 0; i < 3; i++) {
+        dots[i].className = dots[i].className.replace(" active5", "");
+      }
+      slides[_slideIndex-1].style.display = "block";
+      dots[_slideIndex-1].className += " active5";
+      stop1=setTimeout(showSlides_, 2000); // Change image every 1 seconds
+    }
+    function showSlides1() {
+      let i;
+      //clearTimeout(stop1);
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot1");
+      for (i = 3; i < 6; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex1++;
+      if (slideIndex1 > 6) {slideIndex1 = 4}
+      for (i = 3; i < 6; i++) {
+        dots[i].className = dots[i].className.replace(" active5", "");
+      }
+      slides[slideIndex1-1].style.display = "block";
+      dots[slideIndex1-1].className += " active5";
+      setTimeout(showSlides1, 2000); // Change image every 1 seconds
+    }
+    function showSlides2() {
+      let i;
+      //clearTimeout(stop1);
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot1");
+      for (i = 6; i < 9; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex2++;
+      if (slideIndex2 > 9) {slideIndex2 = 7}
+      for (i = 6; i < 9; i++) {
+        dots[i].className = dots[i].className.replace(" active5", "");
+      }
+      slides[slideIndex2-1].style.display = "block";
+      dots[slideIndex2-1].className += " active5";
+      setTimeout(showSlides2, 2000); // Change image every 1 seconds
+    }
+
+    function showSlides3() {
+      let i;
+      //clearTimeout(stop1);
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot1");
+      for (i = 9; i < 12; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex3++;
+      if (slideIndex3 > 12) {slideIndex3 = 10}
+      for (i = 9; i < 12; i++) {
+        dots[i].className = dots[i].className.replace(" active5", "");
+      }
+      slides[slideIndex3-1].style.display = "block";
+      dots[slideIndex3-1].className += " active5";
+      setTimeout(showSlides3, 2000); // Change image every 1 seconds
+    }
+
+function nex1(){
+slideIndex1=3;
+currentpage=1;
+showSlides1();
+    var div1=document.getElementsByClassName("div1");
+    div1[0].style.display="block";
+    var div0=document.getElementsByClassName("div0");
+    div0[0].style.display="none";
+
+}
+
+function nex2(){
+slideIndex2=6;
+currentpage=2;
+showSlides2();
+    var div1=document.getElementsByClassName("div2");
+    div1[0].style.display="block";
+    var div0=document.getElementsByClassName("div1");
+    div0[0].style.display="none";
+
+}
+function nex3(){
+slideIndex3=9;
+currentpage=3;
+showSlides3();
+    var div1=document.getElementsByClassName("div3");
+    div1[0].style.display="block";
+    var div0=document.getElementsByClassName("div2");
+    div0[0].style.display="none";
+
+}
+function nex4(){
+var div1=document.getElementsByClassName("div4");
+currentpage=4;
+div1[0].style.display="block";
+var div0=document.getElementsByClassName("div3");
+div0[0].style.display="none";
+
+}
+function nex5(){
+var div1=document.getElementsByClassName("div5");
+div1[0].style.display="block";
+var div0=document.getElementsByClassName("div4");
+div0[0].style.display="none";
+
+}
+function backpage(){
+    if(currentpage==0)
+    {
+    $("#fund-dialog").modal('hide');
+    closealldiv();
+    }
+    if(currentpage==1)
+    {
+
+         var div1=document.getElementsByClassName("div1");
+        div1[0].style.display="none";
+        var div0=document.getElementsByClassName("div0");
+        div0[0].style.display="block";
+        currentpage--;
+    }
+       if(currentpage==2)
+    {
+
+         var div1=document.getElementsByClassName("div2");
+        div1[0].style.display="none";
+        var div0=document.getElementsByClassName("div1");
+        div0[0].style.display="block";
+        currentpage--;
+    }
+     if(currentpage==3)
+    {
+
+         var div1=document.getElementsByClassName("div3");
+        div1[0].style.display="none";
+        var div0=document.getElementsByClassName("div2");
+        div0[0].style.display="block";
+        currentpage--;
+    }
+     if(currentpage==4)
+    {
+
+         var div1=document.getElementsByClassName("div4");
+        div1[0].style.display="none";
+        var div0=document.getElementsByClassName("div3");
+        div0[0].style.display="block";
+
+    }
+
+}
+function closealldiv()
+{
+        var div1=document.getElementsByClassName("div0");
+        div1[0].style.display="block";
+         var div2=document.getElementsByClassName("div1");
+        div2[0].style.display="none";
+         var div3=document.getElementsByClassName("div2");
+        div3[0].style.display="none";
+         var div4=document.getElementsByClassName("div3");
+        div4[0].style.display="none";
+         var div4=document.getElementsByClassName("div4");
+        div4[0].style.display="none";
+
+}
+
+function dotclick()
+{
+       let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot1");
+        for (i = 3; i < 6; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 3; i < 6; i++) {
+        dots[i].className = dots[i].className.replace(" active5", "");
+      }
+      slides[0].style.display = "block";
+      dots[0].className += " active5";
+}
+    </script>
+    {% endcall %}
+
+    {% call givesome_macros.givesome_dialog(dialog_id="thank-you", size="md", body_class="fund-modal", confetti=True) %}
+        <div class="fund-modal-header text-center">
+            <h2 class="mt-0 mb-4">
+                {{ format_thank_you_element() }}
+            </h2>
+            {% if not subscription %}
+                <p>{{ _("You have impacted ") }}<strong><span id="impacted">{{ product.project_extra.lives_impacted }}</span>{{ _(" lives!") }}</strong></p>
+            {% endif %}
+        </div>
+        <div class="fund-modal-content">
+            <div class="d-flex align-items-center">
+                {% if cropped_main_image %}
+                    <div class="social-share-image pr-5">
+                        <img src="{{ cropped_main_image }}">
+                    </div>
+                {% endif %}
+                <div>
+                    <p><strong>{{ _("Share with your friends" ) }}</strong></p>
+                    <p>{{ _("I just contributed to ") }}{{ product.name }}{% if supplier %}{{ _(" by ") }}{{ supplier.name }}{% endif %}</p>
+                    <div>
+                        {{ render_social_media_share_links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fund-modal-footer">
+            {% if not request.user.is_authenticated %}
+                <div class="text-center pt-2 mb-4">
+                    <p>{{ _("Create an account to track your personal impact and receive project completion videos.") }}</p>
+                    <a href="{{ url('shuup:register-after-donation', order_id=0) }}" id="register-url" class="btn btn-primary btn-rounded mt-3">{{ _("Create an Account") }}</a>
+                </div>
+            {% endif %}
+            <button type="button" data-dismiss="modal" class="btn btn-modal-close">
+                {{ _("Continue") }}
+            </button>
+            {% if not subscription and charity_subscription_product is not none %}
+                {% set url = url('shuup:product', pk=charity_subscription_product.pk, slug=charity_subscription_product.slug) %}
+                {% if request.GET %}
+                    {% set url = url ~ '?originalProject=' ~ object.id ~ '&promoterType=' ~ request.GET.type ~ '&promoter=' ~ request.GET.id %}
+                {% endif %}
+
+                <a href="{{ url }}" class="btn btn-primary btn-rounded btn-block">Support {{ supplier.name }}!</a>
+            {% endif %}
+        </div>
+    {% endcall %}
+{% endblock %}
+
+{% block extrajs %}
+    {{ product_macros.render_extrajs() }}
+    {{ givesome_macros.load_givecard_checkout(object) }}
+    {{ givesome_macros.load_stripe_checkout(object) }}
+    {{ givesome_macros.toggle_receipting_checkbox() }}
+    <script>
+    function getLocation() {
+        return location.href.split("/p/")[1];
+    }
+
+    ["id_custom", "id_custom-gc"].forEach(
+        function(elementName) {
+            ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop", "focusout"].forEach(
+                function(event) {
+                    document.getElementById(elementName).addEventListener(event, function(e) {
+                            this.value = this.value.replace(/[^0-9]/g, '')
+                            if (/^-?\d*$/.test(this.value)) {
+                                this.value = this.value.replace(/[^0-9]/g, '')
+                                this.oldValue = this.value.replace(/[^0-9]/g, '')
+                                this.oldSelectionStart = this.selectionStart;
+                                this.oldSelectionEnd = this.selectionEnd;
+                            } else if (this.hasOwnProperty("oldValue")) {
+                                this.value = this.oldValue.replace(/[^0-9]/g, '')
+                            } else {
+                                this.value = "";
+                            }
+                        })
+                }
+            )
+        }
+    )
+
+    </script>
+{% endblock %}
+
+{% macro render_project_progress() %}
+    {% if product.project_extra %}
+        {% set fully_funded = product.project_extra.fully_funded_date %}
+        {% set coming_soon = False %}
+        {% set goal_amount = product.project_extra.goal_amount %}
+        {% set goal_progress_amount = product.project_extra.goal_progress_amount %}
+        {% set goal_progress_percentage = product.project_extra.goal_progress_percentage %}
+        {% set give_now_display = product.project_extra.give_now_display %}
+    {% else %}
+        {% set fully_funded = False %}
+        {% set coming_soon = False %}
+        {% set goal_amount = 0 %}
+        {% set goal_progress_amount = 0 %}
+        {% set goal_progress_percentage = 0 %}
+        {% set give_now_display = 0 %}
+    {% endif %}
+
+    <div class="project-progress">
+        <div class="project-progress-values">
+            <div class="progress-value-text">
+                <strong id="current-amount">${{ recalculate_currency(request, goal_progress_amount) }}</strong> {{ _("raised of") }} ${{ recalculate_currency(request, goal_amount) }}
+            </div>
+            <div class="progress-percentage" aria-hidden="true">
+                <strong id="current-percentage">{{ goal_progress_percentage }}%</strong>
+            </div>
+        </div>
+        <div class="project-progress-bar progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{ goal_progress_percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ goal_progress_percentage }}%;">
+                <span class="sr-only">{{goal_progress_percentage }}% {{ _("Complete") }}</span>
+            </div>
+            <div class="progress-background"></div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro render_social_media_share_links() %}
+{#    Go to www.addthis.com/dashboard to customize your tools #}
+    <div class="addthis_inline_share_toolbox"></div>
+{% endmacro %}
+
+{% block extracss %}
+    {% if promoter_type == 'Supplier' and promoter.givesome_extra and promoter.givesome_extra.color %}
+        {% set color = brand.givesome_extra.color %}
+    {% elif promoter_type == 'GivesomeOffice' and promoter.supplier.givesome_extra and promoter.supplier.givesome_extra.color %}
+        {% set color = promoter.supplier.givesome_extra.color %}
+    {% elif charity_allow_brand_page and supplier.givesome_extra and supplier.givesome_extra.color %}
+        {% set color = supplier.givesome_extra.color %}
+    {% else %}
+        {% set color = None %}
+    {% endif %}
+
+    {% if color %}
+        <style>
+            :root {
+                --primary: {{ color }} !important;
+            }
+            .partner-background {
+                background-color: var(--primary) !important;
+            }
+            .partner-main-banner .vendor-logo {
+                border-color: var(--primary) !important;
+            }
+            {#.btn-primary {
+                background-color: var(--primary) !important;
+                border: var(--primary) !important;
+            }#}
+            .supported-by-section img {
+                max-width: 175px;
+                max-height: 150px;
+            }
+            div#custom .form-input-group::before {
+                content: "$";
+                font-weight: 400;
+                padding: 4px;
+                padding-top: 7px;
+                font-size: 18px;
+
+            }
+
+            div#custom .form-input-group::after {
+                content: ".00";
+                font-weight: 400;
+                padding: 4px;
+                padding-top: 7px;
+                font-size: 18px;
+            }
+
+            div#custom div.form-input-group.d-flex.position-relative {
+                width: 150px !important;
+            }
+
+            div#custom input {
+                width: 150px !important;
+                text-align: right;
+            }
+
+            div#custom-gc .form-input-group::before {
+                content: "$";
+                font-weight: 400;
+                padding: 4px;
+                padding-top: 7px;
+                font-size: 18px;
+            }
+
+            div#custom-gc .form-input-group::after {
+                content: ".00";
+                font-weight: 400;
+                padding: 4px;
+                padding-top: 7px;
+                font-size: 18px;
+            }
+
+            div#custom-gc div.form-input-group.d-flex.position-relative {
+                width: 150px !important;
+            }
+
+            div#custom-gc input {
+                width: 150px !important;
+                text-align: right;
+            }
+        </style>
+    {% endif %}
+{% endblock %}

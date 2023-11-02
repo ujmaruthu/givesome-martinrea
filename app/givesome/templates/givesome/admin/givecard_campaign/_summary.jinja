@@ -1,0 +1,54 @@
+<p class="section-description">{% trans %}Summary of all the Givecard Batches that belong to this Givecard Campaign.{% endtrans %}</p>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>{% trans %}Batch ID{% endtrans %}</th>
+                <th>{% trans %}Cards Redeemed{% endtrans %}</th>
+                <th>{% trans %}Balance{% endtrans %}</th>
+                <th>{% trans %}Total Donated{% endtrans %}<small> *</small></th>
+                <th>{% trans %}Projects{% endtrans %}</th>
+                <th>{% trans %}Lives impacted{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set batches = givecard_campaign_data.batches %}
+        {% if batches %}
+            {% for batch in batches %}
+                {% set batch_url = shuup_admin.model_url(batch, "detail") %}
+                <tr>
+                    <td>
+                        {% if batch_url %}
+                            <a href="{{ batch_url }}">{{ batch.id }}</a>
+                        {% else %}
+                            {{ order.id }}
+                        {% endif %}
+                    </td>
+                    <td>{{ batch.givecards_redeemed }} / {{ batch.amount }}</td>
+                    <td>${{ batch.total_balance }} / ${{ batch.original_balance }}</td>
+                    <td>${{ batch.total_amount_donated }}</td>
+                    <td>{{ batch.projects_donated_count }}</td>
+                    <td>{{ batch.total_lives_impacted }}</td>
+                </tr>
+            {% endfor %}
+            {% set total = givecard_campaign_data["total"] %}
+            {% if batches|length > 1 %}
+            <tr>
+                <td>Total</td>
+                <td>{{ total.sum_redeemed_givecards|int }} / {{ total.sum_givecards|int }} ({{ total.percentage_redeemed }}%)</td>
+                <td>${{ total.current_balance }} / ${{ total.original_balance }}</td>
+                <td>${{ total.total_amount_donated }}</td>
+                <td>{{ total.count_projects_donated }}<small> **</small></td>
+                <td>{{ total.sum_lives_impacted }}<small> **</small></td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr><td class="text-center" colspan="7"><em>{% trans %}No Givecard Batches found{% endtrans %}</em></td></tr>
+        {% endif %}
+        </tbody>
+    </table>
+    <div>
+        <p><small>* {{ _("Only donations made by users are counted") }}</small></p>
+        <p><small>** {{ _("If the projects funded and lives impacted totals are less than the sum of all campaigns it is because projects may have been duplicated in multiple campaigns") }}</small></p>
+    </div>
+</div>

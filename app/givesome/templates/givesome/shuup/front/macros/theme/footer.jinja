@@ -1,0 +1,40 @@
+{% macro render_footer() %}
+    <footer class="main-footer">
+        <div class="container">
+            <div class="flex-row row">
+                <div class="col-sm-4 col left">
+                {% if request.shop.logo %}
+                    <img src="{{ request.shop.logo.url }}" alt="" class="img-responsive footer-logo">
+                {% endif %}
+                    {% placeholder "footer-left" global %}{% endplaceholder %}
+                </div>
+                <div class="col-sm-5 col center">
+                    {% placeholder "footer-center" global %}{% endplaceholder %}
+                   {# <p class="powered">{{ _("Powered by") }} <a target="_blank" href="https://shuup.com">Shuup</a></p>#}
+                    <div>
+                        &copy; {{ request.shop.name }} <script>document.write(new Date().getFullYear())</script>
+                    </div>
+                </div>
+                <div class="col-sm-3 col right footer-3-content" style="align-items:end;">
+                    <p>
+                        <a href="{{ url('shuup:partner_registration') }}{% if next %}?next={{ next }}{% endif %}">
+                            {% trans %}Register as a Company{% endtrans %}
+                        </a>
+                    </p>
+                    <p>
+                        <a href="{{ url('shuup:charity_registration') }}{% if next %}?next={{ next }}{% endif %}">
+                            {% trans %}Register as a Charity{% endtrans %}
+                        </a>
+                    </p>
+                    {% placeholder "footer-right" global %}
+                        {% row %}
+                            {% column {"sm": 12} %}
+                                {% plugin 'vendor_information' %}{% endplugin %}
+                            {% endcolumn %}
+                        {% endrow %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endmacro %}

@@ -1,0 +1,79 @@
+{% from "shuup/admin/macros/general.jinja" import content_with_sidebar, content_block_subtitle, info_row %}
+
+{% macro contact_row(label, contact) %}
+    {% set url = shuup_admin.model_url(contact, "detail") %}
+    {% if contact is not none and contact.account_manager is not none %}
+        {{ info_row(label, contact ~ " (" ~ contact.account_manager ~ ")", url) }}
+    {% else %}
+        {{ info_row(label, contact, url) }}
+    {% endif %}
+{% endmacro %}
+
+{%- macro render_objects(objs) -%}
+    {%- for obj in objs -%}
+        {{- obj -}}
+        {%- if not loop.last %}, {% endif -%}
+    {%- endfor -%}
+{%- endmacro -%}
+
+{% from "shuup/admin/macros/general.jinja" import content_block_subtitle %}
+<div class="row">
+    <div class="col-12">
+        {{ content_block_subtitle("h4", _("Customer information"), "fa-user", top_line=False)}}
+    </div>
+
+    <div class="col-md-6">
+        <div class="list-group">
+            {{ info_row(_("Order Number"), order.identifier) }}
+            {{ info_row(_("Order Date"), order.order_date|datetime) }}
+            {{ info_row(_("Reference"), order.reference_number) }}
+            {{ info_row(_("Shop"), order.shop) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="list-group">
+            {{ contact_row(_("Customer"), order.customer) }}
+            {{ info_row(_("Phone"), order.phone, "tel:" ~ order.phone) }}
+            {{ info_row(_("Email"), order.email, "mailto:" ~ order.email) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="list-group">
+            {% set tracking_codes = order.get_tracking_codes() %}
+            {% if tracking_codes %}
+                {{ info_row(_("Tracking codes"), render_objects(tracking_codes)) }}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% if order.billing_address_id %}
+    <div class="row">
+        <div class="col-12">
+            {{ content_block_subtitle("h4", _("Address Information"), "fa-map-marker mr-2", top_line=False)}}
+
+            <div class="row contact-addresses">
+                {% if order.billing_address_id %}
+                    <div class="col-md-6 billing-address">
+                        <h4 class="pt-3 pb-3"><strong>{% trans %}Billing address{% endtrans %}</strong></h4>
+                        <div class="list-group">
+                            {% for line in order.billing_address or [] %}
+                                <address class="list-group-item">{{ line }}</address>
+                            {% else %}
+                                <p><i class="fa fa-warning text-warning"></i> {% trans %}No billing address defined.{% endtrans %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+<div class="row">
+    <div class="col-12">
+        {{ content_block_subtitle("h4", _("Items"), "fa-list", top_line=False)}}
+        <div id="picotable"></div>
+    </div>
+</div>
+

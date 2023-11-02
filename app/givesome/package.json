@@ -1,0 +1,39 @@
+{
+  "name": "givesome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build_resources.js",
+  "scripts": {
+    "watch": "node build_resources --watch",
+    "build": "node build_resources"
+  },
+  "shuup": {
+    "static_build": true
+  },
+  "author": "Shuup Team",
+  "browserslist": [
+    "> 1%",
+    "last 5 versions"
+  ],
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.7.2",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.11.0",
+    "autoprefixer": "^9.7.2",
+    "bootstrap": "^3.4.1",
+    "bootstrap-select": "^1.13.12",
+    "dropzone": "^5.5.1",
+    "font-awesome": "^4.7.0",
+    "less": "3.12.2",
+    "load-google-maps-api": "^2.0.1",
+    "moment-timezone": "^0.5.28",
+    "owl.carousel": "^2.3.4",
+    "parcel-bundler": "^1.12.4",
+    "postcss-modules": "^1.4.1",
+    "select2": "^4.0.12",
+    "shuup-definite-theme": "3.1.3",
+    "shuup-static-build-tools": "^1.0.4",
+    "simplelightbox": "^1.17.3"
+  }
+}

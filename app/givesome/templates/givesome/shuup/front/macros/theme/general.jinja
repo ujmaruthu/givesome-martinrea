@@ -1,0 +1,99 @@
+{% macro render_pagination(page, paginator, show_details=True, max_visible_links=5, js_onclick_function="refreshFilters") %}
+    <script>
+        window.PAGE_NUMBER = "{{ page.number }}";
+    </script>
+
+    {% set page_range = paginator.page_range %}
+    {% set page_count = paginator.page_range|count %}
+
+    {% set current_page = page.number %}
+
+    {% if current_page < max_visible_links %}
+        {% set starting_point = 1 %}
+    {% elif current_page >= (page_count - (max_visible_links/2)|round(1,'floor')|int) %}
+        {% set starting_point = page_count - max_visible_links + 1 %}
+    {% elif current_page >= max_visible_links %}
+        {% set starting_point = current_page - (max_visible_links/2)|round(1,'floor')|int %}
+    {% endif %}
+
+    <nav class="text-center" aria-label="{% trans %}Pagination{% endtrans %}">
+        <ul class="pagination">
+            {% if page.has_previous() %}
+                <li id="previous_page">
+                    <a href="?page={{ page.previous_page_number() }}"
+                       onclick="{{ js_onclick_function }}({{ page.previous_page_number()}}); return false;"
+                       aria-label="{% trans %}Previous page{% endtrans %}">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li id="previous_page" class="disabled" aria-hidden="true">
+                    <span>
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </span>
+                </li>
+            {% endif %}
+
+            {% if not page_count <= max_visible_links %}
+                {# If the current page >= max_visible_links then show link to 1st page #}
+                {% if current_page >= max_visible_links %}
+                    <li id="pagination_page_1">
+                        <a href=">page=1" onclick="{{ js_onclick_function }}(1); return false;">
+                            <span class="sr-only">{% trans %}Page{% endtrans %} </span>1
+                        </a>
+                    </li>
+                    <li class="disabled" aria-hidden="true">
+                        <span>&#8943;</span>
+                    </li>
+                {% endif %}
+            {% endif %}
+
+            {# Loop though pages shown and show links either side equal to max / 2 #}
+            {% for i in page_range %}
+                {% if i > (starting_point - 1) and i <= (starting_point + max_visible_links - 1) %}
+                    <li id="pagination_page_{{ i }}" class="{% if i == current_page %}active{% endif %}">
+                        <a href="?page={{ i }}" onclick="{{ js_onclick_function }}({{ i }}); return false;">
+                            <span class="sr-only">{% trans %}Page{% endtrans %} </span>{{ i }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if not page_count == max_visible_links %}
+                {# Show last page if we're not near it #}
+                {% if current_page <= ((page_count - max_visible_links/2)|round(1,'floor')|int) %}
+                    <li class="disabled" aria-hidden="true">
+                        <span>&#8943;</span>
+                    </li>
+                    <li id="pagination_page_{{ page_count }}">
+                        <a href="?page={{ page_count }}" onclick="{{ js_onclick_function }}({{ page_count }}); return false;">
+                            <span class="sr-only">{% trans %}Page{% endtrans %} </span>{{ page_count }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endif %}
+
+            {% if page.has_next() %}
+                <li id="next_page">
+                    <a href="?page={{ page.next_page_number() }}"
+                       onclick="{{ js_onclick_function }}({{ page.next_page_number() }}); return false;"
+                       aria-label="{% trans %}Next page{% endtrans %}">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li id="next_page" class="disabled" aria-hidden="true">
+                    <span>
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                </li>
+            {% endif %}
+        </ul>
+
+        {% if show_details %}
+            <p class="text-muted">
+                {{ gettext("Items %(start_index)d to %(end_index)d of %(count)d total", start_index=page.start_index(), end_index=page.end_index(), count=paginator.count) }}
+            <p>
+        {% endif %}
+    </nav>
+{% endmacro %}

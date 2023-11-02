@@ -1,0 +1,5 @@
+{% macro render_receipting_icon(charity, msg, class_size="sm", handle_touch=False) %}
+    <span class="title-suffix" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="{{ render_receipting_message(msg, charity=charity) }}" {% if handle_touch %}ontouchstart="javascript:handleTap(event)"{% endif %}>
+        <img class="receipting-logo-{{ class_size }}" src="{{ shuup_static("givesome/img/receipting-logo.png", "givesome-marketplace") }}" alt="Receipting logo"/>
+    </span>
+{% endmacro %}

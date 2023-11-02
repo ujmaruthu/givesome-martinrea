@@ -1,0 +1,279 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 17:54+0000\n"
+"PO-Revision-Date: 2020-06-29 21:18+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "Carousels"
+msgstr "Karuselės"
+
+#, python-format
+msgid "%s has been deleted."
+msgstr "%s buvo ištrintas."
+
+msgid "Name"
+msgstr "Pavadinimas"
+
+msgid "Filter by name..."
+msgstr "Filtruoti pagal pavadinimą..."
+
+msgid "Carousel"
+msgstr "Karuselė"
+
+msgid "Active"
+msgstr "Aktyvus"
+
+msgid "Slide"
+msgstr "Slinkti"
+
+msgid "Fade"
+msgstr "Blukinti"
+
+msgid "Current page"
+msgstr ""
+
+msgid "New page"
+msgstr ""
+
+msgid "shops"
+msgstr ""
+
+msgid "Select which shops you would like the carousel to be visible in."
+msgstr ""
+
+msgid "name"
+msgstr "pavadinimas"
+
+msgid "The carousel name use for carousel configuration."
+msgstr "Karuselės vardas karuselės konfigūracijai."
+
+msgid "animation"
+msgstr "animacija"
+
+msgid "Animation type for cycling slides."
+msgstr "Animacijos tipas skaidrių užsklandoms"
+
+msgid "interval"
+msgstr "intevalas"
+
+msgid "Slide interval in seconds."
+msgstr "Skaidrės intervalas sekundėmis."
+
+msgid "pause on hover"
+msgstr "pristabdyti užvedus pelę"
+
+msgid "When checked, the carousel cycling pauses on mouse over."
+msgstr "Pažymėjus karuselė pristabdoma užvedus pelę."
+
+msgid "show navigation arrows"
+msgstr "Rodyti navigacijos strėlytes"
+
+msgid ""
+"When checked, navigational arrows are shown on the carousel allowing for "
+"customers to go back and forward."
+msgstr "Pažymėjus navigacijos rodyklės rodomos ant karuselės ir leidžia klientui grįžti atgal arba rodyti sekančią skaidrę"
+
+msgid "show navigation dots"
+msgstr "rodyti navigacijos taškelius"
+
+msgid "When checked, navigational indicator dots are shown."
+msgstr "Pažymėjus navigacijos taškeliai bus rodomi."
+
+msgid "image width"
+msgstr "paveikslėlio plotis"
+
+msgid "Slide images will be cropped to this width."
+msgstr "Skaidrių paveikslėliai bus sumažinti iki šio dydžio."
+
+msgid "image height"
+msgstr "paveikslėlio aukštis"
+
+msgid "Slide images will be cropped to this height."
+msgstr "Skaidrių paveiksėliai bus sumažinti iki šio aukščio."
+
+msgid "Arrows color"
+msgstr ""
+
+msgid "Set the custom color for the arrows."
+msgstr ""
+
+msgid "Name is only used to configure slides."
+msgstr "Pavadinimas naudojams tik skaidrėms nustatyti."
+
+msgid "product link"
+msgstr "produkto nuoroda"
+
+msgid ""
+"Set the product detail page that should be shown when this slide is clicked,"
+" if any."
+msgstr "Nustatyti produkto detalių puslapį, kad būtų rodoma kai skaidrė paspaudžiama."
+
+msgid "category link"
+msgstr "kategorijos nuoroda"
+
+msgid ""
+"Set the product category page that should be shown when this slide is "
+"clicked, if any."
+msgstr "Nustatyti produkto kategorijos puslapį, kuris būtų rodomas nuspaudus skaidrę."
+
+msgid "cms page link"
+msgstr "CMS puslapio nuoroda"
+
+msgid ""
+"Set the web page that should be shown when the slide is clicked, if any."
+msgstr "Nustatyti web puslapį, kuris bus rodomas nuspaudus skaidrę."
+
+msgid "ordering"
+msgstr "Rikiavimas"
+
+msgid ""
+"Set the numeric order in which this slide should appear relative to other "
+"slides in this carousel."
+msgstr "Nustatyti eiliškumą, kuriuo ši skaidrė turi būti rodoma lyginant su kitomis skaidrėmis šioje karuselėje."
+
+msgid "link target"
+msgstr "nuoroda veda į"
+
+msgid ""
+"Set this to current if clicking on this slide should open a new browser tab."
+msgstr "Nustatyti į esamą jei nuspaudus šią skaidrę turi būti atidaroma naujame naršyklės lange."
+
+msgid "available since"
+msgstr ""
+
+msgid ""
+"Set the date and time, starting from which this slide should be visible in "
+"the carousel. This is useful to advertise sales campaigns or other time-"
+"sensitive marketing."
+msgstr ""
+
+msgid "available until"
+msgstr ""
+
+msgid ""
+"Set the date and time, until which this slide should be visible in the "
+"carousel. This is useful to advertise sales campaigns or other time-"
+"sensitive marketing."
+msgstr ""
+
+msgid "Inactive dot border color"
+msgstr ""
+
+msgid "Customize the dot border color when slide is not active."
+msgstr ""
+
+msgid "Active dot color"
+msgstr ""
+
+msgid "Customize the dot color when slide is active."
+msgstr ""
+
+msgid "caption"
+msgstr "antraštė"
+
+msgid ""
+"Text that describes the image. It is displayed on top of the image if "
+"'Render image text' box is enabled in front-end. Also used for search engine"
+" purposes."
+msgstr ""
+
+msgid "caption text"
+msgstr "antraštės tekstas"
+
+msgid ""
+"Caption text is displayed as secondary text on top of the image if 'Render "
+"image text' box is enabled in front-end for 'Carousel plugin' type (disabled"
+" for 'Banner box' type). It is also shown as a tooltip."
+msgstr ""
+
+msgid "external link"
+msgstr "išorinė nuoroda"
+
+msgid ""
+"Set the external site that should be shown when this slide is clicked, if "
+"any."
+msgstr "Nustatyti išorinę svetainę, kuri turi būti rodoma kai skaidrė paspaudžiama."
+
+msgid "image"
+msgstr "paveikslėlis"
+
+msgid "The slide image to show."
+msgstr "Paveikslėlis, kurį rodyti skaidrėje."
+
+msgid "Slides"
+msgstr "Skaidrės"
+
+msgid "Carousel Plugin"
+msgstr "Karuselės įskiepis"
+
+msgid "Render image text"
+msgstr ""
+
+msgid "Display the text on top of the image."
+msgstr ""
+
+msgid "Banner Box"
+msgstr "Reklamos skydelis"
+
+msgid "Title"
+msgstr "Antraštė"
+
+msgid "Slides can be added after saving the Carousel."
+msgstr "Skaidrės gali būti pridedamos jau po karuselės išsaugojimo."
+
+msgid ""
+"This form is also used to define banner boxes. Marked fields only apply to "
+"banner boxes."
+msgstr "Forma taip pat naudojama apibrėžti reklaminius skydelius. Pažymėti laukai bus taikomi tik reklamos skydeliams."
+
+msgid "Adding the carousel to your site"
+msgstr ""
+
+msgid ""
+"To add a carousel to your site, you must edit the page using the placeholder"
+" editor. To do this, go to your site and click the 'Edit page' on the page "
+"you want to add the carousel banner to. Then, select the placeholder to "
+"change and add a new plugin row and from the plugin dropdown and select "
+"'Carousel Plugin'. From 'Carousel' dropdown options choose the carousel you "
+"want to display. As a final step, save the plugin and publish changes."
+msgstr ""
+
+msgid "Learn more."
+msgstr ""
+
+msgid "Basic details"
+msgstr "Pagrindinė informacija"
+
+msgid "Advanced options"
+msgstr "Išplėstiniai nustatymai"
+
+msgid "Remove Slide"
+msgstr ""
+
+msgid "Only image for default language is required."
+msgstr "Numatytajai kalbai reikalingas tik paveikslėlis."
+
+msgid ""
+"If external link is not set link will fallback to product link, category "
+"link or cms page link in this order."
+msgstr "Jei išorinė nuoroda nenustatyta bus bandoma naudoti šia tvarka: produkto nuoroda, kategorijos nuoroda arba CMS puslapio nuoroda."
+
+msgid "Add new slide"
+msgstr "Pridėti naują skaidrę"
+
+msgid "New Carousel"
+msgstr "Nauja karuselė"

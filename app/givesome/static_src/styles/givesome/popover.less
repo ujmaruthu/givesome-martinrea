@@ -1,0 +1,20 @@
+.popover {
+    border-color: @border-color-light;
+    padding: @grid-gutter-width/2 (@grid-gutter-width - 5px);
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+
+    &.bottom > .arrow {
+        border-bottom-color: @border-color-light !important;
+    }
+
+    .popover-title {
+        background-color: transparent;
+        padding: 0 0 @grid-gutter-width/5 0;
+        border: none;
+    }
+
+    .popover-content {
+        padding: 0;
+        font-size: @font-size-small;
+    }
+}

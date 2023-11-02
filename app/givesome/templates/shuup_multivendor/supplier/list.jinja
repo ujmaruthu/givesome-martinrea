@@ -1,0 +1,182 @@
+{% from "shuup/front/macros/general.jinja" import render_field with context %}
+
+{% macro render_vendor_filters_top() %}
+    <div class="row vendor-list-actions vendor-wrap">
+        <div class="col-md-6">
+            <form role="form" method="get" action="" id="sorts_and_filters_1">
+                {{ render_field(form.sort) }}
+                {% if form.is_filter_available("favorites_only") %}
+                    {{ render_field(form.favorites_only) }}
+                {% endif %}
+            </form>
+        </div>
+        {% if form.is_filter_available("categories") %}
+            <div class="col-md-6">
+                <form role="form" method="get" action="" id="sorts_and_filters_2">
+                        {{ render_field(form.categories) }}
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro vendor_box(vendor, favorited, show_description=False) %}
+    {% set u = url("shuup:supplier", slug=vendor.slug) %}
+    <div class="partner-card" id="vendor-{{ vendor.id }}">
+        {#{% if render_favorite_button() %}
+            {% from "shuup_multivendor/supplier/favorites_macro.jinja" import render_profile_favorite_button %}
+            {{ render_profile_favorite_button(vendor.pk, favorited)}}
+        {% endif %}#}
+        <a href="{{ u }}" rel="vendor-detail" title="{{ vendor.name }}">
+            <div class="image-wrap">
+                {% if vendor.logo %}
+                    {% set image_url = vendor.logo|thumbnail(size=(500, 500), upscale=True) %}
+                {% else %}
+                    {% set image_url = None %}
+                {% endif %}
+                <div class="image" {% if image_url %}style="background-image:url('{{ image_url }}')"{% endif %}></div>
+            </div>
+            <h2 class="name">
+                {{ vendor.name }}
+            </h2>
+            {% if vendor.contact_address.city or vendor.contact_address.region_code %}
+                <div class="location">
+                    {% if vendor.contact_address.city %}
+                        {{- vendor.contact_address.city -}}{% if vendor.contact_address.city and vendor.contact_address.region_code %}, {% endif %}
+                    {% endif %}
+                    {% if vendor.contact_address.region_code %}
+                        {{ vendor.contact_address.region_code }}
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% if show_description and vendor.description %}
+                <div class="description">
+                    {{ vendor.description|safe }}
+                </div>
+            {% endif %}
+        </a>
+    </div>
+{% endmacro %}
+
+{% macro render_pagination(page, paginator, show_details=True) %}
+    <script>
+        window.PAGE_NUMBER = "{{ page.number }}";
+    </script>
+    <nav class="text-center">
+        <ul class="pagination">
+            {% if page.has_previous() %}
+                <li id="previous_page">
+                    <a href="?page={{ page.previous_page_number()}}"
+                       onclick="refreshVendorFilters({{ page.previous_page_number()}}); return false;"
+                       aria-label="{% trans %}Previous{% endtrans %}">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li id="previous_page" class="disabled">
+                    <span aria-label="{% trans %}Previous{% endtrans %}">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </span>
+                </li>
+            {% endif %}
+            {% for i in page_range or paginator.page_range %}
+                <li id="pagination_page_{{ i }}" class="{% if i == page.number %}active{% endif %}">
+                    {% if i == page.number %}
+                        <span>{{ i }}</span>
+                    {% else %}
+                        <a href="?page={{ i }}" onclick="refreshVendorFilters({{ i }}); return false;">{{ i }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            {% if page.has_next() %}
+                <li id="next_page">
+                    <a href="?page={{ page.next_page_number() }}"
+                       onclick="refreshVendorFilters({{ page.next_page_number() }}); return false;"
+                       aria-label="{% trans %}Next{% endtrans %}">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li id="next_page" class="disabled">
+                    <span aria-label="{% trans %}Next{% endtrans %}">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </span>
+                </li>
+            {% endif %}
+        </ul>
+        {% if show_details %}
+            <p class="text-muted">
+                <small><em>{{ gettext("Items %(start_index)d - %(end_index)d of %(count)d total", start_index=page.start_index(), end_index=page.end_index(), count=paginator.count) }}</em></small>
+            <p>
+        {% endif %}
+    </nav>
+{% endmacro %}
+
+{% macro render_vendor_list() %}
+    <div id="ajax_vendor_content">
+        <ul class="partner-list">
+            {% set favorite_vendor_ids = get_favorite_vendor_ids(page_obj) if render_favorite_button() else [] %}
+            {% for vendor in page_obj %}
+                <li class="single-partner">
+                    {{ vendor_box(vendor, favorited=vendor.id in favorite_vendor_ids, show_description=False) }}
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="clearfix">
+            {{ render_pagination(page_obj, page_obj.paginator) }}
+        </div>
+    </div>
+{% endmacro %}
+
+{% if request.is_ajax() %}
+    {%- import "shuup/front/macros/general.jinja" as macros with context -%}
+    {{ render_vendor_list() }}
+{% else %}
+    {% extends "shuup/front/base.jinja" %}
+
+    {% if request.path == '/b/' %}
+        {% set vendor_type_string = _("Corporate Pages") %}
+    {% else %}
+        {% set vendor_type_string = _("Charity Pages") %}
+    {% endif %}
+
+    {% block title %}{{ vendor_type_string }}{% endblock %}
+
+    {% block breadcrumb %}{% endblock %}
+
+    {% block container_start %}{% endblock %}
+    {% block container_end %}{% endblock %}
+
+    {% block banner %}
+        <section class="banner-section banner-section-light vendor-list-banner">
+            <div class="container">
+                {% call macros.breadcrumb() %}
+                    {{ macros.render_breadcrumb_item("/", _("Home")) }}
+                    {{ macros.render_breadcrumb_item(None, vendor_type_string, True) }}
+                {% endcall %}
+
+                <h1>
+                    {{ vendor_type_string }}
+                </h1>
+
+                <script>window.VENDOR_LIST_FILTERS = {{ form.fields.keys()|list|json }};</script>
+                {{ render_vendor_filters_top() }}
+            </div>
+        </section>
+    {% endblock %}
+
+    {% block content %}
+        <div class="container">
+            {% placeholder "vendor_top" %}{% endplaceholder %}
+
+            {{ render_vendor_list() }}
+
+            {% placeholder "vendor_bottom" %}{% endplaceholder %}
+        </div>
+    {% endblock %}
+
+    {% block extrajs %}
+        <link rel="stylesheet" href="{{ static('shuup_multivendor/vendor-list.css') }}?v=0.9.24">
+        <script src="{{ static('shuup_multivendor/vendor.js') }}?v=0.9.24"></script>
+    {% endblock %}
+{% endif %}

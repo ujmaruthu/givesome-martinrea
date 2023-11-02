@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-10 20:10+0000\n"
+"PO-Revision-Date: 2021-05-11 12:25+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "Shuup Frontend - Customer Information Editing"
+msgstr "Shuup priekis - kliento informacijos redagavimas"
+
+msgid "Customer Information"
+msgstr "Kliento informacija"
+
+msgid "Company Information"
+msgstr "Įmonės informacija"
+
+msgid "Edit Company Information."
+msgstr "Redaguoti įmonės informaciją."
+
+msgid "Address Book"
+msgstr "Adresų knygelė"
+
+msgid "Language"
+msgstr "Kalba"
+
+msgid "Will become default user email when linked."
+msgstr ""
+
+msgid "Given Tax Number already exists. Please contact support."
+msgstr "Pateitkas PVM kodasd jau egzistuoja. Susisiekite su pagalba."
+
+msgid "Address Title"
+msgstr "Adreso antraštė"
+
+msgid "Address Type"
+msgstr "Adreso tipas"
+
+msgid "Address Status"
+msgstr "Adreso statusas"
+
+msgid "Company information was saved."
+msgstr ""
+
+msgid ""
+"Company information was saved. Please follow the instructions sent to your "
+"email address."
+msgstr ""
+
+msgid "Customer Email"
+msgstr ""
+
+msgid "Home"
+msgstr "Pradinis"
+
+msgid "Dashboard"
+msgstr "Pagrindinis"
+
+msgid "General Information"
+msgstr "Bendra informacija"
+
+msgid "Contact Information"
+msgstr "Kontakto informacija"
+
+msgid "Address"
+msgstr "Adresas"
+
+msgid "Default Addresses"
+msgstr "Numatytasis adresas"
+
+msgid "Edit"
+msgstr "Redaguoti"
+
+msgid "Default Billing Address"
+msgstr "Numatytasis mokėtojo adresas"
+
+msgid "No Default Billing Address set."
+msgstr "Nėra nustatyto numatytojo mokėtojo adreso."
+
+msgid "Default Shipping Address"
+msgstr "Numatytasis pristatymo adresas"
+
+msgid "No Default Shipping Address set."
+msgstr "Nėra nustatyto numatytojo pristatymo adreso."
+
+msgid "Additional Addresses"
+msgstr "Papildomas adresas"
+
+msgid "Create new"
+msgstr "Sukurti naują"
+
+msgid "Role"
+msgstr "Rolė"
+
+msgid "Status"
+msgstr "Statusas"
+
+msgid "Delete"
+msgstr "Trinti"
+
+msgid "You don't have any additional addresses"
+msgstr "Jūs neturi papildomų adresų"
+
+msgid "Change Password"
+msgstr "Keisti slaptažodį"
+
+msgid "Change password"
+msgstr "Keisti slaptažodį"
+
+msgid "Basic Information"
+msgstr "Pagrindinė informacija"
+
+msgid "Name"
+msgstr "Vardas"
+
+msgid "Email"
+msgstr "El. paštas"
+
+msgid "Phone"
+msgstr "Telefonas"
+
+msgid "Tax Number"
+msgstr "PVM kodas"
+
+msgid "Birth Date"
+msgstr "Gimimo data"
+
+msgid "Gender"
+msgstr "Lytis"
+
+msgid "Marketing Permission"
+msgstr "Marketingo leidimas"
+
+msgid "Yes"
+msgstr "Taip"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Company account information"
+msgstr "Įmonės sąskaitos informacija"
+
+msgid ""
+"You have already linked your account to a company and it is pending "
+"approval."
+msgstr ""
+
+msgid "Not specified"
+msgstr "Nenurodyta"
+
+msgid "Street"
+msgstr "Gatvė"
+
+msgid "Postal code"
+msgstr "Pašto kodas"
+
+msgid "City"
+msgstr "Miestas"
+
+msgid "Country"
+msgstr "Valstybė"
+
+msgid "Billing information"
+msgstr "Mokėtojo informacija"
+
+msgid "Copy to shipping information"
+msgstr "Kopijuoti į pristatymo informaciją"
+
+msgid "Shipping information"
+msgstr "Pristatymo informacija"
+
+msgid "Copy to billing information"
+msgstr "Kopijuoti į mokėtojo informaciją"
+
+msgid "Edit customer information"
+msgstr ""
+
+msgid "Save password"
+msgstr "Išsaugoti slaptažodį"
+
+msgid "Save changes"
+msgstr "Išsaugoti pakeitimus"
+
+msgid "Edit company information"
+msgstr "Redaguoti įmonės informaciją"
+
+msgid "Link account to company"
+msgstr "Susieti paskyrą su įmone"
+
+msgid "Company information"
+msgstr "Kompanijos informacija"
+
+msgid "Password changed."
+msgstr ""
+
+msgid "Account information was saved."
+msgstr ""
+
+msgid "Address information was saved."
+msgstr ""
+
+msgid "Cannot remove address because it doesn't exist."
+msgstr ""

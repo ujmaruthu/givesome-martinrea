@@ -1,0 +1,34 @@
+{%- import "shuup/front/macros/category.jinja" as category_macros with context -%}
+{%- import "givesome/shuup/front/macros/supplier.jinja" as supplier_macros with context -%}
+
+{% if request.is_ajax() %}
+    {{ category_macros.render_product_list(supplier) }}
+{% else %}
+    {% extends "givesome/shuup/front/supplier/supplier_base.jinja" %}
+    {%- import "shuup/front/macros/general.jinja" as macros with context -%}
+
+    {% macro render_vendor_info_section(office) %}
+        {{ supplier_macros.givesome_render_office_banner(office) }}
+    {% endmacro %}
+
+    {% macro render_offices_content(office) %}
+        {% if office.supplier.givesome_extra and offices %}
+            <h2 class="mt-6">
+            {% if office_term %}
+                {% trans term = office_term %}Browse Projects by {{ term }}{% endtrans %}
+            {% else %}
+                {% trans %}Browse Projects by Office{% endtrans %}
+            {% endif %}
+            </h2>
+            <div class="office-list">
+                {% for office in offices %}
+                    <div class="single-office">
+                        <a href="{{ url('office', pk=office.pk) }}">
+                            {{ office.name }}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endmacro %}
+{% endif %}

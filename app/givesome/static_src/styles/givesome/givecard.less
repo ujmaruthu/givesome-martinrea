@@ -1,0 +1,68 @@
+.givecard-redeem-form {
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+
+    @media (min-width: @screen-sm-min) {
+        padding: @grid-gutter-width*2 @grid-gutter-width;
+    }
+
+    .form-control {
+        font-weight: bold;
+    }
+}
+
+.givecard-balance-table {
+    tr:last-child {
+        border-bottom: 1px solid @table-border-color;
+    }
+
+    .times {
+        padding: 0 @grid-gutter-width/5;
+        display: inline-block;
+    }
+}
+
+.givecard-success-header {
+    text-align: center;
+}
+
+.givecard-success-upper-text {
+    .row();
+    display: flex;
+    margin: @grid-gutter-width 0;
+    flex-flow: row nowrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    .logo {
+        border: 1px solid @border-color-light;
+        border-radius: @border-radius-base;
+        padding: @grid-gutter-width/6;
+        background-color: #fff;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: @grid-gutter-width/2;
+
+        @media (min-width: @screen-sm-min) {
+            width: 140px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.givecard-success-custom-text {
+    margin: @grid-gutter-width 0;
+    text-align: center;
+    #givecard-success-campaign-message{
+        width: 100%;
+        word-wrap: break-word;    
+    }
+}

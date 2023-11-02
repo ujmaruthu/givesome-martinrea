@@ -1,0 +1,17 @@
+<div class="text-center mb-3">
+    <input
+        type="number"
+        id="ordering-{{ instance.id }}"
+        value={% if kind == "vendor" %}
+            {% set promoted_instance = instance.promotions.filter(supplier_id=chooser_id).first() %}
+        {% else %}
+            {% set promoted_instance = instance.promotions.filter(office_id=chooser_id).first() %}
+        {% endif %}
+        {% if promoted_instance %}
+            "{{ promoted_instance.ordering }}"
+        {% else %}
+            ""
+        {% endif %}
+        onchange="window.orderPromotedProjects(event, {{ instance.id }}, {{ chooser_id }}, '{{ kind }}')"
+    />
+</div>

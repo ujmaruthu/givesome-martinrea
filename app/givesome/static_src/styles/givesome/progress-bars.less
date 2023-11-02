@@ -1,0 +1,56 @@
+.progress {
+    position: relative;
+    height: 6px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+.progress-bar {
+    float: left;
+    width: 0%;
+    height: 100%;
+    background-color: @progress-bar-bg;
+    position: relative;
+    z-index: 2;
+    border-radius: 10px;
+}
+
+.progress-background {
+    background-color: @progress-bar-bg;
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 1;
+}
+
+.project-progress {
+    color: @text-muted;
+
+    &-values {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        line-height: 1;
+    }
+
+    .progress-value-text {
+        strong {
+            color: @text-color;
+        }
+    }
+
+    .progress-percentage {
+        padding-left: @grid-gutter-width/2;
+    }
+
+    &-bar {
+        margin: @grid-gutter-width/3 0;
+    }
+}

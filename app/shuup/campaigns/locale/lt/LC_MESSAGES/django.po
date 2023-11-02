@@ -1,0 +1,600 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Mindaugas M., 2017
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-03 16:47+0000\n"
+"PO-Revision-Date: 2016-06-28 10:48+0000\n"
+"Last-Translator: Mindaugas M., 2017\n"
+"Language-Team: Lithuanian (https://www.transifex.com/shuup/teams/55306/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "Campaigns"
+msgstr "Kampanijos"
+
+msgid "Basket Campaigns"
+msgstr "Krepšelio kampanijos"
+
+msgid "Show Basket Campaigns"
+msgstr "Rodyti krepšelio kampanijas"
+
+msgid "Coupons"
+msgstr "Kuponai"
+
+msgid "Show Coupons"
+msgstr "Rodyti kuponus"
+
+msgid "Catalog Campaigns"
+msgstr "Katalogo kampanijos"
+
+msgid "Show Catalog Campaigns"
+msgstr "Rodyti katalogo kampanijas"
+
+msgid "Set up a sales campaign"
+msgstr "Nustatyti pardavimo kampaniją"
+
+msgid "New basket campaign"
+msgstr "Nauja krepšelio kampanija"
+
+msgid "New coupon"
+msgstr "Naujas kuponas"
+
+msgid "Allow the user to select coupons in admin."
+msgstr ""
+
+msgid "Minimum value"
+msgstr "Minimali reikšmė"
+
+msgid "Maximum value"
+msgstr "Maksimali reikšmė"
+
+msgid "Leave empty for no maximum"
+msgstr "Palikti tuščią, neapriboti maksimumo"
+
+msgid "Campaign end date can't be before a start date."
+msgstr ""
+
+msgid "Define the required coupon for this campaign."
+msgstr "Nustatyti reikalinga kuponą šiai kampanijai."
+
+msgid "Coupon"
+msgstr "Kuponas"
+
+msgid "discount percentage"
+msgstr "nuolaida procentais"
+
+msgid "The discount percentage for this campaign."
+msgstr "nuolaida procentais šiai kampanijai"
+
+#, python-format
+msgid "Product %(product)s is not available in the %(shop)s shop."
+msgstr ""
+
+msgid "Only amount or percentage can be set, not both."
+msgstr ""
+
+msgid "Autogenerate code"
+msgstr "Automatiškai generuoti kodą"
+
+msgid "Discount Code is already in use."
+msgstr ""
+
+msgid "Active Basket Campaigns"
+msgstr ""
+
+msgid "Catalog Campaign"
+msgstr "Katalogo kampanija"
+
+msgid "Basket Campaign"
+msgstr "Krepšelio kampanija"
+
+msgid "Title"
+msgstr "Antraštė"
+
+msgid "Starts"
+msgstr "Prasideda"
+
+msgid "Ends"
+msgstr "Pasibaigia"
+
+msgid "Active"
+msgstr "Aktyvus"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Yes"
+msgstr "Taip"
+
+msgid "CatalogCampaign"
+msgstr "Katalogo kampanija"
+
+msgid "Create new Catalog Campaign"
+msgstr "Sukurti naują katalogo kampaniją"
+
+msgid "Create new Basket Campaign"
+msgstr "Sukurti naują krepšelio kampaniją"
+
+msgid "Code"
+msgstr "Kodas"
+
+msgid "Usages"
+msgstr "Panaudojimai"
+
+msgid "Usages Limit per contact"
+msgstr "Panaudojimo limitai kiekvienam kontaktui"
+
+msgid "Usage Limit"
+msgstr "Panaudojimo limitas"
+
+msgid "Created by"
+msgstr "Sukūrė"
+
+msgid "Date created"
+msgstr "Sukūrimo data"
+
+msgid "Create new Coupon"
+msgstr "Sukurti naują kuponą"
+
+msgid "Basket condition"
+msgstr "Krepšelio sąlyga"
+
+msgid "Basket product count"
+msgstr "Krepšelio produktų kiekis"
+
+msgid "product count in basket"
+msgstr "Produkto kiekis krepšelyje"
+
+msgid ""
+"Limit the campaign to match when basket has at least the product count "
+"entered here."
+msgstr ""
+"Riboti kampaniją, kad atitiktų kai krepšelis turi bent jau produktų kiekį "
+"nurodytą čia."
+
+msgid "Basket total value"
+msgstr "Krepšelio bendra vertė"
+
+msgid "basket total amount"
+msgstr "krepšelio bendras kiekis"
+
+msgid ""
+"Limit the campaign to match when it has at least the total value entered "
+"here worth of products."
+msgstr ""
+"Riboti kampaniją, kad ji turėtų bent jau mažiausią bendrą vertę įvestą čia "
+"už visus produktus."
+
+msgid "Undiscounted basket total value"
+msgstr ""
+
+msgid ""
+"Limit the campaign to match when it has at least the total value entered "
+"here worth of products which doesn't have already discounts."
+msgstr ""
+
+msgid "Basket maximum product count"
+msgstr "Krepšelio maksimalus produktų kiekis"
+
+msgid "maximum product count in basket"
+msgstr "maksimalus produktų kiekis krepšelyje"
+
+msgid ""
+"Limit the campaign to match when basket has at maximum the product count "
+"entered here."
+msgstr ""
+"Riboti kampaniją, kad jos metu krepšelis neturėtų daugiau produktų nei "
+"nurodyta čia."
+
+msgid "Basket maximum total value"
+msgstr "Krepšelio maksimali bendra vertė"
+
+msgid "maximum basket total amount"
+msgstr "Maksimalus bendras kiekis krepšelyje"
+
+msgid ""
+"Limit the campaign to match when it has at maximum the total value entered "
+"here worth of products."
+msgstr ""
+"Apriboti kampaniją kai ji pasiekia maksimalią produktų vertės sumą įvestą "
+"čia."
+
+msgid "Exactly"
+msgstr "Tiksliai"
+
+msgid "Greater than or equal to"
+msgstr "Lygus arba didesnis už"
+
+msgid "Products in basket"
+msgstr "Produktai krepšelyje"
+
+msgid "operator"
+msgstr "operatorius"
+
+msgid "quantity"
+msgstr "kiekis"
+
+msgid "products"
+msgstr "produktai"
+
+msgid "Limit the campaign to have the selected products in basket."
+msgstr "Riboti kampaniją, kad ji turėtų parinktus produktus krepšelyje."
+
+msgid "Contact Group"
+msgstr "Kontaktų grupė"
+
+msgid "contact groups"
+msgstr "kontaktų grupės"
+
+msgid "Limit the campaign to members of the selected contact groups."
+msgstr "Riboti kampaniją tik parinktos kontaktų grupės nariams."
+
+msgid "Contact"
+msgstr "Kontaktas"
+
+msgid "contacts"
+msgstr "kontaktai"
+
+msgid "Limit the campaign to selected contacts."
+msgstr "Riboti kampanija tik parinktiems kontaktams."
+
+msgid "Category products in basket"
+msgstr "Kategorijos produktai krepšelyje"
+
+msgid "categories"
+msgstr "kategorijos"
+
+msgid "excluded categories"
+msgstr "atskirtos kategorijos"
+
+msgid ""
+"If the customer has even a single product in the basket from these "
+"categories this rule won't match thus the campaign cannot be applied to the "
+"basket."
+msgstr ""
+"Jei klientas turi bent vieną produktą krepšelyje iš šių kategorijų - ši "
+"taisyklė netiks, todėl kampanija nebus pritaikyta krepšeliui."
+
+msgid "Limit the campaign to match the products from selected categories."
+msgstr "Riboti kampaniją, kad atitiktų produktus iš pasirinktų kategorių."
+
+msgid "Day and hour"
+msgstr ""
+
+msgid "start time"
+msgstr ""
+
+msgid "12pm is considered noon and 12am as midnight."
+msgstr ""
+
+msgid "end time"
+msgstr ""
+
+msgid ""
+"12pm is considered noon and 12am as midnight. End time is not considered "
+"match."
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "Limit the campaign to selected days."
+msgstr ""
+
+msgid "Product Variation Child"
+msgstr ""
+
+msgid ""
+"Limit the campaign to match only variation children of the selected product."
+msgstr ""
+
+msgid "campaign"
+msgstr "kampanija"
+
+msgid "Discount amount value"
+msgstr "Nuolaidos sumos reikšmė"
+
+msgid "discount amount"
+msgstr "nuolaidos suma"
+
+msgid "Flat amount of discount."
+msgstr "Fiksuota nuolaidos suma."
+
+msgid "Give discount amount."
+msgstr "Duoti nuolaidą sumai."
+
+msgid "Discount amount percentage"
+msgstr "Duoti nuolaidą procentais"
+
+msgid "Give percentage discount."
+msgstr "Duoti nuolaidą procentais."
+
+msgid "Discount amount percentage from undiscounted amount"
+msgstr ""
+
+msgid "Give percentage discount based on undiscounted product prices."
+msgstr ""
+
+msgid "Free Product(s)"
+msgstr "Nemokami produktas (-ai)"
+
+msgid "product"
+msgstr "produktas"
+
+msgid "Select product(s) to give free."
+msgstr "Parinkti produktą (-us), kuriuos duoti už dyką."
+
+msgid "Discount from Product"
+msgstr "Nuolaida už produktą"
+
+msgid "per line discount"
+msgstr "nuolaida už eilutę"
+
+msgid "Disable this if you want to give discount for each matched product."
+msgstr ""
+
+msgid "Select discount amount and products."
+msgstr "Pasirinkti nuolaidos sumą ir produktus."
+
+msgid "Discount from Category products"
+msgstr "Nuolaida kategorijos produktams"
+
+msgid "category"
+msgstr "kategorija"
+
+msgid ""
+"Select discount amount and category. Please note that the discount will be "
+"given to all matching products in basket."
+msgstr ""
+"Parinkti nuolaidos sumą ir kategoriją. Atkreipiame dėmesį, kad nuolaida bus "
+"duodama visiems atitinkantiems produktams krepšyje."
+
+msgid "shop"
+msgstr "parduotuvė"
+
+msgid "The shop where the campaign is active."
+msgstr "Parduotuvė, kurioje kampanija yra aktyvi."
+
+msgid "name"
+msgstr "pavadinimas"
+
+msgid "The name for this campaign."
+msgstr "kampanijos pavadinimas."
+
+msgid "active"
+msgstr "aktyvus"
+
+msgid ""
+"Enable this if the campaign is currently active. Please also set a start and"
+" an end date."
+msgstr ""
+
+msgid "start date and time"
+msgstr "pradžios data ir laikas"
+
+msgid ""
+"The date and time the campaign starts. This is only applicable if the "
+"campaign is marked as active."
+msgstr ""
+"Data ir laikas kai startuos kampanija. Tai taikoma tik jei kampanija "
+"pažymėta kaip aktyvi."
+
+msgid "end date and time"
+msgstr "pabaigos data ir laikas"
+
+msgid ""
+"The date and time the campaign ends. This is only applicable if the campaign"
+" is marked as active."
+msgstr ""
+"Data ir laikas kai kampanija baigsis. Galioja tik tada kai kampanija pažyėta"
+" kaip aktyvi."
+
+msgid "created by"
+msgstr "Sukurta"
+
+msgid "modified by"
+msgstr "Modifikuota"
+
+msgid "created on"
+msgstr "Sukurta"
+
+msgid "modified on"
+msgstr "Modifikuota"
+
+msgid "Campaign"
+msgstr "Kampanija"
+
+msgid "The campaign name to show in the store front."
+msgstr "Kampanijos pavadinimas, kurį rodyti parduotuvės priekiniame skydelyje"
+
+#, python-brace-format
+msgid "Catalog Campaign: {name}"
+msgstr ""
+
+msgid "basket line text"
+msgstr "krepšelio linijos tekstas"
+
+msgid "This text will be shown in a basket."
+msgstr ""
+
+msgid "coupon"
+msgstr "kuponas"
+
+msgid "supplier"
+msgstr ""
+
+msgid ""
+"When set, this campaign will match only products from the selected supplier."
+" Rules and Effects will also be restricted to include only the products of "
+"this supplier."
+msgstr ""
+
+msgid "public name"
+msgstr "viešas pavadinimas"
+
+#, python-brace-format
+msgid "Basket Campaign: {name}"
+msgstr ""
+
+msgid "Can't have multiple active campaigns with same code."
+msgstr ""
+
+msgid "usage limit per customer"
+msgstr "naudojimo limitas vienas klientui"
+
+msgid "Limit the amount of usages per a single customer."
+msgstr "Riboti panaudojimų kiekį vienam klientui."
+
+msgid "usage limit"
+msgstr "naudojimo limitas"
+
+msgid ""
+"Set the absolute limit of usages for this coupon. If the limit is zero (0), "
+"coupon can't be used."
+msgstr ""
+
+msgid "is active"
+msgstr "aktyvus"
+
+msgid "The shop where the coupon is active."
+msgstr ""
+
+msgid "Can not have multiple active campaigns with the same code."
+msgstr ""
+
+msgid "Base Catalog Filter"
+msgstr "Bazinio katalogo filtras"
+
+msgid "Product type"
+msgstr "Produkto tipas"
+
+msgid "product Types"
+msgstr "produkto tipai"
+
+msgid "Limit the campaign only to selected product types."
+msgstr ""
+
+msgid "Product"
+msgstr "Produktas"
+
+msgid "Limit the campaign only to selected products."
+msgstr ""
+
+msgid "Product Category"
+msgstr "Produkto kategorija"
+
+msgid "Limit the campaign only to products in selected categories."
+msgstr ""
+
+msgid "group"
+msgstr "grupė"
+
+msgid "min amount"
+msgstr "minimalus kiekis"
+
+msgid "max amount"
+msgstr "minimali suma"
+
+msgid "Can not add sales limits for default contact groups."
+msgstr ""
+
+msgid "Context Condition"
+msgstr "Konteksto sąlyga"
+
+msgid "Campaign Basket Discounts"
+msgstr "Kampanijos krepšelio nuolaidos"
+
+msgid "Coupon Code:"
+msgstr "Kupono kodas:"
+
+msgid "Filter report results by coupon."
+msgstr "FIltruoti raporto rezultatus pagal kuponą."
+
+msgid "Coupons Usage"
+msgstr "Kuponų naudojimas"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Coupon code"
+msgstr "Kupono kodas"
+
+msgid "Order"
+msgstr "Užsakymas"
+
+msgid "Taxful total"
+msgstr "Iš viso apmokestinama"
+
+msgid "Taxful subtotal"
+msgstr "Apmokestinama tarpinė suma"
+
+msgid "Total discount"
+msgstr "Iš viso nuolaida"
+
+msgid "General Information"
+msgstr "Bendra informacija"
+
+msgid "Name"
+msgstr "Pavadinimas"
+
+msgid "Not set"
+msgstr "Nenustatyta"
+
+msgid "No campaigns found"
+msgstr "Nerasta kampanijų"
+
+msgid "This section shows all the <b>active</b> campaigns this product is in."
+msgstr ""
+"Ši sekcija rodo visas <b>aktyvias</b> kampanijas, kurioms šis produktas "
+"priklauso."
+
+msgid "Rules"
+msgstr "Taisyklės"
+
+msgid "Rule type"
+msgstr "Taisyklės tipas"
+
+msgid "The criteria used to determine whether this campaign is applied."
+msgstr "Kriterijai nuspręsti ar ši kampanija bus pritaikyta"
+
+msgid "Add rule"
+msgstr "Pridėti taisyklę"
+
+msgid "Effects"
+msgstr "Efektai"
+
+msgid "Effect type"
+msgstr "Efekto tipas"
+
+msgid "Add effect"
+msgstr "Pridėti efektą"
+
+msgid "New Discount Code"
+msgstr "Naujas nuolaidos kodas"
+
+msgid "General information"
+msgstr "Bendra informacija"
+
+msgid "Generate"
+msgstr "Generuoti"
+
+#, python-format
+msgid "%(coupons)s used"
+msgstr "%(coupons)s panaudoti"
+
+msgid "Sales Ranges"
+msgstr "Pardavimų rėžiai"
+
+msgid "Customers within this sales range are assigned to this contact group."
+msgstr "Klientai šiame pardavimų rėžyje priskiriami šiai kontaktų grupei."

@@ -1,0 +1,48 @@
+.input-rounded {
+    border-radius: @input-height-base;
+}
+
+.form-control {
+    box-shadow: none !important;
+
+    &[readonly] {
+        background-color: transparent !important;
+        color: @text-color;
+        border-color: transparent !important;
+    }
+}
+
+.custom-input-group {
+    position: relative;
+    display: flex;
+    background-color: @input-bg;
+    border-radius: 100px;
+    border: 1px solid @input-border;
+    padding: 4px;
+    align-items: center;
+
+    .form-control {
+        border: none !important;
+        background: none !important;
+    }
+
+    .btn {
+        margin-left: @grid-gutter-width/2;
+    }
+}
+
+#givecard-pin-input {
+    text-transform: uppercase;
+}
+
+/* Disable arrows in number input fields */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
+/* Firefox */
+input[type=number] {
+ -moz-appearance: textfield;
+}

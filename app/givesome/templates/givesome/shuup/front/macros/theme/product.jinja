@@ -1,0 +1,106 @@
+{%- import "shuup_definite_theme/product_list_macros.jinja" as product_list_macros with context %}
+{%- from "givesome/receipting_icon.jinja" import render_receipting_icon as receipt_icon %}
+
+{% macro product_box(
+        product,
+        show_image=True,
+        show_description=True,
+        class="",
+        thumbnail_size=(400,300),
+        show_user_actions=True,
+        show_actions=False,
+        supplier=None,
+        lives_impacted=0,
+        video=None,
+        donations={}) %}
+
+    {% set shop_product = product.get_shop_instance(request.shop, allow_cache=True) %}
+
+    {# supplier = charity who owns the product, not the supplier whose page this is #}
+    {% set supplier = shop_product.get_supplier() %}
+
+    {# Always lead to product page, instead of supplier-product page #}
+    {% set u = url("shuup:product", pk=product.pk, slug=product.slug) %}
+    {# Set promoter to the url only if project is promoted, or if it's the charity's own project #}
+    {% if promoter %}
+        {# Add query string to be able to display the banner in the product page. #}
+        {% set u = u ~ '?type=' ~ promoter.__class__.__name__ ~ '&id=' ~ promoter.id %}
+    {% endif %}
+
+    {% set show_charity_info = supplier %}
+
+    {% if product.project_extra %}
+        {% set fully_funded = product.project_extra.fully_funded_date %}
+        {% set coming_soon = False %}
+        {% set goal_amount = product.project_extra.goal_amount %}
+        {% set goal_progress_amount = product.project_extra.goal_progress_amount %}
+        {% set goal_progress_percentage = product.project_extra.goal_progress_percentage %}
+    {% else %}
+        {% set fully_funded = False %}
+        {% set coming_soon = False %}
+        {% set goal_amount = 0 %}
+        {% set goal_progress_amount = 0 %}
+        {% set goal_progress_percentage = 0 %}
+    {% endif %}
+
+    {% set show_lives_impacted = lives_impacted > 0 %}
+    {% if donations.get(product.id) %}
+      {% set donation_value = donations[product.id] %}
+    {% endif %}
+
+{% set product_image = shop_product.public_primary_image or shop_product.public_images.first() %}
+                {% set primary_image_thumb = product_image|thumbnail(size=thumbnail_size) %}
+                {% if product_image and primary_image_thumb %}
+                    {% set image_url = primary_image_thumb %}
+                {% else %}
+                    {% set image_url = None %}
+                {% endif %}
+
+                <div class="project-card-container28" style="height:500px;">
+          <div class="project-card-background36" style="box-shadow: 0px 4px 25px 0px rgba(76, 0, 233, 0.10);"></div>
+           {% if supplier.logo %}
+                {% set logo = supplier.logo.url %}
+                <div class="single-card-img-holder">
+                <img
+            class="charity-logo-icon36"
+            alt=""
+            src="{{ logo }}"
+          />
+          </div>
+            {% else %}
+                <i class="fa fa-fw fa-users"></i>
+            {% endif %}
+
+          <b class="project-title36">{{ product.name }}</b>
+          <div class="goal-overview36">
+            <div class="of-2575-goal-container36" style="position:unset">
+              <b>${{ recalculate_currency(request, goal_progress_amount) }}</b>
+              <span class="of-308-goal9"> {{ _("of") }} ${{ recalculate_currency(request, goal_amount) }} {{ _("GOAL") }}</span>
+            </div>
+          </div>
+          <div class="buttons-wrapper36">
+            {#<button class="button-main36"  data-toggle="modal" data-target="#fund-dialog{{product.id}}" id="fund-project{{product.id}}" >
+                <span><b class="give-more" style="color:white">Give</b></span>
+            </button>#}
+
+             {#<div class="button-transparent36" style="text-align:center;">
+           <a href="{{ u }}" class="btn-primary project-card {{ class }}" id="product-{{ product.id }}">
+              <b class="learn-more46">Learn More</b></a></div>#}
+              <a href="{{ u }}"  class="btn-primary {{ class }} button-transparent36" style="text-align:center;" id="product-{{ product.id }}">
+              <b class="learn-more46" style="color: white;">Give</b></a>
+          </div>
+
+          <img
+            class="project-image-icon36"
+            alt=""
+            src="{{ image_url }}"
+          />
+              <div class="radial-bar-holder">
+
+          <div class="radial-bar-cards" style="top:5px;left:5px;background:radial-gradient(closest-side, white 74%, transparent 80% 100%), conic-gradient(#3b2470 {{ goal_progress_percentage }}%, #ededed 0)!important">
+                    <div class="radial-percentage-cards">{{ goal_progress_percentage }}%</div>
+                </div>
+                </div>
+        </div>
+
+{% endmacro %}

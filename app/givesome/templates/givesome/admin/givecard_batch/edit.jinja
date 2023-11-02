@@ -1,0 +1,118 @@
+{% extends "shuup/admin/base.jinja" %}
+{% from "shuup/admin/macros/general.jinja" import content_block, content_with_sidebar %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body_class %}shuup-details{% endblock %}
+{% block content %}
+    {% call content_with_sidebar(content_id="givecard_batch_form") %}
+        <form method="post" id="givecard_batch_form">
+            {% csrf_token %}
+            {% for form_def in form.form_defs.values() %}
+                {% include form_def.template_name with context %}
+            {% endfor %}
+
+            {% for section in sections %}
+                {% call content_block(section.name, section.icon) %}
+                    {% include section.template with context %}
+                {% endcall %}
+            {% endfor %}
+        </form>
+    {% endcall %}
+{% endblock %}
+
+
+{% block extra_js %}
+    <script>
+      $(document).ready(function() {
+
+        // Set select option hidden or visible
+        $.fn.toggleOption = function(show) {
+          $(this).toggle(show);
+          if (show) {
+            if ($(this).parent('span.toggleOption').length)
+              $(this).unwrap();
+          } else {
+            if ($(this).parent('span.toggleOption').length === 0)
+              $(this).wrap('<span class="toggleOption" style="display: none;" />');
+          }
+        }
+
+        // Filter Office options based on Supplier selection
+        // Uses Supplier Name to match Offices
+        function filterOfficeSelectOptions() {
+          const supplierName = $("#id_base-supplier option:selected").text()
+          $('#id_base-office option').each(function() {
+            var show = $(this).text().includes(`> ${supplierName}`)
+            if ($(this).val()) { // Always show "disable" option
+              $(this).toggleOption(show)
+            }
+          })
+
+          const selected_office = $("#id_base-office option:selected")
+          $('#id_base-redirect_office option').each(function() {
+            var show = $(this).text().includes(`> ${selected_office.text()}`)
+            if(!selected_office.val()){
+                show = false  // require office to be selected to allow selecting a sub-office as redirect page
+            }
+            if ($(this).val()) { // Always show "disable" option
+              $(this).toggleOption(show)
+            }
+          })
+        }
+
+        // Filter options on page load
+        filterOfficeSelectOptions()
+
+        // Filter options when supplier is changed
+        $('#id_base-supplier').on('change', function() {
+          filterOfficeSelectOptions()
+        });
+        $('#id_base-office').on('change', function() {
+          filterOfficeSelectOptions()
+        });
+
+        function pickerOnShow(isShown, inputElement) {
+          {# Pickers share options so this is necessary #}
+          if (inputElement[0].id === "id_base-redemption_start_date") {
+            this.setOptions({
+              minDate: false,
+              maxDate: endPicker.val() || false
+            })
+          } else if (inputElement[0].id === "id_base-redemption_end_date") {
+            this.setOptions({
+              minDate: startPicker.val() || false,
+              maxDate: expPicker.val() || false
+            })
+          } else { // Expiration Date
+            this.setOptions({
+              minDate: endPicker.val() || false,
+              maxDate: false
+            })
+          }
+        }
+
+        var expPicker = $('#id_base-expiration_date')
+        var startPicker = $('#id_base-redemption_start_date')
+        var endPicker = $('#id_base-redemption_end_date')
+
+        pickers = [expPicker, startPicker, endPicker]
+        pickers.forEach(function(picker) {
+          picker
+            .attr('readonly', false)
+            .attr('autocomplete', "off")
+            .keypress(function(e) {e.preventDefault()}) // Disable typing
+            .keyup(function(e) {if (e.keyCode === 8 || e.keyCode === 46) {picker.val("")}}) // Clear on backspace, del
+        })
+
+        {# Pickers share options so only one's options need to be set #}
+        expPicker.datetimepicker({
+          dayOfWeekStart: 1,
+          timepicker: false,
+          onShow: pickerOnShow,
+          format: 'Y-m-d'
+        });
+      })
+    </script>
+{% endblock %}

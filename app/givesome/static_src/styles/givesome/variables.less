@@ -1,0 +1,234 @@
+// Fonts
+@font-primary:  "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+@font-serif:    Georgia, "Times New Roman", Times, serif;
+@font-headline: @font-primary;
+
+@font-size-base:     16px;
+@font-size-large:    18px;
+@font-size-small:    14px;
+@font-size-smallest: 12px;
+
+@font-size-h1: 36px;
+@font-size-h2: 28px;
+@font-size-h3: 24px;
+@font-size-h4: 21px;
+@font-size-h5: @font-size-large;
+@font-size-h6: @font-size-base;
+
+@mobile-font-size-h1: 25px;
+@mobile-font-size-h2: 21px;
+@mobile-font-size-h3: 18px;
+@mobile-font-size-h4: 16px;
+@mobile-font-size-h5: 14px;
+@mobile-font-size-h6: 12px;
+
+@headings-font-weight: bold;
+@headings-color: #000;
+@headings-line-height: 1.3;
+
+// Brand colors
+@brand-lightest: #f6f7fa;
+@brand-lighter:  #e8e9ea;
+@brand-light:    #d1d2d3;
+@brand-dark:     #313335;
+
+@brand-primary:  #62459c;
+
+@discount-color: #b12704;
+
+@gray-base:    #000;
+@gray-darker:  lighten(@gray-base, 13.5%); // #222
+@gray-dark:    @brand-dark;
+@gray:         #525557;
+@gray-light:   #727679;
+@gray-lighter: @brand-light;
+
+
+// Borders
+@border-color:       @brand-light;
+@border-color-light: @brand-lighter;
+@border-style:       solid;
+
+
+// Footer
+@footer-bg:                 @brand-lightest;
+@footer-color:              @text-color;
+@footer-link-color:         @footer-color;
+@footer-link-hover-color:   @link-hover-color;
+@footer-title-color:        @text-color;
+@footer-title-border-color: @border-color;
+
+@footer-bottom-bg:          @brand-dark;
+@footer-bottom-color:       rgba(255,255,255,0.75);
+@footer-bottom-link-color:  @footer-bottom-color;
+
+
+// Title bars
+@title-bar-text-transform:          initial;
+
+@title-bar-light-title-background:  @body-bg;
+@title-bar-light-title-color:       @text-color;
+@title-bar-light-border-width:      1px;
+@title-bar-light-border-style:      @border-style;
+@title-bar-light-border-color:      @border-color;
+
+@title-bar-dark-background:         @brand-dark;
+@title-bar-dark-color:              #fff;
+@title-bar-dark-title-color:        @title-bar-dark-color;
+
+
+// Menus and navigation
+@main-menu-background:          #fff;
+@main-menu-border-color:        @border-color;
+@main-menu-border-top-width:    1px;
+@main-menu-border-bottom-width: 1px;
+@main-menu-border-style:        @border-style;
+
+@main-menu-mobile-border-bottom-width: 1px;
+@main-menu-mobile-border-bottom-color: @border-color;
+@main-menu-mobile-border-bottom-style: @border-style;
+
+@main-menu-link-color:        @text-color;
+@main-menu-link-hover-color:  #fff;
+@main-menu-link-hover-bg:     @brand-primary;
+@main-menu-active-link-color: @text-color;
+@main-menu-active-link-bg:    @brand-lighter;
+
+@main-menu-transition-speed: .2s;
+
+@main-menu-mobile-sized-nav-border-top:    1px @border-style @border-color;
+@main-menu-mobile-sized-nav-border-bottom: 1px @border-style @border-color;
+
+@mobile-nav-width:                  270px;
+@mobile-nav-bg:                     #fff;
+@mobile-nav-text-color:             @text-color;
+@mobile-nav-link-color:             @text-color;
+@mobile-nav-link-level-1-bg:        darken(@mobile-nav-bg, 3%);
+@mobile-nav-link-level-2-bg:        darken(@mobile-nav-link-level-1-bg, 4%);
+@mobile-nav-link-level-3-bg:        darken(@mobile-nav-link-level-2-bg, 4%);
+@mobile-nav-link-active-color:      @link-color;
+@mobile-nav-link-active-bg:         transparent;
+
+@mobile-nav-toggler-color:          @text-color;
+@mobile-nav-toggler-active-color:   @brand-primary;
+
+@mobile-nav-element-border-color:   #ccc;
+
+@mobile-search-text-color:          @mobile-nav-text-color;
+@mobile-search-icon-color:          @mobile-nav-text-color;
+@mobile-search-icon-hover-color:    @mobile-nav-link-active-color;
+@mobile-search-input-active-border: @mobile-search-text-color;
+
+@megamenu-bg:                       #fff;
+@megamenu-link-color:               @brand-dark;
+@megamenu-link-active-color:        @brand-dark;
+@megamenu-link-hover-color:         @link-color;
+
+
+// Category & Product
+@category-sidebar-filters-bg:    @brand-lightest;
+
+
+// Buttons
+@native-button-bg:     @brand-lightest;
+@native-button-color:  @text-color;
+@native-button-border: @brand-light;
+
+@btn-text-transform: unset;
+@btn-font-weight:    700;
+
+
+// Border radius
+@theme-border-radius-base:  5px; // Bootstrap default 4px
+@theme-border-radius-large: 10px; // Bootstrap default 6px
+@theme-border-radius-small: 2px; // Bootstrap default 2px
+
+
+// labels
+@label-sale-background: @discount-color;
+@label-sale-color: #fff;
+
+@label-new-background: @brand-primary;
+@label-new-color: #fff;
+
+
+// Progress bars
+@progress-bar-bg: @brand-primary;
+@progress-bar-bg: var(--primary);
+
+
+// Pagination
+@pagination-color:                     @text-color;
+@pagination-bg:                        transparent;
+@pagination-border:                    transparent;
+
+@pagination-hover-color:               @link-color;
+@pagination-hover-bg:                  transparent;
+@pagination-hover-border:              transparent;
+
+@pagination-active-color:              #000;
+@pagination-active-bg:                 transparent;
+@pagination-active-border:             transparent;
+
+@pagination-disabled-color:            @text-muted;
+@pagination-disabled-bg:               transparent;
+@pagination-disabled-border:           transparent;
+
+
+// Modals
+@modal-content-bg:                      #fff;
+@modal-content-border-color:            rgba(0, 0, 0, .2);
+@modal-content-fallback-border-color:   #999;
+
+@modal-backdrop-bg:           #000;
+@modal-backdrop-opacity:      .75;
+
+@modal-lg:                    800px;
+@modal-md:                    600px;
+@modal-sm:                    400px;
+
+
+// Inputs
+@input-bg:           @brand-lightest;
+@input-bg-disabled:  @gray-lighter;
+
+@input-color:             @text-color;
+@input-color-placeholder: @gray-light;
+@input-border:            @border-color;
+@input-border-focus:      @brand-primary;
+
+@input-border-radius:       @border-radius-base;
+@input-border-radius-large: @border-radius-large;
+@input-border-radius-small: @border-radius-small;
+
+@input-height-base:  (@line-height-computed + (@padding-base-vertical * 2) + 2);
+@input-height-large: (ceil(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2);
+@input-height-small: (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
+
+
+// Custom mobile breakpoint
+@screen-xxs:     500px;
+@screen-xs-min:  @screen-xxs;
+@screen-xxs-max: @screen-xxs - 1;
+
+
+// Paddings
+@padding-base-vertical:     8px;
+@padding-base-horizontal:   15px;
+
+@padding-large-vertical:    12px;
+@padding-large-horizontal:  20px;
+
+@padding-small-vertical:    5px;
+@padding-small-horizontal:  10px;
+
+@padding-xs-vertical:       1px;
+@padding-xs-horizontal:     5px;
+
+
+// Tables
+@table-cell-padding: @padding-large-vertical;
+@table-bg-accent:    @brand-lightest;
+@table-bg-hover:     @brand-light;
+@table-bg-active:    @table-bg-hover;
+@table-border-color: @border-color-light;

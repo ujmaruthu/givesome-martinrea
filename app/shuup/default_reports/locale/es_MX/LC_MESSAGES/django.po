@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Eduardo <magallon_zepeda_carlos@hotmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-29 14:00+0000\n"
+"PO-Revision-Date: 2021-03-29 14:28+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Spanish (Mexico) (http://www.transifex.com/shuup/shuup/language/es_MX/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_MX\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "Filter report results by customer."
+msgstr "Filtrar resultados de reporte por cliente."
+
+msgid "Orderer"
+msgstr "Pedido"
+
+msgid "Filter report results by the person that made the order."
+msgstr "Filtra resultados de reporte por la persona que hizo el pedido"
+
+msgid "Order Line Type"
+msgstr ""
+
+msgid "Suppliers"
+msgstr ""
+
+msgid "Filter order lines by suppliers."
+msgstr ""
+
+msgid "Order status"
+msgstr ""
+
+msgid "Filter order lines by status of their order."
+msgstr ""
+
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgid "Taxless Total"
+msgstr "Total Sin Impuestos"
+
+msgid "Taxful Total"
+msgstr "Total Con Impuestos"
+
+msgid "Sort order"
+msgstr "Ordenar pedido"
+
+msgid "Year"
+msgstr "Año"
+
+msgid "Year/Month"
+msgstr "Año/Mes"
+
+msgid "Year/Month/Day"
+msgstr "Año/Mes/Día"
+
+msgid "Group by"
+msgstr "Agrupar por"
+
+msgid "Order Count"
+msgstr ""
+
+msgid "Average Sales"
+msgstr "Ventas promedio"
+
+msgid "Tax"
+msgstr "Impuesto"
+
+msgid "Filter report results by tax."
+msgstr "Filtrar resultados del reporte por impuesto."
+
+msgid "Tax Class"
+msgstr "Clases de impuestos"
+
+msgid "Filter report results by tax class."
+msgstr "Filtrar resultados del reporte por la clase de impuesto."
+
+msgid "Shipping Method"
+msgstr "Método de envío"
+
+msgid "Filter report results by shipping method."
+msgstr "Filtrar resultados del reporte por método de envío"
+
+msgid "Carrier"
+msgstr "Paqueteria"
+
+msgid "Filter report results by carrier."
+msgstr "Filtrar resultados del reporte por paqueteria"
+
+msgid "Customer Sales"
+msgstr "Ventas del cliente"
+
+msgid "Orders"
+msgstr "Pedidos"
+
+msgid "New Customers"
+msgstr "Nuevos clientes"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Persons"
+msgstr "PErsonas"
+
+msgid "Companies"
+msgstr "Compañias"
+
+msgid "Users"
+msgstr "Usuarios"
+
+msgid "Orders Report"
+msgstr ""
+
+msgid "Order ref."
+msgstr ""
+
+msgid "Order date"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Order line quantity"
+msgstr ""
+
+msgid "Payment status"
+msgstr ""
+
+msgid "Shipment status"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Order Line Report"
+msgstr ""
+
+msgid "Order Line SKU"
+msgstr ""
+
+msgid "Order Line Text"
+msgstr ""
+
+msgid "Taxless Unit Price"
+msgstr ""
+
+msgid "Taxful Unit Price"
+msgstr ""
+
+msgid "Taxful Price"
+msgstr ""
+
+msgid "Created on"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Product Total Sales"
+msgstr "Ventas totales de producto"
+
+msgid "Product"
+msgstr "Producto"
+
+msgid "SKU"
+msgstr "SKU"
+
+msgid "Refunded Sales"
+msgstr "Ventas reembolsadas"
+
+msgid "Refunded Orders"
+msgstr "Pedidos reembolsados"
+
+msgid "Total Refunded"
+msgstr "Cantidad total reembolsada"
+
+msgid "Sales Report"
+msgstr "Reportes de Ventas"
+
+msgid "Products"
+msgstr "Productos"
+
+msgid "Sales Per Hour"
+msgstr "Ventas Por Hora"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid "Order Amount"
+msgstr ""
+
+msgid "Total Sales"
+msgstr "Ventas totales"
+
+msgid "Shipping"
+msgstr "Envío"
+
+msgid "Shipping method"
+msgstr "Método de envío"
+
+msgid "Total Charged"
+msgstr "Total cobrado"
+
+msgid "Taxes"
+msgstr "Impuestos"
+
+msgid "Rate (%)"
+msgstr ""
+
+msgid "Pre-tax Total"
+msgstr ""
+
+msgid "Total Tax Amount"
+msgstr ""
+
+msgid "Shop Name"
+msgstr "Nombre de la tienda"
+
+msgid "Currency"
+msgstr "Divisa"
+
+msgid "Customers"
+msgstr "Clientes"
+
+msgid "Customer Average Sale"
+msgstr "Venta promedio del cliente"

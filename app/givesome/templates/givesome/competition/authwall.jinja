@@ -1,0 +1,19 @@
+{% extends "shuup/front/base.jinja" %}
+
+{% block title %}Enter the competition!{% endblock %}
+
+{% block content_title %}
+Enter code to enter the competition
+{% endblock %}
+
+{% block content %}
+<form id="givesome_competition_form" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="competitionKey">Code</label>
+    <input type="text" name="code" class="form-control" id="competitionKey" aria-describedby="codeHelp" placeholder="Enter competition code">
+    <small id="codeHelp" class="form-text text-muted">Enter your code to enter the competition.</small>
+  </div>
+  <button form="givesome_competition_form" type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% from "shuup/admin/macros/block.jinja" import link_block %}
+
+{% set categories = shuup_admin.get_menu_entry_categories() %}
+{% set quicklinks = shuup_admin.get_quicklinks() %}
+
+<nav id="js-main-menu" class="main-menu">
+    <div class="scroll-inner-content">
+        <div class="logo-wrap d-flex align-items-center justify-content-between">
+            <a class="logo" href="/" target="_blank">
+                {%- set logo = request.shop.logo if request.shop.logo else None -%}
+                {% if logo %}
+                    <img src="{{ logo.url }}" alt="{{ request.shop }}">
+                {% else %}
+                    <img src="{{ shuup_static("shuup_admin/img/logo.svg") }}" alt="{{ request.shop }}">
+                {% endif %}
+            </a>
+            <div class="d-block d-lg-none">
+                <a id="js-menu-close" class="mobile-menu-close d-inline-block" href="#">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="view-site-link text-center">
+            <a class="btn btn-primary" href="/admin/"><i class="fa fa-dashboard"></i><strong><span class="ml-2">Dashboard</span></strong></a>
+        </div>
+        <br>
+        {% set front_url = shuup_admin.get_front_url() %}
+        {% set supplier = shuup_admin.get_admin_supplier() %}
+        {% if front_url and front_url != "/" %}
+            {% if "/p/" in front_url %}
+                <div class="view-site-link text-center">
+                    <a class="btn btn-primary" href="{{ front_url }}" target="_blank"><i class="fa fa-eye"></i><strong><span class="ml-2">View Product</span></strong></a>
+                </div>
+                {% set vendor = product.suppliers.first() %}
+                {% if vendor %}
+                    <br>
+                    <div class="view-site-link text-center">
+                        <a class="btn btn-primary" href="{{ url('shuup:supplier', slug=vendor.slug) }}" target="_blank"><i class="fa fa-eye"></i><strong><span class="ml-2">View Site</span></strong></a>
+                    </div>
+                {% endif %}
+            {% elif "/v/" in front_url %}
+                <div class="view-site-link text-center">
+                    <a class="btn btn-primary" href="{{ front_url }}" target="_blank"><i class="fa fa-eye"></i><strong><span class="ml-2">View Site</span></strong></a>
+                </div>
+            {% else %}
+                <div class="view-site-link text-center">
+                    <a class="btn btn-primary" href="{{ front_url }}" target="_blank"><i class="fa fa-eye"></i><strong><span class="ml-2">View Site</span></strong></a>
+                </div>
+            {% endif %}
+        {% elif supplier %}
+            <div class="view-site-link text-center">
+                <a class="btn btn-primary" href="{{ url('shuup:supplier', slug=supplier.slug) }}" target="_blank"><i class="fa fa-eye"></i><strong><span class="ml-2">View Site</span></strong></a>
+            </div>
+        {% else %}
+            <div class="view-site-link text-center">
+                <a class="btn btn-primary" href="/" target="_blank"><i class="fa fa-eye"></i><strong><span class="ml-2">View Site</span></strong></a>
+            </div>
+        {% endif %}
+        <ul class="menu-list">
+            {% for category in categories %}
+                {% if not category.is_hidden %}
+                    {% set only_entry = (category.entries|first if (category.entries|length == 1 and not category.url and category.entries[0].name == category.name) else None) %}
+                    {% set has_children = not only_entry and category.has_entries %}
+                    {% set breadcrumbs = (breadcrumbs or shuup_admin.get_breadcrumbs()) %}
+                    {% set is_menu_category_active = shuup_admin.is_menu_category_active(category, request.path, breadcrumbs) %}
+                    <li>
+                        <a
+                                class="{% if has_children %}item-category {% endif %}d-flex align-items-center mt-3 mb-3{% if is_menu_category_active %} item-active{% endif %}"
+                                href="{% if only_entry %}{{ only_entry.url }}{% else %}{{ category.url if category.url != None else '#' }}{% endif %}"
+                                data-target-id="category-{{ category.identifier }}"
+                        >
+                            <i class="item-icon {{ category.icon }}"></i>
+                            <span class="item-name parent">{{ category.name }}</span>
+                            {% if has_children %}
+                                <i class="ml-auto item-arrow fa fa-chevron-down {% if is_menu_category_active %}rotate{% endif %}"></i>
+                            {% endif %}
+                        </a>
+                        <ul class="submenu{% if is_menu_category_active %} active{% endif %}">
+                            {% if not only_entry %}
+                                {% for entry in category %}
+                                    {% if not entry.is_hidden %}
+                                        {% set is_active = shuup_admin.is_menu_item_active(entry.url, request.path, breadcrumbs) %}
+                                        <li><a class="item-submenu {{ 'active-menu' if is_active else '' }}" href="{{ entry.url }}">{{ entry.text }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+

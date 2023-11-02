@@ -1,0 +1,1410 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mindaugas M., 2017
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-20 19:05+0000\n"
+"PO-Revision-Date: 2021-11-08 12:23+0000\n"
+"Last-Translator: Shuup Admin <admin@shuup.com>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+"X-Generator: Poedit 1.8.8\n"
+
+msgid "Abandoned Cart Value"
+msgstr "Palikto krepšelio pirkinių suma"
+
+#, python-brace-format
+msgid "Based on {b} carts over the last {d} days"
+msgstr "Lyginant su  {b} krepšelių per paskutinės {d} dienų"
+
+msgid "Front"
+msgstr ""
+
+msgid "Whether the user can have access to the Front Settings"
+msgstr ""
+
+msgid "Carts"
+msgstr "Krepšeliai"
+
+msgid "Show carts"
+msgstr "Rodyti krepšelius"
+
+msgid "Cart Inactivity Delay (hours)"
+msgstr ""
+
+msgid ""
+"Set the number of hours the cart must be inactive before it's displayed in "
+"Orders > Carts"
+msgstr ""
+
+msgid "Key"
+msgstr ""
+
+msgid "Last updated on"
+msgstr "Atnaujinta"
+
+msgid "Completed"
+msgstr ""
+
+msgid "yes"
+msgstr "taip"
+
+msgid "no"
+msgstr "ne"
+
+msgid "Shop"
+msgstr "Parduotuvė"
+
+msgid "Supplier"
+msgstr ""
+
+msgid "Customer"
+msgstr "Klientas"
+
+msgid "Product count"
+msgstr "Produktų kiekis"
+
+msgid "Total"
+msgstr "Iš viso"
+
+msgid "Created on"
+msgstr "Sukurta"
+
+msgid "Ordered"
+msgstr "Užsakyta"
+
+msgid "Require shipping method"
+msgstr ""
+
+msgid "Whether to require the shipping method in checkout phases."
+msgstr ""
+
+msgid "Require payment method"
+msgstr ""
+
+msgid "Whether to require the payment method in checkout phases."
+msgstr ""
+
+msgid "Registration Settings"
+msgstr ""
+
+msgid "Allow company registration"
+msgstr ""
+
+msgid "If you select this, companies can register into your store."
+msgstr ""
+
+msgid "Company registration requires approval"
+msgstr ""
+
+msgid ""
+"Registered companies must be manually approved by admin if this is checked. "
+"This option has no effect if company registration is not allowed on your "
+"site."
+msgstr ""
+
+msgid "Company tax number validation"
+msgstr ""
+
+msgid "Company tax number format is validated for European countries."
+msgstr ""
+
+msgid "Front Settings"
+msgstr ""
+
+msgid "Front Max Upload Size"
+msgstr ""
+
+msgid "Maximum allowed file size (in bytes) for uploads in frontend."
+msgstr ""
+
+msgid "Registration Requires Activation"
+msgstr ""
+
+msgid ""
+"Whether if a new user require email-based activate his account by clicking "
+"on a activation link sent by email."
+msgstr ""
+
+msgid "Customer Information Allow Picture Upload"
+msgstr ""
+
+msgid "Allow customers to upload profile picture."
+msgstr ""
+
+msgid "Override shop's default configuration"
+msgstr ""
+
+msgid ""
+"If checked, this configuration will be used instead of the shop's default "
+"configuration."
+msgstr ""
+
+msgid "Go to payment page"
+msgstr ""
+
+msgid "Available languages in storefront"
+msgstr ""
+
+msgid ""
+"Select all the languages that should be available in storefront. Blank means"
+" that all languages should be available."
+msgstr ""
+
+msgid "Try to remove some products from the basket and order them separately."
+msgstr ""
+
+#, python-format
+msgid "Products in basket can't be shipped together. %s"
+msgstr ""
+
+#, python-format
+msgid "Products in basket have no common payment method. %s"
+msgstr ""
+
+msgid "Tax number is required with the company name."
+msgstr ""
+
+msgid "Company name is required with the tax number."
+msgstr ""
+
+msgid "Use a saved address"
+msgstr "Naudoti išsaugotą adresą"
+
+msgid "Addresses"
+msgstr "Adresas"
+
+msgid "Saved addresses."
+msgstr ""
+
+msgid "Checkout as Guest"
+msgstr "Pateikti užsakyma svečio teisėmis"
+
+msgid "Register"
+msgstr "Registruotis"
+
+msgid "Register with us for future convenience"
+msgstr "Užsiregistruokite, kad kitą kartą apsipirktumėte patogiau"
+
+msgid "Checkout Method Choice"
+msgstr "Pasirinkite mokėjimo būdą"
+
+msgid "I accept the terms and conditions"
+msgstr "Sutinku su sąlygomis"
+
+msgid "I want to receive marketing material"
+msgstr "Noriu gauti naujienlaiškius"
+
+msgid "Comment"
+msgstr "Komentaras"
+
+msgid ""
+"There has been a change in product availability. Please review your cart and"
+" reconfirm your order."
+msgstr "Atsirado pakeitimų dėl galimybės užsisakyti produktą. Peržiūrėkite savo krepšelį ir papildomai patvirtinkite užsakymą."
+
+msgid "Confirmation"
+msgstr "Patvirtinimas"
+
+msgid "Starting to create order."
+msgstr ""
+
+msgid "Empty Basket"
+msgstr "Tuščias krepšelis"
+
+msgid "shipping method"
+msgstr "Pristatymo būdas"
+
+msgid "payment method"
+msgstr "mokėjimo būdas"
+
+msgid "Invalid shipping method."
+msgstr ""
+
+msgid "Invalid payment method."
+msgstr ""
+
+msgid "Shipping & Payment"
+msgstr "Pristatymas ir apmokėjimas"
+
+msgid "Saved services."
+msgstr ""
+
+msgid "Sort products by name"
+msgstr "Rikiuoti produktus pagal pavadinimą"
+
+msgid "Ordering for sort by name"
+msgstr "Rikiavimas rūšiavimui pagal pavadinimą"
+
+msgid "Sort"
+msgstr "Rikiuoti"
+
+msgid "Name - A-Z"
+msgstr "Pavadinimas A-Z"
+
+msgid "Name - Z-A"
+msgstr "Pavadinimas - Z-A"
+
+msgid "Enable this to allow products to be sortable by product name."
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the the filter will appear on "
+"the product listing page."
+msgstr "Naudokite skaitinę reikšmę, kad nustatyti eiliškumą, kuriuo filtrai bus rodomi produktų sąrašo puslapyje."
+
+msgid "Sort products by price"
+msgstr "Rikiuoti produktus pagal kainą"
+
+msgid "Ordering for sort by price"
+msgstr "Rikiavimas rūšiavimui pagal kainą"
+
+msgid "Price - Low to High"
+msgstr "Kaina - Min-Max"
+
+msgid "Price - High to Low"
+msgstr "Kaina - Max-Min"
+
+msgid ""
+"Enable this to allow products to be sortable by price (from low to high; "
+"from high to low)."
+msgstr ""
+
+msgid "Sort products by date created"
+msgstr "Rikiuoti produktus pagal pridėjimo datą"
+
+msgid "Ordering for sort by date created"
+msgstr "Rikiavimas rušiavimui pagal sukūrimo datą"
+
+msgid "Date created"
+msgstr "Sukūrimo data"
+
+msgid ""
+"Enable this to allow products to be sortable from newest to oldest products."
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the filter will appear on the "
+"product listing page."
+msgstr "Naudokite skaitinę reikšmę nurodyti eiliškumui kuriuo filtrai bus rodomi produktų sąrašo puslapyje."
+
+msgid "Sort products by date created - oldest first"
+msgstr "Rikiuoti produktus pagal sukūrimo datą - seniausi pirmi"
+
+msgid "Ordering for sort by date created - oldest first"
+msgstr "Rikiavimas pagal sukūrimo datą - senesni pirmiausia"
+
+msgid "Date created - oldest first"
+msgstr "Sukūrimo data - seniausi pirmiausia"
+
+msgid ""
+"Enable this to allow products to be sortable from oldest to newest products."
+msgstr ""
+
+msgid "Filter products by manufacturer"
+msgstr "Rikiuoti pagal gamintoją"
+
+msgid "Ordering for filter by manufacturer"
+msgstr "Rikiuoti pagal gamintoją"
+
+msgid "Manufacturers"
+msgstr "Gamintojai"
+
+msgid ""
+"Enable this to allow products to be filterable by manufacturer for this "
+"category."
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the manufacturer filters will "
+"appear on the product listing page."
+msgstr "Naudokite skaitinę reikšmę nustatyti eiliškumą, kuriuo gamintojo filtrai bus rodomi produktų sąrašo puslapyje."
+
+msgid "Filter products by category"
+msgstr "Filtruoti produktus pagal kategoriją"
+
+msgid "Ordering for filter by category"
+msgstr "Rikiavimas filtrui pagal kategoriją"
+
+msgid "Categories"
+msgstr "Kategorijos"
+
+msgid ""
+"Enable this to allow products to be filterable by any visible product "
+"category. "
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the category list filters will"
+" appear on the product listing page."
+msgstr "Naudokite skaitinę reikšmę eiliškumui nustatyti, kuriuo kategorijos sąrašo filtrai bus rodomi produktų sąrašo puslapyje."
+
+msgid "Limit page size"
+msgstr "Limituoti puslapio dydį"
+
+msgid "Ordering for limit page size"
+msgstr "Rikiavimas puslapio dydžio limitui"
+
+msgid "Products per page"
+msgstr "Produktų viename puslapyje"
+
+msgid ""
+"Enable this to allow the customer to be able to select the number of "
+"products to display."
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the page size filter will "
+"appear on the product listing page."
+msgstr "Naudokite skaitinę reikšmę nustatyti eiliškumui, kuriuo puslapio dydžio filtras bus rodomas produktų sąrašo puslapyje."
+
+msgid "Filter products by variation"
+msgstr "Filtruoti produktus pagal variaciją"
+
+msgid "Ordering for filter by variation"
+msgstr "Rikiavimas filtrui pagal variaciją"
+
+msgid ""
+"Enable this to allow products to be filterable by their different "
+"variations. For example, size or color."
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the variation filters will "
+"appear on the product listing page."
+msgstr "Naudokite skaitines reikšmes, kad nustatyti eiliškumą, kuriuo variacijų filtrai bus rodomi produktų sąrašo puslapyje."
+
+msgid "Filter products by price"
+msgstr "Filtruoti produktus pagal kainą"
+
+msgid "Ordering for filter by price"
+msgstr "Rikiavimas filtravimui pagal kainą"
+
+msgid "Price"
+msgstr "Kaina"
+
+msgid ""
+"Enable this to allow products to be filtered by price. Prices will be listed"
+" in groups from the price range minimum to price range maximum in increments"
+" of the configured price range step."
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the price range filters will "
+"appear on the product listing page."
+msgstr "Naudokite skaitinę reikšmę nustatyti eiliškumą, kuriuo kainos rėžio filtrai bus rodomi produktų sąrašo puslapyje."
+
+msgid "Price range minimum"
+msgstr "Kaina Min."
+
+msgid ""
+"Set the minimum price for the filter. The first range will be from zero to "
+"this value."
+msgstr "Nustatyti minimalią kainą filtrui. Pirmas rėžis bus nuo nulio iki šios reiškmės."
+
+msgid "Price range maximum"
+msgstr "Kaina max"
+
+msgid ""
+"Set the maximum price for the filter. The last range will include this value"
+" and above."
+msgstr "Nustatyti filtrui maksimalią kainą. Paskutinis rėžis bus nuo šios kainos ir didesnės kainos."
+
+msgid "Price range step"
+msgstr "Kainos rėžio žingsnis"
+
+msgid ""
+"Set the price step for each range. Each range will increment by this value."
+msgstr "Nustatyti kainos žingsnį kiekvienam rėžiui. Kiekvienas rėžis bus didinamas šia reikšme."
+
+msgid "Filter products by its attributes"
+msgstr ""
+
+msgid "-----"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Allow products to be filtered according to their attributes."
+msgstr ""
+
+msgid "Attributes that can be filtered"
+msgstr ""
+
+msgid "Select attributes that can used for filtering the products."
+msgstr ""
+
+#, python-format
+msgid "Under %(min_limit)s"
+msgstr "Mažiau %(min_limit)s"
+
+#, python-format
+msgid "%(min)s to %(max)s"
+msgstr ""
+
+#, python-format
+msgid "%(max_limit)s & Above"
+msgstr "%(max_limit)s ir daugiau"
+
+msgid "Filter products by supplier"
+msgstr ""
+
+msgid "Ordering for filter by supplier"
+msgstr ""
+
+msgid "Suppliers"
+msgstr ""
+
+msgid "Enable this to allow products to be filterable by supplier."
+msgstr ""
+
+msgid ""
+"Use a numeric value to set the order in which the supplier filters will "
+"appear."
+msgstr ""
+
+msgid "Allow multiselect suppliers"
+msgstr ""
+
+msgid "Filter by multiple suppliers at a time."
+msgstr ""
+
+msgid "Logged out since this account is inactive."
+msgstr "Atsijungta, nes ši paskyra neaktyvi."
+
+msgid "key"
+msgstr "raktas"
+
+msgid "shop"
+msgstr "parduotuvė"
+
+msgid "supplier"
+msgstr ""
+
+msgid "customer"
+msgstr "klientas"
+
+msgid "orderer"
+msgstr "rikiuotojas"
+
+msgid "creator"
+msgstr "kūrėjas"
+
+msgid "created on"
+msgstr "sukurta"
+
+msgid "updated on"
+msgstr "atnaujinta"
+
+msgid "persistent"
+msgstr "nuolatinis"
+
+msgid "deleted"
+msgstr "ištrinta"
+
+msgid "finished"
+msgstr "baigta"
+
+msgid "title"
+msgstr "antraštė"
+
+msgid "data"
+msgstr "data"
+
+msgid "taxless total price"
+msgstr "Kaina be mokesčių"
+
+msgid "taxful total price"
+msgstr "Kaina su mokesčiais"
+
+msgid "currency"
+msgstr "valiuta"
+
+msgid "prices include tax"
+msgstr "kainos su mokesčiais"
+
+msgid "product_count"
+msgstr "produktų_kiekis"
+
+msgid "products"
+msgstr "produktai"
+
+msgid "class spec"
+msgstr ""
+
+msgid "stored basket"
+msgstr "išsaugota krepšelių"
+
+msgid "stored baskets"
+msgstr "laikoma krepšelių"
+
+msgid "ID"
+msgstr ""
+
+msgid "Reference Number"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "Customer Name"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Shipping Method"
+msgstr ""
+
+msgid "Order Received"
+msgstr "Užsakymas gautas"
+
+msgid "Order"
+msgstr "Užsakymas"
+
+msgid "Customer Email"
+msgstr "Kliento el. paštas"
+
+msgid "Customer Phone"
+msgstr "Kliento telefonas"
+
+msgid "Shop Email"
+msgstr "Parduotuvės el. paštas"
+
+msgid "Shop Phone"
+msgstr "Parduotuvės telefonas"
+
+msgid "Language"
+msgstr "Kalba"
+
+msgid "Order Status Changed"
+msgstr ""
+
+msgid "Old Status"
+msgstr ""
+
+msgid "New Status"
+msgstr ""
+
+msgid "Shipment Created"
+msgstr "Pristatymas sukurtas"
+
+msgid "Shipment"
+msgstr "Pristatymas"
+
+msgid "Order Shipping Status"
+msgstr "Užsakymo pristatymo statusas"
+
+msgid "Shipment Status"
+msgstr "Pristatymo statusas"
+
+msgid "Shipment Tracking Code"
+msgstr ""
+
+msgid "Shipment Tracking URL"
+msgstr ""
+
+msgid "Shipment Sent"
+msgstr ""
+
+msgid "Shipment Deleted"
+msgstr "Pristatymas ištrintas"
+
+msgid "Payment Created"
+msgstr "Mokėjimas sukurtas"
+
+msgid "Order Payment Status"
+msgstr "Užsakymo mokėjimo statusas"
+
+msgid "Payment"
+msgstr "Mokėjimas"
+
+msgid "Refund Created"
+msgstr "Pinigų grąžinimas sukurtas"
+
+msgid ""
+"<p>Dear {{ order.customer }},</p>\n"
+"<p>A shipment has been created for your order and here are the details:</p>\n"
+"\n"
+"{% if shipment.tracking_code %}\n"
+"<p>Tracking code: {{ shipment.tracking_code }}</p>\n"
+"{% endif %}\n"
+"\n"
+"<p>Contents:</p>\n"
+"<table>\n"
+"    <thead>\n"
+"        <tr>\n"
+"            <th>Product</th>\n"
+"            <th>Quantity</th>\n"
+"        </tr>\n"
+"    </thead>\n"
+"    <tbody>\n"
+"{% for shipment_product in shipments.total_products %}\n"
+"        <tr>\n"
+"            <td>{{ shipment_product.product }}</td>\n"
+"            <td>{{ shipment_product.quantity }}</td>\n"
+"        </tr>\n"
+"{% endif %}\n"
+"    </tbody>\n"
+"</table>\n"
+msgstr "<p>{{ order.customer }},</p>\n<p>Sukurtas nurodymas pristatymui Jūsų užsakymui. Pristatymo nurodymo detalės:</p>\n\n{% if shipment.tracking_code %}\n<p>Sekimo kodas: {{ shipment.tracking_code }}</p>\n{% endif %}\n\n<p>Turinys:</p>\n\n<table>\n\n<thead>\n\n<tr>\n\n<th>Produktas</th>\n\n<th>Kiekis</th>\n\n</tr>\n\n</thead>\n\n<tbody>\n\n{% for shipment_product in shipments.total_products %}\n\n<tr>\n\n<td>{{ shipment_product.product }}</td>\n\n<td>{{ shipment_product.quantity }}</td>\n\n</tr>\n\n{% endif %}\n\n</tbody>\n\n</table>\n"
+
+msgid "Send Shipment Created Email"
+msgstr "Informuoti el. paštu apie sukurtą pristatymo užduotį"
+
+msgid "Send an email to customer when a shipment is created."
+msgstr "Siųsti klientui el. laišką kai pristatymas sukurtas."
+
+msgid ""
+"This script will send an email to customer when a shipment of his order has "
+"been created."
+msgstr "Siųsti klientui el. laišką kai pristatymo nurodymas šiam užsakymui sukurtas"
+
+msgid "{{ order.shop }} - Shipment created for order {{ order.identifier }}"
+msgstr "{{ order.shop }} - pristatymas sukurtas užsakymui {{ order.identifier }}"
+
+msgid "Send Shipment Deleted Email"
+msgstr "Siųsti informacinį el. laišką informuoti, kad pristatymas buvo ištrintas"
+
+msgid "Send email when a shipment is deleted."
+msgstr "Siųsti el. laišką kai pristatymas ištrintas."
+
+msgid ""
+"This script will send an email to customer or to any configured email right "
+"after a shipment gets deleted."
+msgstr "Šis scriptas nusiųs el. laišką vartotojui vos tik pristatymas bus ištrintas."
+
+msgid "{{ order.shop }} - Shipment deleted for order {{ order.identifier }}"
+msgstr "{{ order.shop }} - pristatymas ištrintas užsakymui {{ order.identifier }}"
+
+msgid "Send Payment Created Email"
+msgstr "Siųsti el. laišką apie sukurtą mokėjimą"
+
+msgid "Send email to customer when a payment is created."
+msgstr "Siųsti el. laišką klientui kai sukurtas mokėjimas."
+
+msgid ""
+"This script will send an email to customer or to any configured email right "
+"after a payment gets created."
+msgstr "Šis scriptas nusiųs el. laišką vartotojui vos tik bus sukurtas mokėjimas."
+
+msgid "{{ order.shop }} - Payment created for order {{ order.identifier }}"
+msgstr "{{ order.shop }} - mokėjimas sukurtas užsakymui {{ order.identifier }}"
+
+msgid "Send Refund Created Email"
+msgstr "Siųsti el. laišką kai sukuriamas pinigų grąžinimas"
+
+msgid "Send email when a refund is created."
+msgstr "Siųsti el. laišką kai sukuriamas pinigų grąžinimas."
+
+msgid ""
+"This script will send an email to customer or to any configured email right "
+"after a refund gets created."
+msgstr "Šis scriptas nusiųs el. laišką vartotojui vos tik bus sukurtas pinigų grąžinimas."
+
+msgid "{{ order.shop }} - Refund created for order {{ order.identifier }}"
+msgstr "{{ order.shop }} - sukurtas pinigų grąžinimas užsakymui {{ order.identifier }}"
+
+msgid "Send Order Confirmation Email"
+msgstr "Siųsti užsakymo patvirtinimo el. laišką"
+
+msgid "Send a confirmation email when the order is created."
+msgstr "Siųsti patvirtinimo el. laišką kai sukuriamas užsakymas."
+
+msgid ""
+"This script will send an email to customer or to any configured email right "
+"after an order is created. The order contents can be put on email body as "
+"well as other informations like shipping method and payment method."
+msgstr "Šis scriptas nusiųs el. laišką vartotojui vos tik bus sukurtas užsakymas. Užsakymo detalės gali būti įterptos į el. laiško turinį kaip ir kita informacija, pvz. pristatymo būdas ir mokėjimo būdas."
+
+msgid "Cart Inactivity Delay"
+msgstr ""
+
+msgid "Checkout configuration"
+msgstr ""
+
+msgid "Product list sorts and filters"
+msgstr "Produktų sąrašas rikiuojamas ir filtruojamas"
+
+msgid "Vendor"
+msgstr ""
+
+msgid "Created Date"
+msgstr ""
+
+msgid "Updated Date"
+msgstr ""
+
+msgid "Ordered by"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Tax Number"
+msgstr ""
+
+msgid "Customer Comment"
+msgstr ""
+
+msgid "Payment Method"
+msgstr ""
+
+msgid "Total Price"
+msgstr ""
+
+msgid "Address Information"
+msgstr ""
+
+msgid "Billing address"
+msgstr "mokėtojo adresas"
+
+msgid "No billing address defined."
+msgstr ""
+
+msgid "Shipping address"
+msgstr "Pristatymo adresas"
+
+msgid "No shipping address defined."
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "SKU"
+msgstr "Prekės kodas"
+
+msgid "Text"
+msgstr ""
+
+msgid "Taxless Unit Price"
+msgstr ""
+
+msgid "Quantity"
+msgstr "Vienetų"
+
+msgid "Taxless Discount"
+msgstr ""
+
+msgid "Taxless Discount Percentage"
+msgstr ""
+
+msgid "Tax"
+msgstr "Mokesčiai"
+
+msgid "Taxless Total"
+msgstr ""
+
+msgid "Total incl. Tax"
+msgstr ""
+
+#, python-format
+msgid "Supplied by %(supplier)s"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "Taxless"
+msgstr ""
+
+msgid "Logs"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Extra"
+msgstr ""
+
+msgid "Storefront Languages"
+msgstr ""
+
+msgid "Shopping cart"
+msgstr "Pirkinių krepšelis"
+
+msgid "Your shopping cart is empty."
+msgstr "Jūsų pirkinių krepšelis tuščias"
+
+msgid "There were errors on following items"
+msgstr "Įvyko klaidų su sekančiais elementais"
+
+msgid "You are unable to proceed to checkout!"
+msgstr "Jūs negalite pereiti prie atsiskaitymo!"
+
+msgid "Checkout"
+msgstr "Pateikti užsakymą"
+
+msgid "Error! Please reload the page or move to previous step."
+msgstr ""
+
+msgid "Log in"
+msgstr "Prisijungti"
+
+msgid "Forgot your password?"
+msgstr "Pamiršote slaptažodį?"
+
+msgid "There are errors"
+msgstr "Yra klaidų"
+
+msgid "Please wait..."
+msgstr ""
+
+msgid "My Dashboard"
+msgstr "Pagrindinis skydelis"
+
+msgid "Dashboard"
+msgstr "Pagrindinis"
+
+msgid "Home"
+msgstr "Pradinis"
+
+msgid "Bad Request"
+msgstr "Bloga užklausa"
+
+msgid "Unfortunately the server couldn't process your request."
+msgstr "Deja serveris negali apdoroti Jūsų užklausos."
+
+msgid "Back to Homepage"
+msgstr "Atgal į pradinį puslapį"
+
+msgid "Permission Denied"
+msgstr "Leidimas nesuteiktas"
+
+msgid "Unfortunately you didn't have permission to display this page."
+msgstr "Deja neturite teisės peržiūrėti šį puslapį."
+
+msgid "Page Not Found"
+msgstr "Puslapis nerastas"
+
+msgid "Unfortunately the page you were looking for does not exist."
+msgstr "Deja puslapis, kurį ketinote aplankyti neegzistuoja."
+
+msgid "Go Back"
+msgstr "Atgal"
+
+msgid "Internal Server Error"
+msgstr "Vidinė klaida"
+
+msgid ""
+"Unfortunately an internal server error occurred. Try refreshing the page or "
+"try again later."
+msgstr "Deja įvyko vidinė serverio klaida. Bandykite atšviežinti puslapį arba bandykite vėliau."
+
+msgid "Welcome to Shuup!"
+msgstr "Sveiki atvykę į Shuup!"
+
+#, python-format
+msgid "Welcome to %(name)s!"
+msgstr "Sveiki atvykę į %(name)s!"
+
+msgid "your shop"
+msgstr "Jūsų parduotuvė"
+
+msgid ""
+"You are seeing this page because there is no theme selected for the default "
+"frontend."
+msgstr "Matote šį puslapį, nes nėra parinktos temos numatytajai priekinei išvaizdai."
+
+msgid "Log in to the administration interface"
+msgstr "Prisijungti prie administratoriaus interfeiso"
+
+msgid "to choose a theme and set up your shop."
+msgstr "pasirinkti temą ir nustatyti parduotuvę."
+
+msgid ""
+"The administration interface does not seem to be available. Use other means "
+"to choose a theme."
+msgstr "Administratoriaus interfeisas nepasiekiamas. Naudokite kitus būdus pasirinkti temą."
+
+msgid "Product added to cart"
+msgstr "Prekė įdėta į krepšelį"
+
+msgid "Adding the product to the basket failed."
+msgstr ""
+
+msgid "Remove product from basket"
+msgstr "Pašalinti produktą iš krepšelio"
+
+#, python-brace-format
+msgid "{prop}:"
+msgstr ""
+
+msgid ""
+"The following items are not currently available (or are not available in the"
+" desired quantity) and cannot be included in your order."
+msgstr "Sekantys prekės šiuo metu negalimos (arba neturime reikiamo kiekio), todėl negalime pridėti į Jūsų užsakymą."
+
+msgid "Continue Shopping"
+msgstr "Tęsti apsipirkimą"
+
+msgid "Proceed to checkout"
+msgstr "Pereiti prie atsiskaitymo"
+
+msgid "Coupons applied"
+msgstr ""
+
+msgid "Do you have a coupon code? Enter it here. "
+msgstr ""
+
+msgid "Coupon Code"
+msgstr "Nuolaidos kodas"
+
+msgid "Submit Code"
+msgstr "Siųsti kodą"
+
+msgid "Save cart"
+msgstr "Išsaugoti krepšelį"
+
+msgid "Cart Title"
+msgstr "Krepšelio pavadinimas"
+
+msgid "Save"
+msgstr "Išsaugoti"
+
+msgid "Back to Products"
+msgstr "Atgal prie produktų"
+
+msgid "Error!"
+msgstr ""
+
+msgid "Invalid coupon code."
+msgstr ""
+
+msgid "Removing a coupon failed."
+msgstr ""
+
+msgid "Coupon is not available."
+msgstr "Nuolaidos kuponas negalimas."
+
+msgid "Adding a coupon failed."
+msgstr ""
+
+msgid "Success!"
+msgstr ""
+
+msgid "Cart saved."
+msgstr ""
+
+msgid "Filter Products"
+msgstr "Filtruoti produktus"
+
+msgid "Show Grid/List"
+msgstr "Rodyti lentelę/sąrašą"
+
+msgid "Grid/list view"
+msgstr "Lentelės/sąrašo vaizdas"
+
+msgid "Continue"
+msgstr "Tęsti"
+
+msgid "Ordering for a company?"
+msgstr "Užsakote įmonei?"
+
+msgid "Please fill out these fields if you are ordering for a company."
+msgstr "Užpildykite šiuos laukus jei rikiuojate kompanijai."
+
+msgid "Ship to my billing address"
+msgstr "Siųsti mokėtojo adresu"
+
+msgid "Choose Shipping Method"
+msgstr "Pasirinkti pristatymo būdą"
+
+msgid "Choose Payment Method"
+msgstr "Pasirinkti mokėjimo būdą"
+
+msgid "No method is available."
+msgstr ""
+
+msgid "Delivery"
+msgstr "Pristatymas"
+
+msgid "Delivery method"
+msgstr "Pasirinkti pristatymo būdą"
+
+msgid "Billing"
+msgstr "Atsiskaitymas"
+
+msgid "Payment method"
+msgstr "Mokėjimo būdas"
+
+msgid "Add comment"
+msgstr "Pridėti komentarą"
+
+msgid "Other information"
+msgstr "Kita informacija"
+
+msgid "Place Order"
+msgstr "Užsakyti"
+
+msgid "Previous"
+msgstr "Ankstesnis"
+
+msgid "Next"
+msgstr "Sekantis"
+
+#, python-format
+msgid "Items %(start_index)d to %(end_index)d of %(count)d total"
+msgstr ""
+
+msgid "Change visibility limit to"
+msgstr ""
+
+msgid "show only visible products and categories"
+msgstr ""
+
+msgid "show all products and categories"
+msgstr ""
+
+msgid "Change customer to person contact mode"
+msgstr ""
+
+msgid "Change customer to company contact mode"
+msgstr ""
+
+msgid "Change customer mode to guest"
+msgstr ""
+
+msgid "Tools"
+msgstr "Įrankiai"
+
+msgid "Maintenance"
+msgstr ""
+
+msgid "Live"
+msgstr ""
+
+msgid "Customer mode"
+msgstr ""
+
+msgid "GUEST"
+msgstr ""
+
+msgid "COMPANY CONTACT"
+msgstr ""
+
+msgid "PERSON CONTACT"
+msgstr ""
+
+msgid "Toggle navigation"
+msgstr "Perjungti navigaciją"
+
+#, python-brace-format
+msgid "Edit '{object_title}' in administration page"
+msgstr ""
+
+#, python-brace-format
+msgid "Edit {object_name} in Admin"
+msgstr ""
+
+msgid "Shop Administration"
+msgstr "Parduotuvės administravimas"
+
+msgid ""
+"There were errors on submitted form fields. Please check them and try again."
+msgstr "Įvyko klaidų su nusiųstais formos laukais. Patikrinkite juos ir bandykite dar kartą."
+
+#, python-format
+msgid "By <strong>%(supplier_name)s</strong>"
+msgstr ""
+
+#, python-brace-format
+msgid "Available until: <span class=\"availability-date\">{date}</span></small>"
+msgstr ""
+
+msgid "Edit account details"
+msgstr "Redaguoti paskyros detales"
+
+msgid "Edit company details"
+msgstr "Redaguoti įmonės detales"
+
+msgid "My orders"
+msgstr "Mano užsakymai"
+
+msgid "My saved carts"
+msgstr "Mano išsaugoti krepšeliai"
+
+msgid "My wishlists"
+msgstr "Mano norų sąrašas"
+
+msgid "Admin panel"
+msgstr "Administratoriaus panelė"
+
+msgid "Log out"
+msgstr "Atsijungti"
+
+msgid "New user? Register here!"
+msgstr "Naujas vartotojas? Registruokitės čia!"
+
+msgid "Cart"
+msgstr "Krepšelis"
+
+msgid "Items"
+msgstr "Prekės"
+
+msgid "View cart"
+msgstr "Peržiūrėti krepšelį"
+
+msgid "Menu"
+msgstr "Meniu"
+
+msgid "Products"
+msgstr "Produktai"
+
+msgid "Files"
+msgstr "Failai"
+
+msgid "No method selected"
+msgstr ""
+
+msgid "Product"
+msgstr "Produktas"
+
+msgid "Unit Price"
+msgstr "Vieneto kaina"
+
+msgid "excl. tax"
+msgstr "be mokesčių"
+
+msgid "Products ordered"
+msgstr "Produktai išrykiuoti"
+
+msgid "Tax breakdown"
+msgstr "Mokesčių pjūvis"
+
+msgid "Tax percentage"
+msgstr "Mokesčių procentas"
+
+msgid "Based on amount"
+msgstr "Lyginant su suma"
+
+msgid "Amount of tax"
+msgstr "Iš viso mokesčių"
+
+msgid "Total including tax"
+msgstr "Iš viso su mokesčiais"
+
+msgid "Company"
+msgstr "Įmonė"
+
+msgid "Tax number"
+msgstr "Mokesčių numeris"
+
+msgid "Preview"
+msgstr "Peržiūra"
+
+msgid "Also available in"
+msgstr "Taip pat galima"
+
+#, python-format
+msgid "Save %(discount_percent)s"
+msgstr "Išsaugoti %(discount_percent)s"
+
+msgid "Product Information"
+msgstr "Produkto informacija"
+
+msgid "Includes these products"
+msgstr "Įtraukia šiuos produktus"
+
+msgid "No product description available"
+msgstr "Aprašymo nėra"
+
+msgid "Barcode"
+msgstr "Barkodas"
+
+msgid "Manufacturer"
+msgstr "Gamintojas"
+
+msgid "Package Size"
+msgstr "Pakuotės dydis"
+
+msgid "Available Until"
+msgstr ""
+
+msgid "Width"
+msgstr "Plotis"
+
+msgid "Height"
+msgstr "Aukštis"
+
+msgid "Depth"
+msgstr "Gylis"
+
+msgid "Net Weight"
+msgstr "Net svoris"
+
+msgid "Gross Weight"
+msgstr "Bendras svoris"
+
+msgid "External link"
+msgstr "Išorinė nuoroda"
+
+msgid "Select"
+msgstr "Rinktis"
+
+msgid "Select product"
+msgstr "Pasirinkti produktą"
+
+msgid "One-time purchase"
+msgstr ""
+
+msgid "Subscribe"
+msgstr ""
+
+msgid "Select frequency"
+msgstr ""
+
+msgid "Add to cart"
+msgstr "Pridėti į krepšelį"
+
+#, python-brace-format
+msgid "Available until: {date}"
+msgstr ""
+
+msgid "Maintenance mode"
+msgstr "Priežiūros rėžimas"
+
+msgid "Shop is currently down for maintenance."
+msgstr "Svetainė šiuo metu neprieinama, nes yra tvarkoma."
+
+msgid "Thank you for your order!"
+msgstr "Ačiū už užsakymą!"
+
+msgid ""
+"Your order has been received. You can see the details of your order below."
+msgstr "Užsakymas gautas. Galite peržiūrėti užsakymo detales žemiau."
+
+msgid "User account activation"
+msgstr "Vartotojo sąskaitos aktyvacija"
+
+msgid ""
+"If you want to be able to see your order history, please create a password "
+"for your account: "
+msgstr "Jei norite pamatyti užsakymų istoriją - sukurkite savo paskyrai slaptažodį:"
+
+msgid "Send"
+msgstr "Siųsti"
+
+msgid "Payment canceled"
+msgstr "Mokėjimas atšauktas"
+
+msgid "You have canceled payment"
+msgstr "Atšaukėte mokėjimą"
+
+msgid "Retry payment"
+msgstr "Bandyti apmokėti dar kartą"
+
+msgid "Error"
+msgstr "Klaida"
+
+msgid "Combination not available"
+msgstr "Kombinacija negalima"
+
+msgid "Open product page"
+msgstr "Atidaryti produkto puslapį"
+
+msgid "Hide prices"
+msgstr ""
+
+msgid "Set shop in catalog mode"
+msgstr ""
+
+msgid "Show supplier info"
+msgstr ""
+
+msgid ""
+"Show supplier name in product-box, product-detail, basket- and order-lines"
+msgstr ""
+
+msgid "Show Product Details"
+msgstr ""
+
+msgid ""
+"If you enable this, extra information will be shown on product page in "
+"frontend."
+msgstr ""
+
+msgid "Show Variations as Buttons"
+msgstr ""
+
+msgid ""
+"If you enable this, the variations will be shown as buttons instead of "
+"dropdowns."
+msgstr ""
+
+msgid "Product detail extra tab title"
+msgstr ""
+
+msgid "Enter the title for the product detail extra tab."
+msgstr ""
+
+msgid "Product detail extra tab content"
+msgstr ""
+
+msgid "Enter the content for the product detail extra tab."
+msgstr ""
+
+msgid "Description"
+msgstr "Aprašymas"
+
+msgid "Details"
+msgstr "Detalės"
+
+msgid "Attributes"
+msgstr "Atributai"
+
+msgid "Product reviews"
+msgstr ""
+
+msgid "Product detail tabs"
+msgstr ""
+
+msgid "Select all tabs that should be rendered in product details."
+msgstr ""
+
+msgid "Tax number is not valid."
+msgstr ""
+
+msgid "Edit"
+msgstr "Redaguoti"
+
+#, python-brace-format
+msgid "`{language_code}` is an invalid language code."
+msgstr ""
+
+msgid "The order is canceled so you can't pay for it."
+msgstr ""
+
+msgid "Error! This product is not available in this shop."
+msgstr ""
+
+msgid "Invalid timezone"
+msgstr ""
+
+#, python-format
+msgid "Maximum file size reached (%(size)s MB)."
+msgstr ""

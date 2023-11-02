@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-23 17:18+0000\n"
+"PO-Revision-Date: 2021-11-08 12:24+0000\n"
+"Last-Translator: Shuup Admin <admin@shuup.com>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "Shuup Utilities"
+msgstr "Shuup įrankiai"
+
+msgid "other"
+msgstr "kiti"
+
+msgid "audit"
+msgstr "auditas"
+
+msgid "edit"
+msgstr "redaguoti"
+
+msgid "deletion"
+msgstr "trinimas"
+
+msgid "note"
+msgstr "užrašas"
+
+msgid "email"
+msgstr "el. paštas"
+
+msgid "warning"
+msgstr "įspėjimas"
+
+msgid "error"
+msgstr "klaida"
+
+msgid "created on"
+msgstr "sukurta"
+
+msgid "user"
+msgstr "vartotojas"
+
+msgid "message"
+msgstr "pranešimas"
+
+msgid "identifier"
+msgstr "identifikatorius"
+
+msgid "log entry kind"
+msgstr "Žurnalo įrašo tipas"
+
+msgid "extra data"
+msgstr "papildomi duomenys"
+
+msgid "target"
+msgstr "taikinys"
+
+#, python-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, python-format
+msgid "%(min)s--%(max)s days"
+msgstr "%(min)s--%(max)s dienų"
+
+#, python-brace-format
+msgid "You can't select less than {min_limit} item."
+msgid_plural "You can't select less than {min_limit} items."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, python-brace-format
+msgid "You can't select more than {max_limit} item."
+msgid_plural "You can't select more than {max_limit} items."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, python-format
+msgid "Maximum file size reached (%(size)s MB)."
+msgstr ""
+
+msgid ""
+"The file name with extension should be less than or equals to 150 "
+"characters. It has {} characters."
+msgstr ""
+
+msgid "Root"
+msgstr ""
+
+msgid "Upload File"
+msgstr ""
+
+msgid "Upload Image"
+msgstr ""
+
+msgid "This field is required."
+msgstr "Šis laukas privalomas"
+
+msgid ""
+"Comma-separated values or ranges, e.g. A-Z,10000-19000. Use exclamation "
+"marks to negate (A-Z,!G will not match G)."
+msgstr "Kableliais atskirtos reikšmės rėžiais, pvz: A-Z,10000-19000.  Naudokite šauktuką paneigimams (A-Z,!G neatitiks G)."
+
+msgid ""
+"Could not create PDF since Weasyprint is not available. Please contact "
+"support."
+msgstr "Negalime sukurti PDF, nes Weasyprint neprieinamas. Susisiekite su pagalba."

@@ -1,0 +1,192 @@
+.modal-open .modal {
+    display: flex !important;
+}
+
+.modal-backdrop {
+    background-color: @modal-backdrop-bg;
+
+    &.in {
+        opacity: @modal-backdrop-opacity;
+    }
+}
+
+.modal-dialog {
+    margin: auto auto 0 auto !important;
+    padding: @grid-gutter-width 0 0 0;
+    z-index: 2;
+
+    @media (min-width: @screen-xs-min) {
+        padding: @grid-gutter-width;
+        margin: auto !important;
+    }
+
+    &.modal-sm {
+        width: 100%;
+
+        @media (min-width: 400px) {
+            width: @modal-sm;
+        }
+    }
+
+    &.modal-md {
+        width: 100%;
+
+        @media (min-width: @modal-md + @grid-gutter-width) {
+            width: @modal-md;
+        }
+    }
+
+    &.modal-lg {
+        width: 100%;
+
+        @media (min-width: @modal-lg + @grid-gutter-width) {
+            width: @modal-lg;
+        }
+    }
+}
+
+.modal.fade .modal-dialog {
+    @media (max-width: @screen-xs-max) {
+        transform: translate(0, 25%);
+    }
+}
+
+.modal.in {
+    z-index: @zindex-modal + 1;
+
+    .modal-dialog {
+        @media (max-width: @screen-xs-max) {
+            transform: translate(0, 0);
+        }
+    }
+}
+
+.modal-content {
+    @media (max-width: @screen-xxs-max) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border: none;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    right: @grid-gutter-width/2;
+    top: @grid-gutter-width/2;
+    display: block;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    z-index: 2;
+
+    @media (max-width: @screen-xxs-max) {
+        right: @grid-gutter-width/6;
+        top: @grid-gutter-width/6;
+    }
+
+    &:hover,
+    &:focus {
+        span::before,
+        span::after {
+            background-color: @link-color;
+        }
+    }
+
+    span {
+        display: block;
+        position: relative;
+        width: 40px;
+        height: 40px;
+
+        &::before,
+        &::after {
+            content: "";
+            width: 25px;
+            height: 2px;
+            display: block;
+            background-color: @text-muted;
+            border-radius: 2px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: 0 0;
+            transition: background-color .15s;
+        }
+
+        &::before {
+            transform: rotate(45deg) translate(-50%, -50%);
+        }
+
+        &::after {
+            transform: rotate(-45deg) translate(-50%, -50%);
+        }
+    }
+}
+
+.modal-body {
+    padding: @grid-gutter-width/1.5;
+    padding-top: @grid-gutter-width*1.5;
+
+    @media (min-width: @screen-xs-min) {
+        padding: @grid-gutter-width*1.5;
+        padding-top: @grid-gutter-width;
+        padding-bottom: @grid-gutter-width;
+    }
+
+    &.no-close-icon {
+        @media (max-width: @screen-xs-max) {
+            padding-top: @grid-gutter-width/1.5;
+        }
+    }
+
+    h2 {
+        margin: 0 0 @grid-gutter-width/1.5 0;
+    }
+}
+
+.modal-user-not-logged-in-block {
+    background-color: @brand-lightest;
+    margin-left: -@grid-gutter-width/1.5;
+    margin-right: -@grid-gutter-width/1.5;
+    padding: @grid-gutter-width/2 @grid-gutter-width/1.5;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+
+    @media (min-width: @screen-xs-min) {
+        margin-left: -@grid-gutter-width*1.5;
+        margin-right: -@grid-gutter-width*1.5;
+        padding: @grid-gutter-width/2 @grid-gutter-width*1.5;
+    }
+}
+
+.modal-confetti-background {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    background-image: url("../../../static/givesome/img/confetti.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+}
+
+#receipting-information-dialog {
+    h2 {
+        padding-top: 2px;
+        text-align: center;
+        display: block;
+    }
+
+    img {
+        @media screen and (max-width: 500px){
+            max-width: 200px
+        }
+        max-width: 500px;
+        margin: auto;
+        display: block;
+    }
+}

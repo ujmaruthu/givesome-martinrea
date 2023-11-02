@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-21 23:09+0000\n"
+"PO-Revision-Date: 2019-02-22 07:18+0000\n"
+"Last-Translator: Shuup Admin <admin@shuup.com>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "This theme has no special settings to configure."
+msgstr "Ši tema neturi specialių nustatymų."
+
+msgid "Home"
+msgstr "Pradinis"
+
+#, python-format
+msgid "Welcome to %(shop_name)s!"
+msgstr "Sveiki atvykę į %(shop_name)s!"
+
+msgid "Menu"
+msgstr "Meniu"
+
+msgid "Products"
+msgstr "Produktai"
+
+msgid "Default"
+msgstr "Numatytasis"
+
+msgid "Midnight Blue"
+msgstr "vidurnakčio mėlyna"
+
+msgid "Candy Pink"
+msgstr "\"Saldainiškai\" rožinė"
+
+msgid "Show Frontpage Welcome Text"
+msgstr "Rodyti pradinio puslapio pasveikinimo pranešimą"

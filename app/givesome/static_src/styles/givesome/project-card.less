@@ -1,0 +1,206 @@
+.project-card {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    text-align: left;
+    font-size: @font-size-smallest;
+    color: @text-muted;
+    background-color: #fff;
+    transition: box-shadow .15s;
+    width: 100%;
+
+    @media (min-width: @screen-xs-min) {
+        font-size: @font-size-small;
+    }
+
+    &:hover, &:focus {
+        text-decoration: none;
+        color: @text-muted;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.08);
+
+        .project-card-image .image-container {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+        .project-name,
+        .project-description {
+            color: @link-color;
+            color: var(--primary);
+        }
+    }
+
+    .project-card-image {
+        flex-shrink: 0;
+        flex-grow: 0;
+        position: relative;
+        background-color: @brand-lightest;
+        overflow: hidden;
+        border: solid @border-color-light;
+        border-width: 1px 1px 0 1px;
+        border-top-left-radius: @border-radius-base;
+        border-top-right-radius: @border-radius-base;
+
+        &::before {
+            content: "";
+            position: relative;
+            display: block;
+            padding-top: 56.25%;
+        }
+
+        .image-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all .15s;
+            transform: scale(1.005);
+        }
+    }
+
+    .project-labels {
+        position: absolute;
+        top: @grid-gutter-width/2;
+        right: @grid-gutter-width/2;
+        z-index: 2;
+        text-align: right;
+
+        .project-label {
+            font-size: @font-size-smallest;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: @text-color;
+            font-weight: bold;
+            margin-bottom: 5px;
+            padding: .3em 1em;
+            border-radius: 20px;
+            white-space: nowrap;
+            display: inline-block;
+        }
+    }
+
+    .project-card-details {
+        flex-grow: 1;
+        flex-shrink: 0;
+        padding: @grid-gutter-width/2;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        overflow: hidden;
+        border-bottom-left-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+        border: 1px solid @border-color-light;
+
+        @media (min-width: @screen-xs-min) {
+            padding: @grid-gutter-width/1.5;
+        }
+
+        &.no-border-radius {
+            border-radius: 0 !important;
+        }
+    }
+
+    .project-name {
+        font-size: @font-size-base;
+        font-weight: bold;
+        margin: 0 0 5px 0;
+        color: @text-color;
+        transition: all .15s;
+
+        @media (min-width: @screen-xs-min) {
+            font-size: @font-size-large;
+        }
+    }
+
+    .project-description {
+        display: block;
+        margin: 0 0 @grid-gutter-width/2 0;
+        transition: all .15s;
+
+        @media (min-width: @screen-xs-min) {
+            margin: 0 0 @grid-gutter-width/1.5 0;
+        }
+
+        p, span {
+            display: inline;
+            margin: 0;
+        }
+
+        .read-more {
+            white-space: nowrap;
+        }
+    }
+
+    .project-details {
+        display: flex;
+        flex-flow: row wrap;
+
+        i {
+            width: 23px;
+            height: 23px;
+            color: @brand-primary;
+            color: var(--primary);
+            font-size: @font-size-large;
+        }
+
+        .vendor-icon{
+            color: transparent;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 0;
+            margin-right: 10px;
+            top: auto;
+            position: relative;
+        }
+
+        .project-charity,
+        .project-location {
+            margin-top: @grid-gutter-width/6;
+            margin-bottom: @grid-gutter-width/6;
+            margin-right: @grid-gutter-width/3;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .project-progress {
+        margin-top: @grid-gutter-width/1.5;
+
+        .progress-value-text {
+            strong {
+                font-size: @font-size-base;
+
+                @media (min-width: @screen-xs-min) {
+                    font-size: @font-size-large;
+                }
+            }
+        }
+    }
+
+    .bottom-box {
+        text-align: center;
+        font-weight: bold;
+        padding: @grid-gutter-width/2;
+        border-bottom-left-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+        border: 1px solid @border-color-light;
+        border-top: none;
+        color: @text-color;
+        font-size: @font-size-base;
+    }
+}
+
+// Overwrite some definite theme list defaults
+.product-list-view.list .single-product .product-card {
+    border: none !important;
+    margin-bottom: @grid-gutter-width;
+    text-align: inherit !important;
+}

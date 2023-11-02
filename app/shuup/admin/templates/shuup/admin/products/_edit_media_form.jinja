@@ -1,0 +1,239 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs %}
+{% set media_form = form[form_def.name] %}
+
+{% macro render_new_video_form(f, media_form, idx, is_image_form) %}
+    {% if is_image_form %}
+        <div class="modal fade" id="new-video-product-modal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{ _("Add video") }}</h4>
+                        <button type="button" id="close-model-top" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div
+                        class="modal-body"
+                        data-prefix="{{ f.prefix }}"
+                        data-idx="{{ idx }}"
+                        data-file="__file_id__"
+                    >
+                        {%- set id = media_form.prefix + "-" + idx|safe %}
+                        {% set tab_id = id + "-additional-language" %}
+
+                        {{ bs3.field(f.external_url) }}
+
+                        {% call(form, language, map) language_dependent_content_tabs(f, tab_id_prefix=new_id) %}
+                            {{ bs3.field(f[map.title]) }}
+                            {{ bs3.field(f[map.description]) }}
+                        {% endcall %}
+
+                        <select type="hidden" name="images-__prefix__-kind" class="form-control" name="id_images-__prefix__-kind">
+                            <option value="5" selected="selected">
+                                {% trans %}Video{% endtrans %}
+                            </option>
+                        </select>
+
+                        {{ bs3.field(f.public) }}
+
+                        <div class="col-3 actions d-flex align-items-center justify-content-center">
+                            {{ bs3.field(f.ordering) }}
+                            {% for h in f.hidden_fields() %}
+                                {# make sure to not duplicate hidden fields #}
+                                {% if h.name not in ("kind", "file") %}
+                                    {{ h|safe }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-success" type="submit">
+                            <i class="fa fa-save"></i>&nbsp;{% trans %}Create{% endtrans %}
+                        </button>
+                        <button type="button" id="close-model-button" class="btn btn-default" data-dismiss="modal">{% trans %}Close{% endtrans %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro render_media_form(f, media_form, idx, is_image_form) %}
+    {%- set is_image_form = True if is_image_form and f.is_image else None %}
+    {%- set is_primary = f.is_primary.value() if is_image_form else None %}
+    <div
+        class="panel{% if is_primary %} panel-selected{% else %} panel-default{% endif %} pt-4"
+        data-prefix="{{ f.prefix }}"
+        data-idx="{{ idx }}"
+        {% if f.instance and f.instance.pk %}
+        data-file="{{ f.instance.pk }}"
+        {% else %}
+        data-file="__file_id__"
+        {% endif %}
+    >
+        {% for h in f.hidden_fields() %}
+            {# make sure to not duplicate hidden fields #}
+            {% if h.name not in ("kind", "file") %}
+                {{ h|safe }}
+            {% endif %}
+        {% endfor %}
+        <div class="panel-heading d-flex align-items-center pb-1">
+          <h4 class="panel-title mr-auto">
+              {%- if is_image_form -%}
+                {{- _("Product image %(index)s", index=idx) -}}
+              {%- else -%}
+                {{- _("Product media %(index)s", index=idx) -}}
+              {%- endif -%}
+            </h4>
+            {% if is_image_form %}
+                <div class="primary-action">
+                    {% if f.is_primary.value() %}
+                        <span class="is-primary-image">{% trans %}Primary image{% endtrans %}</span>
+                    {% else %}
+                        <a href="#" class="btn btn-sm btn-inverse set-as-primary">{% trans %}Set as primary image{% endtrans %}</a>
+                    {% endif %}
+                    <div class="d-none">{{ f.is_primary }}</div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="panel-body pb-4">
+            <div class="media-row row align-items-center">
+                <div class="col-2 file-control">
+                    {%- set thumbnail = f.get_thumbnail(request) %}
+                    <div class="thumbnail">
+                    {% if thumbnail %}
+                        <a class="thumbnail-image" href="{{ f.file_url }}" target="_blank">
+                            <img src="{{ thumbnail.url }}" />
+                        </a>
+                    {% elif f.instance.pk %}
+                        {%- set instance_icon = "fa fa-file-o" if is_image_form else "fa fa-video-camera" %}
+                        <a class="thumbnail-image thumbnail-file" href="{{ f.file_url }}" target="_blank">
+                            <i class="{{ instance_icon }}"></i>
+                        </a>
+                    {% endif %}
+                    </div>
+                    {{ f.file }}
+                </div>
+                <div class="col extra-fields">
+                {% if f.instance.pk %}
+                    <h4>{{ f.instance.effective_title }}</h4>
+                {% endif %}
+                    {% if media_form.can_delete and f.instance.pk %}
+                        <a href="#" class="btn btn-inverse btn-sm product-media-delete mr-2"><i class="fa fa-trash"></i></a>
+                        <div class="d-none">{{ f.DELETE }}</div>
+                    {% endif %}
+                    {%- set id = media_form.prefix + "-" + idx|safe %}
+                    <a href="#collapse-{{ id }}" class="btn btn-default btn-sm" role="button" data-toggle="collapse" aria-expanded="true">
+                        <i class="fa fa-cog"></i>
+                    </a>
+                </div>
+                <div class="col-3 actions d-flex align-items-center justify-content-center">
+                    {{ bs3.field(f.ordering) }}
+                </div>
+            </div>
+        </div>
+        {%- set id = media_form.prefix + "-" + idx|safe %}
+        <div class="panel-footer row" id="media-accordion-{{ id }}" role="tablist" aria-multiselectable="true">
+            <div role="tab" id="media-{{ id }}" class="panel-footer-inner col-12">
+                <div id="collapse-{{ id }}" class="advanced-container collapse" role="tabpanel" aria-labelledby="media-{{ id }}">
+                    <div class="advanced-body">
+                        {% if not is_image_form %}
+                            {{ bs3.field(f.external_url) }}
+                        {% endif %}
+                        {{ bs3.field(f.public) }}
+                        {% if not is_image_form %}
+                            {{ bs3.field(f.purchased) }}
+                        {% endif %}
+                        {{ bs3.field(f.shops) }}
+                        {{ bs3.field(f.kind) }}
+                        {% set tab_id = id + "-additional-language" %}
+                        {% call(form, language, map) language_dependent_content_tabs(f, tab_id_prefix=tab_id) %}
+                            {{ bs3.field(f[map.title]) }}
+                            {{ bs3.field(f[map.description]) }}
+                        {% endcall %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{%- set is_image_form = media_form.prefix == "images" %}
+{%- set id = "product-images-section" if is_image_form else "product-media-section" %}
+{%- set name = _("Product Images") if is_image_form else _("Product Files") %}
+{%- set icon = "fa-camera" if is_image_form else "fa-files-o" %}
+{% call content_block(name, icon, id=id) %}
+
+    <div class="row">
+        <div class="col-6">
+            {% if not is_image_form %}
+                <p class="section-description">{% trans %}You can attach files such as manual to the merchandise(s) here.{% endtrans %}</p>
+            {% else %}
+                <p class="section-description">{% trans %}Showcase your merchandise here.{% endtrans %}</p>
+            {% endif %}
+        </div>
+        <div class="col-6 text-right">
+            {% if is_image_form %}
+            <button type="button" class="btn btn-info btn-sm" id="new-video-button" data-toggle="modal" data-target="#new-video-product-modal">
+                <i class="fa fa-plus"></i> {% trans %}Add video{% endtrans %}
+            </button>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="{{ id }}-dropzone" class="dropzone dropzone-no-preview"
+        {% if is_image_form %}data-kind="images"{% endif %}
+        data-product_id="{{ product.pk }}"
+        data-upload_path="/products/{{ media_form.prefix }}">
+        <div class="dz-message" data-dz-message>
+            <span>{% trans %}Drop files here or click to <a href="#">browse</a>.{% endtrans %}</span>
+        </div>
+    </div>
+
+    {{ media_form.management_form }}
+
+    {% for f in media_form %}
+        {{ render_media_form(f, media_form, loop.index, is_image_form) }}
+    {% endfor %}
+
+    {% if is_image_form %}
+        <div class="d-none" id="{{ id }}-placeholder-panel">
+            {{ render_media_form(media_form.empty_form, media_form, "__prefix_name__", is_image_form) }}
+        </div>
+
+        {{ render_new_video_form(media_form.empty_form, media_form, "__prefix_name__", is_image_form) }}
+    {% endif %}
+{% endcall %}
+
+{% if is_image_form %}
+{% block extra_js %}
+    <script>
+
+    function onModelClose() {
+        var totalForms = parseInt($("input[id='id_images-TOTAL_FORMS']").attr('value'));
+        $("input[id='id_images-TOTAL_FORMS']").val(totalForms - 1);
+    }
+    window.setupEvents = () => {
+        $('#close-model-top').click(function (evt){
+            onModelClose();
+        });
+        $('#close-model-button').click( function (evt){
+            onModelClose();
+        });
+    }
+
+    window.setupModelScript = () => {
+        $("#new-video-button").click( function (evt) {
+            var totalForms = parseInt($("input[id='id_images-TOTAL_FORMS']").attr('value'));
+            $('#new-video-product-modal').html($('#new-video-product-modal').html().replace(/__prefix__/g, totalForms))
+            $("input[id='id_images-TOTAL_FORMS']").val(totalForms + 1);
+            window.setupEvents();
+        });
+    };
+
+    window.addEventListener('load', function() {
+        window.setupModelScript();
+    });
+    </script>
+{% endblock %}
+{% endif %}

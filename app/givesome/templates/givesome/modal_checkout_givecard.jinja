@@ -1,0 +1,116 @@
+<style>
+div#custom .form-input-group::before {
+                content: "$";
+                font-weight: 400;
+                padding: 4px;
+                padding-top: 7px;
+                font-size: 18px;
+            }
+
+            div#custom .form-input-group::after {
+                content: ".00";
+                font-weight: 400;
+                padding: 4px;
+                padding-top: 7px;
+                font-size: 18px;
+            }
+
+            div#custom div.form-input-group.d-flex.position-relative {
+                width: 150px !important;
+            }
+
+            div#custom input {
+                width: 150px !important;
+                text-align: right;
+            }
+            div#custom-gc .form-input-group::before {
+                content: "$";
+                font-weight: 400;
+                padding: 4px;
+                padding-top: 7px;
+                font-size: 18px;
+            }
+
+            div#custom-gc .form-input-group::after {
+                content: ".00";
+                font-weight: 400;
+                padding: 4px;
+                padding-top: 7px;
+                font-size: 18px;
+            }
+
+            div#custom-gc div.form-input-group.d-flex.position-relative {
+                width: 150px !important;
+            }
+
+            div#custom-gc input {
+                width: 150px !important;
+                text-align: right;
+            }
+</style>
+<script>
+function getLocation() {
+    return location.href.split("/p/")[1];
+}
+
+
+["id_custom", "id_custom-gc"].forEach(
+    function(elementName) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop", "focusout"].forEach(
+            function(event) {
+                document.getElementById(elementName).addEventListener(event, function(e) {
+                        this.value = this.value.replace(/[^0-9]/g, '')
+                        if (/^-?\d*$/.test(this.value)) {
+                            this.value = this.value.replace(/[^0-9]/g, '')
+                            this.oldValue = this.value.replace(/[^0-9]/g, '')
+                            this.oldSelectionStart = this.selectionStart;
+                            this.oldSelectionEnd = this.selectionEnd;
+                        } else if (this.hasOwnProperty("oldValue")) {
+                            this.value = this.oldValue.replace(/[^0-9]/g, '')
+                        } else {
+                            this.value = "";
+                        }
+                    })
+            }
+        )
+    }
+)
+</script>
+
+
+<form class="givesome-stripe-donation" id="givesome-givecard-donation" method="post" role="form" action="{{ form_action }}">
+    {% csrf_token %}
+    {% for field in form %}
+        <div id="{{ field.name }}">
+            {{ bs3.field(field) }}
+        </div>
+    {% endfor %}
+</form>
+
+<div id="givecard-errors" class="text-danger my-2"></div>
+
+<div class="mt-3">
+    <button form="givesome-givecard-donation" type="submit" id="givesome-givecard-submit" class="btn btn-primary btn-rounded btn-block">
+        {{ _("Donate") }}
+    </button>
+</div>
+
+<script>
+    function loadGivecardForm() {
+        window.givecardDonation().init({
+            "url": "{{ request.path }}",
+            "allowDonations": {{ allow_donations }},
+            "btnText": "{{ btn_text }}",
+            "usable_givecards_sum": {{ usable_givecards_sum }},
+            "total_givecards_sum": {{ givecard_wallet_total_balance(request) }},
+        });
+    }
+    if (window.givecardDonation) {
+        loadGivecardForm()
+    } else {
+        // wait for page to finish loading
+        window.addEventListener("loadGivecardForm", function () {
+            loadGivecardForm()
+        });
+    }
+</script>

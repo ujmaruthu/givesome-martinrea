@@ -1,0 +1,201 @@
+.project-main {
+    h1.project-name {
+        margin: @grid-gutter-width/3 0 @grid-gutter-width/2 0;
+    }
+
+    .project-supplier-line {
+        color: @text-muted;
+        font-size: @font-size-base;
+        font-weight: normal;
+
+        a {
+            color: inherit;
+        }
+
+        strong {
+            font-weight: inherit;
+        }
+
+        small {
+            font-size: inherit;
+        }
+    }
+
+    .project-details-image-row {
+        margin-top: @grid-gutter-width/1.5;
+        .product-image .wrap-thumbnails .owl-stage-outer {
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .project-image {
+        padding-left: @grid-gutter-width/2 !important;
+        padding-right: @grid-gutter-width/2 !important;
+
+        .product-carousel,
+        .product-carousel.fade .item {
+            max-height: none;
+        }
+
+        .product-carousel.fade .item .image {
+            background-position: 50% 0;
+
+            &::before {
+                padding-top: 75%;
+            }
+        }
+
+        .carousel-thumbnails {
+            .owl-dots {
+                display: none;
+            }
+
+            .thumbnail,
+            .owl-item {
+                display: block;
+            }
+
+            .thumbnail {
+                border: 1px solid @border-color-light;
+                padding: 5px;
+            }
+
+            .owl-nav button {
+                padding: 0 5px !important;
+            }
+        }
+    }
+
+    .project-image + .project-basic-details {
+        @media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {
+            margin-top: @grid-gutter-width;
+        }
+    }
+
+    .project-basic-details {
+        @media (min-width: @screen-md-min) {
+            padding-right: @grid-gutter-width*2;
+        }
+
+        .project-description {
+            margin-top: @grid-gutter-width/3;
+
+            @media (max-width: @screen-xxs-max) {
+                font-size: @font-size-small;
+            }
+        }
+    }
+
+    .project-progress {
+        margin: @grid-gutter-width 0;
+    }
+}
+
+body.project-page {
+    .project-progress {
+        .progress-value-text {
+            strong {
+                font-size: @font-size-h4;
+            }
+        }
+
+        .project-progress-text {
+            font-size: @font-size-small;
+        }
+    }
+}
+
+.charity-info-section {
+    background-color: @brand-lightest;
+    padding: @grid-gutter-width 0;
+    margin: @grid-gutter-width 0;
+
+    @media (min-width: @screen-sm-min) {
+        margin: @grid-gutter-width*3 0 @grid-gutter-width 0;
+        padding: @grid-gutter-width*2 0;
+    }
+
+    h2 {
+        margin: 0 0 @grid-gutter-width 0;
+    }
+
+    .flex-row {
+        .row();
+        display: flex;
+        flex-flow: column nowrap;
+
+        @media (min-width: @screen-sm-min) {
+            flex-flow: row nowrap;
+        }
+    }
+
+    .charity-col {
+        padding: 0 0 0 @grid-gutter-width/2;
+        max-width: 120px;
+        flex-basis: 120px;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        @media (min-width: @screen-sm-min) {
+            max-width: 200px;
+            flex-basis: 200px;
+            padding: 0 @grid-gutter-width/2;
+        }
+    }
+
+    .charity-logo-wrapper {
+        display: block;
+        border: 1px solid @border-color-light;
+        border-radius: @border-radius-base;
+        background-color: #fff;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+            position: relative;
+        }
+
+        .charity-logo {
+            position: absolute;
+            left: @grid-gutter-width/3;
+            top: @grid-gutter-width/3;
+            right: @grid-gutter-width/3;
+            bottom: @grid-gutter-width/3;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+
+    .charity-content {
+        padding: 0 @grid-gutter-width/2;
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        h3 {
+            margin: @grid-gutter-width/6 0 @grid-gutter-width/1.5 0;
+        }
+    }
+
+    .charity-meta-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+
+        .charity-meta {
+            margin: 0 @grid-gutter-width @grid-gutter-width/1.5 0;
+            color: @text-muted;
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+
+    .charity-button-wrap {
+        margin-top: @grid-gutter-width/1.5;
+    }
+}

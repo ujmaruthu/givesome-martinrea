@@ -1,0 +1,167 @@
+{%- from "shuup/front/macros/product.jinja" import product_box with context -%}
+{%- from "givesome/shuup/front/macros/off_platform.jinja" import render_off_platform %}
+{% extends "shuup/front/base.jinja" %}
+
+{% block title %}{% trans %}Profile{% endtrans %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+{% endblock %}
+
+
+{% block bodyclass %}profile{% endblock %}
+
+{% block container_start %}{% endblock %}
+{% block container_end %}{% endblock %}
+
+{% block banner %}
+    <div class="profile-banner">
+        <div class="container">
+            <div class="profile-banner-row">
+                <div class="profile-banner-col left-col">
+                    <h1 class="h2 mt-5 mb-4 customer-name">
+                        {{ _("Hello") }},                 
+                        {% if request.customer and request.customer.first_name %}
+                            &nbsp;{{ request.customer.first_name }}
+                        {% endif %}!
+                    </h1>
+                    <p class="mb-4">
+                        <a href="{{ url("shuup:dashboard") }}">{{ _("Edit Profile") }}</a>
+                    </p>
+                </div>
+                <div class="profile-banner-col">
+                    <div class="profile-banner-box">
+                        <h2 class="h4 mt-0 mb-5 text-center">
+                            {{ _("Take a look at the difference you've made so far!") }}
+                        </h2>
+                        <div class="row mt-5">
+
+                            <div class="impact-element">
+                                <div class="impact-image">
+                                    <img src="{{ static('givesome/img/lives-impacted.png') }}" alt="">
+                                </div>
+                                <div>
+                                    <span class="profile-impact-value" id="profile-lives-impacted" data-value="{{ lives_impacted }}">0</span>
+                                    <div class="text-muted">{{ _("Lives impacted") }}</div>
+                                </div>
+                            </div>
+
+                            <div class="impact-element">
+                                <div class="impact-image">
+                                    <img src="{{ static('givesome/img/projects-funded.png') }}" alt="">
+                                </div>
+                                <div>
+                                    <span class="profile-impact-value" id="profile-projects-funded" data-value="{{ total_project_count }}">0</span>
+                                    <div class="text-muted">{{ _("Projects Funded") }}</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>{{ _("Funded Projects") }}</h2>
+
+        <section class="profile-section givesome-carousel">
+            <div class="carousel-text">
+                <h3 class="mt-0">{{ _("Completed Projects") }} <span class="title-suffix">({{ completed_projects_count }})</span></h3>
+                <p>{{ _("Watch videos of completed projects to see the impact you've helped to achieve.") }}</p>
+            </div>
+
+            <div class="owl-loading-indicator">
+                <i class="fa fa-spin fa-spinner text-muted fa-2x"></i>
+            </div>
+
+            <div class="video-carousel owl-carousel">
+                {% for project in completed_projects %}
+                    {% set video = project.completion_videos.order_by('linked_on').first() %}
+                    {% if video %}
+                        {{ product_box(product=project, video=video, lives_impacted=project.project_extra.lives_impacted, donations=donations) }}
+                    {% else %}
+                        {{ product_box(product=project, lives_impacted=project.project_extra.lives_impacted, donations=donations) }}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="profile-section givesome-carousel">
+            <div class="carousel-text">
+                <h3 class="mt-0">{{ _("Ongoing Projects") }} <span class="title-suffix">({{ ongoing_projects_count }})</span></h3>
+                <p>{{ _("Projects you have donated to that are not yet finalized.") }}</p>
+            </div>
+
+            <div class="owl-loading-indicator">
+                <i class="fa fa-spin fa-spinner text-muted fa-2x"></i>
+            </div>
+
+            <div class="project-carousel owl-carousel">
+                {% for project in ongoing_projects %}
+                    {{ product_box(product=project, lives_impacted=project.project_extra.lives_impacted, donations=donations) }}
+                {% endfor %}
+            </div>
+        </section>
+
+        <h3 class="mt-0">{{ _("Total donations:") }} <span class="title-suffix">${{ total_donation_value }}</span></h3>
+
+        <h2 class="mt-7">{{ _("Off-Platform Tracker") }}</h2>
+
+        <section class="profile-section">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="mt-0">{{ _("Personal Volunteer Hours") }}</h3>
+                    <p>{{ _("Keep track of your volunteer hours.") }} <span style="float:right;">{% trans %}Total: {% endtrans %}{{ total_volunteer_hours }}</span></p>
+                    {{ render_off_platform(volunteer_hours_form, token, _("volunteer hours"), "volunteered") }}
+                </div>
+                <div class="col-md-6">
+                    <h3 class="mt-0">{{ _("Off-Platform Donations") }}</h3>
+                    <p>{{ _("Keep track of your other donations.") }}<span style="float:right;">{% trans %}Total: {% endtrans %}{{ total_donations }}</span></p>
+                    {{ render_off_platform(donations_form, token, _("new donation"), "donated") }}
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block supported_by %}
+    {{ givesome_macros.render_supported_by_static(text=_("Powered by")) }}
+{% endblock %}
+
+{% block extrajs %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <script>
+    function loadForms() {
+        let kwargs = {
+            'create_url': "{{ url('create-off-platform', type='type') }}",
+            'update_url': "{{ url('update-off-platform', type='type', pk=0) }}",
+            'delete_url': "{{ url('delete-off-platform', type='type', pk=0) }}",
+            'list_url': "{{ url('load-off-platform', type='type') }}"
+        }
+
+        let volunteerKwargs = kwargs;
+        volunteerKwargs['hours'] = '{{ _("Hours") }}';
+        volunteerKwargs['div_id'] = 'volunteered'
+        window.handleOffPlatform().init(volunteerKwargs);
+
+        let donationKwargs = kwargs;
+        volunteerKwargs['hours'] = '';
+        volunteerKwargs['div_id'] = 'donated'
+        window.handleOffPlatform().init(donationKwargs);
+    }
+    if (window.handleOffPlatform) {
+        loadForms()
+    } else {
+        // wait for page to finish loading
+        window.addEventListener("load", function () {
+            loadForms()
+        });
+    }
+</script>
+{% endblock %}

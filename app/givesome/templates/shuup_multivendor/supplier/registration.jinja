@@ -1,0 +1,98 @@
+{% extends "shuup/front/base.jinja" %}
+{% from "shuup/front/macros/general.jinja" import render_field %}
+
+{% block navigation %}
+    {{ render_navigation(show_quick_login=False) }}
+{% endblock %}
+
+{% if '/b/' in request.path %}
+    {% set vendor_type_string = _("Partner") %}
+{% else %}
+    {% set vendor_type_string = _("Charity") %}
+{% endif %}
+
+{% block title %}{% trans %}Register as a{% endtrans %} {{ vendor_type_string }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-10 col-sm-push-1 col-md-8 col-md-push-2">
+            <h1 class="page-header text-center">
+                {{ vendor_type_string }} {% trans %}Registration{% endtrans %}
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-push-1 col-md-8 col-md-push-2">
+            <div class="well">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <h2>{{ vendor_type_string }} {{ _("information") }}</h2>
+
+                    <p class="small">
+                        {{ _("Enter the name and address of your organization.") }}
+                    </p>
+
+                    {{ render_form(form.forms.vendor_base) }}
+                    {{ render_address_form(form.forms.vendor_address) }}
+                    {{ render_address_form(form.forms.vendor_extra) }}
+
+                    <hr>
+
+                    <h2>{{ _("Owner") }}</h2>
+
+                    <p class="small">
+                        {{ _("Enter the information of the owner.") }}
+                    </p>
+
+                    {{ render_form(form.forms.vendor_person) }}
+
+                    {% if form.forms.vendor_user %}
+                        <h3>{{ _("Login information") }}</h3>
+
+                        <p class="small">
+                            {{ _("The information you will sign in with.") }}
+                        </p>
+                        {{ render_form(form.forms.vendor_user) }}
+                    {% endif %}
+
+                    {% if form.forms.vendor_custom %}
+                        {{ render_form(form.forms.vendor_custom) }}
+                    {% endif %}
+
+                    {% if form.is_admin_user() %}
+                        <div class="alert alert-danger">
+                            <p>{% trans %}Register is not available for superusers and shop staff.{% endtrans %}</p>
+                        </div>
+                    {% else %}
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <i class="fa fa-check"></i> {% trans %}Register as a{% endtrans %} {{ vendor_type_string }}
+                        </button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% macro render_address_form(form) %}
+    {{ render_form(form, except_fields=["name", "name_ext", "prefix", "suffix",]) }}
+{% endmacro %}
+
+{% macro render_form(form, except_fields=[]) %}
+    {{ form.non_field_errors() }}
+    {% for field in form.hidden_fields() %}{{ field|safe }}{% endfor %}
+    {% for field in form.visible_fields() %}
+        {% if field.name not in except_fields %}
+            {{ render_field(field) }}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% block extrajs %}
+    {# Enable region fields #}
+    <script src="{{ static('shuup-regions.js') }}"></script>
+    <script>
+        window.initializeRegionFields('#id_vendor_address-country', '#id_vendor_address-region_code', '#id_vendor_address-region');
+    </script>
+{% endblock %}

@@ -1,0 +1,630 @@
+{% macro set_timezone_script() %}
+    <script>
+        var current = '{{ get_current_timezone_name() }}';
+        var guessed = window.moment.tz.guess(true);
+        if (current !== guessed) {
+            $.ajax({
+                type: 'POST',
+                url: '{{ url("shuup:set_timezone") }}',
+                data: {
+                    name: guessed,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                }
+            });
+        }
+    </script>
+{% endmacro %}
+
+{% macro givesome_dialog(dialog_id="", size="md", body_class="", hide_close_icon_on_mobile=False, confetti=False) %}
+    <div class="modal fade" tabindex="-1" role="dialog" id="{{ dialog_id }}">
+        {% if confetti %}
+            <div class="modal-confetti-background" style="background-image: {{ get_confetti_gif_url() }}"></div>
+        {% endif %}
+        <div class="modal-dialog modal-{{ size }}" role="document">
+            <div class="modal-content">
+                <button type="button" class="modal-close{% if hide_close_icon_on_mobile %} hidden-xs{% endif %}" data-dismiss="modal" aria-label="Close" onclick="closealldiv()">
+                    <span aria-hidden="true"></span>
+                </button>
+
+                <div class="modal-body {{ body_class }}{% if hide_close_icon_on_mobile %} no-close-icon{% endif %}">
+                    {{ caller() }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro render_givecard_redeem_dialog() %}
+    {% call givesome_dialog(dialog_id="givecard-dialog", size="md", body_class="", hide_close_icon_on_mobile=True) %}
+        <form class="givecard-redeem-form">
+            <h2 class="h3">Redeem your PIN</h2>
+
+            <div class="custom-input-group mt-5">
+                <input type="hidden" name="csrfmiddlewaretoken" id="givecard-pin-csrf-token" value="{{ csrf_token }}">
+                <input type="text" id="givecard-pin-input" class="form-control pl-4" placeholder="{{ _('AAAAAA') }}" aria-label="{{ _('PIN') }}" maxlength="6" pattern="[A-Z0-9]{6}">
+                <button class="btn btn-primary btn-rounded" type="button" id="givecard-pin-button" >
+                    {{ _("Redeem") }}
+                </button>
+            </div>
+
+            <button type="button" data-dismiss="modal" class="btn btn-modal-close visible-xs mt-3" id="cancel-redemption">
+                {{ _("Cancel") }}
+            </button>
+
+            <p id="givecard-pin-error-text" class="text-danger"></p>
+
+            <div id="redeem-spinner" style="display: none;" class="my-3 text-center text-muted">
+                <i class="fa fa-spin fa-spinner fa-lg"></i>
+            </div>
+        </form>
+    {% endcall %}
+{% endmacro %}
+
+{% macro render_givecard_redeem_successful_dialog(authenticated=False) %}
+    {% call givesome_dialog(dialog_id="givecard-success-dialog", size="md", body_class="", hide_close_icon_on_mobile=True) %}
+        {# Content to be set with js #}
+        <h2 class="h3 givecard-success-header fa fa-check-circle-o" style="
+    display: inherit;
+    color: green;
+    font-size: 24px;
+"><spam style="color:#000; font-weight: bold;">{{ _(" PIN Redeemed!") }}</spam></h2>
+
+        <div class="givecard-success-upper-text">
+            <div class="logo">
+                <img src="" alt="" id="givecard-success-campaign-image" class="img">
+            </div>
+            <div>
+                <div class="h5">
+                    <strong id="givecard-success-campaign-name"></strong> {% trans %}has given you{% endtrans %} <strong id="givecard-success-amount"></strong>!
+                </div>
+                <div class="text">
+                    <small>{% trans %}It has been added to your Givecard balance.{% endtrans %}</small>
+                </div>
+                <div class="text-danger">
+                    <small id="givecard-success-expiry"></small>
+                </div>
+            </div>
+        </div>
+
+        <div class="givecard-success-custom-text">
+            <div id="givecard-success-campaign-message"></div>
+        </div>
+
+        {% if not authenticated %}
+            <div class="modal-user-not-logged-in-block mt-3 mb-5">
+                <i class="fa fa-info-circle fa-lg text-primary fa-fw mr-2 mt-1"></i>
+                <p class="mb-0">
+                    <a href="{{ url("shuup:registration_register") }}#register" class="text-underline">
+                        {% trans %}Create an account here{% endtrans %}
+                    </a> {% trans %}to track your personal impact, receive project completion videos and save your Givecard PIN balance. Any unused balance way otherwise be lost!{% endtrans %}
+                </p>
+            </div>
+        {% endif %}
+
+        <a id="givecard-success-link" href="#" class="btn btn-primary btn-block btn-rounded">Give now</a>
+
+        <button type="button" data-dismiss="modal" class="btn btn-modal-close visible-xs mt-3">
+            {{ _("Close") }}
+        </button>
+    {% endcall %}
+{% endmacro %}
+
+
+{% macro render_wallet_givecard(givecard) %}
+    {# If office exists, use it else use supplier #}
+    {% set id, name, link = get_givecard_office_or_supplier(givecard) %}
+    <tr>
+        {# Count #}
+        <td class="text-muted px-0 text-nowrap">
+        {% if "code" not in givecard %}
+            <span class="multiplier">{{ givecard["count"] if "count" in givecard else 1 }}</span>
+            <span class="times">x&nbsp;</span>
+        {% else %}
+            <span class="multiplier">{{ givecard["code"] }}</span>
+            <span class="times">-</span>
+        {% endif %}
+        </td>
+
+        <td class="pl-0 w-100">
+            <div>
+                {% if givecard["balance"] > 0 %}
+                    <strong>${{ recalculate_currency(request, givecard["balance"]) }} - </strong>
+                {% endif %}
+                {# Givecard name and tooltop #}
+                {{ givecard["campaign_name"] }} Givecard
+
+                <span data-toggle="tooltip" data-placement="bottom" data-trigger="focus hover" tabindex="0" title="
+                    {% if id is not none %}
+                        {{ _('Can only be used on') }} {{ name }} {{ _('promoted projects') }}
+                    {% else %}
+                        {{ _('Can be used on any Givesome project') }}
+                    {% endif %}
+                ">
+                    <i class="fa fa-info-circle px-2 small"></i>
+                </span>
+            </div>
+            {# Link to Office / Supplier #}
+            {% if id is not none  %}
+                <div class="small">
+                    <a href="{{ link }}" class="text-muted text-underline">
+                        {{ name }}
+                    </a>
+                </div>
+            {% endif %}
+            {# Funds expiring soon #}
+            {% if "exp_date" in givecard %}
+                {# Red text if Givecard is expiring soon or this is Expiring Givecards Modal #}
+                <span class="small{% if givecard["is_expiring_soon"] == True or "count" not in givecard %} text-danger{% endif %}">
+                {% if "count" in givecard and givecard["count"] * givecard["balance"] < givecard["exp_balance"] %}
+                    You have ${{ givesome_exchange_currency(request, givecard["exp_balance"]) }} expiring on {{ givecard["exp_date"]|datetime("date") }}
+                </span>
+                {% else %}
+                    Expires on {{ givecard["exp_date"]|datetime("date") }}
+                {% endif %}
+            {% endif %}
+            {# MOBILE arrow #}
+            <a href="{{ link }}" class="visible-xs pt-1">
+                <strong>
+                    {{ _("Give Now") }} <i class="fa fa-arrow-right ml-1"></i>
+                </strong>
+            </a>
+        </td>
+        {# DESKTOP arrow #}
+        <td class="text-right pr-0 hidden-xs text-nowrap">
+            <a href="{{ link }}">
+                <strong class="small">
+                    {{ _("Give Now") }} <i class="fa fa-arrow-right ml-1"></i>
+                </strong>
+            </a>
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro render_givecard_balance_dialog(authenticated=False) %}
+    {% call givesome_dialog(dialog_id="givecard-balance-dialog", size="lg", body_class="givecard-balance-modal", hide_close_icon_on_mobile=True) %}
+        <h2 class="h3">{{ _("Active PINs")}} - <span id="givecard-wallet-total-value" class="weight-normal">${{ recalculate_currency(request, givecard_wallet_total_balance(request)) }}</span></h2>
+
+        <table class="table givecard-balance-table my-5">
+            <tbody>
+            {% set wallet = get_grouped_givecards(request) %}
+            {% for campaign in wallet %}
+                {% for supplier in wallet[campaign] %}
+                    {% for office in wallet[campaign][supplier] %}
+                        {% for balance in wallet[campaign][supplier][office] %}
+                            {{ render_wallet_givecard(wallet[campaign][supplier][office][balance]) }}
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% if not authenticated %}
+            <div class="modal-user-not-logged-in-block my-3">
+                <i class="fa fa-info-circle fa-lg text-primary fa-fw mr-2 mt-1"></i>
+                <p class="mb-0">
+                    <p class="mb-0">
+                    <a href="{{ url("shuup:registration_register") }}#register" class="text-underline">
+                        {% trans %}Create an account here{% endtrans %}
+                    </a> {% trans %}to track your personal impact, receive project completion videos and save your Givecard PIN balance. Any unused balance way otherwise be lost!{% endtrans %}
+                </p>
+            </div>
+        {% endif %}
+
+        <div class="row mt-3">
+            <div class="col-sm-6 col-sm-push-6 mt-3">
+                <button type="button" class="btn btn-primary btn-block btn-rounded open-modal-from-another" data-target="#givecard-dialog">
+                    $ {{ _("Redeem PIN") }}
+                </button>
+            </div>
+            <div class="col-sm-6 col-sm-pull-6 mt-3">
+                <button type="button" data-dismiss="modal" class="btn btn-block btn-rounded btn-default">
+                    {{ _("Close") }}
+                </button>
+            </div>
+        </div>
+    {% endcall %}
+{% endmacro %}
+
+{# {% macro render_receipting_information_dialog() %}
+    {% call givesome_dialog(dialog_id="receipting-information-dialog", size="lg", body_class="givecard-balance-modal", hide_close_icon_on_mobile=True) %}
+    <h2 class="h3">{{ render_receipting_message("welcome") }}</h2>
+    <hr>
+    <img src="{{ shuup_static("givesome/img/receipting-logo.png", "givesome-marketplace") }}" alt="Receipting logo"/>
+    <div class="visible-xs col-sm-6 col-sm-pull-6 mt-3">
+        <button type="button" data-dismiss="modal" class="btn btn-block btn-rounded btn-default">
+            {{ _("Close") }}
+        </button>
+    </div>
+    {% endcall %}
+{% endmacro %} #}
+
+{% macro render_expiring_givecard_balance_dialog() %}
+    {% set total, expiring_givecards = get_expiring_givecards(request) %}
+    {% if total > 0 %}
+    {% call givesome_dialog(dialog_id="givecard-expiring-balance-dialog", size="lg", body_class="givecard-balance-modal", hide_close_icon_on_mobile=True) %}
+        <h2 class="h3">Expiring Givecards - <span class="weight-normal">${{ total }}</span></h2>
+
+        <table class="table givecard-balance-table my-5">
+            <tbody>
+            {% for givecard in expiring_givecards %}
+                {{ render_wallet_givecard(givecard) }}
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endcall %}
+    {% endif %}
+{% endmacro %}
+
+{% macro render_expired_givecard_balance_dialog() %}
+    {% set expired_givecards = get_expired_givecards(request) %}
+    {% if expired_givecards %}
+    {% call givesome_dialog(dialog_id="givecard-expired-dialog", size="lg", body_class="givecard-balance-modal", hide_close_icon_on_mobile=True) %}
+        <h2 class="h3">Recently expired Givecards</h2>
+        <table class="table givecard-balance-table my-5">
+            <tbody>
+            {% for givecard in expired_givecards %}
+                {{ render_wallet_givecard(givecard) }}
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endcall %}
+    {% endif %}
+{% endmacro %}
+
+{% macro render_supported_by_static(text, image_name="") %}
+    {% if not image_name %}
+        {% set image_name = ["amj", "bookoutlet", "canadalife", "clearsummit",
+                "cowbell", "elevator1", "eq3", "gvf",
+                "hfh", "martinrea", "meridian", "payworks",
+                "pizzapizza", "skyline", "timbermills", "vidyard",
+                "westonforest", "winnipeg"] | random %}
+    {% endif %}
+
+    {% set logo = static("givesome/img/partners/" + image_name + ".png") %}
+
+    <section class="supported-by-section">
+        <div class="container" style="margin-bottom:5%;">
+            <div class="supported-by">
+                <div class="text">
+                    <h2 class="h4 by-text">{{ text }}&nbsp;</h2>
+                </div>
+                {% if logo %}
+                    <div class="logo by-text-logo">
+                        <img src="{{ logo }}" alt="{{ image_name }}">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro render_supported_by_supplier(supplier) %}
+    {% if supplier %}
+        {% if supplier.givesome_extra.sponsor_link %}
+            {% set u = supplier.givesome_extra.sponsor_link %}
+        {% endif %}
+        {% set logo = supplier.logo.url %}
+        {% set name = supplier.name %}
+    {% endif %}
+
+    <section class="supported-by-section">
+        <div class="container" style="margin-bottom:5%;">
+    <div class="sponsored-by-parent2">
+        <b class="sponsored-by5" style="font-size:35px">Sponsored by</b>
+         {% if logo %}
+                    <div class="logo" style="width:180px;height:auto;">
+                        {% if u %}<a href="{{ u }}" target="_blank">{% endif %}
+                        <img src="{{ logo }}" alt="{{ name }}" class="sponsored-by-logo-1-icon5" style="width:100%;hight:100%;object-fit:contain; ">
+                        {% if u %}</a>{% endif %}
+                    </div>
+                {% endif %}
+    </div>
+    </dev>
+    </section>
+    {#<section class="supported-by-section">
+        <div class="container">
+            <div class="supported-by">
+                <div class="text">
+                    <h2 class="h4">
+                        {{ _("Sponsored by") }}&nbsp;
+                        {% if not logo %}
+                            {% if u %}<a href="{{ u }}" target="_blank">{% endif %}
+                            {{ name }}
+                            {% if u %}</a>{% endif %}
+                        {% endif %}
+                    </h2>
+                </div>
+                {% if logo %}
+                    <div class="logo">
+                        {% if u %}<a href="{{ u }}" target="_blank">{% endif %}
+                        <img src="{{ logo }}" alt="{{ name }}">
+                        {% if u %}</a>{% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>#}
+{% endmacro %}
+
+{% macro render_video_box(video, lives_impacted=None) %}
+    {% set lives_impacted=video.project.project_extra.lives_impacted %}
+    <div id="completion_video_{{ video.video_id }}">
+        <iframe id="completion_video_iframe_{{ video.video_id }}" type="text/html" width="100%" height="200" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+        {% if lives_impacted %}
+            <p>{{ lives_impacted }} {% if lives_impacted > 1 %}{{ _("Lives Impacted") }}{% else %}{{ _("Life Impacted") }}{% endif %}</p>
+        {% endif %}
+        {% if video.description %}
+            <p class="small">{{ video.description }}</p>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro load_stripe_checkout(project) %}
+    <script>
+        var checkOut = $('#checkout');
+        let type = window.location.search.match(/type=([^&]*)/);
+        let id = window.location.search.match(/id=([^&]*)/);
+
+        $(function () {
+            $.ajax({
+                url: `{{ url("shuup:donation_form", pk=project.pk) }}?type=${type ? type[1] : null}&id=${id ? id[1] : null}`,
+                type: 'GET',
+                success: function(data){
+                    checkOut.html(data);
+                    $('#custom').hide();
+                },
+                error: function(data) {
+                  let errorText = data.statusText
+                  if (data.responseJSON && data.responseJSON.error){
+                    errorText = data.responseJSON.error
+                  }
+                  gcCheckOut.html(`<div class='text-danger' role='alert'>Checkout form failed to load. ${errorText}</div>`);
+                }
+            });
+        });
+
+    </script>
+{% endmacro %}
+
+{% macro load_givecard_checkout(project) %}
+    <script>
+        var gcCheckOut = $('#givecard-checkout');
+        let type2 = window.location.search.match(/type=([^&]*)/);
+        let id2 = window.location.search.match(/id=([^&]*)/);
+
+        $(function () {
+            $.ajax({
+                url: `{{ url("shuup:givecard_donation_form", pk=project.pk) }}?type=${type2 ? type2[1] : null}&id=${id2 ? id2[1] : null}`,
+                type: 'GET',
+                success: function(data){
+                    gcCheckOut.html(data);
+                    $('#custom-gc').hide();
+                },
+                error: function(data) {
+                  let errorText = data.statusText
+                  if (data.responseJSON && data.responseJSON.error){
+                    errorText = data.responseJSON.error
+                  }
+                  gcCheckOut.html(`<div class='text-danger' role='alert'>Checkout form failed to load. ${errorText}</div>`);
+                }
+            });
+        });
+    </script>
+{% endmacro %}
+
+{% macro expiring_givecards_notification(request) %}
+    <script>
+      function exp_givecards($modal, codes, localStorageKey) {
+        if ($modal.length) {  {# Expring givecards exist #}
+          var shownGivecards = localStorage.getItem(localStorageKey)
+          var newGivecard = false
+          if (shownGivecards) {  {# Modal been shown before #}
+            {# Check if there are any new Givecards expiring / expired #}
+            shownGivecards = shownGivecards.split(";")
+            codes.split(";").forEach(function(code) {
+              if (!shownGivecards.includes(code)) {
+                newGivecard = true
+              }
+            })
+          }
+          {# Expiring/expired givecards and modal has not been shown or user has newly expiring / expired Givecards #}
+          if (!shownGivecards || newGivecard) {
+            localStorage.setItem(localStorageKey, codes)
+            $modal.modal('show');
+            return true
+          }
+        }
+        return false
+      }
+
+      function expiringGivecardsNotification() {
+        exp_givecards(
+          expiringModal,
+          "{{ get_expiring_givecard_codes(request) }}",
+          "expiring_givecards"
+        )
+      }
+
+      function receiptingInformationNotificationSeen() {
+        let showModal = localStorage.getItem("receipting-information");
+        if (!showModal) {
+          localStorage.setItem("receipting-information", true);
+          return true;
+        }
+        return false;
+      }
+
+      function handleGivecardModals() {
+        expiredModal = $("#givecard-expired-dialog")
+        expiringModal = $("#givecard-expiring-balance-dialog")
+
+        var modalShown = exp_givecards(
+          expiredModal,
+          "{{ get_expired_givecard_codes(request) }}",
+          "expired_givecards"
+        )
+        if (!modalShown) {
+          expiringGivecardsNotification()
+        } else {
+          expiredModal.on('hidden.bs.modal', function() {
+            expiringGivecardsNotification()
+            expiredModal.off('hidden.bs.modal');
+          });
+        }
+      }
+
+      $(document).ready(function() {
+        let showModal = receiptingInformationNotificationSeen();
+        if (!showModal) {
+          handleGivecardModals();
+        } else {
+          let receiptingModal = $("#receipting-information-dialog")
+          receiptingModal.on("hidden.bs.modal", function() {
+            handleGivecardModals();
+            receiptingModal.off("hidden.bs.modal");
+          });
+          receiptingModal.modal("show");
+        }
+      });
+    </script>
+{% endmacro %}
+
+{% macro toggle_receipting_checkbox() %}
+    <script>
+    // Set up a listener to toggle the state of Things as the receipting box is checked and un-checked.
+    let noThankYou = "{{ render_receipting_message("checkout_no") }}";
+    let yesPlease = "{{ render_receipting_message("checkout_yes", charity=supplier) }}";  // Need to make sure to get the Stripe message and not the Givecard one.
+    let PIN = "{{ render_receipting_message("checkout_givecard") }}";
+
+    // Make all the necessary changes if the receipt checkbox is unchecked.
+    function uncheck(checkbox) {
+        let checkboxLabel = checkbox.parent("label");
+        if (checkboxLabel.text() !== PIN) {
+            // Show any disabled donation buttons
+            $("#saved-card-submit").prop("disabled", false);
+            $("#show-cc").prop("disabled", false);
+            $("#givesome-submit").prop("disabled", false);
+            // Hide the warning, if there is one.
+            let warning = $(".not-eligible");
+            if (warning.length > 0) warning.hide();
+            checkboxLabel.text(noThankYou);
+            checkboxLabel.prepend(checkbox.clone());
+        }
+    }
+
+    // Make all the necessary changes if the receipt checkbox is re-checked.
+    function check(checkbox) {
+        let warning = $(".not-eligible");
+        if (warning.length > 0) {
+            // Disable any donate buttons, as the user is not eligible to proceed as intended.
+            $("#saved-card-submit").prop("disabled", true);
+            $("#show-cc").prop("disabled", true);
+            $("#givesome-submit").prop("disabled", true);
+            // Show the warning
+            warning.show();
+        }
+        // Update the receipting message label.
+        let checkboxLabel = checkbox.parent("label");
+        checkboxLabel.text(yesPlease);
+        checkboxLabel.prepend(checkbox.clone());
+    }
+
+    $('#fund-project').on("click", function() {
+        let wantsReceipt = {{ wants_receipt }};
+        if (!wantsReceipt) {
+            uncheck($("#id_receipt"));
+        }
+    });
+
+    $(document).delegate("#id_receipt", "click", function() {
+        // Manage showing/hiding the warning based on user clicks.
+        let $this = $(this);
+        if ($this.prop("disabled")) return;  // Don't do anything if the checkbox is disabled.
+
+        if (yesPlease === "") yesPlease = $this.parent("label").text();
+
+        if ($this.prop("checked")) {
+            check($this);
+        } else {
+            uncheck($this);
+        }
+    });
+
+    $(document).ready(() => {
+        // Manage opening (or not) the checkout modal based on context.
+        let openModal = {{ mid_receipting_process }};
+        if (openModal) {
+            $("#fund-dialog").modal("show");
+        }
+    });
+    </script>
+{% endmacro %}
+
+{% macro set_up_tap_tooltip() %}
+    <script>
+    function handleTap(event) {
+        let tapped = $(event.target);
+        if (!tapped.data("tapped")) {
+            event.preventDefault();
+            tapped.data("tapped", true);
+            tapped.parent().tooltip("show");
+        }
+    }
+    </script>
+{% endmacro %}
+
+{% macro dynamically_translate_firebase() %}
+    {# Yes, this is absurd. However, Firebase does not support dynamic translation, not even in 2021... and
+    Givesome has some special cases to handle.
+    #}
+    function translate(element) {
+        switch (element.text().toLowerCase()) {
+            case "cancel":
+                element.text("Annuler");
+                break;
+            case "next":
+                element.text("Prochain");
+                break;
+            case "password":
+                element.text("Mot de passe");
+                break;
+            case "choose password":
+                element.text("Choisissez un mot de passe");
+                break;
+            case "trouble signing in?":
+                element.text("Difficultés à se connecter?");
+                break;
+            case "sign in":
+                element.text("S'identifier");
+                break;
+            case "sign up":
+                element.text("S'inscrire");
+                break;
+            case "sign in with email":
+                element.text("Connectez-vous avec e-mail");
+                break;
+            case "sign in with google":
+                element.text("Connectez-vous avec Google");
+                break;
+            case "sign in / sign up":
+                element.text("S'identifier / S'inscrire");
+                break;
+            case "enter your password":
+                element.text("Tapez votre mot de passe");
+                break;
+            case "save":
+                element.text("Sauvegarder");
+                break;
+            case "first & last name":
+                element.text("Premier nom de famille");
+                break;
+            case "email":
+                element.text("E-mail");
+                break;
+            case "create account":
+                element.text("Créer un compte");
+                break;
+        }
+    }
+{% endmacro %}

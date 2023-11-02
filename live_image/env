@@ -1,0 +1,49 @@
+#!/bin/bash
+ALLOWED_HOSTS=*
+# You might want to change `DATABASE_URL` for your project to use the
+# specific database name specifically created for it. Otherwise two Shuup
+# projects will conflict because they will try to use the same database.
+# For example if you want create MySQL database for "project", you can do
+# that by running:
+# $ mysql -p -uroot
+# mysql> create database project;
+# mysql> exit;
+# (notice the semicolons!).
+# and then change `DATABASE_URL`'s `/shuup` portion to `/project`.
+DATABASE_URL=
+DEBUG=1
+LANG=C.UTF-8
+#LANGUAGE_CODE=en
+#LANGUAGES=en
+#PARLER_DEFAULT_LANGUAGE_CODE=en
+SECRET_KEY=
+SHOP_CURRENCY=CAD
+CACHE_URL=memcache://localhost:11211?key_prefix=givesome
+EMAIL_URL=smtp://127.0.0.1:25
+RECAPTCHA_PUBLIC_KEY=pubkey
+RECAPTCHA_PRIVATE_KEY=privkey
+SHUUP_MESSAGES_RECAPTCHA_ENABLED=1
+SHUUP_MESSAGES_USE_RECAPTCHA_V2=1
+SHUUP_MULTIVENDOR_GOOGLE_MAPS_KEY=key
+MEDIA_ROOT=/opt/var/media
+
+# Firebase app details
+FIREBASE_AUTH_API_KEY=
+FIREBASE_AUTH_AUTH_DOMAIN=
+FIREBASE_AUTH_DATABASE_URL=
+FIREBASE_AUTH_PROJECT_ID=
+FIREBASE_AUTH_STORAGE_BUCKET=
+FIREBASE_AUTH_MESSAGING_SENDER_ID=
+FIREBASE_AUTH_APP_ID=
+
+# Firebase service account details
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_TYPE=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_PROJECT_ID=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_PRIVATE_KEY_ID=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_PRIVATE_KEY=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_CLIENT_EMAIL=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_CLIENT_ID=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_AUTH_URI=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_TOKEN_URI=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_AUTH_PROVIDER_CERT_URL=
+SHUUP_FIREBASE_AUTH_ACCOUNT_KEY_CLIENT_CERT_URL=

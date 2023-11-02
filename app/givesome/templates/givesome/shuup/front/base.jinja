@@ -1,0 +1,247 @@
+{%- set root_categories = shuup.general.get_root_categories() -%}
+{%- import "shuup/front/macros/general.jinja" as macros with context -%}
+{%- import "shuup/front/macros/add_to_cart.jinja" as cart_macros with context -%}
+{%- import "shuup/front/macros/basket.jinja" as basket_macros with context -%}
+{%- import "shuup/front/macros/category.jinja" as category_macros with context -%}
+{%- import "shuup/front/macros/checkout.jinja" as checkout_macros with context -%}
+{%- from "shuup/front/macros/footer.jinja" import render_footer with context %}
+{%- import "shuup/front/macros/order.jinja" as order_macros with context -%}
+{%- import "shuup/front/macros/product.jinja" as product_macros with context -%}
+{%- from "givesome/navigation.jinja" import render_navigation with context -%}
+{%- import "givesome/macros.jinja" as givesome_macros with context -%}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1659V86SES"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1659V86SES');
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ request.shop.public_name }}{% endblock %} &ndash; {{ request.shop.public_name }}</title>
+    {% block extrameta %}{% endblock %}
+
+    {%- set favicon = request.shop.favicon.url if request.shop.favicon else None -%}
+    {% if favicon %}<link rel="icon" type="image/x-icon" href="{{ favicon }}">{% endif %}
+
+    <link rel="stylesheet" type="text/css" href="{{ shuup_static('givesome/givesome.css', 'givesome-marketplace') }}">
+
+    <link rel="stylesheet" href="{{ static('givesome_V1/vendors/themefy_icon/themify-icons.css') }}" />
+    <link rel="stylesheet" href="{{ static('givesome_V1/vendors/niceselect/css/nice-select.css') }}" />
+    <link rel="stylesheet" href="{{ static('givesome_V1/vendors/owl_carousel/css/owl.carousel.css') }}" />
+    <link rel="stylesheet" href="{{ static('givesome_V1/css/metisMenu.css') }}">
+    <link rel="stylesheet" href="{{ static('givesome_V1/css/style1.css') }}" />
+    <link rel="stylesheet" href="{{ static('givesome_V1/css/colors/default.css') }}" id="colorSkinCSS">
+    <link rel="stylesheet" href="{{ static('givesome_V1/css/project_card.css') }}" id="colorSkinCSS">
+    {% block extracss %}{% endblock %}
+
+    {% set conf = shuup.general.get_config() %}
+    <script>var ShuupFrontConfig = {{ conf|json }};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+     .hidesidebar
+     {
+        display:none
+     }
+    </style>
+    {% if shuup.general.is_shop_admin() %}
+        <script type="text/javascript" src="{{ url('shuup_admin:js-catalog') }}?lang={{ LANGUAGE_CODE }}"></script>
+    {% endif %}
+
+    <script type="text/javascript" src="{{ url('shuup:js-catalog') }}?lang={{ LANGUAGE_CODE }}"></script>
+
+    {{ xtheme.render_custom_font_style()|safe }}
+    <style>
+  .btn-danger{color:#fff;background-color:#61449b;border-color:#61449b}
+  .btn-danger:hover{color:#fff;background-color:#61449b;border-color:#61449b}
+
+  .btn-warning{color:#fff;background-color:#61449b;border-color:#61449b}
+  .btn-warning:hover{color:#fff;background-color:#61449b;border-color:#61449b}
+</style>
+</head>
+
+<body class="{% if shuup.general.is_shop_admin() %}admin-tools-visible{% endif %} {% block bodyclass %}{% endblock %}">
+    <a href="#main-content" class="sr-only">
+        {% trans %}Skip to main content{% endtrans %}
+    </a>
+
+    {{ macros.render_maintenance_mode_notification() }}
+
+    <div class="content-wrap">
+
+        <div id="main" class="clear-top">
+
+            <div class="navigation-wrapper nav-overflow">
+                {% block navigation %}
+                    {{ render_navigation(show_quick_login=False) }}
+                {% endblock %}
+            </div>
+
+            <div class="main-messages-wrap">
+                <div class="container">
+                    {{ macros.render_messages() }}
+                    {{ macros.render_errors() }}
+                </div>
+            </div>
+
+            {% block banner %}{% endblock %}
+
+            {% block container_start %}
+            <div class="container">
+            {% endblock %}
+
+                <main class="main-content {% block extra_main_class %}{% endblock %}" id="main-content">
+                    {% block breadcrumb %}{% endblock %}
+                    {% block before_content_title %}{% endblock %}
+
+                    {% if self.content_title() %}
+                        <div class="page-header">
+                            <h1>{% block content_title %}{% endblock %}</h1>
+                        </div>
+                    {% endif %}
+
+                    <div class="page-content">
+                        {% block content %}{% endblock %}
+                    </div>
+
+                    {% block carousels %}{% endblock %}
+                </main>
+
+            {% block container_end %}
+            </div>
+            {% endblock %}
+
+            {% block supported_by %}{% endblock %}
+
+        </div>
+
+        {{ render_footer() }}
+
+    </div>
+
+    {% block givecard_dialog %}
+        {{ givesome_macros.render_givecard_redeem_dialog() }}
+        {% set authenticated = user.is_authenticated %}
+        {{ givesome_macros.render_givecard_balance_dialog(authenticated) }}
+        {{ givesome_macros.render_givecard_redeem_successful_dialog(authenticated) }}
+        {{ givesome_macros.render_expiring_givecard_balance_dialog() }}
+        {{ givesome_macros.render_expired_givecard_balance_dialog() }}
+        {# {{ givesome_macros.render_receipting_information_dialog() }} #}
+    {% endblock %}
+
+    {% block dialog %}{% endblock %}
+
+    <a href="#" id="scroll_top" class="scroll-top-btn" data-toggle="tooltip" data-placement="left" data-title="{% trans %}Scroll to top{% endtrans %}">
+        <i class="fa fa-angle-up"></i>
+        <span class="sr-only">{% trans %}Scroll to top{% endtrans %}</span>
+    </a>
+    <script src="{{ static('givesome_V1/js/jquery1-3.4.1.min.js') }}"></script>
+
+    <script src="{{ static('givesome_V1/js/popper1.min.js') }}"></script>
+
+    <script src="{{ static('givesome_V1/js/metisMenu.js') }}"></script>
+    <script src="{{ static('givesome_V1/js/custom.js') }}"></script>
+
+    <script src="{{ shuup_static('shuup/front/js/vendor.js') }}"></script>
+    <script src="{{ shuup_static('shuup/front/js/scripts.js') }}"></script>
+    <script src="{{ shuup_static('givesome/givesome.js', 'givesome-marketplace') }}"></script>
+    <script>
+        window.dashboard_url = "{{ url('shuup:profile') }}";
+    </script>   
+    {% block extrajs %}{% endblock %}
+    {% block nav_js %}{% endblock %}
+
+    {{ givesome_macros.set_timezone_script() }}
+    {{ givesome_macros.expiring_givecards_notification(request) }}
+    {{ givesome_macros.set_up_tap_tooltip() }}
+
+{# Go to www.addthis.com/dashboard to customize your tools #}
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6000b35b4d5411f7"></script>
+<script type="text/javascript">
+    var f_name = "";
+    var l_name = "";
+    function Firstname(e){
+        $(".get-full-name").val("");
+        f_name=$(e).val();
+        $(".get-full-name").val(f_name+" "+l_name);
+    }
+    function Lastname(e){
+        $(".get-full-name").val("");
+        l_name=$(e).val();
+        $(".get-full-name").val(f_name+" "+l_name);
+    }
+
+ $(document).ready(function () {
+ // $(".sidebar").css("display", "none")
+ });
+$('body').click((event) => {
+    if (event.target.id == "settiing_icon" || event.target.className == $('#sidebar_menu li a').attr("class")) {
+        $('.menu-sidebar').show()
+    } else {
+        $('.menu-sidebar').hide()
+    }
+});
+ $("#hide").click(function () {
+    $(".sidebar").toggleClass("hidesidebar")
+    $(".sidebar").removeClass("mini_sidebar")
+ });
+
+              let slideIndex = 1;
+              showSlides(slideIndex);
+
+              function plusSlides(n) {
+                showSlides(slideIndex += n);
+              }
+
+              function currentSlide(n) {
+                showSlides(slideIndex = n);
+              }
+
+              function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("slide");
+                if(slides.length != 0){
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                let count = slideIndex-1
+                if(count == 0){
+                var a=$(slides[slides.length-1]).find(".featured-project-image5");
+                }
+                else{
+                var a=$(slides[count-1]).find(".featured-project-image5");
+                }
+                if (slides.length == count+1){
+                    var b=$(slides[0]).find(".featured-project-image5");
+                }
+                else{
+                var b=$(slides[count+1]).find(".featured-project-image5");
+                }
+                var left = $(a).attr('src');
+                var right = $(b).attr('src');
+                $('.featured-image-project-14').attr('src',left);
+                $('.featured-image-project-24').attr('src',right);
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+                }
+              }
+
+  document.querySelectorAll('.watermarked').forEach(function(el) {
+        el.dataset.watermark = (el.dataset.watermark + ' ').repeat(10);
+});
+
+</script>
+</body>
+</html>

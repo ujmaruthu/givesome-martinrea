@@ -1,0 +1,21 @@
+{% from "shuup/front/macros/general.jinja" import render_field %}
+
+{% macro render_off_platform(form, token, type='', card_id='') %}
+    <div class="card">
+    <div class="card-header">
+        <i class="fa fa-plus"></i> {% trans %}Add {{ type }}{% endtrans %}
+    </div>
+    <div id="{{ card_id }}" class="list-group-flush list-group">
+        <form method="post" id="{{ card_id }}-form">
+            <input type="hidden" name="csrfmiddlewaretoken" id="{{ card_id }}-csrf-token" value="{{ token }}">
+            {% for field in form %}
+                {{ bs3.field(field) }}
+            {% endfor %}
+            <button type="submit" class="btn btn-danger btn-block delete-contribution" value="Delete">{{ _("Delete") }}</button>
+            <button type="reset" class="btn btn-secondary btn-block cancel-contribution" value="Cancel">{{ _("Cancel") }}</button>
+            <button type="submit" class="btn btn-primary btn-block submit-contribution" value="Submit">{{ _("Save") }}</button>
+            <button type="submit" class="btn btn-success btn-block edit-contribution" value="Edit">{{ _("Edit") }}</button>
+        </form>
+    </div>
+    </div>
+{% endmacro %}

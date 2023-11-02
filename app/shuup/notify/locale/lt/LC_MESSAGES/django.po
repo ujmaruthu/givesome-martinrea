@@ -1,0 +1,435 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mindaugas M., 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-19 16:15+0000\n"
+"PO-Revision-Date: 2021-05-19 17:56+0000\n"
+"Last-Translator: Christian Hess\n"
+"Language-Team: Lithuanian (http://www.transifex.com/shuup/shuup/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain text"
+msgstr "Paprastas tekstas"
+
+msgid "Subject"
+msgstr "Antraštė"
+
+msgid "Email Template"
+msgstr ""
+
+msgid "Email Body"
+msgstr "El. laiško turinys"
+
+msgid "Content type"
+msgstr "Turinio tipas"
+
+msgid "Recipient"
+msgstr "Gavėjas"
+
+msgid "Reply-To"
+msgstr ""
+
+msgid "Carbon Copy (CC)"
+msgstr ""
+
+msgid "Blind Carbon Copy (BCC)"
+msgstr ""
+
+msgid "From email"
+msgstr ""
+
+msgid ""
+"Override the default from email to be used. It can either be binded to a "
+"variable or be a constant like support@store.com or even \"Store Support\" "
+"<support@store.com>."
+msgstr ""
+
+msgid "Language"
+msgstr "Kalba"
+
+msgid "Fallback language"
+msgstr "Atsarginė kalba"
+
+msgid "Send Identifier"
+msgstr "Siųsti identifikatorių"
+
+msgid ""
+"If set, this identifier will be logged into the event's log target. If the "
+"identifier has already been logged, the e-mail won't be sent again."
+msgstr "Jei nustatyta - šis identifikatorius bus užfiksuotas į įvykių žurnalą. Jei identifikatorius jau buvo užfiksuota - el. laiškas pakartotinai nebus siunčiamas."
+
+msgid "Notifications"
+msgstr "Pranešimai"
+
+msgid "Show notification scripts"
+msgstr "Rodyti pranešimo scriptus"
+
+msgid "Email Templates"
+msgstr ""
+
+msgid "Event"
+msgstr "Įvykis"
+
+msgid "Choose which event to bind this script to."
+msgstr "Pasirinkti įvykį prie kurio prikabinti šį script'ą."
+
+msgid "Script Name"
+msgstr "Script'o pavadinimas"
+
+msgid "Type in a descriptive name for your new script."
+msgstr "Suteikite apibūnantį pavadinimą savo naujam script'ui."
+
+msgid "Enable Script"
+msgstr "Įjungti scriptą"
+
+msgid "Choose whether this script should be activated when its event fires."
+msgstr "Pasirinkite ar scriptas turi būti aktyvuotas \"iššovus\" įvykiui."
+
+msgid ""
+"Warning! Changing the event for an existing script may have unexpected "
+"effects."
+msgstr ""
+
+msgid "Template"
+msgstr "Šablonas"
+
+msgid "Bind to Variable"
+msgstr "Prijungti prie kintamojo"
+
+msgid "This field is missing content."
+msgstr ""
+
+#, python-format
+msgid "%s has been marked deleted."
+msgstr ""
+
+msgid "Edit Script Contents"
+msgstr ""
+
+msgid "Edit Script (advanced)"
+msgstr "Redaguoti script'ą (patyrusiems)"
+
+msgid "Edit Template"
+msgstr "Redaguoti šabloną"
+
+msgid "Delete"
+msgstr ""
+
+#, python-format
+msgid "Are you sure you wish to delete \"%s\" notification?"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+#, python-format
+msgid "%s has been deleted."
+msgstr ""
+
+msgid "Name"
+msgstr "Pavadinimas"
+
+msgid "Enabled"
+msgstr "Įjungta"
+
+msgid "New Script"
+msgstr "Naujas scriptas"
+
+msgid "New From Template"
+msgstr "Naujas iš šablono"
+
+msgid "Script created from template."
+msgstr ""
+
+msgid "Template Script not found."
+msgstr ""
+
+msgid "Templated script not found."
+msgstr ""
+
+msgid "Script updated."
+msgstr ""
+
+msgid ""
+"Check whether the bound value `value` exists and is non-empty and non-zero."
+msgstr "Tikrinti ar prijungta reikšmė `reikšmė` egzistuoja ir yra nelygi nuliui."
+
+msgid "Non-Empty"
+msgstr "Netuščias"
+
+msgid "Check whether the bound value `value` is empty or zero."
+msgstr "Patikrinkite ar prijungiama reikšmė  `reikšmė`` nelygi nuliui."
+
+msgid "Empty"
+msgstr "Tuščias"
+
+msgid "none"
+msgstr "neapibrėžta"
+
+msgid "unilingual"
+msgstr "vienakalbis"
+
+msgid "multilingual"
+msgstr "daugiakalbis"
+
+msgid "variable only"
+msgstr "tik kintamasis"
+
+msgid "constant only"
+msgstr "tik pastovus"
+
+msgid "variable or constant"
+msgstr "kintamas arba pastovus"
+
+msgid "continue to the next step"
+msgstr "pereiti prie sekančio žingsnio"
+
+msgid "stop processing"
+msgstr "sustabdyti vykdymą"
+
+msgid "all"
+msgstr "visi"
+
+msgid "any"
+msgstr "bet kurie"
+
+msgid "any shop administrator"
+msgstr "bet kuris parduotuvės administratorius"
+
+msgid "a specific user"
+msgstr "specifinis vartotojas"
+
+msgid "low"
+msgstr "mažas"
+
+msgid "normal"
+msgstr "normalus"
+
+msgid "high"
+msgstr "aukštas"
+
+msgid "critical"
+msgstr "kritinis"
+
+msgid ""
+"Enter the base HTML template to be used in emails. Mark the place to inject "
+"the email content using the variable `%html_body%` inside the body."
+msgstr ""
+
+msgid "shop"
+msgstr ""
+
+msgid "recipient type"
+msgstr "gavėjo tipas"
+
+msgid "recipient"
+msgstr "gavėjas"
+
+msgid "created on"
+msgstr "sukurta"
+
+msgid "message"
+msgstr "pranešimas"
+
+msgid "priority"
+msgstr "prioritetas"
+
+msgid "marked read"
+msgstr "pažymėta kaip skaitytas"
+
+msgid "marked read by"
+msgstr "kieno pažymėtas kaip skaitytas"
+
+msgid "marked read on"
+msgstr "pažymėta kaip skaityta"
+
+msgid "event identifier"
+msgstr "įvyko identifikatorius"
+
+msgid "name"
+msgstr "pavadinimas"
+
+msgid "enabled"
+msgstr "įjungta"
+
+msgid "template identifier"
+msgstr "šablono identifikatorius"
+
+msgid "the template identifier used to create this script"
+msgstr "šablono identifikatorius panaudotas sukurti šį scriptą"
+
+msgid "Password Reset"
+msgstr ""
+
+msgid "This event is triggered when password reset is requested."
+msgstr ""
+
+msgid "Site name"
+msgstr ""
+
+msgid "User secret"
+msgstr ""
+
+msgid "User to recover"
+msgstr ""
+
+msgid "Token"
+msgstr ""
+
+msgid "Recovery URL"
+msgstr ""
+
+msgid "To Email"
+msgstr ""
+
+msgid "The subject of the email"
+msgstr "El. laiško antraštė"
+
+msgid "Email content"
+msgstr "El. laiško turinys"
+
+msgid "The content of the email."
+msgstr "El. laiško turinys"
+
+msgid "Customer"
+msgstr "Klientas"
+
+msgid "Other destination"
+msgstr "Kitas gavėjas (adresas)"
+
+msgid "Send to?"
+msgstr "Siųsti kam?"
+
+msgid ""
+"You can send this email to the customer or to other email of your choice."
+msgstr "Galite nusiųsti šį el. laišką klientui arba kitam savo paties parinktam el. pašto adresatui."
+
+msgid "Destination"
+msgstr "Kam siųsti, adresas"
+
+msgid "Fill with the destination email address."
+msgstr "Įrašykite gavėjo el. pašto adresą"
+
+msgid ""
+"Recipient is a required field when you don't want to send the email to "
+"customer."
+msgstr "Gavėjas yra privalomas laukas kai nenorite siųsti el. laiško klientui."
+
+msgid ""
+"\n"
+"<p>Hi {{ user_to_recover.get_full_name() }},</p>\n"
+"\n"
+"<p>In case you've forgotten, your username is {{ user_to_recover.username }}.</p>\n"
+"<p>You're receiving this email because you requested a password reset for your user account at {{ site_name }}.</p>\n"
+"<p>Please go to the following page and choose a new password:</p>\n"
+"<br>\n"
+"<a href=\"{{ recovery_url }}\">{{ recovery_url }}</a>\n"
+msgstr ""
+
+msgid "Send Password Reset Link"
+msgstr ""
+
+msgid ""
+"\n"
+"        Send an email to user when their account password reset is requested\n"
+"    "
+msgstr ""
+
+msgid ""
+"\n"
+"        This script will send an email to user once their account password reset is\n"
+"        requested either by admin, staff or user.\n"
+"    "
+msgstr ""
+
+msgid "Edit Script Information"
+msgstr "Redaguoti script'o informaciją"
+
+msgid "Create a new script"
+msgstr "Kurti naują script'ą"
+
+msgid "Script Details"
+msgstr "Script'o detalės"
+
+msgid "OK"
+msgstr "Gerai"
+
+msgid "Show available variables"
+msgstr "Rodyti galimus kintamuosius"
+
+msgid "Close"
+msgstr "Uždaryti"
+
+msgid "Select the script template to be created"
+msgstr "Pasirinkite script'o šabloną, kad sukurti."
+
+msgid "Cancel"
+msgstr "Atšaukti"
+
+msgid "Edit Script"
+msgstr "Redaguoti script'ą"
+
+msgid "Edit Step"
+msgstr "Redaguoti žingsnį"
+
+msgid "Active shop:"
+msgstr ""
+
+msgid "Save changes"
+msgstr "Išsaugoti pakeitimus"
+
+msgid "Please correct the errors below."
+msgstr "Pataisykite žemiau esančias klaidas"
+
+msgid "Variables"
+msgstr "Kintamieji"
+
+msgid "Script Template: {}"
+msgstr "Script'o šablonas: {}"
+
+msgid "Configure the Script Template"
+msgstr "Nustatyti script'o šabloną"
+
+msgid "Modify Script"
+msgstr "Modifikuoti script'ą"
+
+msgid "Create Script"
+msgstr "Sukurti script'ą"
+
+msgid "Create"
+msgstr "Sukurti"
+
+msgid "Boolean"
+msgstr "Loginis"
+
+msgid "Integer Number"
+msgstr "Sveikas skaičius"
+
+msgid "Decimal Number"
+msgstr "Dešimtainis skaičius"
+
+msgid "Text"
+msgstr "Tekstas"
+
+msgid "Email Address"
+msgstr "El. pašto adresas"
+
+msgid "URL Address"
+msgstr "URL adresas"
+
+msgid "Phone Number"
+msgstr "Telefono numeris"

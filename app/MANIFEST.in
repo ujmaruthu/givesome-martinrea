@@ -1,0 +1,10 @@
+recursive-include givesome/*.xlsx
+recursive-include givesome/locale *.mo
+recursive-include givesome/templates *.jinja *.txt
+recursive-include givesome/static *.*
+recursive-exclude givesome/static *.map
+
+recursive-include givesome_admin/locale *.mo
+recursive-include givesome_admin/templates *.jinja *.txt
+recursive-include givesome_admin/static *.*
+recursive-exclude givesome_admin/static *.map

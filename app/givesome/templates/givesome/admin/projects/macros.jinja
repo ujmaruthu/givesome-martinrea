@@ -1,0 +1,90 @@
+{% macro render_scripts() %}
+    <script>
+        function addVideo(target) {
+            if (target.val()) {
+                let embed = '';
+                if (target.val().includes('embed')) {
+                    // Assume a valid url
+                    embed = target.val()
+                } else {
+                    // Extract the watch code and construct an embed url. Position in the url is guaranteed, but
+                    // not the code's format.
+                    let ytCode = target.val().split('=')[1];
+                    if (typeof ytCode === 'undefined')
+                        return;
+                    embed = `https://www.youtube.com/embed/${ytCode}?&origin=${location.origin}`;
+                }
+
+                $('#player').html(
+                    `<iframe
+                    id="preview"
+                    type="text/html"
+                    width="250"
+                    height="200"
+                    src="${embed}"
+                    frameborder="0"
+                    allowfullscreen
+                    ></iframe>`
+                );
+            }
+        }
+        function updatePreview() {
+            let links = $('#links input[name*=url]');
+            if (links.length > 0) addVideo(links.first());
+        }
+        function addLink() {
+            const newLink = $('#completion-video-template').html().replace('template-row', '');
+            $('#links').prepend(newLink);
+        }
+        function recalcForms() {
+            const urls = $('#links input[name*="url"]');
+            const totalLinks = urls.length;
+            $('#link-management input[name*="-TOTAL_FORMS"]').val(totalLinks);
+            $('#link-management input[name*="-INITIAL_FORMS"]').val(0);
+
+            urls.each(function(index, input) {
+                const link = $(input);
+                ['id', 'name'].forEach(function(prop) {
+                    const value = link.prop(prop);
+                    if (value.indexOf('__prefix__') >= 0 ){
+                        link.prop(prop, value.replace('__prefix__', index));
+                    } else {
+                        link.prop(prop, value.replace(/-\d+-/, '-' + index + '-'));
+                    }
+                });
+            });
+        }
+        function setUpEvents() {
+            $('#links .btn-delete').off().on('click', function() {
+                let td = $(this).parent();
+                let pk = td.prev().find('input').val();
+                let token = td.next().find('input').val();
+                $.ajax({
+                    url: `${location.origin}/delete-completion-video/${pk}/`,
+                    type: 'POST',
+                    data: {'csrfmiddlewaretoken': token},
+                    success: function() {
+                        td.parent().remove();
+                        recalcForms();
+                        updatePreview();
+                    }
+                });
+            });
+            $('#add-link').on('click', () => {
+                addLink();
+                let badLink = $('#bad-link');
+                if (badLink) badLink.remove();
+                recalcForms();
+            });
+            $('button:submit').on('click', () => {
+                recalcForms();
+                return true;
+            });
+        }
+        window.addEventListener('load', () => {
+            updatePreview();
+            setUpEvents();
+            recalcForms();
+        });
+    </script>
+{% endmacro %}

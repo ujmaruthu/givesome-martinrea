@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Jiechao Li <jiechao.li@sesamechat.com>, 2019
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-15 14:39+0000\n"
+"PO-Revision-Date: 2020-09-15 19:16+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/shuup/shuup/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Addons"
+msgstr "插件"
+
+#, python-format
+msgid "Enable %s"
+msgstr "启用%s"
+
+#, python-format
+msgid "%d new addons enabled."
+msgstr "新插件已启用%d"
+
+#, python-format
+msgid "%d previously enabled addons disabled."
+msgstr "以前启用的插件已禁用%d"
+
+msgid "No changes were made."
+msgstr "没有任何改变"
+
+msgid "Save addon changes"
+msgstr "保存插件更改"
+
+msgid "Upload new addon"
+msgstr "上传新插件"
+
+msgid "Reload application"
+msgstr "重新加载申请"
+
+msgid ""
+"There are no viable reload methods available. Please contact your system "
+"administrator."
+msgstr "没有可行的重载方法， 请联系您的系统管理员。"
+
+msgid "Reload Method"
+msgstr "重新加载方法"
+
+msgid "Reloading."
+msgstr "重载"
+
+msgid "Addon file (ZIP)"
+msgstr "插件文件（ZIP）"
+
+msgid "Only upload the addon files you trust."
+msgstr ""
+
+msgid "Only wheel files (`.whl`) are supported."
+msgstr ""
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Install Addon"
+msgstr "安装插件"
+
+msgid "Installed addons"
+msgstr "已安装插件"
+
+msgid "Addon name"
+msgstr "插件名称"
+
+msgid "Is enabled"
+msgstr "已启用"
+
+msgid "You don't have any installed addons"
+msgstr "您没有安装任何插件"
+
+msgid "Reload Application Server"
+msgstr "重新加载应用程序服务器"
+
+msgid ""
+"When you reload the application server, it may take some time for the new "
+"instance of your application to properly initialize."
+msgstr "重新加载应用程序服务器时，应用程序的新实例可能需要一些时间才能正确初始化。"
+
+msgid ""
+"In addition, there is always a chance for the server to not properly "
+"initialize at all, in which case you may need to troubleshoot the problem "
+"yourself (or have a system administrator handy)."
+msgstr "此外，服务器可能总是无法正常初始化，在这种情况下，您可能需要自己解决问题（或让系统管理员方便）。"
+
+msgid "Reload steps"
+msgstr "重载步骤"
+
+msgid ""
+"Finalize installations for newly installed addons (migrate and collect "
+"static resources)"
+msgstr "为新安装的插件完成安装（迁移和收集静态资源）"
+
+msgid "Reload application server"
+msgstr "重新加载应用程序服务器"
+
+msgid "Reload was initiated."
+msgstr ""
+
+msgid "Reloading application failed."
+msgstr ""
+
+msgid "Finalizing installations."
+msgstr "完成安装"
+
+msgid "Your Shuup seems to be back up!"
+msgstr "你的Shuup似乎已经恢复了！"
+
+msgid "Your Shuup is not up yet. Trying again soon."
+msgstr "你的Shuup还没有启用，再试一次。"
+
+msgid "Select file"
+msgstr "选择文件"
+
+msgid "Installation Finished"
+msgstr "安装完成"
+
+msgid "Installation Failed"
+msgstr "安装失败"
+
+msgid "Success"
+msgstr "成功"
+
+#, python-format
+msgid ""
+"Next, <a href=\"%(addon_list_url)s\" class=\"text-success\"><strong>activate"
+" the newly installed addon</strong></a> and <a href=\"%(addon_reload_url)s\""
+" class=\"text-success\"><strong>reload your application server</strong></a>."
+msgstr "接下来， <a href=\"%(addon_list_url)s\" class=\"text-success\"><strong>激活新安装的插件</strong></a>并且 <a href=\"%(addon_reload_url)s\" class=\"text-success\"><strong>重新加载您的应用程序服务器</strong></a>."
+
+msgid "Error"
+msgstr "出错"
+
+msgid "Installer Log"
+msgstr "安装程序日志"
+
+msgid "Upload Addon - Install"
+msgstr "上传插件 - 安装"
+
+msgid "Package Information"
+msgstr "包装信息"
+
+msgid "No package information could be extracted."
+msgstr "无法提取包装信息"
+
+msgid "File List"
+msgstr "文件列表"

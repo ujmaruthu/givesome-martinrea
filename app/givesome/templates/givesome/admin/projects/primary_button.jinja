@@ -1,0 +1,7 @@
+<div class="text-center mb-3">
+    <button
+        class="btn{% if is_primary %} btn-danger{% else %} btn-success{% endif %} set-{{ kind }}-primary-btn"
+        id="set-{{ kind }}-primary-{{ instance.id }}"
+        onclick="window.set{{ kind.title() }}Primary(event, {{ instance.id }}, {{ chooser_id }})"
+    >{{ text }}</button>
+</div>

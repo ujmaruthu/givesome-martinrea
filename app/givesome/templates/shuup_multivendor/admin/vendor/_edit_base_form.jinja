@@ -1,0 +1,24 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs, render_monolingual_fields %}
+{% set base_form = form["base"] %}
+{% set vendor_extra_form = form['givesome_vendor_extra'] %}
+
+{% call content_block(_("General Information"), icon="fa-info-circle") %}
+    {{ bs3.field(base_form.name) }}
+    {{ language_dependent_content_tabs(base_form) }}
+    {{ bs3.field(vendor_extra_form.display_type) }}
+    <div class="form-divider"></div>
+    {{ bs3.field(vendor_extra_form.color) }}
+    {{ render_monolingual_fields(base_form, exclude=["name"]) }}
+    {{ bs3.field(vendor_extra_form.website_url) }}
+    {{ bs3.field(vendor_extra_form.vendor_type) }}
+    {{ bs3.field(vendor_extra_form.allow_brand_page) }}
+    {{ bs3.field(vendor_extra_form.allow_purse) }}
+    {{ bs3.field(vendor_extra_form.show_promoted) }}
+    {{ bs3.field(vendor_extra_form.enable_receipting) }}
+    {{ bs3.field(vendor_extra_form.office_term) }}
+    {{ bs3.field(vendor_extra_form.ordering) }}
+    {{ bs3.field(vendor_extra_form.sponsored_by) }}
+    {{ bs3.field(vendor_extra_form.sponsor_link) }}
+    {{ bs3.field(vendor_extra_form.registration_number) }}
+{% endcall %}

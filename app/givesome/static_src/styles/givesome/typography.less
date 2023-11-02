@@ -1,0 +1,93 @@
+h1, .h1 {
+    font-size: @font-size-h1;
+
+    @media (max-width: @screen-xs-max) {
+        font-size: @mobile-font-size-h1;
+    }
+}
+
+h2, .h2 {
+    font-size: @font-size-h2;
+
+    @media (max-width: @screen-xs-max) {
+        font-size: @mobile-font-size-h2;
+    }
+}
+
+h3, .h3 {
+    font-size: @font-size-h3;
+
+    @media (max-width: @screen-xs-max) {
+        font-size: @mobile-font-size-h3;
+    }
+}
+
+h4, .h4 {
+    font-size: @font-size-h4;
+
+    @media (max-width: @screen-xs-max) {
+        font-size: @mobile-font-size-h4;
+    }
+}
+
+h5, .h5 {
+    font-size: @font-size-h5;
+
+    @media (max-width: @screen-xs-max) {
+        font-size: @mobile-font-size-h5;
+    }
+}
+
+h6, .h6 {
+    font-size: @font-size-h6;
+
+    @media (max-width: @screen-xs-max) {
+        font-size: @mobile-font-size-h6;
+    }
+}
+
+p {
+    @media (max-width: @screen-xs-min) {
+        font-size: @font-size-small;
+    }
+}
+
+.lead {
+    font-size: @font-size-large;
+
+    @media (max-width: @screen-xxs-max) {
+        font-size: @font-size-large - 1;
+    }
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.weight-bold {
+    font-weight: 700 !important;
+}
+
+.weight-medium {
+    font-weight: 600 !important;
+}
+
+.weight-normal {
+    font-weight: 400 !important;
+}
+
+.weight-light {
+    font-weight: 300 !important;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-wrap {
+    white-space: unset;
+}

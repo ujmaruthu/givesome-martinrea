@@ -1,0 +1,9 @@
+{% extends "shuup/front/base.jinja" %}
+
+{% block title %}
+    {% trans %}{{ vendor_information }}{% endtrans %}
+{% endblock %}
+
+{% block content_title %}{{ vendor_information.title }}{% endblock %}
+
+{% block content %}{{ vendor_information.page|safe }}{% endblock %}

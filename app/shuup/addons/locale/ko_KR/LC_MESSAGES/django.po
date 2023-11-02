@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-15 14:39+0000\n"
+"PO-Revision-Date: 2020-09-15 19:16+0000\n"
+"Last-Translator: Transifex Bot <>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/shuup/shuup/language/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Addons"
+msgstr "애드온"
+
+#, python-format
+msgid "Enable %s"
+msgstr "%s 활성화"
+
+#, python-format
+msgid "%d new addons enabled."
+msgstr "%d개의 새 애드온이 활성화되었습니다."
+
+#, python-format
+msgid "%d previously enabled addons disabled."
+msgstr "사용중이던 %d개의 애드온이 비활성화되었습니다."
+
+msgid "No changes were made."
+msgstr "변경사항이 없습니다."
+
+msgid "Save addon changes"
+msgstr "애드온 변경사항 저장"
+
+msgid "Upload new addon"
+msgstr "새 애드온 업로드"
+
+msgid "Reload application"
+msgstr "어플리케이션 리로드"
+
+msgid ""
+"There are no viable reload methods available. Please contact your system "
+"administrator."
+msgstr "사용가능한 리로드 방법이 없습니다. 시스템 관리자와 상의하세요."
+
+msgid "Reload Method"
+msgstr "리로드 방법"
+
+msgid "Reloading."
+msgstr "다시 로드하는 중."
+
+msgid "Addon file (ZIP)"
+msgstr "애드온 파일 (ZIP)"
+
+msgid "Only upload the addon files you trust."
+msgstr ""
+
+msgid "Only wheel files (`.whl`) are supported."
+msgstr ""
+
+msgid "Upload"
+msgstr "업로드"
+
+msgid "Install Addon"
+msgstr "애드온 설치"
+
+msgid "Installed addons"
+msgstr "설치된 애드온"
+
+msgid "Addon name"
+msgstr "애드온 이름"
+
+msgid "Is enabled"
+msgstr "활성화됨"
+
+msgid "You don't have any installed addons"
+msgstr "설치된 애드온이 없습니다."
+
+msgid "Reload Application Server"
+msgstr "어플리케이션 서버 리로드"
+
+msgid ""
+"When you reload the application server, it may take some time for the new "
+"instance of your application to properly initialize."
+msgstr "어플리케이션 서버를 다시 로드하는 경우, 어플리케이션의 새 인스턴스를 정상적으로 초기화 하기 위해 시간이 조금 걸릴 수 있습니다."
+
+msgid ""
+"In addition, there is always a chance for the server to not properly "
+"initialize at all, in which case you may need to troubleshoot the problem "
+"yourself (or have a system administrator handy)."
+msgstr "또한, 서버가 정상적으로 초기화되지 않을 가능성이 항상 있으므로, 상황에 따라서 사용자 스스로 문제를 해결하거나 시스템 관리자의 도움을 받아야 할 수 있습니다."
+
+msgid "Reload steps"
+msgstr "리로드 단계"
+
+msgid ""
+"Finalize installations for newly installed addons (migrate and collect "
+"static resources)"
+msgstr "새로 설치되는 애드온의 설치작업 완료 (마이그레이션 및 정적 자원 수집)"
+
+msgid "Reload application server"
+msgstr "어플리케이션 서버 리로드"
+
+msgid "Reload was initiated."
+msgstr ""
+
+msgid "Reloading application failed."
+msgstr ""
+
+msgid "Finalizing installations."
+msgstr "설치 마무리 중."
+
+msgid "Your Shuup seems to be back up!"
+msgstr "Shuup이 다시 시작된 것 같습니다!"
+
+msgid "Your Shuup is not up yet. Trying again soon."
+msgstr "Shuup이 아직 시작되지 않았습니다. 다시 시도 중."
+
+msgid "Select file"
+msgstr "파일 선택"
+
+msgid "Installation Finished"
+msgstr "설치 완료"
+
+msgid "Installation Failed"
+msgstr "설치 실패"
+
+msgid "Success"
+msgstr "성공"
+
+#, python-format
+msgid ""
+"Next, <a href=\"%(addon_list_url)s\" class=\"text-success\"><strong>activate"
+" the newly installed addon</strong></a> and <a href=\"%(addon_reload_url)s\""
+" class=\"text-success\"><strong>reload your application server</strong></a>."
+msgstr "다음으로, <a href=\"%(addon_list_url)s\" class=\"text-success\"><strong>새로 설치된 애드온을 활성화</strong></a>하고 <a href=\"%(addon_reload_url)s\" class=\"text-success\"><strong>어플리케이션 서버를 다시 로드</strong></a>합니다."
+
+msgid "Error"
+msgstr "오류"
+
+msgid "Installer Log"
+msgstr "설치프로그램 로그"
+
+msgid "Upload Addon - Install"
+msgstr "업로드 애드온 - 설치"
+
+msgid "Package Information"
+msgstr "패키지 정보"
+
+msgid "No package information could be extracted."
+msgstr "추출할 수 있는 패키지 정보가 없습니다."
+
+msgid "File List"
+msgstr "파일 목록"

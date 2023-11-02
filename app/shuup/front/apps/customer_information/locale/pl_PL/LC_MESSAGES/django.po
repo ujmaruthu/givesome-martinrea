@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Fishster Zespół <teamdecathlonpge@gmail.com>, 2021
+# MalT <malt@malt-it.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-10 20:10+0000\n"
+"PO-Revision-Date: 2021-05-23 16:08+0000\n"
+"Last-Translator: Fishster Zespół <teamdecathlonpge@gmail.com>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/shuup/shuup/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Shuup Frontend - Customer Information Editing"
+msgstr "Shuup Frontend - edycja informacji o kliencie"
+
+msgid "Customer Information"
+msgstr "Informacje dla klientów"
+
+msgid "Company Information"
+msgstr "informacje o firmie"
+
+msgid "Edit Company Information."
+msgstr "Edytuj informacje o firmie."
+
+msgid "Address Book"
+msgstr "Książka adresowa"
+
+msgid "Language"
+msgstr "Język"
+
+msgid "Will become default user email when linked."
+msgstr "Po połączeniu stanie się domyślnym adresem e-mail użytkownika."
+
+msgid "Given Tax Number already exists. Please contact support."
+msgstr "Podany numer podatkowy już istnieje. Skontaktuj się z pomocą techniczną."
+
+msgid "Address Title"
+msgstr "Nazwa adresu"
+
+msgid "Address Type"
+msgstr "Typ adresu"
+
+msgid "Address Status"
+msgstr "Status adresu"
+
+msgid "Company information was saved."
+msgstr "Informacje o firmie zostały zapisane."
+
+msgid ""
+"Company information was saved. Please follow the instructions sent to your "
+"email address."
+msgstr "Informacje o firmie zostały zapisane. Postępuj zgodnie z instrukcjami przesłanymi na Twój adres e-mail."
+
+msgid "Customer Email"
+msgstr "Adres e-mail klienta"
+
+msgid "Home"
+msgstr "Strona główna"
+
+msgid "Dashboard"
+msgstr "Panel "
+
+msgid "General Information"
+msgstr "Informacje ogólne"
+
+msgid "Contact Information"
+msgstr "Informacje kontaktowe"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Default Addresses"
+msgstr "Adresy domyślne"
+
+msgid "Edit"
+msgstr "Edytuj"
+
+msgid "Default Billing Address"
+msgstr "Domyślny adres rozliczeniowy"
+
+msgid "No Default Billing Address set."
+msgstr "Nie ustawiono domyślnego adresu rozliczeniowego."
+
+msgid "Default Shipping Address"
+msgstr "Domyślny adres dostawy"
+
+msgid "No Default Shipping Address set."
+msgstr "Nie ustawiono domyślnego adresu wysyłki."
+
+msgid "Additional Addresses"
+msgstr "Adresy dodatkowe"
+
+msgid "Create new"
+msgstr "Utwórz nowe"
+
+msgid "Role"
+msgstr "Rola"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Delete"
+msgstr "Usuń"
+
+msgid "You don't have any additional addresses"
+msgstr "Nie masz żadnych dodatkowych adresów"
+
+msgid "Change Password"
+msgstr "Zmień hasło"
+
+msgid "Change password"
+msgstr "Zmień hasło"
+
+msgid "Basic Information"
+msgstr "Podstawowe informacje"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Tax Number"
+msgstr "Numer NIP"
+
+msgid "Birth Date"
+msgstr "Data urodzenia"
+
+msgid "Gender"
+msgstr "Płeć"
+
+msgid "Marketing Permission"
+msgstr "Pozwolenie marketingowe"
+
+msgid "Yes"
+msgstr "Tak"
+
+msgid "No"
+msgstr "Nie"
+
+msgid "Company account information"
+msgstr "Informacje o koncie firmowym"
+
+msgid ""
+"You have already linked your account to a company and it is pending "
+"approval."
+msgstr "Twoje konto jest już połączone z firmą i oczekuje na zatwierdzenie."
+
+msgid "Not specified"
+msgstr "Nieokreślony"
+
+msgid "Street"
+msgstr "Ulica"
+
+msgid "Postal code"
+msgstr "Kod pocztowy"
+
+msgid "City"
+msgstr "Miasto"
+
+msgid "Country"
+msgstr "Kraj"
+
+msgid "Billing information"
+msgstr "Informacje o płatnościach"
+
+msgid "Copy to shipping information"
+msgstr "Skopiuj do informacji o wysyłce"
+
+msgid "Shipping information"
+msgstr "Informacje o wysyłce"
+
+msgid "Copy to billing information"
+msgstr "Skopiuj do informacji rozliczeniowych"
+
+msgid "Edit customer information"
+msgstr "Edytuj informacje o kliencie"
+
+msgid "Save password"
+msgstr "Zapisz hasło"
+
+msgid "Save changes"
+msgstr "Zapisz zmiany"
+
+msgid "Edit company information"
+msgstr "Edytuj informacje o firmie"
+
+msgid "Link account to company"
+msgstr "Połącz konto z firmą"
+
+msgid "Company information"
+msgstr "Informacje o firmie"
+
+msgid "Password changed."
+msgstr "Hasło zostało zmienione."
+
+msgid "Account information was saved."
+msgstr "Informacje o koncie zostały zapisane."
+
+msgid "Address information was saved."
+msgstr "Informacje adresowe zostały zapisane."
+
+msgid "Cannot remove address because it doesn't exist."
+msgstr "Nie można usunąć adresu, ponieważ nie istnieje."

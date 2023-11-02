@@ -1,0 +1,4 @@
+{%- import "givesome/macros.jinja" as givesome_macros with context -%}
+
+{% set authenticated = user.is_authenticated %}
+{{ givesome_macros.render_givecard_balance_dialog(authenticated) }}

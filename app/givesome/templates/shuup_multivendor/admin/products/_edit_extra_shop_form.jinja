@@ -1,0 +1,63 @@
+{% from "shuup/admin/macros/general.jinja" import content_block %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs %}
+{# use the base form #}
+{% set base_form_name = form_def.name.split('_')[0] %}
+{% set shop_product_form = form[base_form_name] %}
+{% set project_extra_form = form["project_extra"] %}
+{% set shop_name = shop_product_form.instance.shop.name %}
+{% set shop_name_prefix = shop_name ~ " - " %}
+
+{% call content_block(_("Additional"), "fa-plus") %}
+    <p class="section-description">
+        {% trans %}Strictly shop related information. For example set the minimum price applicable.{% endtrans %}<br>
+    </p>
+
+    {{ bs3.field(shop_product_form.purchasable) }}
+
+    {{ bs3.field(project_extra_form.available_from) }}
+    {{ bs3.field(shop_product_form.available_until) }}
+
+    {# Removed/hidden fields: #}
+    {{ bs3.field(shop_product_form.minimum_price_value) }}
+    {{ bs3.field(shop_product_form.purchase_multiple) }}
+    {{ bs3.field(shop_product_form.minimum_purchase_quantity) }}
+    {{ bs3.field(shop_product_form.backorder_maximum) }}
+    {{ bs3.field(shop_product_form.display_unit) }}
+{% endcall %}
+
+
+{% block extra_js %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        function pickerOnShow(isShown, inputElement) {
+          {# Pickers share options so this is necessary #}
+          if (inputElement[0].id === "id_project_extra-available_from") {
+            this.setOptions({
+              minDate: false,
+              maxDate: endPicker.val() || false
+            })
+          } else if (inputElement[0].id === "id_shop1-available_until") {
+            this.setOptions({
+              minDate: startPicker.val() || false,
+              maxDate: false
+            })
+          }
+        }
+
+        var startPicker = $('#id_project_extra-available_from')
+        var endPicker = $('#id_shop1-available_until')
+
+        pickers = [startPicker, endPicker]
+        pickers.forEach(function(picker) {
+          picker
+            .attr('readonly', false)
+            .attr('autocomplete', "off")
+            .keypress(function(e) {e.preventDefault()}) // Disable typing
+            .keyup(function(e) {if (e.keyCode === 8 || e.keyCode === 46) {picker.val("")}}) // Clear on backspace, del
+        })
+
+        startPicker.datetimepicker({dayOfWeekStart: 1, onShow: pickerOnShow,});
+        endPicker.datetimepicker({dayOfWeekStart: 1, onShow: pickerOnShow,});
+      })
+    </script>
+{% endblock %}

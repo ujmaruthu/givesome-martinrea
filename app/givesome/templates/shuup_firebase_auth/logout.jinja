@@ -1,0 +1,29 @@
+{% extends "shuup/front/base.jinja" %}
+
+{% block title %}{% trans %}Logged out{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="message-box">
+        <div class="placeholder-edit-wrap">
+            <div class="xt-ph" id="xt-ph-logout">
+                <div class="row xt-ph-row">
+                    <div class="col-sm-12 xt-ph-cell">
+                        <h2>{{ _("You have been logged out. Thank you for visiting!") }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+        {# Fix showing old session givecard balance in wallet #}
+        $("#show-givecard-balance-dialog-btn").hide()
+
+        localStorage.removeItem("expiring_givecards")
+        localStorage.removeItem("expired_givecards")
+      })
+    </script>
+{% endblock %}

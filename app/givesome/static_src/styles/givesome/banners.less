@@ -1,0 +1,21 @@
+.banner-section {
+    padding: @grid-gutter-width/2 0;
+
+    @media (min-width: @screen-xs-min) {
+        padding: @grid-gutter-width 0;
+    }
+
+    &-light {
+        background-color: @brand-lightest;
+    }
+
+    &-dark {
+        background-color: @text-color;
+        color: #fff !important;
+    }
+
+    &-primary {
+        background-color: @brand-primary;
+        color: #fff !important;
+    }
+}

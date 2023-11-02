@@ -1,0 +1,64 @@
+# English translations for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
+# Translators:
+# Fishster Zespół <teamdecathlonpge@gmail.com>, 2021
+# MalT <malt@malt-it.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Shuup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-05 00:12+0000\n"
+"PO-Revision-Date: 2021-02-22 17:09+0000\n"
+"Last-Translator: Fishster Zespół <teamdecathlonpge@gmail.com>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/shuup/shuup/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#, javascript-format
+msgid "Edit %s"
+msgstr "Edytuj plik %s"
+
+msgid ""
+"Changing plugin cells without saving will cause changes made to this cell to"
+" be lost."
+msgstr "Zmiana komórek wtyczki bez zapisywania spowoduje utratę zmian wprowadzonych w tej komórce."
+
+#, javascript-format
+msgid "Error: Cannot add more than %s cells to one row."
+msgstr "Błąd: Nie można dodać więcej niż %s komórek do jednego wiersza."
+
+msgid "Are you sure you wish to delete this row?"
+msgstr "Czy napewno skasować ten wiersz?"
+
+msgid "Are you sure you wish to delete this cell?"
+msgstr "Czy napewno skasować tą kolumnę?"
+
+msgid "Are you sure you wish to publish changes made to this view?"
+msgstr "Czy na pewno chcesz opublikować zmiany dokonane w tym widoku?"
+
+msgid "You have changed the form. Do you want to save them before publishing?"
+msgstr "Zmieniłeś formularz. Czy chcesz zapisać przed opublikowaniem?"
+
+msgid ""
+"Are you sure you wish to revert all changes made since the last published "
+"version?"
+msgstr "Czy na pewno chcesz przywrócić wszystkie zmiany wprowadzone od ostatniej opublikowanej wersji?"
+
+msgid ""
+"Changing plugins will cause other changes made on this form to be lost."
+msgstr "Zmiana wtyczek spowoduje utratę zmienionych wartości w tym formularzu."
+
+msgid "Custom CSS/JS"
+msgstr "Niestandardowy CSS / JS"
+
+msgid "Exit Edit"
+msgstr "Zakończ edycje"
+
+msgid "Edit Page"
+msgstr "Edytuj"

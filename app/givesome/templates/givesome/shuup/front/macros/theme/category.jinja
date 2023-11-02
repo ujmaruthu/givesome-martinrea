@@ -1,0 +1,149 @@
+{% macro render_products_section(supplier=None) %}
+    {% placeholder category_top_extra global %}{% endplaceholder %}
+    <div class="row">
+        <div class="col-md-3 category-sidebar">
+            {% if xtheme.render_category_page_menu() %}
+                {{ render_category_menu() }}
+                <br>
+            {% endif %}
+            {{ render_product_filters_left_side() }}
+            <div class="sidebar-block hidden-xs hidden-sm">
+                {% placeholder category_menu_extras global %}
+                    {% row %}
+                        {% column {"sm": 12} %}
+                            {% plugin "shuup_product_comparison.comparison_view" %}{% endplugin %}
+                        {% endcolumn %}
+                    {% endrow %}
+                {% endplaceholder %}
+            </div>
+        </div>
+        <div class="col-md-9 products-wrap">
+            {% placeholder "category_product_area" global %}{% endplaceholder %}
+            {{ render_product_filters_top() }}
+            <div class="products-wrapper">
+                <div id="products-loading-indicator" class="products-loading-indicator">
+                    <i class="fa fa-spinner fa-spin fa-4x"></i>
+                </div>
+                {{ render_product_list(supplier) }}
+            </div>
+        </div>
+    </div>
+    {% placeholder category_bottom_extra global %}{% endplaceholder %}
+{% endmacro %}
+
+{% macro render_product_list(supplier=None) %}
+    <div id="ajax_content">
+        {% set pagination = shuup.general.get_pagination_variables(products, page_size or 12) %}
+        {% set show_actions = xtheme.show_product_card_actions() %}
+        <div class="row product-list-view grid">
+            {% for product in pagination.objects if shuup.product.is_visible(product) %}
+                <div class="single-product" style="padding-right: 0">
+                    {{ product_box(
+                        product,
+                        thumbnail_size=(420,420),
+                        show_description=True,
+                        class="product-card category-view box",
+                        supplier=supplier,
+                        show_actions=show_actions)
+                    }}
+                </div>
+            {% endfor %}
+        </div>
+        {% if pagination.is_paginated %}
+            <div class="bottom-pagination clearfix">
+                {{ render_pagination(pagination.page, pagination.paginator, pagination.page_range) }}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro render_category_menu() %}
+    <div class="sidebar-block hidden-xs hidden-sm">
+        <div class="sidebar-block-title">
+            {% trans %}Categories{% endtrans %}
+        </div>
+        <div class="sidebar-block-content category-menu">
+            {% if category %}
+                {# Use the cached parent when available in order to reduce db queries #}
+                {% if category.level == 1 %}
+                    {% set ancestors = [category.parent] %}
+                {% else %}
+                    {% set ancestors = category.get_ancestors() %}
+                {% endif %}
+            {% endif %}
+            <ul>
+                {% for c in root_categories recursive %}
+                    {% set children = c.get_children() %}
+                    <li class="level-{{ c.level }}{% if children %} is-parent{% endif %}{% if category and c == category %} current open{% elif ancestors and c in ancestors %} open{% endif %}">
+                        <a href="{{ url('shuup:category', pk=c.pk, slug=c.slug) }}">{{ c.name }}</a>
+                        {% if children %}
+                            <span class="menu-toggler" role="button" data-toggle="collapse" data-target="#parent-{{ c.pk }}" aria-expanded="false" aria-controls="parent-{{ c.pk }}">
+                                <span class="sr-only">
+                                    {%- trans category_name = c.name -%}
+                                        Toggle child categories for {{ category_name }}
+                                    {%- endtrans -%}
+                                </span>
+                            </span>
+                            {% set is_open = (category and (c == category or (ancestors and c in ancestors))) %}
+                            <ul class="category-collapse collapse{% if is_open %} in{% endif %}" id="parent-{{ c.pk }}">
+                                {{ loop(children) }}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro render_product_filters_left_side() %}
+    {% set fields = xtheme.get_product_filter_fields(form, exclude=["sort", "q", "limit"]) %}
+    {% if fields %}
+    <div class="sidebar-filters">
+        <div class="mobile-filter-toggle">
+            <a href="#filters"
+               class="toggle-btn collapsed"
+               data-toggle="collapse"
+               aria-expanded="false"
+               aria-controls="filters">{% trans %}Filter Products{% endtrans %} <i class="fa fa-angle-up"></i></a>
+        </div>
+        <div id="filters" class="filters collapse" aria-expanded="false">
+            {% for field in fields %}
+                {% if field.field.widget.is_hidden %}
+                    {{ field.as_widget()|safe }}
+                {% else %}
+                    <div class="filter-block">
+                        <a href="#list_filters_{{ field.name }}"
+                        class="block-title{% if xtheme.collapsed_category_filters() %} collapsed{% endif %}"
+                        data-toggle="collapse"
+                        aria-expanded="{% if xtheme.collapsed_category_filters() %}false{% else %}true{% endif %}"
+                        aria-controls="{{ field.name }}">{{ field.label }}</a>
+                        <div id="list_filters_{{ field.name }}" class="collapse{% if not xtheme.collapsed_category_filters() %} in{% endif %}" aria-expanded="{% if xtheme.collapsed_category_filters() %}false{% else %}true{% endif %}">
+                            <div class="collapsible-content">
+                                {{ bs3.field(field, render_label=False) }}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div id="clear-all-filters" class="text-right hidden">
+                <a href="{{ request.path }}">{% trans %}Clear all{% endtrans %}</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro render_toggle_view() %}
+    <div class="toggle-view">
+        <span class="control-label">{% trans %}Show{% endtrans %}:</span>
+        <input id="product-list-view-type" type="checkbox">
+        <label data-original-title="{% trans %}Grid/list view{% endtrans %}"
+               for="product-list-view-type"
+               data-toggle="tooltip"
+               title="">
+            <i class="grid fa fa-th"></i>
+            <i class="list fa fa-list"></i>
+        </label>
+    </div>
+{% endmacro %}

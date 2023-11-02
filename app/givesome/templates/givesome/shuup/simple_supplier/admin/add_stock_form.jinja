@@ -1,0 +1,11 @@
+<div class="stock-management-container" data-supplier="{{ supplier.id }}" data-product="{{ project.id }}">
+    <div class="stock-management-form mb-5" data-url="{{ url("adjust-progress", supplier_id=supplier.id, project_id=project.id) }}">
+        {% csrf_token %}
+        {% for field in adjustment_form %}
+            {{ bs3.field(field, form_group_class=False ) }}
+        {% endfor %}
+        <button type="button" class="btn btn-primary mt-2" onclick="adjustStock(this);">
+            <i class="fa fa-arrow-circle-up"></i> {% trans %}Add to Progress{% endtrans %}
+        </button>
+    </div>
+</div>
